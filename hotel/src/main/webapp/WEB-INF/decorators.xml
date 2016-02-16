@@ -4,8 +4,16 @@
 
 	<!-- 꾸미기 파일에 대한 선언 -->
 
-	<decorator name="main" page="common_decorator.jsp">
-		<pattern>/view/*</pattern>
+	<decorator name="deco" page="decorator.jsp">
+		<pattern>/board/*</pattern>
+		<pattern>/booked/*</pattern>
+		<pattern>/hotel/*</pattern>
+		<pattern>/index/*</pattern>
+		<pattern>/member/*</pattern>
+		<pattern>/notice/*</pattern>
+		<pattern>/product/*</pattern>
+		<pattern>/qna/*</pattern>
+		<pattern>/room/*</pattern>
 	</decorator>
 
 	<!-- 꾸미기에 적용하지 않는 것들에 대한 선언 -->
