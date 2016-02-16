@@ -15,30 +15,33 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- DB 관련 객체 생성 -->
+	<!-- DB관련 객체 생성 -->
 	<bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@211.183.0.32:1521:orcl" />
-		<property name="username" value="java16" />
-		<property name="password" value="java16" />
+		<property name="username" value="java00" />
+		<property name="password" value="java00" />
 	</bean>
-
+	<!-- sql을 갖고 있는 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations">
 			<list>
+				<!-- <value>classpath:/mybatis/boardDao.xml</value> -->
+				<!-- <value>classpath:/mybatis/qnaDao.xml</value> -->
 			</list>
 		</property>
 	</bean>
 
-	<!-- 트랜잭션관리자 선언 -->
+	<!-- 트랜잭션 관리자 선언 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<!-- sqlSession을 쉽게 사용할 수 있도록 작성한 sqlSessionTemplate사용 -->
+	<!-- sql Session을 쉽게 사용할 수 있도록 작성한 sqlSessionTemplate 사용 -->
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
+
 </beans>

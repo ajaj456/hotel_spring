@@ -17,7 +17,65 @@
 	$(document).ready(function() {
 	});
 </script>
-<link href="/decorator.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+header {
+	height: 23px;
+	border: 1px solid #ccc;
+	text-align: right;
+	background: #e1e1e1;
+}
+
+footer {
+	border: 1px solid #ccc;
+	clear: both;
+	text-align: center;
+	font-size: 13px;
+	height: auto;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+section#menu {
+	width: 200px;
+	height: 790px;
+	float: left;
+	text-align: center;
+}
+
+img {
+	cursor: pointer;
+}
+
+#label {
+	color: orange;
+	font-size: 14px;
+}
+
+#body {
+	border: 1px solid #ccc;
+	height: 790px;
+}
+
+#login {
+	margin-right: 300px;
+	margin-top: 1px;
+}
+
+#text1 {
+	font-size: 12px;
+}
+
+#text2 {
+	font-size: 12px;
+}
+
+#menutext {
+	color: black;
+	font-size: 20px;
+}
+</style>
 <decorator:head />
 </head>
 <body>
