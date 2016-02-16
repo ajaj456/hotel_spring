@@ -8,7 +8,6 @@
 		<pattern>/board/*</pattern>
 		<pattern>/booked/*</pattern>
 		<pattern>/hotel/*</pattern>
-		<pattern>/index/*</pattern>
 		<pattern>/member/*</pattern>
 		<pattern>/notice/*</pattern>
 		<pattern>/product/*</pattern>
