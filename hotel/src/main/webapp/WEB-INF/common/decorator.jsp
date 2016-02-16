@@ -17,7 +17,7 @@
 	$(document).ready(function() {
 	});
 </script>
-<link href="../css/decorator.css" rel="stylesheet" type="text/css" />
+<link href="/decorator.css" rel="stylesheet" type="text/css" />
 <decorator:head />
 </head>
 <body>
