@@ -15,4 +15,4 @@ public class BoardController {
 		System.out.println("Main");
 		return "index/main";
 	}
-}
+} 
