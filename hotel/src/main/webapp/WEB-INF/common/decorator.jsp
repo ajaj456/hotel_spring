@@ -81,7 +81,7 @@ img {
 <body>
 	<header>
 		<div id="login">
-			<a href="" id="text1">LOGIN</a> | <a href="" id="text1">JOIN US </a>
+			<a href="../view/member.login.do" id="text1">LOGIN</a> | <a href="" id="text1">JOIN US </a>
 		</div>
 
 	</header>
