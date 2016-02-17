@@ -19,16 +19,15 @@
 	<bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@211.183.0.32:1521:orcl" />
-		<property name="username" value="java00" />
-		<property name="password" value="java00" />
+		<property name="username" value="hotel" />
+		<property name="password" value="0000" />
 	</bean>
 	<!-- sql을 갖고 있는 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations">
 			<list>
-				<!-- <value>classpath:/mybatis/boardDao.xml</value> -->
-				<!-- <value>classpath:/mybatis/qnaDao.xml</value> -->
+				<value>classpath:/mybatis/memberDao.xml</value>
 			</list>
 		</property>
 	</bean>

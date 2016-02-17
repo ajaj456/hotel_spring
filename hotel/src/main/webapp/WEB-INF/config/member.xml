@@ -44,9 +44,6 @@
 	<bean id="memberUpdateProcessService" class="com.hotel.member.service.MemberUpdateProcessService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
-	<bean id="memberPwUpdateService" class="com.hotel.member.service.MemberPwUpdateService">
-		<property name="memberDao" ref="memberDao" />
-	</bean>
 	<bean id="memberPwUpdateProcessService" class="com.hotel.member.service.MemberPwUpdateProcessService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
