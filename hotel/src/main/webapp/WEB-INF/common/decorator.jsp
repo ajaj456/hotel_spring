@@ -1,3 +1,4 @@
+<%@page import="com.hotel.member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
@@ -81,7 +82,22 @@ img {
 <body>
 	<header>
 		<div id="login">
-			<a href="../view/member.login.do" id="text1">LOGIN</a> | <a href="" id="text1">JOIN US </a>
+			<%
+				// session의 member에 정보가 있으면 회원정보 및 logout 호출
+				if (session.getAttribute("login") != null) {
+			%>
+			<a href="../member/view.do?id=${login.id }" id="text1">
+				${login.name } </a> 님[${login.grade }] 환영합니다. <a
+				href="../member/logout.do" id="text2">LOGOUT </a>
+			<%
+				// session의 member에 정보가 없으면 login과 join us 호출
+				} else {
+			%>
+			<a href="../member/login.do" id="text1">LOGIN</a> | <a
+				href="../member/join.do" id="text1">JOIN US </a>
+			<%
+				}
+			%>
 		</div>
 
 	</header>
