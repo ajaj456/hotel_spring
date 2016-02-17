@@ -9,32 +9,26 @@
 
 	<!-- controller -->
 	<bean class="com.hotel.member.controller.MemberController">
-		<!-- 회원가입 -->
+		<!-- 회원가입 처리 -->
 		<property name="memberJoinProcessService" ref="memberJoinProcessService" />
-		<!-- 회원탈퇴 -->
+		<!-- 회원탈퇴 처리 -->
 		<property name="memberDeleteProcessService" ref="memberDeleteProcessService" />
 		<!-- 정보 보기 및 변경 -->
 		<property name="memberUpdateService" ref="memberUpdateService" />
 		<property name="memberUpdateProcessService" ref="memberUpdateProcessService" />
-		<!-- 비밀번호변경 -->
-		<property name="memberPwUpdateService" ref="memberPwUpdateService" />
+		<!-- 비밀번호변경 처리 -->
 		<property name="memberPwUpdateProcessService" ref="memberPwUpdateProcessService" />
-		<!-- 아이디찾기 -->
-		<property name="memberFindIdService" ref="memberFindIdService" />
+		<!-- 아이디찾기 처리 -->
 		<property name="memberFindIdProcessService" ref="memberFindIdProcessService" />
-		<!-- 비밀번호찾기 -->
-		<property name="memberFindPwService" ref="memberFindPwService" />
+		<!-- 비밀번호찾기 처리 -->
 		<property name="memberFindPwProcessService" ref="memberFindPwProcessService" />
 		<!-- 회원리스트 -->
 		<property name="memberListService" ref="memberListService" />
 		<!-- 회원등급변경 -->
 		<property name="memberGradeUpdateService" ref="memberGradeUpdateService" />
 		<property name="memberGradeUpdateProcessService" ref="memberGradeUpdateProcessService" />
-		<!-- 로그인 처리 -->
-		<property name="memberLoginService" ref="memberLoginService" />
+		<!-- 로그인, 로그아웃 처리 -->
 		<property name="memberLoginProcessService" ref="memberLoginProcessService" />
-		<!-- 로그아웃 처리 -->
-		<property name="memberLogoutProcessService" ref="memberLogoutProcessService" />
 	</bean>
 
 	<!-- service -->
@@ -56,13 +50,7 @@
 	<bean id="memberPwUpdateProcessService" class="com.hotel.member.service.MemberPwUpdateProcessService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
-	<bean id="memberFindIdService" class="com.hotel.member.service.MemberFindIdService">
-		<property name="memberDao" ref="memberDao" />
-	</bean>
 	<bean id="memberFindIdProcessService" class="com.hotel.member.service.MemberFindIdProcessService">
-		<property name="memberDao" ref="memberDao" />
-	</bean>
-	<bean id="memberFindPwService" class="com.hotel.member.service.MemberFindPwService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 	<bean id="memberFindPwProcessService" class="com.hotel.member.service.MemberFindPwProcessService">
@@ -78,13 +66,7 @@
 		class="com.hotel.member.service.MemberGradeUpdateProcessService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
-	<bean id="memberLoginService" class="com.hotel.member.service.MemberLoginService">
-		<property name="memberDao" ref="memberDao" />
-	</bean>
 	<bean id="memberLoginProcessService" class="com.hotel.member.service.MemberLoginProcessService">
-		<property name="memberDao" ref="memberDao" />
-	</bean>
-	<bean id="memberLogoutProcessService" class="com.hotel.member.service.MemberLogoutProcessService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 
