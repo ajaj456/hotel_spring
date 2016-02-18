@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.Member">
+
+	<!-- 회원가입 -->
+	<insert id="join">
+		insert into member(id, pw, name, birth, email, tel)
+		values(#{id}, #{pw}, #{name}, #{birth}, #{email}, #{tel})
+	</insert>
+
+	<!-- 회원탈퇴 -->
+	<delete id="delete">
+		delete from member where id=#{id}
+	</delete>
+
+	<!-- 회원정보보기 -->
+	<select id="view" resultType="com.hotel.member.model.Member">
+		select id, pw, name, birth, email,
+		tel, to_char(wdate,'yyyy-mm-dd') wdate, grade from member
+		where
+		id=#{id}
+	</select>
+
+	<!-- 회원정보수정 -->
+	<update id="update">
+		update member set name=#{name},birth=#{birth},
+		email=#{email}, tel=#{tel} where no=#{no}
+	</update>
+
+	<!-- 비밀번호수정 -->
+	<update id="pwUpdate">
+		update member set pw=#{pw}
+		where id=#{id}
+	</update>
+
+	<!-- 아이디찾기 -->
+	<select id="findId">
+		select id from member where name=#{name} and
+		email=#{email}
+	</select>
+
+	<!-- 비밀번호찾기 -->
+	<select id="findPw">
+		select pw from member where id=#{id} and
+		birth=#{birth}
+	</select>
+
+	<!-- 회원리스트 -->
+	<select id="list" resultType="com.hotel.member.model.Member">
+		select
+		id, pw, name, birth, email,
+		tel, to_char(wdate,'yyyy-mm-dd') wdate, grade
+		from member
+		order
+		by grade
+		desc, id
+	</select>
+
+	<!-- 등급변경 -->
+	<update id="gradeUpdate">
+		update member set grade=#{grade}
+		where id=#{id}
+	</update>
+
+	<!-- 로그인 -->
+	<select id="login" resultType="com.hotel.member.model.Member">
+		select id, name, grade from
+		member
+		where id=#{id} and pw=#{pw}
+	</select>
+
+</mapper>
