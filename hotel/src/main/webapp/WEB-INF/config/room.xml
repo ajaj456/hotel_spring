@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- controller -->
+	<bean class="com.hotel.room.controller.RoomController">
+		<property name="roomListService" ref="boardListService" />
+		<property name="roomViewService" ref="roomViewService" />
+		<property name="roomWriteProcessService" ref="roomWriteProcessService" />
+		<property name="roomUpdateService" ref="roomUpdateService" />
+		<property name="roomUpdateProcessService" ref="roomUpdateProcessService" />
+		<property name="roomDeleteProcessService" ref="roomDeleteProcessService" />
+	</bean>
+
+	<!-- service -->
+	<bean id="roomListService" class="com.hotel.room.service.RoomListService">
+		<property name="roomDao" ref="roomDao"></property>
+
+	</bean>
+
+	<bean id="roomViewService" class="com.hotel.room.service.RoomViewService">
+		<property name="roomDao" ref="roomDao"></property>
+	</bean>
+	
+	<bean id="roomWriteProcessService"
+		class="com.hotel.room.service.RoomWriteProcessService">
+		<property name="roomDao" ref="roomDao"></property>
+	</bean>
+	
+	<bean id="roomUpdateService"
+		class="com.hotel.room.service.RoomUpdateService">
+		<property name="roomDao" ref="roomDao"></property>
+	</bean>
+
+	<bean id="roomUpdateProcessService"
+		class="com.hotel.room.service.RoomUpdateProcessService">
+		<property name="roomDao" ref="roomDao"></property>
+	</bean>
+	
+	<bean id="roomDeleteProcessService"
+		class="com.hotel.room.service.RoomDeleteProcessService">
+		<property name="roomDao" ref="roomDao"></property>
+	</bean>
+
+<!-- Dao -->
+	<bean id="roomDao" class="com.hotel.room.dao.RoomDao">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+	</bean>
+
+</beans>
