@@ -118,7 +118,7 @@ form ul li {
 		</h4>
 	</div>
 	<div id="logindiv">
-		<form action="update.do" method="post" id="loginForm">
+		<form action="update.do?id" method="post" id="loginForm">
 			<hr>
 			<ul>
 				<!-- session에서 넘겨받은 member 데이터를 각각의 input에 데이터 셋팅 -->
