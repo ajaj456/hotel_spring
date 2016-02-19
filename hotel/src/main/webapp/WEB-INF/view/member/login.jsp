@@ -34,7 +34,7 @@
 			</ul>
 			<hr>
 			<br />
-			<button id="login">로그인</button>
+			<button id="lo">로그인</button>
 		</form>
 	</div>
 </body>

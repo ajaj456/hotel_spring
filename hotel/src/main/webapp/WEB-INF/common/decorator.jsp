@@ -68,8 +68,17 @@ img {
 	color: #867a6f;
 }
 
+#body2 {
+	width: 1019;
+	heigth: auto;
+	margin-top: 10px;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-left: 100px;
+	margin-top: 10px;
+}
+
 #head {
-	width: 1219px;
 	margin-top: 1px;
 	background: black;
 	height: 24px;
@@ -79,7 +88,6 @@ img {
 
 #login {
 	float: right;
-	width: 810px;
 	margin-right: 100px;
 	margin-top: 1px;
 	text-align: right;
@@ -155,8 +163,8 @@ img {
 		</div>
 	</header>
 	<section id="body">
-		<section>
-			<br /> <br />
+		<section id="body2">
+			<br />
 			<decorator:body />
 		</section>
 	</section>
