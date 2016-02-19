@@ -7,11 +7,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotel.common.service.ServiceInterface;
+import com.hotel.room.model.Room;
 
 @Controller
 public class RoomController {
-	private ServiceInterface roomListService,roomViewService,
+	private ServiceInterface roomListService,roomViewService, roomUpdateService,
 	roomWriteProcessService,roomUpdateProcessService,roomDeleteProcessService;
+
+	public void setRoomUpdateService(ServiceInterface roomUpdateService) {
+		this.roomUpdateService = roomUpdateService;
+	}
 
 	public void setRoomListService(ServiceInterface roomListService) {
 		this.roomListService = roomListService;
@@ -33,60 +38,60 @@ public class RoomController {
 		this.roomDeleteProcessService = roomDeleteProcessService;
 	}
 	// 글리스트
-		@RequestMapping("/board/list.do")
+		@RequestMapping("/room/list.do")
 		public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 				throws Exception {
-			System.out.println("boardController.list()");
+			System.out.println("roomController.list()");
 			model.addAttribute("list", roomListService.service(page));
 
-			return "board/list";
+			return "room/list";
 		}
 
 		// 글보기
-		@RequestMapping("/board/view.do")
-		public String view(int no, Model model) throws Exception {
-			System.out.println("boardController.view()");
-			model.addAttribute("board", roomViewService.service(no));
+		@RequestMapping("/room/view.do")
+		public String view(int roomNo, Model model) throws Exception {
+			System.out.println("roomController.view()");
+			model.addAttribute("board", roomViewService.service(roomNo));
 			return "board/view";
 		}
 
 		// 글쓰기폼 - GET
-		@RequestMapping(value = "/board/write.do", method = RequestMethod.GET)
+		@RequestMapping(value = "/room/write.do", method = RequestMethod.GET)
 		public String write() {
-			System.out.println("boardController.write-get()");
+			System.out.println("roomController.write-get()");
 			return "board/write";
 		}
 
 		// 글쓰기 처리 - POST
-		@RequestMapping(value = "/board/write.do", method = RequestMethod.POST)
-		public String write(Board board) throws Exception {
-			System.out.println("boardController.write-post()");
-			roomWriteProcessService.service(board);
+		@RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
+		public String write(Room room) throws Exception {
+			System.out.println("roomController.write-post()");
+			roomWriteProcessService.service(room);
 			return "redirect:list.do";
 		}
 
 		// 글수정 폼 - get
-		@RequestMapping(value = "/board/update.do", method = RequestMethod.GET)
-		public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
-			System.out.println("boardController.update-get()");
-			model.addAttribute("board", roomUpdateService.service(no));
+		@RequestMapping(value = "/room/update.do", method = RequestMethod.GET)
+		public String update(@RequestParam(value = "roomNo", required = false) int roomNo, Model model) throws Exception {
+			System.out.println("roomController.update-get()");
+			model.addAttribute("room", roomUpdateService.service(roomNo));
 			return "board/update";
 		}
 
 		// 글수정 처리 - POST
-		@RequestMapping(value = "/board/update.do", method = RequestMethod.POST)
-		public String update(Board board) throws Exception {
-			System.out.println("boardController.update-post()");
-			roomUpdateProcessService.service(board);
+		@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
+		public String update(Room room) throws Exception {
+			System.out.println("roomController.update-post()");
+			roomUpdateProcessService.service(room);
 			return "redirect:view.do"
-			+ "?no=" + board.getNo();
+			+ "?no=" + room.getRoomNo();
 		}
 
 		// 글삭제 처리
-		@RequestMapping("/board/delete.do")
-		public String delete(int no) throws Exception {
-			System.out.println("boardController.delete()");
-			roomDeleteProcessService.service(no);
+		@RequestMapping("/room/delete.do")
+		public String delete(int roomNo) throws Exception {
+			System.out.println("roomController.delete()");
+			roomDeleteProcessService.service(roomNo);
 			return "redirect:list.do";
 		}
 
