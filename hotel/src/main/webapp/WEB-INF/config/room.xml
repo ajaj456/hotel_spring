@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<!-- controller -->
 	<bean class="com.hotel.room.controller.RoomController">
-		<property name="roomListService" ref="boardListService" />
+		<property name="roomListService" ref="roomListService" />
 		<property name="roomViewService" ref="roomViewService" />
 		<property name="roomWriteProcessService" ref="roomWriteProcessService" />
 		<property name="roomUpdateService" ref="roomUpdateService" />
