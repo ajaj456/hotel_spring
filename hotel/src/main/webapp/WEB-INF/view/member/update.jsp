@@ -60,6 +60,7 @@
 </script>
 </head>
 <body>
+	${member.id }
 	<br />
 	<br />
 	<img src="" width="370px" height="100px" id="loginimg">

@@ -118,9 +118,10 @@ public class MemberController {
 	// 회원정보수정 처리 - post
 	@RequestMapping(value = "/member/update.do", method = RequestMethod.POST)
 	public String update(Member member, @RequestParam("tel1") String tel1, @RequestParam("tel2") String tel2,
-			@RequestParam("tel3") String tel3) throws Exception {
+			@RequestParam("tel3") String tel3, HttpSession session) throws Exception {
 		String tel = tel1 + "-" + tel2 + "-" + tel3;
 		member.setTel(tel);
+		System.out.println(((Member)session.getAttribute("login")).getId());
 		System.out.println(member);
 		memberUpdateProcessService.service(member);
 		memberLoginProcessService.service(null);
