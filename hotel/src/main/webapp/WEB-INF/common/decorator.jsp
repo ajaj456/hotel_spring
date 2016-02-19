@@ -20,7 +20,7 @@
 </script>
 <style type="text/css">
 header {
-	height: 23px;
+	height: 50px;
 	border: 1px solid #ccc;
 	text-align: right;
 	background: #e1e1e1;
@@ -32,6 +32,7 @@ footer {
 	text-align: center;
 	font-size: 13px;
 	height: auto;
+	margin-bottom: 2px;
 }
 
 a {
@@ -39,10 +40,7 @@ a {
 }
 
 section#menu {
-	width: 200px;
-	height: 790px;
-	float: left;
-	text-align: center;
+	margin-right: 300px;
 }
 
 img {
@@ -56,11 +54,11 @@ img {
 
 #body {
 	border: 1px solid #ccc;
-	height: 790px;
+	height: 745px;
 }
 
 #login {
-	margin-right: 300px;
+	margin-right: 50px;
 	margin-top: 1px;
 }
 
@@ -74,7 +72,7 @@ img {
 
 #menutext {
 	color: black;
-	font-size: 20px;
+	font-size: 18px;
 }
 </style>
 <decorator:head />
@@ -94,22 +92,21 @@ img {
 				} else {
 			%>
 			<a href="../member/login.do" id="text1">LOGIN</a> | <a
-				href="../member/join.do" id="text1">JOIN US </a>
+				href="../member/join.do" id="text1">JOIN US </a><br />
 			<%
 				}
 			%>
 		</div>
+		<!-- section 안에 메뉴별 각각 폼 호출 -->
+		<section id="menu">
+			<a href="" id="menutext">메뉴   </a> <a href="" id="menutext">메뉴1   </a> <a
+				href="" id="menutext">메뉴2   </a> <a href="" id="menutext">메뉴3   </a> <a
+				href="" id="menutext">메뉴4   </a>
+		</section>
+
 
 	</header>
 	<section id="body">
-		<!-- section 안에 메뉴별 각각 폼 호출 -->
-		<section id="menu">
-			<br /> <br /> <br /> <a href="" id="menutext">메뉴 </a> <br /> <br />
-			<a href="" id="menutext">메뉴1 </a> <br /> <br /> <a href=""
-				id="menutext">메뉴2 </a> <br /> <br /> <a href="" id="menutext">메뉴3
-			</a> <br /> <br /> <a href="" id="menutext">메뉴4 </a> <br /> <br /> <br />
-			<br />
-		</section>
 		<section>
 			<decorator:body />
 		</section>
@@ -119,7 +116,7 @@ img {
 		<br /> <label id="label">회사소개 | 개인정보취급방침 | 이메일무단수집거부 | 오시는길 </label>
 		<br /> <br /> 상호명 (주)웅이 | 대표이사 롱스톤 | 서울특별시 송파구 가락2동 행운빌딩2층 | 대표번호 :
 		7979-8282 | 패스 02-555-5000 <br />대표 이메일 : Ritght@common.com COPYRIGHT
-		(C) 2016 BY TRACE 60DISH.ALL RIGHTS RESERVED.<br />
+		(C) 2016 BY TRACE 60DISH.ALL RIGHTS RESERVED.<br /><br />
 	</footer>
 </body>
 </html>
