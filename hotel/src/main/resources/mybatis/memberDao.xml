@@ -70,7 +70,8 @@
 	<select id="login" resultType="com.hotel.member.model.Member">
 		select id, name, grade from
 		member
-		where id=#{id} and pw=#{pw}
+		where id=#{id}
+		and pw=#{pw}
 	</select>
 
 </mapper>

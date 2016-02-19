@@ -108,12 +108,20 @@ public class MemberController {
 	@RequestMapping(value = "/member/update.do", method = RequestMethod.GET)
 	public String update(@RequestParam(value = "id", required = false) String id, Model model) throws Exception {
 		model.addAttribute("member", memberUpdateService.service(id));
+		Member member = (Member) memberUpdateService.service(id);
+		System.out.println(member);
+		model.addAttribute("tel1", member.getTel().substring(0, 3));
+		model.addAttribute("tel2", member.getTel().substring(4, 8));
+		model.addAttribute("tel3", member.getTel().substring(9, 13));
 		return "member/update";
 	}
 
 	// 회원정보수정 처리 - post
 	@RequestMapping(value = "/member/update.do", method = RequestMethod.POST)
-	public String update(Member member) throws Exception {
+	public String update(Member member, @RequestParam("tel1") String tel1, @RequestParam("tel2") String tel2,
+			@RequestParam("tel3") String tel3) throws Exception {
+		String tel = tel1 + "-" + tel2 + "-" + tel3;
+		member.setTel(tel);
 		memberUpdateProcessService.service(member);
 		memberLoginProcessService.service(null);
 		return "redirect:../main/index.do";
