@@ -51,15 +51,15 @@ public class RoomController {
 		@RequestMapping("/room/view.do")
 		public String view(int roomNo, Model model) throws Exception {
 			System.out.println("roomController.view()");
-			model.addAttribute("board", roomViewService.service(roomNo));
-			return "board/view";
+			model.addAttribute("room", roomViewService.service(roomNo));
+			return "room/view";
 		}
 
 		// 글쓰기폼 - GET
 		@RequestMapping(value = "/room/write.do", method = RequestMethod.GET)
 		public String write() {
 			System.out.println("roomController.write-get()");
-			return "board/write";
+			return "room/write";
 		}
 
 		// 글쓰기 처리 - POST
@@ -75,7 +75,7 @@ public class RoomController {
 		public String update(@RequestParam(value = "roomNo", required = false) int roomNo, Model model) throws Exception {
 			System.out.println("roomController.update-get()");
 			model.addAttribute("room", roomUpdateService.service(roomNo));
-			return "board/update";
+			return "room/update";
 		}
 
 		// 글수정 처리 - POST
