@@ -14,7 +14,6 @@ public class MemberUpdateProcessService implements ServiceInterface {
 
 	@Override
 	public Object service(Object obj) throws Exception {
-		System.out.println(memberDao.update((Member) obj));
 		return memberDao.update(obj);
 	}
 
