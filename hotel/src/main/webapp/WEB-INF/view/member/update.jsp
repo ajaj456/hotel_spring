@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
+	String tel1 = (String) session.getAttribute("tel1");
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -14,23 +15,22 @@
 #logindiv {
 	width: 700px;
 	heigth: 500px;
-	margin-left: 300px;
 }
 
 #divlogin {
-	margin-left: 300px;
+	
 }
 
 #loginimg {
-	margin-left: 90px;
+	
 }
 
 #update {
-	margin-left: 350px;
+	
 }
 
 #btn {
-	margin-left: 10px;
+	
 }
 
 li label {

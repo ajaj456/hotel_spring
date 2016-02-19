@@ -109,7 +109,6 @@ public class MemberController {
 	public String update(@RequestParam(value = "id", required = false) String id, Model model) throws Exception {
 		model.addAttribute("member", memberUpdateService.service(id));
 		Member member = (Member) memberUpdateService.service(id);
-		System.out.println(member);
 		model.addAttribute("tel1", member.getTel().substring(0, 3));
 		model.addAttribute("tel2", member.getTel().substring(4, 8));
 		model.addAttribute("tel3", member.getTel().substring(9, 13));
