@@ -2,8 +2,14 @@ package com.hotel.room.model;
 
 public class Room {
 private int roomNo, rSize, floor, price;
-private String rName, roomInfo;
+private String rName, roomInfo, fileName;
 
+public String getFileName() {
+	return fileName;
+}
+public void setFileName(String fileName) {
+	this.fileName = fileName;
+}
 public int getRoomNo() {
 	return roomNo;
 }
@@ -43,6 +49,6 @@ public void setRoomInfo(String roomInfo) {
 @Override
 public String toString() {
 	return "Room [roomNo=" + roomNo + ", rSize=" + rSize + ", floor=" + floor + ", price=" + price + ", rName=" + rName
-			+ ", roomInfo=" + roomInfo + "]";
+			+ ", roomInfo=" + roomInfo + ", fileName=" + fileName + "]";
 }
 }

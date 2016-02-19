@@ -7,19 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>게시판 글보기</h2>
+	<h2>객실 보기</h2>
 	<br>
 	<table>
-		<tr><th>글번호</th><td>${board.no }</td></tr>
-		<tr><th>글제목</th><td>${board.title }</td></tr>
-		<tr><th>글내용</th><td><pre>${board.content }</pre></td></tr>
-		<tr><th>글쓴이</th><td>${board.writer }</td></tr>
-		<tr><th>작성일</th><td>${board.wdate }</td></tr>
-		<tr><th>조회수</th><td>${board.hit }</td></tr>
+		<tr><th>방 번호</th><td>${room.roomNo }</td></tr>
+		<tr><th>방 이름</th><td>${room.rName}</td></tr>
+		<tr><th>방 정보</th><td><pre>${room.roomInfo}</pre></td></tr>
+		<tr><th>방 크기</th><td>${room.rSize}</td></tr>
+		<tr><th>가격</th><td>${room.price}</td></tr>
+		<tr><th>층수</th><td>${room.floor }</td></tr>
 		<tr><td colspan="2">
-		<a href="update.do?no=${board.no }"><button>글수정</button></a>
-		<a href="delete.do?no=${board.no }"><button>글삭제</button></a>
-		<a href="list.do"><button>글리스트</button></a>
+		<a href="update.do?no=${room.roomNo }"><button>객실 올리기</button></a>
+		<a href="delete.do?no=${room.roomNo }"><button>객실 지우기</button></a>
+		<a href="list.do"><button>객실 리스트로</button></a>
 		</td></tr>
 	</table>
 </body>
