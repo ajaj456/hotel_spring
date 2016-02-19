@@ -3,7 +3,6 @@
 	pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String tel1 = (String) session.getAttribute("tel1");
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -135,21 +134,11 @@ form ul li {
 					name="email" class="input" value="${member.email }" /></li>
 				<li><label>연락처</label> <select id="tel1" name="tel1"
 					class="input">
-						<option
-							<%if (tel1.equals("010"))
-				out.print("selected=\"selected\"");%>>010</option>
-						<option
-							<%if (tel1.equals("016"))
-				out.print("selected=\"selected\"");%>>016</option>
-						<option
-							<%if (tel1.equals("017"))
-				out.print("selected=\"selected\"");%>>017</option>
-						<option
-							<%if (tel1.equals("018"))
-				out.print("selected=\"selected\"");%>>018</option>
-						<option
-							<%if (tel1.equals("019"))
-				out.print("selected=\"selected\"");%>>019</option>
+						<option <c:if test="${tel1 == '010'}">selected="selected"</c:if>>010</option>
+						<option <c:if test="${tel1 == '016'}">selected="selected"</c:if>>016</option>
+						<option <c:if test="${tel1 == '017'}">selected="selected"</c:if>>017</option>
+						<option <c:if test="${tel1 == '018'}">selected="selected"</c:if>>018</option>
+						<option <c:if test="${tel1 == '019'}">selected="selected"</c:if>>019</option>
 				</select> - <input name="tel2" id="tel2" size="4" maxlength="4"
 					value="${tel2 }" /> - <input name="tel3" id="tel3" size="4"
 					maxlength="4" value="${tel3 }" /></li>
