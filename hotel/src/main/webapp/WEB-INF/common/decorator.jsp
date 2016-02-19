@@ -13,10 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>hotel <decorator:title />
 </title>
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-	});
 </script>
 <style type="text/css">
 header {

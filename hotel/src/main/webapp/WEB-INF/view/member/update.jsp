@@ -10,49 +10,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이 페이지</title>
+<link href="/css/update.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
-#logindiv {
-	width: 700px;
-	heigth: 500px;
-}
-
-#divlogin {
-	
-}
-
-#loginimg {
-	
-}
-
-#update {
-	
-}
-
-#btn {
-	
-}
-
-li label {
-	width: 90px;
-	float: left;
-	line-height: 150%;
-	background: #e1e1e1;
-}
-
-label {
-	text-align: center;
-}
-
-form ul li {
-	display: block;
-	margin: 10px 0;
-}
-
-.input {
-	margin-left: 20px;
-}
 </style>
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		// submit될 때 빈 데이터 있으면 팝업 표시

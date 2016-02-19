@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+#logindiv {
+	width: 700px;
+	heigth: 500px;
+}
+
+#divlogin {
+	
+}
+
+#loginimg {
+	
+}
+
+#update {
+	
+}
+
+#btn {
+	
+}
+
+li label {
+	width: 90px;
+	float: left;
+	line-height: 150%;
+	background: #e1e1e1;
+}
+
+label {
+	text-align: center;
+}
+
+form ul li {
+	display: block;
+	margin: 10px 0;
+}
+
+.input {
+	margin-left: 20px;
+}

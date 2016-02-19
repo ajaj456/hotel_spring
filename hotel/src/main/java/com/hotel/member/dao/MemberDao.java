@@ -31,8 +31,8 @@ public class MemberDao {
 	}
 
 	// 회원정보수정
-	public Object update(Member member) {
-		sqlSessionTemplate.update("dao.Member.update", member);
+	public Object update(Object obj) {
+		sqlSessionTemplate.update("dao.Member.update", obj);
 		return null;
 	}
 
