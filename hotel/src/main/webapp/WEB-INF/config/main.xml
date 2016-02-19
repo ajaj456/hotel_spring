@@ -28,6 +28,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/mybatis/memberDao.xml</value>
+				<value>classpath:/mybatis/roomDao.xml</value>
 			</list>
 		</property>
 	</bean>
