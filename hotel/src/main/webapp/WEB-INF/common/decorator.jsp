@@ -146,7 +146,7 @@ img {
 		<!-- section 안에 메뉴별 각각 폼 호출 -->
 		<div id="menu">
 			<div id="menu2">
-				<br /> <a href="" id="menutext">호텔소개</a> <a href="" id="menutext">객실소개</a>
+				<br /> <a href="" id="menutext">호텔소개</a> <a href="../room/list.do" id="menutext">객실소개</a>
 				<a href="" id="menutext">공지사항</a> <a href="" id="menutext">후기게시판</a>
 				<a href="" id="menutext">Qna</a>
 				<%
