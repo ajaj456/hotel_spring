@@ -16,7 +16,7 @@
 		<label for="floor">층수</label><input type="text" name="floor" id="floor"> <br>
 		<label for="rSize">방 사이즈</label><input type="text" name="rSize" id="rSize"> <br>
 		<label for="price">방 가격</label><input type="text" name="price" id="price"> <br>
-		<label for="fileName">이미지 사진 </label><input type="file" name="file" id="file"> <br>
+		<label for="fileName">이미지 사진 </label><input type="file" name="file" id="fileName"> <br>
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>
