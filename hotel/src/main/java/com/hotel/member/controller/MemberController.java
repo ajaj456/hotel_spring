@@ -121,10 +121,9 @@ public class MemberController {
 			@RequestParam("tel3") String tel3, HttpSession session) throws Exception {
 		String tel = tel1 + "-" + tel2 + "-" + tel3;
 		member.setTel(tel);
-		System.out.println(((Member)session.getAttribute("login")).getId());
-		System.out.println(member);
+		member.setId(((Member) session.getAttribute("login")).getId());
 		memberUpdateProcessService.service(member);
-		memberLoginProcessService.service(null);
+		session.setAttribute("login", null);
 		return "redirect:../main/index.do";
 	}
 
