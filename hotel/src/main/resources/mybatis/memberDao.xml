@@ -28,7 +28,7 @@
 	<!-- 회원정보수정 -->
 	<update id="update">
 		update member set name=#{name},birth=#{birth},
-		email=#{email}, tel=#{tel} where id=#{id};
+		email=#{email}, tel=#{tel} where id=#{id}
 	</update>
 
 	<!-- 비밀번호수정 -->
