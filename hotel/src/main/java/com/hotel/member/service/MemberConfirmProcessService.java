@@ -4,7 +4,7 @@ import com.hotel.common.service.ServiceInterface;
 import com.hotel.member.dao.MemberDao;
 import com.hotel.member.model.Member;
 
-public class MemberUpdatePwProcessService implements ServiceInterface {
+public class MemberConfirmProcessService implements ServiceInterface {
 
 	private MemberDao memberDao;
 
@@ -14,7 +14,7 @@ public class MemberUpdatePwProcessService implements ServiceInterface {
 
 	@Override
 	public Object service(Object obj) throws Exception {
-		return memberDao.updatePw((Member) obj);
+		return memberDao.confirm((Member) obj);
 	}
 
 }

@@ -14,7 +14,6 @@ public class MemberDao {
 
 	// 회원가입
 	public Object join(Member member) {
-		System.out.println(member);
 		sqlSessionTemplate.insert("dao.Member.join", member);
 		return null;
 	}
@@ -36,9 +35,9 @@ public class MemberDao {
 		return null;
 	}
 
-	// 비밀번호확인
-	public Object updatePw(Member member) {
-		return sqlSessionTemplate.selectOne("dao.Member.updatePw", member);
+	// 회원정보확인
+	public Object confirm(Member member) {
+		return sqlSessionTemplate.selectOne("dao.Member.confirm", member);
 	}
 
 	// 비밀번호변경

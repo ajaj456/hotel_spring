@@ -60,7 +60,6 @@
 </script>
 </head>
 <body>
-	${member.id }
 	<br />
 	<br />
 	<img src="" width="370px" height="100px" id="loginimg">
@@ -75,7 +74,7 @@
 				<a href="../member/pwupdate.do">pw 변경</a>
 			</button>
 			<button id="btn">
-				<a href="">회원탈퇴</a>
+				<a href="../member/delete.do">회원탈퇴</a>
 			</button>
 		</h4>
 	</div>
