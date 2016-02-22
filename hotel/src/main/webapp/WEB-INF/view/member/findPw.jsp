@@ -18,8 +18,7 @@
 	<br />
 	<br />
 	<div id="IdPw">
-		<form action="../member/findPwProcess.jsp" method="post"
-			id="findPwForm">
+		<form action="findPw.do" method="post" id="findPwForm">
 			<fieldset>
 				<legend> 비밀번호 찾기</legend>
 				<ul>
@@ -28,7 +27,7 @@
 					<li><label for="birth">생년월일</label> <input type="date"
 						id="birth" name="birth" class="input" /></li>
 				</ul>
-				<input type="submit" value="비밀번호 찾기" class="findIdPw" />
+				<button class="findIdPw">비밀번호 찾기</button>
 			</fieldset>
 			<br />
 		</form>
