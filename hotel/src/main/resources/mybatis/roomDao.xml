@@ -17,15 +17,15 @@
 	<!-- 게시판 글보기 -->
 	<select id="view" resultType="com.hotel.room.model.Room">
 		select roomNo,roomInfo,rSize,
-		floor,price,rName from room
+		floor,price,rName, fileName from room
 		where roomNo=#{roomNo}
 	</select>
 
 	<!-- 게시판 글쓰기 -->
 	<insert id="write">
 		insert into room(roomNo,roomInfo,rSize,
-		floor,price,rName )
-		values(#{roomNo},#{roomInfo},#{rSize},#{floor},#{price},#{rName})
+		floor,price,rName,fileName )
+		values(#{roomNo},#{roomInfo},#{rSize},#{floor},#{price},#{rName},#{fileName})
 	</insert>
 
 	<!-- 게시판 글수정 -->

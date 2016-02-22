@@ -16,6 +16,7 @@
 		<tr><th>방 크기</th><td>${room.rSize}</td></tr>
 		<tr><th>가격</th><td>${room.price}</td></tr>
 		<tr><th>층수</th><td>${room.floor }</td></tr>
+		<tr><td><img alt="${room.fileName}" src="../upload/room/${room.fileName}"> </td></tr>
 		<tr><td colspan="2">
 		<a href="update.do?no=${room.roomNo }"><button>객실 올리기</button></a>
 		<a href="delete.do?no=${room.roomNo }"><button>객실 지우기</button></a>

@@ -1,7 +1,6 @@
 package com.hotel.room.controller;
 
 import java.io.File;
-import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,9 +56,11 @@ public class RoomController {
 
 	// 글보기
 	@RequestMapping("/room/view.do")
-	public String view(String roomNo, Model model) throws Exception {
+	public String view(@RequestParam("no") String roomNo, Model model) throws Exception {
 		System.out.println("roomController.view()");
-		model.addAttribute("room", roomViewService.service(roomNo));
+		model.addAttribute("room", roomViewService.service((Integer.parseInt(roomNo))));
+		Room room = (Room) roomViewService.service((Integer.parseInt(roomNo)));
+		System.out.println(room);
 		return "room/view";
 	}
 
@@ -70,30 +71,34 @@ public class RoomController {
 		return "room/write";
 	}
 
-//	// 글쓰기 처리 - POST
-//	@RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
-//	public String write(Room room) throws Exception {
-//		System.out.println("roomController.write-post()");
-//		roomWriteProcessService.service(room);
-//		return "redirect:list.do";
-//	}
+	// // 글쓰기 처리 - POST
+	// @RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
+	// public String write(Room room) throws Exception {
+	// System.out.println("roomController.write-post()");
+	// roomWriteProcessService.service(room);
+	// return "redirect:list.do";
+	// }
 
 	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
 	@RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
-	public String write(@RequestParam("file1") MultipartFile multipartFile, @RequestParam("title") Room room,
-			Model model, HttpServletRequest request) throws Exception {
+	public String write(@RequestParam("file") MultipartFile multipartFile, Room room, Model model,
+			HttpServletRequest request) throws Exception {
+		System.out.println("RoomController.write():post");
+
 		// 서버에 올라갈 실제 폴더 찾기
-		String realPath = request.getServletContext().getRealPath("upload/board");
+		String realPath = request.getServletContext().getRealPath("upload/room");
+		System.out.println(realPath);
 		if (!multipartFile.isEmpty()) {
 			String fileName = multipartFile.getOriginalFilename();
 			File file = DuplicateFile.getFile(realPath, multipartFile);
 			multipartFile.transferTo(file); // 파일 이동
 			room.setFileName(file.getName());
 			roomWriteProcessService.service(room);
-			return "board/view";
+
+			return "redirect:list.do";
 		}
 		System.out.println(realPath);
-		return "board/noUploaded";
+		return "redirect:list.do";
 
 	}
 
@@ -115,7 +120,7 @@ public class RoomController {
 
 	// 글삭제 처리
 	@RequestMapping("/room/delete.do")
-	public String delete(int roomNo) throws Exception {
+	public String delete(@RequestParam("no") String roomNo) throws Exception {
 		System.out.println("roomController.delete()");
 		roomDeleteProcessService.service(roomNo);
 		return "redirect:list.do";
