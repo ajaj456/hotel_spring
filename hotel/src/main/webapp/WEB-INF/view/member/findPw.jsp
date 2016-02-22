@@ -18,22 +18,6 @@
 	<br />
 	<br />
 	<div id="IdPw">
-		<form action="../member/findIdProcess.jsp" method="post"
-			id="findIdForm">
-			<fieldset>
-				<legend> 아이디 찾기</legend>
-				<ul>
-					<li><label for="name">이름</label> <input type="text" id="name"
-						name="name" placeholder="이름" class="input" maxlength="15" /></li>
-					<li><label for="email">email</label> <input type="email"
-						id="email" name="email" placeholder="email" class="input" /></li>
-				</ul>
-				<input type="submit" value="아이디 찾기" class="findIdPw" />
-			</fieldset>
-			<br />
-		</form>
-	</div>
-	<div id="IdPw">
 		<form action="../member/findPwProcess.jsp" method="post"
 			id="findPwForm">
 			<fieldset>
