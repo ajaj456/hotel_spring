@@ -59,8 +59,6 @@ public class RoomController {
 	public String view(@RequestParam("no") String roomNo, Model model) throws Exception {
 		System.out.println("roomController.view()");
 		model.addAttribute("room", roomViewService.service((Integer.parseInt(roomNo))));
-		Room room = (Room) roomViewService.service((Integer.parseInt(roomNo)));
-		System.out.println(room);
 		return "room/view";
 	}
 
@@ -104,9 +102,9 @@ public class RoomController {
 
 	// 글수정 폼 - get
 	@RequestMapping(value = "/room/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "roomNo", required = false) int roomNo, Model model) throws Exception {
+	public String update(@RequestParam(value = "no", required = false) String roomNo, Model model) throws Exception {
 		System.out.println("roomController.update-get()");
-		model.addAttribute("room", roomUpdateService.service(roomNo));
+		model.addAttribute("room", roomViewService.service((Integer.parseInt(roomNo))));
 		return "room/update";
 	}
 

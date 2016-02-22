@@ -10,7 +10,7 @@
 	<select id="list" resultType="com.hotel.room.model.Room">
 		select roomNo,roomInfo,rSize,
 		floor,price,rName from room
-		order by floor desc
+		order by floor asc
 	</select>
 
 
