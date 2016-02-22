@@ -18,8 +18,7 @@
 	<br />
 	<br />
 	<div id="IdPw">
-		<form action="../member/findIdProcess.jsp" method="post"
-			id="findIdForm">
+		<form action="findId.do" method="post" id="findIdForm">
 			<fieldset>
 				<legend> 아이디 찾기</legend>
 				<ul>
@@ -28,7 +27,7 @@
 					<li><label for="email">email</label> <input type="email"
 						id="email" name="email" placeholder="email" class="input" /></li>
 				</ul>
-				<input type="submit" value="아이디 찾기" class="findIdPw" />
+				<button class="findIdPw">아이디 찾기</button>
 			</fieldset>
 			<br />
 		</form>
