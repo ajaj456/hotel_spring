@@ -57,7 +57,7 @@ public class RoomController {
 
 	// 글보기
 	@RequestMapping("/room/view.do")
-	public String view(int roomNo, Model model) throws Exception {
+	public String view(String roomNo, Model model) throws Exception {
 		System.out.println("roomController.view()");
 		model.addAttribute("room", roomViewService.service(roomNo));
 		return "room/view";

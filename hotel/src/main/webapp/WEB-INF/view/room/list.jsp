@@ -20,14 +20,15 @@
 		</tr>
 		<c:forEach var="room" items="${list}">
 			<tr>
-				<td>${room.roomNo }</td>
-				<td><a href="view.do?no=${room.roomNo }">${room.roomNo }</a></td>
-				<%-- 			<td>${board.writer }</td> --%>
-				<%-- 			<td>${board.wdate }</td> --%>
-				<%-- 			<td>${board.hit }</td> --%>
-			</tr>
-		</c:forEach>
+
+		<td><a href="view.do?no=${room.roomNo }">${room.roomNo }</a></td>
+		<th>방 이름</th><td>${room.rName}</td>
+		<th>방 정보</th><td><pre>${room.roomInfo}</pre></td>
+		<th>방 크기</th><td>${room.rSize}</td>
+		<th>가격</th><td>${room.price}</td>
+		<th>층수</th><td>${room.floor }</td>
 		<tr>
+		</c:forEach>
 			<td colspan="5"><a href="write.do"><button>글쓰기</button></a></td>
 		</tr>
 	</table>
