@@ -113,7 +113,8 @@ public class RoomController {
 	public String update(Room room) throws Exception {
 		System.out.println("roomController.update-post()");
 		roomUpdateProcessService.service(room);
-		return "redirect:view.do" + "?no=" + room.getRoomNo();
+		return "redirect"
+				+ ":view.do" + "?no=" + room.getRoomNo();
 	}
 
 	// 글삭제 처리
