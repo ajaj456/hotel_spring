@@ -36,7 +36,12 @@ public class MemberDao {
 		return null;
 	}
 
-	// 비밀번호수변경
+	// 비밀번호확인
+	public Object updatePw(Member member) {
+		return sqlSessionTemplate.selectOne("dao.Member.updatePw", member);
+	}
+
+	// 비밀번호변경
 	public Object pwUpdate(Member member) {
 		sqlSessionTemplate.update("dao.Member.pwUpdate", member);
 		return null;

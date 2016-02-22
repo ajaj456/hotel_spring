@@ -15,9 +15,9 @@ import com.hotel.member.model.Member;
 public class MemberController {
 
 	private ServiceInterface memberJoinProcessService, memberDeleteProcessService, memberUpdateService,
-			memberUpdateProcessService, memberPwUpdateProcessService, memberFindIdProcessService,
-			memberFindPwProcessService, memberListService, memberGradeUpdateService, memberGradeUpdateProcessService,
-			memberLoginProcessService, memberViewService;
+			memberUpdateProcessService, memberPwUpdateProcessService, memberUpdatePwProcessService,
+			memberFindIdProcessService, memberFindPwProcessService, memberListService, memberGradeUpdateService,
+			memberGradeUpdateProcessService, memberLoginProcessService, memberViewService;
 
 	public void setMemberJoinProcessService(ServiceInterface memberJoinProcessService) {
 		this.memberJoinProcessService = memberJoinProcessService;
@@ -67,6 +67,10 @@ public class MemberController {
 		this.memberViewService = memberViewService;
 	}
 
+	public void setMemberUpdatePwProcessService(ServiceInterface memberUpdatePwProcessService) {
+		this.memberUpdatePwProcessService = memberUpdatePwProcessService;
+	}
+
 	// 회원가입 폼 - get
 	@RequestMapping(value = "/member/join.do", method = RequestMethod.GET)
 	public String join() {
@@ -91,9 +95,9 @@ public class MemberController {
 
 	// 회원탈퇴 처리 - post
 	@RequestMapping(value = "/member/delete.do", method = RequestMethod.POST)
-	public String delete(Member member) throws Exception {
+	public String delete(Member member, HttpSession session) throws Exception {
 		memberDeleteProcessService.service(member);
-		memberLoginProcessService.service(null);
+		session.setAttribute("login", null);
 		return "redirect:../main/index.do";
 	}
 
@@ -135,10 +139,19 @@ public class MemberController {
 
 	// 비밀번호변경 처리 - post
 	@RequestMapping(value = "/member/pwupdate.do", method = RequestMethod.POST)
-	public String pwUpdate(Member member) throws Exception {
-		memberPwUpdateProcessService.service(member);
-		memberLoginProcessService.service(null);
-		return "redirect:../main/index.do";
+	public String pwUpdate(Member member, HttpSession session, @RequestParam(value = "pw", required = false) String pw,
+			@RequestParam(value = "pw1", required = false) String pw1, Model model) throws Exception {
+		member.setId(((Member) session.getAttribute("login")).getId());
+		member.setPw(pw);
+		member = (Member) memberUpdatePwProcessService.service(member);
+		if (member != null) {
+			member.setPw(pw1);
+			memberPwUpdateProcessService.service(member);
+			session.setAttribute("login", null);
+			return "redirect:../main/index.do";
+		} else {
+			return "member/pwupdate";
+		}
 	}
 
 	// 아이디찾기 폼 - get

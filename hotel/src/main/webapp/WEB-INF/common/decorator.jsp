@@ -15,6 +15,7 @@
 </title>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
+	
 </script>
 <style type="text/css">
 header {
@@ -146,9 +147,9 @@ img {
 		<!-- section 안에 메뉴별 각각 폼 호출 -->
 		<div id="menu">
 			<div id="menu2">
-				<br /> <a href="" id="menutext">호텔소개</a> <a href="../room/list.do" id="menutext">객실소개</a>
-				<a href="" id="menutext">공지사항</a> <a href="" id="menutext">후기게시판</a>
-				<a href="" id="menutext">Qna</a>
+				<br /> <a href="" id="menutext">호텔소개</a> <a href="../room/list.do"
+					id="menutext">객실소개</a> <a href="" id="menutext">공지사항</a> <a href=""
+					id="menutext">후기게시판</a> <a href="" id="menutext">Qna</a>
 				<%
 					// session의 member에 정보가 있으면 마이페이지 호출
 					if (session.getAttribute("login") != null) {

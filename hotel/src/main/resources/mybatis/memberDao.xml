@@ -31,6 +31,12 @@
 		email=#{email}, tel=#{tel} where id=#{id}
 	</update>
 
+	<!-- 비밀번호확인처리 -->
+	<select id="updatePw" resultType="com.hotel.member.model.Member">
+		select * from member where
+		id=#{id} and pw=#{pw}
+	</select>
+
 	<!-- 비밀번호수정 -->
 	<update id="pwUpdate">
 		update member set pw=#{pw}

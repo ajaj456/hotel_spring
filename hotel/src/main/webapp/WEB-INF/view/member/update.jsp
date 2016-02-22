@@ -72,7 +72,7 @@
 		<h4>
 			<b>기본정보입력</b>
 			<button id="btn">
-				<a href="">pw 변경</a>
+				<a href="../member/pwupdate.do">pw 변경</a>
 			</button>
 			<button id="btn">
 				<a href="">회원탈퇴</a>
