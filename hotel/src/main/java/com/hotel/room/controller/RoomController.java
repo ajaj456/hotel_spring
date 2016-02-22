@@ -79,17 +79,17 @@ public class RoomController {
 
 	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
 	@RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
-	public String write(@RequestParam("file") MultipartFile multipartFile, Room room, Model model,
+	public String write(Room room, Model model,
 			HttpServletRequest request) throws Exception {
 		System.out.println("RoomController.write():post");
 
 		// 서버에 올라갈 실제 폴더 찾기
 		String realPath = request.getServletContext().getRealPath("upload/room");
 		System.out.println(realPath);
-		if (!multipartFile.isEmpty()) {
-			String fileName = multipartFile.getOriginalFilename();
-			File file = DuplicateFile.getFile(realPath, multipartFile);
-			multipartFile.transferTo(file); // 파일 이동
+		if (!room.getFile().isEmpty()) {
+			String fileName = room.getFile().getOriginalFilename();
+			File file = DuplicateFile.getFile(realPath, room.getFile());
+			room.getFile().transferTo(file); // 파일 이동
 			room.setFileName(file.getName());
 			roomWriteProcessService.service(room);
 
@@ -109,13 +109,30 @@ public class RoomController {
 	}
 
 	// 글수정 처리 - POST
-	@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
-	public String update(Room room) throws Exception {
-		System.out.println("roomController.update-post()");
-		roomUpdateProcessService.service(room);
-		return "redirect"
+		@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
+		public String updateProcess(Room room, Model model,
+				HttpServletRequest request) throws Exception {
+			System.out.println("roomController.update-post()");
+			System.out.println(room);
+			// 서버에 올라갈 실제 폴더 찾기
+			String realPath = request.getServletContext().getRealPath("upload/room");
+			System.out.println(realPath);
+			if (!room.getFile().isEmpty()) {
+				String fileName = room.getFile().getOriginalFilename();
+				File file = DuplicateFile.getFile(realPath, room.getFile());
+				room.getFile().transferTo(file); // 파일 이동
+				room.setFileName(file.getName());
+				roomUpdateProcessService.service(room);
+				
+				return "redirect"
 				+ ":view.do" + "?no=" + room.getRoomNo();
+	
+			}
+			System.out.println(realPath);
+			return "redirect:list.do";
+	
 	}
+			
 
 	// 글삭제 처리
 	@RequestMapping("/room/delete.do")
