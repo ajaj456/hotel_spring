@@ -127,10 +127,12 @@ public class RoomController {
 				return "redirect"
 				+ ":view.do" + "?no=" + room.getRoomNo();
 	
+			}else {
+				System.out.println(realPath);
+				roomUpdateProcessService.service(room);
+				return "redirect"
+				+ ":view.do" + "?no=" + room.getRoomNo();
 			}
-			System.out.println(realPath);
-			return "redirect:list.do";
-	
 	}
 			
 
