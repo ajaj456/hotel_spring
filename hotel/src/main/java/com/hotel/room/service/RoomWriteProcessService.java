@@ -15,8 +15,8 @@ public class RoomWriteProcessService implements ServiceInterface {
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("BoardWritrProcessService.service()");
-		roomDao.write((Room)obj);
-		return null; 
+		return roomDao.write((Room)obj);
+		
 	}
 
 }

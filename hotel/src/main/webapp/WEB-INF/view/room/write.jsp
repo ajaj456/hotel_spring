@@ -14,9 +14,9 @@
 		<label for="name">방 이름</label><input type="text" name="rName" id="name"> <br>		 
 		<label for="content">방 정보 </label><textarea rows="7" cols="60" name="roomInfo" id="content"></textarea><br> 
 		<label for="floor">층수</label><input type="text" name="floor" id="floor"> <br>
-		<label for="rSize">방 이름</label><input type="text" name="rSize" id="rSize"> <br>
+		<label for="rSize">방 사이즈</label><input type="text" name="rSize" id="rSize"> <br>
 		<label for="price">방 가격</label><input type="text" name="price" id="price"> <br>
-		<label for="fileName">작성자 </label><input type="file" name="fileName" id="fileName"> <br>
+		<label for="fileName">이미지 사진 </label><input type="file" name="file" id="file"> <br>
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>

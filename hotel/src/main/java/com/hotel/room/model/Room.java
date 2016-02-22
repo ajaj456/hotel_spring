@@ -1,14 +1,24 @@
 package com.hotel.room.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Room {
 private int roomNo, rSize, floor, price;
 private String rName, roomInfo, fileName;
+private MultipartFile file;
+
 
 public String getFileName() {
 	return fileName;
 }
 public void setFileName(String fileName) {
 	this.fileName = fileName;
+}
+public MultipartFile getFile() {
+	return file;
+}
+public void setFile(MultipartFile file) {
+	this.file = file;
 }
 public int getRoomNo() {
 	return roomNo;
@@ -49,6 +59,6 @@ public void setRoomInfo(String roomInfo) {
 @Override
 public String toString() {
 	return "Room [roomNo=" + roomNo + ", rSize=" + rSize + ", floor=" + floor + ", price=" + price + ", rName=" + rName
-			+ ", roomInfo=" + roomInfo + ", fileName=" + fileName + "]";
+			+ ", roomInfo=" + roomInfo + ", fileName=" + fileName + ", file=" + file + "]";
 }
 }
