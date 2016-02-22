@@ -31,9 +31,12 @@
 		email=#{email}, tel=#{tel} where id=#{id}
 	</update>
 
-	<!-- 비밀번호확인처리 -->
-	<select id="updatePw" resultType="com.hotel.member.model.Member">
-		select * from member where
+	<!-- 회원정보확인처리 -->
+	<select id="confirm" resultType="com.hotel.member.model.Member">
+		select id, pw, name, birth,
+		email,
+		tel, to_char(wdate,'yyyy-mm-dd') wdate, grade from member
+		where
 		id=#{id} and pw=#{pw}
 	</select>
 
