@@ -165,14 +165,20 @@ public class MemberController {
 	// 아이디찾기 폼 - get
 	@RequestMapping(value = "/member/findId.do", method = RequestMethod.GET)
 	public String findId() {
-		return "member/findIdPw";
+		return "member/findId";
 	}
 
 	// 아이디찾기 처리 - post
 	@RequestMapping(value = "/member/findId.do", method = RequestMethod.POST)
-	public String findId(Member member) throws Exception {
-		memberFindIdProcessService.service(member);
-		return "redirect:resultId.do";
+	public String findId(Member member, @RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "email", required = false) String email, Model model) throws Exception {
+		member.setName(name);
+		member.setEmail(email);
+		System.out.println(member);
+		member = (Member) memberFindIdProcessService.service(member);
+		model.addAttribute("pw", member.getPw());
+		System.out.println(member);
+		return "member/resultId";
 	}
 
 	// 아이디찾기 결과
@@ -184,14 +190,17 @@ public class MemberController {
 	// 비밀번호찾기 폼 - get
 	@RequestMapping(value = "/member/findPw.do", method = RequestMethod.GET)
 	public String findPw() {
-		return "member/findIdPw";
+		return "member/findPw";
 	}
 
 	// 비밀번호찾기 처리 - post
 	@RequestMapping(value = "/member/findPw.do", method = RequestMethod.POST)
-	public String findPw(Member member) throws Exception {
+	public String findPw(Member member, @RequestParam(value = "id", required = false) String id,
+			@RequestParam(value = "birth", required = false) String birth) throws Exception {
+		member.setId(id);
+		member.setBirth(birth);
 		memberFindPwProcessService.service(member);
-		return "redirect:resultPw.do";
+		return "member/resultPw";
 	}
 
 	// 비밀번호찾기 결과
