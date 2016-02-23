@@ -13,7 +13,7 @@ public class RoomListService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("BoardListService.service()");
+		System.out.println("RoomListService.service()");
 		return roomDao.list(); 
 	}
 
