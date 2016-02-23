@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<mvc:annotation-driven />
-	
-	<mvc:resources location="/WEB-INF/static/js/" mapping="/js/**" />
-	<mvc:resources location="/WEB-INF/static/css/" mapping="/css/**" />
-	
+   <mvc:annotation-driven />
 
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/view/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+   <mvc:resources location="/WEB-INF/static/js/" mapping="/js/**" />
+   <mvc:resources location="/WEB-INF/static/css/" mapping="/css/**" />
 
-	<!-- DB관련 객체 생성 -->
-	<bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@211.183.0.32:1521:orcl" />
-		<property name="username" value="hotel" />
-		<property name="password" value="0000" />
-	</bean>
-	<!-- sql을 갖고 있는 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations">
-			<list>
-				<value>classpath:/mybatis/memberDao.xml</value>
-				<value>classpath:/mybatis/roomDao.xml</value>
-			</list>
-		</property>
-	</bean>
 
-	<!-- 트랜잭션 관리자 선언 -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
+   <bean id="viewResolver"
+      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix" value="/WEB-INF/view/" />
+      <property name="suffix" value=".jsp" />
+   </bean>
 
-	<!-- sql Session을 쉽게 사용할 수 있도록 작성한 sqlSessionTemplate 사용 -->
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSessionFactory" />
-	</bean>
-	
-	<bean id="multipartResolver"
-	 class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+   <!-- DB관련 객체 생성 -->
+   <bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
+      <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+      <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+      <property name="username" value="hotel" />
+      <property name="password" value="0000" />
+   </bean>
+   <!-- sql을 갖고 있는 -->
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+      <property name="mapperLocations">
+         <list>
+            <value>classpath:/mybatis/memberDao.xml</value>
+            <value>classpath:/mybatis/roomDao.xml</value>
+<!--             <value>classpath:/mybatis/bookedDao.xml</value> -->
+         </list>
+      </property>
+   </bean>
+
+   <!-- 트랜잭션 관리자 선언 -->
+   <bean id="transactionManager"
+      class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource" />
+   </bean>
+
+   <!-- sql Session을 쉽게 사용할 수 있도록 작성한 sqlSessionTemplate 사용 -->
+   <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+      <constructor-arg ref="sqlSessionFactory" />
+   </bean>
+
+   <bean id="multipartResolver"
+      class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 
 </beans>

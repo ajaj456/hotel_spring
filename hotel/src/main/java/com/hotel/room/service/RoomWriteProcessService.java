@@ -14,7 +14,7 @@ public class RoomWriteProcessService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("BoardWritrProcessService.service()");
+		System.out.println("RoomWritrProcessService.service()");
 		return roomDao.write((Room)obj);
 		
 	}
