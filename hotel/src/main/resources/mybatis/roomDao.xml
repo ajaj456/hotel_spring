@@ -30,7 +30,6 @@
 
 	<!-- 게시판 글수정 -->
 	<update id="update">
-		
 			update room set
 			roomInfo=#{roomInfo},floor=#{floor},price=#{price},
 			rName=#{rName},rSize=#{rSize}<if test="fileName!= null">,fileName=#{fileName}</if> where
