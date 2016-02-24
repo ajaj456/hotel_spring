@@ -1,23 +1,19 @@
 package com.hotel.reply.controller;
 
-import java.io.File;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.hotel.board.model.Board;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.reply.model.Reply;
 
 @Controller
 public class ReplyController {
-	private ServiceInterface replyListService, replyViewService, replyWriteProcessService, replyUpdateService,
-			replyUpdateProcessService, replyDeleteProcessService;
+	private ServiceInterface replyListService, replyViewService, replyWriteProcessService, replyUpdateProcessService,
+			replyDeleteProcessService;
 
 	public void setReplyListService(ServiceInterface replyListService) {
 		this.replyListService = replyListService;
@@ -29,10 +25,6 @@ public class ReplyController {
 
 	public void setReplyWriteProcessService(ServiceInterface replyWriteProcessService) {
 		this.replyWriteProcessService = replyWriteProcessService;
-	}
-
-	public void setReplyUpdateService(ServiceInterface replyUpdateService) {
-		this.replyUpdateService = replyUpdateService;
 	}
 
 	public void setReplyUpdateProcessService(ServiceInterface replyUpdateProcessService) {
