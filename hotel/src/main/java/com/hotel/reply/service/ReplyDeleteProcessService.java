@@ -3,7 +3,7 @@ package com.hotel.reply.service;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.room.dao.RoomDao;
 
-public class RoomDeleteProcessService implements ServiceInterface {
+public class ReplyDeleteProcessService implements ServiceInterface {
 	private RoomDao roomDao;
 
 	public void setRoomDao(RoomDao roomDao) {

@@ -4,7 +4,7 @@ import com.hotel.common.service.ServiceInterface;
 import com.hotel.room.dao.RoomDao;
 import com.hotel.room.model.Room;
 
-public class RoomUpdateProcessService implements ServiceInterface {
+public class ReplyUpdateProcessService implements ServiceInterface {
 	private RoomDao roomDao;
 
 	public void setRoomDao(RoomDao roomDao) {

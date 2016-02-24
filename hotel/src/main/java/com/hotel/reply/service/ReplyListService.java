@@ -3,7 +3,7 @@ package com.hotel.reply.service;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.room.dao.RoomDao;
 
-public class RoomUpdateService implements ServiceInterface {
+public class ReplyListService implements ServiceInterface {
 	private RoomDao roomDao;
 
 	public void setRoomDao(RoomDao roomDao) {
@@ -11,10 +11,10 @@ public class RoomUpdateService implements ServiceInterface {
 	}
 
 	@Override
-	public Object service(Object obj){
-		System.out.println("RoomUpdateService.service()");
+	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
-		return roomDao.view(obj); 
+		System.out.println("RoomListService.service()");
+		return roomDao.list(); 
 	}
 
 }

@@ -2,9 +2,8 @@ package com.hotel.reply.service;
 
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.room.dao.RoomDao;
-import com.hotel.room.model.Room;
 
-public class RoomWriteProcessService implements ServiceInterface {
+public class ReplyUpdateService implements ServiceInterface {
 	private RoomDao roomDao;
 
 	public void setRoomDao(RoomDao roomDao) {
@@ -12,11 +11,10 @@ public class RoomWriteProcessService implements ServiceInterface {
 	}
 
 	@Override
-	public Object service(Object obj) throws Exception {
+	public Object service(Object obj){
+		System.out.println("RoomUpdateService.service()");
 		// TODO Auto-generated method stub
-		System.out.println("RoomWritrProcessService.service()");
-		return roomDao.write((Room)obj);
-		
+		return roomDao.view(obj); 
 	}
 
 }
