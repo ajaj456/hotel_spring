@@ -44,12 +44,11 @@ public class ReplyController {
 	}
 
 	// 글리스트
-	@RequestMapping("/reply/list.do")
+	@RequestMapping("/board/view.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("replyController.list()");
 		model.addAttribute("list", replyListService.service(page));
-
 		return "reply/list";
 	}
 

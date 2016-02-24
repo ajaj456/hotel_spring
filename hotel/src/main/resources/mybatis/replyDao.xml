@@ -7,10 +7,10 @@
 <mapper namespace="dao.Room">
 
 	<!-- 게시판리스트 -->
-	<select id="list" resultType="com.hotel.room.model.Room">
-		select roomNo,roomInfo,rSize,
-		floor,price,rName from room
-		order by floor asc
+	<select id="list" resultType="com.hotel.reply.model.Reply">
+		select * from reply
+		order by no,
+		reno
 	</select>
 
 
@@ -30,11 +30,11 @@
 
 	<!-- 게시판 글수정 -->
 	<update id="update">
-			update room set
-			roomInfo=#{roomInfo},floor=#{floor},price=#{price},
-			rName=#{rName},rSize=#{rSize}
-			<if test="fileName!= null">,fileName=#{fileName}</if>
-			where roomNo=#{roomNo}
+		update room set
+		roomInfo=#{roomInfo},floor=#{floor},price=#{price},
+		rName=#{rName},rSize=#{rSize}
+		<if test="fileName!= null">,fileName=#{fileName}</if>
+		where roomNo=#{roomNo}
 	</update>
 
 	<!-- 게시판글삭제 -->

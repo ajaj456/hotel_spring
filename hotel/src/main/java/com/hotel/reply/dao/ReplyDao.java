@@ -11,31 +11,24 @@ public class ReplyDao {
 
 	private SqlSessionTemplate sqlSessionTemplate;
 
-
 	public Object list() {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSessionTemplate.selectList("dao.Reply.list");
 	}
-	
+
 	public Object view(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSessionTemplate.selectOne("dao.Reply.view", obj);
 	}
 
-	public Object write(Reply obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public Object write(Reply reply) {
+		return sqlSessionTemplate.insert("dao.Reply.write", reply);
 	}
 
-	public void update(Reply obj) {
-		// TODO Auto-generated method stub
-		
+	public Object update(Reply reply) {
+		return sqlSessionTemplate.update("dao.Reply.update", reply);
 	}
 
-	public void delete(Object obj) {
-		// TODO Auto-generated method stub
-		
+	public Object delete(Object obj) {
+		return sqlSessionTemplate.delete("dao.Reply.delete", obj);
 	}
-
 
 }
