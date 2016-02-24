@@ -16,8 +16,8 @@ public class MemberController {
 
 	private ServiceInterface memberJoinProcessService, memberDeleteProcessService, memberUpdateService,
 			memberUpdateProcessService, memberPwUpdateProcessService, memberConfirmProcessService,
-			memberFindIdProcessService, memberFindPwProcessService, memberListService, memberGradeUpdateService,
-			memberGradeUpdateProcessService, memberLoginProcessService, memberViewService;
+			memberFindIdProcessService, memberFindPwProcessService, memberListService, memberGradeUpdateProcessService,
+			memberLoginProcessService, memberViewService;
 
 	public void setMemberJoinProcessService(ServiceInterface memberJoinProcessService) {
 		this.memberJoinProcessService = memberJoinProcessService;
@@ -49,10 +49,6 @@ public class MemberController {
 
 	public void setMemberListService(ServiceInterface memberListService) {
 		this.memberListService = memberListService;
-	}
-
-	public void setMemberGradeUpdateService(ServiceInterface memberGradeUpdateService) {
-		this.memberGradeUpdateService = memberGradeUpdateService;
 	}
 
 	public void setMemberGradeUpdateProcessService(ServiceInterface memberGradeUpdateProcessService) {
@@ -222,16 +218,12 @@ public class MemberController {
 		return "member/list";
 	}
 
-	// 회원등급변경 폼 - get
-	@RequestMapping(value = "/member/grade.do", method = RequestMethod.GET)
-	public String grade(@RequestParam(value = "id", required = false) String id, Model model) throws Exception {
-		model.addAttribute("member", memberGradeUpdateService.service(id));
-		return "member/grade";
-	}
-
 	// 회원등급변경 처리 - post
-	@RequestMapping(value = "/member/grade.do", method = RequestMethod.POST)
-	public String grade(Member member) throws Exception {
+	@RequestMapping(value = "/member/grade.do")
+	public String grade(Member member, @RequestParam(value = "id", required = false) String id,
+			@RequestParam(value = "grade", required = false) String grade) throws Exception {
+		member.setId(id);
+		member.setGrade(grade);
 		memberGradeUpdateProcessService.service(member);
 		return "redirect:list.do";
 	}

@@ -25,10 +25,29 @@
 		<c:forEach var="member" items="${list }">
 			<tr>
 				<td>${member.id }</td>
-				<td><a href="view.do?id=${member.id }">${member.name }</a></td>
+				<td>${member.name }</td>
 				<td>${member.tel }</td>
 				<td>${member.wdate }</td>
-				<td>${member.grade }</td>
+				<td>
+					<form action="grade.do">
+						<input type="hidden" id="id" name="id" class="input"
+							value="${member.id }"> <select id="grade" name="grade"
+							class="input">
+							<option
+								<c:if test="${member.grade == 'bronze'}">selected="selected"</c:if>>bronze</option>
+							<option
+								<c:if test="${member.grade == 'silver'}">selected="selected"</c:if>>silver</option>
+							<option
+								<c:if test="${member.grade == 'gold'}">selected="selected"</c:if>>gold</option>
+							<option
+								<c:if test="${member.grade == 'platinum'}">selected="selected"</c:if>>platinum</option>
+							<option
+								<c:if test="${member.grade == 'master'}">selected="selected"</c:if>>master</option>
+
+						</select>
+						<button>등급변경</button>
+					</form>
+				</td>
 			</tr>
 		</c:forEach>
 		<!-- 	반복의 끝 -->

@@ -29,7 +29,6 @@
 		<!-- 회원리스트 -->
 		<property name="memberListService" ref="memberListService" />
 		<!-- 회원등급변경 -->
-		<property name="memberGradeUpdateService" ref="memberGradeUpdateService" />
 		<property name="memberGradeUpdateProcessService" ref="memberGradeUpdateProcessService" />
 		<!-- 로그인, 로그아웃 처리 -->
 		<property name="memberLoginProcessService" ref="memberLoginProcessService" />
@@ -64,9 +63,6 @@
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 	<bean id="memberListService" class="com.hotel.member.service.MemberListService">
-		<property name="memberDao" ref="memberDao" />
-	</bean>
-	<bean id="memberGradeUpdateService" class="com.hotel.member.service.MemberGradeUpdateService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 	<bean id="memberGradeUpdateProcessService"
