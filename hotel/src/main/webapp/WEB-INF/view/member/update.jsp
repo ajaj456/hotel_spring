@@ -69,13 +69,11 @@
 	<br />
 	<div id="divlogin">
 		<h4>
-			<b>기본정보입력</b>
-			<button id="btn">
-				<a href="../member/pwupdate.do">pw 변경</a>
-			</button>
-			<button id="btn">
-				<a href="../member/delete.do">회원탈퇴</a>
-			</button>
+			<b>기본정보입력</b> <a href="../member/pwupdate.do">
+				<button id="btn">pw 변경</button>
+			</a> <a href="../member/delete.do">
+				<button id="btn">회원탈퇴</button>
+			</a>
 		</h4>
 	</div>
 	<div id="logindiv">

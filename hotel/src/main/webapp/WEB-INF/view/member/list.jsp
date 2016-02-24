@@ -15,15 +15,19 @@
 	<h2>회원 리스트</h2>
 	<table>
 		<tr>
-			<th>id</th>
-			<th>name</th>
-			<th>grade</th>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>전화번호</th>
+			<th>가입일</th>
+			<th>등급</th>
 		</tr>
 		<!-- 	반복의 시작 -->
 		<c:forEach var="member" items="${list }">
 			<tr>
 				<td>${member.id }</td>
 				<td><a href="view.do?id=${member.id }">${member.name }</a></td>
+				<td>${member.tel }</td>
+				<td>${member.wdate }</td>
 				<td>${member.grade }</td>
 			</tr>
 		</c:forEach>
