@@ -10,6 +10,7 @@
 	<!-- controller -->
 
 	<bean class="com.hotel.common.controller.IndexController">
+	
 	</bean>
 
 </beans>

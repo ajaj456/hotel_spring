@@ -2,6 +2,7 @@ package com.hotel.booked.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import com.hotel.booked.model.Booked;
 import com.hotel.room.model.Room;
 
 public class BookedDao {
@@ -16,36 +17,35 @@ public class BookedDao {
 	public Object list() {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.lsit()");
-	
-		return null;
+		return sqlSessionTemplate.selectList("dao.Booked.list");
 	}
 
 	// 예약보기
 	public Object view(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.view()");
-		return null;
+		return sqlSessionTemplate.selectOne("dao.Booked.view", obj);
 	}
 	
 	// 예약하기
-	public Object write(Room obj) {
+	public Object write(Booked booked) {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.write()");
-		return null;
+		return sqlSessionTemplate.insert("dao.Booked.write",booked);
 	}
 	
 	// 예약변경
-	public void update(Room obj) {
+	public Object update(Booked booked) {
 		// TODO Auto-generated method stub
-		System.out.println("Booked.update()");
+		return sqlSessionTemplate.update("dao.Booked.update", booked);
 		
 	}
 	
 	// 예약취소 
-	public void delete(Object obj) {
+	public Object delete(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.delete()");
-		
+		return sqlSessionTemplate.delete("dao.Booked.delete",obj);
 	}
 
 }
