@@ -88,7 +88,7 @@ public class ReplyController {
 	}
 
 	// 글수정 처리 - POST
-	@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/reply/update.do", method = RequestMethod.POST)
 	public String updateProcess(Reply reply, Board board, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("roomController.update-post()");
 		System.out.println(reply);
@@ -97,10 +97,10 @@ public class ReplyController {
 	}
 
 	// 글삭제 처리
-	@RequestMapping("/room/delete.do")
-	public String delete(@RequestParam("no") String roomNo) throws Exception {
+	@RequestMapping("/reply/delete.do")
+	public String delete(@RequestParam("no") String reno) throws Exception {
 		System.out.println("roomController.delete()");
-		replyDeleteProcessService.service(roomNo);
+		replyDeleteProcessService.service(reno);
 		return "redirect:list.do";
 	}
 
