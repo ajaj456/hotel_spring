@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${board }
 	<h2>후기 게시판</h2>
 	<br>
 	<table>
