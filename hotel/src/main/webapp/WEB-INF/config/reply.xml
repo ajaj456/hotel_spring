@@ -25,7 +25,7 @@
 		<property name="replyDao" ref="replyDao"></property>
 
 	</bean>
-	<bean id="replyWriteProcessService" class="com.hotel.reply.service.ReplyWriteService">
+	<bean id="replyWriteProcessService" class="com.hotel.reply.service.ReplyWriteProcessService">
 		<property name="replyDao" ref="replyDao"></property>
 
 	</bean>
