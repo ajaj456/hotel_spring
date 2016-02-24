@@ -7,21 +7,46 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>객실 보기</h2>
+	<h2>리뷰게시판 보기</h2>
 	<br>
 	<table>
-		<tr><th>방 번호</th><td>${room.roomNo }</td></tr>
-		<tr><th>방 이름</th><td>${room.rName}</td></tr>
-		<tr><th>방 정보</th><td><pre>${room.roomInfo}</pre></td></tr>
-		<tr><th>방 크기</th><td>${room.rSize}</td></tr>
-		<tr><th>가격</th><td>${room.price}</td></tr>
-		<tr><th>층수</th><td>${room.floor }</td></tr>
-		<tr><td><img alt="${room.fileName}" src="../upload/room/${room.fileName}"> </td></tr>
-		<tr><td colspan="2">
-		<a href="update.do?no=${room.roomNo }"><button>객실 바꾸기</button></a>
-		<a href="delete.do?no=${room.roomNo }"><button>객실 지우기</button></a>
-		<a href="list.do"><button>객실 리스트로</button></a>
-		</td></tr>
+		<tr>
+			<th>번호</th>
+			<td>${review.no }</td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td>${review.title}</td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><pre>${review.content}</pre></td>
+		</tr>
+		<tr>
+			<th>조회수</th>
+			<td>${review.hit}</td>
+		</tr>
+		<tr>
+			<th>작성일</th>
+			<td>${review.wdate}</td>
+		</tr>
+		<tr>
+			<th>작성자</th>
+			<td>${review.id }</td>
+		</tr>
+		<tr>
+			<th>평가</th>
+			<td>${review.grade }</td>
+		</tr>
+		<tr>
+			<td><img alt="${review.fileName}"
+				src="../upload/review/${review.fileName}"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><a href="update.do?no=${review.no }"><button>글수정</button></a>
+				<a href="delete.do?no=${review.no }"><button>객실 지우기</button></a> <a
+				href="list.do"><button>리뷰게시판 리스트로</button></a></td>
+		</tr>
 	</table>
 </body>
 </html>

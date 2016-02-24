@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,7 @@ import com.hotel.board.model.Board;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.util.DuplicateFile;
 
+@Controller
 public class BoardController {
 	private ServiceInterface boardListService, boardViewService, boardWriteProcessService, boardUpdateProcessService,
 			boardDeleteProcessService;
@@ -43,7 +45,6 @@ public class BoardController {
 			throws Exception {
 		System.out.println("boardController.list()");
 		model.addAttribute("list", boardListService.service(page));
-
 		return "board/list";
 	}
 
@@ -51,8 +52,8 @@ public class BoardController {
 	@RequestMapping("/board/view.do")
 	public String view(@RequestParam("no") String no, Model model) throws Exception {
 		System.out.println("boardController.view()");
-		model.addAttribute("board", boardViewService.service((Integer.parseInt(no))));
-		return "/view";
+		model.addAttribute("review", boardViewService.service((Integer.parseInt(no))));
+		return "board/view";
 	}
 
 	// 글쓰기폼 - GET
@@ -68,7 +69,7 @@ public class BoardController {
 		System.out.println("BoardController.write():post");
 
 		// 서버에 올라갈 실제 폴더 찾기
-		String realPath = request.getServletContext().getRealPath("upload/board");
+		String realPath = request.getServletContext().getRealPath("upload/review");
 		System.out.println(realPath);
 		if (!board.getFile().isEmpty()) {
 			String fileName = board.getFile().getOriginalFilename();
@@ -98,7 +99,7 @@ public class BoardController {
 		System.out.println("boardController.update-post()");
 		System.out.println(board);
 		// 서버에 올라갈 실제 폴더 찾기
-		String realPath = request.getServletContext().getRealPath("upload/board");
+		String realPath = request.getServletContext().getRealPath("upload/review");
 		System.out.println(realPath);
 		if (!board.getFile().isEmpty()) {
 			String fileName = board.getFile().getOriginalFilename();
