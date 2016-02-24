@@ -2,12 +2,11 @@ package com.hotel.board.service;
 
 import com.hotel.board.dao.BoardDao;
 import com.hotel.common.service.ServiceInterface;
-import com.hotel.room.dao.RoomDao;
 
-public class boardDeleteProcessService implements ServiceInterface{
+public class BoardDeleteProcessService implements ServiceInterface{
 	private BoardDao boardDao;
 
-	public void setRoomDao(RoomDao roomDao) {
+	public void setBoardDao(BoardDao boardDao) {
 		this.boardDao= boardDao;
 	}
 

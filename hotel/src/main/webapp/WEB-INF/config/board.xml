@@ -11,7 +11,6 @@
 		<property name="boardListService" ref="boardListService" />
 		<property name="boardViewService" ref="boardViewService" />
 		<property name="boardWriteProcessService" ref="boardWriteProcessService" />
-		<property name="boardUpdateService" ref="boardUpdateService" />
 		<property name="boardUpdateProcessService" ref="boardUpdateProcessService" />
 		<property name="boardDeleteProcessService" ref="boardDeleteProcessService" />
 	</bean>
@@ -25,29 +24,21 @@
 	<bean id="boardViewService" class="com.hotel.board.service.BoardViewService">
 		<property name="boardDao" ref="boardDao"></property>
 	</bean>
-	
-	<bean id="boardWriteProcessService"
-		class="com.hotel.board.service.BoardWriteProcessService">
-		<property name="boardDao" ref="boardDao"></property>
-	</bean>
-	
-	<bean id="boardUpdateService"
-		class="com.hotel.board.service.BoardUpdateService">
+
+	<bean id="boardWriteProcessService" class="com.hotel.board.service.BoardWriteProcess">
 		<property name="boardDao" ref="boardDao"></property>
 	</bean>
 
-	<bean id="boardUpdateProcessService"
-		class="com.hotel.board.service.BoardUpdateProcessService">
-		<property name="boardDao" ref="boardDao"></property>
-	</bean>
-	
-	<bean id="roomDeleteProcessService"
-		class="com.hotel.board.service.BoardDeleteProcessService">
+	<bean id="boardUpdateProcessService" class="com.hotel.board.service.BoardUpdateProcessService">
 		<property name="boardDao" ref="boardDao"></property>
 	</bean>
 
-<!-- Dao -->
-	<bean id="boardDao" class="com.hotel.board.dao.RoomDao">
+	<bean id="boardDeleteProcessService" class="com.hotel.board.service.BoardDeleteProcessService">
+		<property name="boardDao" ref="boardDao"></property>
+	</bean>
+
+	<!-- Dao -->
+	<bean id="boardDao" class="com.hotel.board.dao.BoardDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
 
