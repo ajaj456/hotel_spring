@@ -47,14 +47,16 @@
 	</update>
 
 	<!-- 아이디찾기 -->
-	<select id="findId">
-		select id from member where name=#{name} and
+	<select id="findId" resultType="com.hotel.member.model.Member">
+		select id from member where
+		name=#{name} and
 		email=#{email}
 	</select>
 
 	<!-- 비밀번호찾기 -->
-	<select id="findPw">
-		select pw from member where id=#{id} and
+	<select id="findPw" resultType="com.hotel.member.model.Member">
+		select pw from member where
+		id=#{id} and
 		birth=#{birth}
 	</select>
 
