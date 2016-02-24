@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${room }
-	<h2>객실 리스트</h2>
+	<h2>예약 리스트</h2>
 	<br>
 	<table>
 		<tr>
