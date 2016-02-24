@@ -11,136 +11,96 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.hotel.board.model.Board;
 import com.hotel.common.service.ServiceInterface;
+import com.hotel.reply.model.Reply;
 import com.hotel.room.model.Room;
 import com.hotel.util.DuplicateFile;
 
 @Controller
 public class ReplyController {
-	private ServiceInterface roomListService, roomViewService, roomUpdateService, roomWriteProcessService,
-			roomUpdateProcessService, roomDeleteProcessService;
+	private ServiceInterface replyListService, replyViewService, replyWriteProcessService, replyUpdateService,
+			replyUpdateProcessService, replyDeleteProcessService;
 
-	public void setRoomUpdateService(ServiceInterface roomUpdateService) {
-		this.roomUpdateService = roomUpdateService;
+	public void setReplyListService(ServiceInterface replyListService) {
+		this.replyListService = replyListService;
 	}
 
-	public void setRoomListService(ServiceInterface roomListService) {
-		this.roomListService = roomListService;
+	public void setReplyViewService(ServiceInterface replyViewService) {
+		this.replyViewService = replyViewService;
 	}
 
-	public void setRoomViewService(ServiceInterface roomViewService) {
-		this.roomViewService = roomViewService;
+	public void setReplyWriteProcessService(ServiceInterface replyWriteProcessService) {
+		this.replyWriteProcessService = replyWriteProcessService;
 	}
 
-	public void setRoomWriteProcessService(ServiceInterface roomWriteProcessService) {
-		this.roomWriteProcessService = roomWriteProcessService;
+	public void setReplyUpdateService(ServiceInterface replyUpdateService) {
+		this.replyUpdateService = replyUpdateService;
 	}
 
-	public void setRoomUpdateProcessService(ServiceInterface roomUpdateProcessService) {
-		this.roomUpdateProcessService = roomUpdateProcessService;
+	public void setReplyUpdateProcessService(ServiceInterface replyUpdateProcessService) {
+		this.replyUpdateProcessService = replyUpdateProcessService;
 	}
 
-	public void setRoomDeleteProcessService(ServiceInterface roomDeleteProcessService) {
-		this.roomDeleteProcessService = roomDeleteProcessService;
+	public void setReplyDeleteProcessService(ServiceInterface replyDeleteProcessService) {
+		this.replyDeleteProcessService = replyDeleteProcessService;
 	}
 
 	// 글리스트
-	@RequestMapping("/room/list.do")
+	@RequestMapping("/reply/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
-		System.out.println("roomController.list()");
-		model.addAttribute("list", roomListService.service(page));
+		System.out.println("replyController.list()");
+		model.addAttribute("list", replyListService.service(page));
 
-		return "room/list";
+		return "reply/list";
 	}
 
 	// 글보기
-	@RequestMapping("/room/view.do")
-	public String view(@RequestParam("no") String roomNo, Model model) throws Exception {
-		System.out.println("roomController.view()");
-		model.addAttribute("room", roomViewService.service((Integer.parseInt(roomNo))));
-		return "room/view";
+	@RequestMapping("/reply/view.do")
+	public String view(@RequestParam("no") String reno, Model model) throws Exception {
+		System.out.println("replyController.view()");
+		model.addAttribute("reply", replyViewService.service((Integer.parseInt(reno))));
+		return "reply/view";
 	}
 
 	// 글쓰기폼 - GET
-	@RequestMapping(value = "/room/write.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/reply/write.do", method = RequestMethod.GET)
 	public String write() {
-		System.out.println("roomController.write-get()");
-		return "room/write";
+		System.out.println("replyController.write-get()");
+		return "reply/write";
 	}
 
-	// // 글쓰기 처리 - POST
-	// @RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
-	// public String write(Room room) throws Exception {
-	// System.out.println("roomController.write-post()");
-	// roomWriteProcessService.service(room);
-	// return "redirect:list.do";
-	// }
-
-	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
-	@RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
-	public String write(Room room, Model model,
-			HttpServletRequest request) throws Exception {
-		System.out.println("RoomController.write():post");
-
-		// 서버에 올라갈 실제 폴더 찾기
-		String realPath = request.getServletContext().getRealPath("upload/room");
-		System.out.println(realPath);
-		if (!room.getFile().isEmpty()) {
-			String fileName = room.getFile().getOriginalFilename();
-			File file = DuplicateFile.getFile(realPath, room.getFile());
-			room.getFile().transferTo(file); // 파일 이동
-			room.setFileName(file.getName());
-			roomWriteProcessService.service(room);
-
-			return "redirect:list.do";
-		}
-		System.out.println(realPath);
+	// 글쓰기 처리 - POST
+	@RequestMapping(value = "/reply/write.do", method = RequestMethod.POST)
+	public String write(Reply reply) throws Exception {
+		System.out.println("roomController.write-post()");
+		replyWriteProcessService.service(reply);
 		return "redirect:list.do";
-
 	}
 
 	// 글수정 폼 - get
-	@RequestMapping(value = "/room/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "no", required = false) String roomNo, Model model) throws Exception {
-		System.out.println("roomController.update-get()");
-		model.addAttribute("room", roomViewService.service((Integer.parseInt(roomNo))));
-		return "room/update";
+	@RequestMapping(value = "/reply/update.do", method = RequestMethod.GET)
+	public String update(@RequestParam(value = "no", required = false) String reno, Model model) throws Exception {
+		System.out.println("replyController.update-get()");
+		model.addAttribute("reply", replyViewService.service((Integer.parseInt(reno))));
+		return "reply/update";
 	}
 
 	// 글수정 처리 - POST
-		@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
-		public String updateProcess(Room room, Model model,
-				HttpServletRequest request) throws Exception {
-			System.out.println("roomController.update-post()");
-			System.out.println(room);
-			// 서버에 올라갈 실제 폴더 찾기
-			String realPath = request.getServletContext().getRealPath("upload/room");
-			System.out.println(realPath);
-			if (!room.getFile().isEmpty()) {
-				String fileName = room.getFile().getOriginalFilename();
-				File file = DuplicateFile.getFile(realPath, room.getFile());
-				room.getFile().transferTo(file); // 파일 이동
-				room.setFileName(file.getName());
-				roomUpdateProcessService.service(room);
-				
-				return "redirect"
-				+ ":view.do" + "?no=" + room.getRoomNo();
-	
-			}else {
-				System.out.println(realPath);
-				roomUpdateProcessService.service(room);
-				return "redirect"
-				+ ":view.do" + "?no=" + room.getRoomNo();
-			}
+	@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
+	public String updateProcess(Reply reply, Board board, Model model, HttpServletRequest request) throws Exception {
+		System.out.println("roomController.update-post()");
+		System.out.println(reply);
+		replyUpdateProcessService.service(reply);
+		return "redirect" + ":view.do" + "?no=" + board.getNo();
 	}
-			
 
 	// 글삭제 처리
 	@RequestMapping("/room/delete.do")
 	public String delete(@RequestParam("no") String roomNo) throws Exception {
 		System.out.println("roomController.delete()");
-		roomDeleteProcessService.service(roomNo);
+		replyDeleteProcessService.service(roomNo);
 		return "redirect:list.do";
 	}
 
