@@ -174,11 +174,12 @@ public class MemberController {
 			@RequestParam(value = "email", required = false) String email, Model model) throws Exception {
 		member.setName(name);
 		member.setEmail(email);
-		System.out.println(member);
 		member = (Member) memberFindIdProcessService.service(member);
-		model.addAttribute("pw", member.getPw());
-		System.out.println(member);
-		return "member/resultId";
+		if (member != null) {
+			model.addAttribute("id", member.getId());
+			return "member/resultId";
+		} else
+			return "member/failId";
 	}
 
 	// 아이디찾기 결과
@@ -196,11 +197,15 @@ public class MemberController {
 	// 비밀번호찾기 처리 - post
 	@RequestMapping(value = "/member/findPw.do", method = RequestMethod.POST)
 	public String findPw(Member member, @RequestParam(value = "id", required = false) String id,
-			@RequestParam(value = "birth", required = false) String birth) throws Exception {
+			@RequestParam(value = "birth", required = false) String birth, Model model) throws Exception {
 		member.setId(id);
 		member.setBirth(birth);
-		memberFindPwProcessService.service(member);
-		return "member/resultPw";
+		member = (Member) memberFindPwProcessService.service(member);
+		if (member != null) {
+			model.addAttribute("pw", member.getPw());
+			return "member/resultPw";
+		} else
+			return "member/failPw";
 	}
 
 	// 비밀번호찾기 결과
