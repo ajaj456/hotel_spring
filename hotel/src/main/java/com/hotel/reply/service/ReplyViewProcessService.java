@@ -3,7 +3,7 @@ package com.hotel.reply.service;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.reply.dao.ReplyDao;
 
-public class ReplyDeleteProcessService implements ServiceInterface {
+public class ReplyViewProcessService implements ServiceInterface {
 	private ReplyDao replyDao;
 
 	public void setReplyDao(ReplyDao replyDao) {
@@ -13,9 +13,8 @@ public class ReplyDeleteProcessService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("ReplyDaoDeleteService.service()");
-		replyDao.delete(obj);	
+		System.out.println("RoomUpdateProcessService.service()");
+		replyDao.view(obj);
 		return null;
 	}
-
 }

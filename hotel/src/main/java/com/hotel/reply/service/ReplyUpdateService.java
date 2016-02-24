@@ -1,20 +1,20 @@
 package com.hotel.reply.service;
 
 import com.hotel.common.service.ServiceInterface;
-import com.hotel.room.dao.RoomDao;
+import com.hotel.reply.dao.ReplyDao;
 
 public class ReplyUpdateService implements ServiceInterface {
-	private RoomDao roomDao;
+	private ReplyDao replyDao;
 
-	public void setRoomDao(RoomDao roomDao) {
-		this.roomDao = roomDao;
+	public void setReplyDao(ReplyDao replyDao) {
+		this.replyDao = replyDao;
 	}
 
 	@Override
 	public Object service(Object obj){
 		System.out.println("RoomUpdateService.service()");
 		// TODO Auto-generated method stub
-		return roomDao.view(obj); 
+		return replyDao.view(obj); 
 	}
 
 }
