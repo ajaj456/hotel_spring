@@ -15,7 +15,7 @@ public class ReplyUpdateProcessService implements ServiceInterface {
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("RoomUpdateProcessService.service()");
-		replyDao.update((Reply)obj);
+		replyDao.update((Reply) obj);
 		return null;
 	}
 }

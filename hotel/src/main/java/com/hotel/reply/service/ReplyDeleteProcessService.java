@@ -2,6 +2,7 @@ package com.hotel.reply.service;
 
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.reply.dao.ReplyDao;
+import com.hotel.reply.model.Reply;
 
 public class ReplyDeleteProcessService implements ServiceInterface {
 	private ReplyDao replyDao;
@@ -14,7 +15,7 @@ public class ReplyDeleteProcessService implements ServiceInterface {
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("ReplyDaoDeleteService.service()");
-		replyDao.delete(obj);	
+		replyDao.delete((Reply) obj);
 		return null;
 	}
 

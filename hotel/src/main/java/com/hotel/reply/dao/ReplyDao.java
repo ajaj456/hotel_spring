@@ -15,8 +15,8 @@ public class ReplyDao {
 		return sqlSessionTemplate.selectList("dao.Reply.list");
 	}
 
-	public Object view(Object obj) {
-		return sqlSessionTemplate.selectOne("dao.Reply.view", obj);
+	public Object view(Reply reply) {
+		return sqlSessionTemplate.selectOne("dao.Reply.view", reply);
 	}
 
 	public Object write(Reply reply) {
@@ -27,8 +27,8 @@ public class ReplyDao {
 		return sqlSessionTemplate.update("dao.Reply.update", reply);
 	}
 
-	public Object delete(Object obj) {
-		return sqlSessionTemplate.delete("dao.Reply.delete", obj);
+	public Object delete(Reply reply) {
+		return sqlSessionTemplate.delete("dao.Reply.delete", reply);
 	}
 
 }
