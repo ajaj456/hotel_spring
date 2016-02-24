@@ -32,11 +32,12 @@ public class IndexController {
 
 	@RequestMapping("/main/index.do")
 	public String main(HttpSession session, Model model) throws Exception {
-		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("qnaList", qnaListService.service(null));
-		model.addAttribute("boardList", boardListService.service(null));
-		model.addAttribute("roomList", roomListService.service(null));
-		model.addAttribute("bookedList", bookedListService.service(member.getId()));
+		// Member member = (Member) session.getAttribute("login");
+		// model.addAttribute("qnaList", qnaListService.service(null));
+		// model.addAttribute("boardList", boardListService.service(null));
+		// model.addAttribute("roomList", roomListService.service(null));
+		// model.addAttribute("bookedList",
+		// bookedListService.service(member.getId()));
 		return "main/index";
 	}
 }

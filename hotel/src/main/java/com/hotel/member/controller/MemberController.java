@@ -175,7 +175,7 @@ public class MemberController {
 			model.addAttribute("id", member.getId());
 			return "member/resultId";
 		} else
-			return "member/failId";
+			return "member/resultFail";
 	}
 
 	// 아이디찾기 결과
@@ -201,7 +201,7 @@ public class MemberController {
 			model.addAttribute("pw", member.getPw());
 			return "member/resultPw";
 		} else
-			return "member/failPw";
+			return "member/resultFail";
 	}
 
 	// 비밀번호찾기 결과
@@ -236,9 +236,16 @@ public class MemberController {
 
 	// 로그인처리 처리
 	@RequestMapping(value = "/member/login.do", method = RequestMethod.POST)
-	public String login(HttpSession session, Member member) throws Exception {
-		session.setAttribute("login", memberLoginProcessService.service(member));
-		return "redirect:../main/index.do";
+	public String login(HttpSession session, Member member, @RequestParam(value = "id", required = false) String id,
+			@RequestParam(value = "pw", required = false) String pw) throws Exception {
+		member.setId(id);
+		member.setPw(pw);
+		member = (Member) memberLoginProcessService.service(member);
+		if (member != null) {
+			session.setAttribute("login", member);
+			return "redirect:../main/index.do";
+		} else
+			return "member/resultFail";
 	}
 
 	// 로그아웃처리
