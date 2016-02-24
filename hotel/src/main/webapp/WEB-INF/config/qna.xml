@@ -6,17 +6,18 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-	
+
 	<!-- controller -->
 	<bean class="com.hotel.qna.controller.QnaController">
-<!-- 		qna -->
+		<!-- qna -->
 		<property name="qnaListService" ref="qnaListService" />
 		<property name="qnaViewService" ref="qnaViewService" />
 		<property name="qnaWriteProcessService" ref="qnaWriteProcessService" />
 		<property name="qnaUpdateProcessService" ref="qnaUpdateProcessService" />
 		<property name="qnaDeleteProcessService" ref="qnaDeleteProcessService" />
-<!-- 		qna 답변 -->
-		<property name="qnaReplyWriteProcessService" ref="qnaReplyWriteProcessService" />
+
+		<!-- qna 답변 -->
+		<property name="qnaReplyWriteProcess" ref="qnaReplyWriteProcess" />
 	</bean>
 
 	<!-- service -->
@@ -28,28 +29,24 @@
 	<bean id="qnaViewService" class="com.hotel.qna.service.QnaViewService">
 		<property name="qnaDao" ref="qnaDao"></property>
 	</bean>
-	
-	<bean id="qnaWriteProcessService"
-		class="com.hotel.qna.service.QnaWriteProcessService">
-		<property name="qnaDao" ref="qnaDao"></property>
-	</bean>
-	
-	<bean id="qnaUpdateProcessService"
-		class="com.hotel.qna.service.QnaUpdateProcessService">
+
+	<bean id="qnaWriteProcessService" class="com.hotel.qna.service.QnaWriteProcessService">
 		<property name="qnaDao" ref="qnaDao"></property>
 	</bean>
 
-	<bean id="qnaDeleteProcessService"
-		class="com.hotel.qna.service.QnaDeleteProcessService">
-		<property name="qnaDao" ref="qnaDao"></property>
-	</bean>
-	
-	<bean id="qnaReplyWriteProcessService"
-		class="com.hotel.qna.service.QnaReplyWriteProcessService">
+	<bean id="qnaUpdateProcessService" class="com.hotel.qna.service.QnaUpdateProcessService">
 		<property name="qnaDao" ref="qnaDao"></property>
 	</bean>
 
-<!-- Dao -->
+	<bean id="qnaDeleteProcessService" class="com.hotel.qna.service.QnaDeleteProcessService">
+		<property name="qnaDao" ref="qnaDao"></property>
+	</bean>
+
+	<bean id="qnaReplyWriteProcess" class="com.hotel.qna.service.QnaReplyWriteProcess">
+		<property name="qnaDao" ref="qnaDao"></property>
+	</bean>
+
+	<!-- Dao -->
 	<bean id="qnaDao" class="com.hotel.qna.dao.QnaDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
