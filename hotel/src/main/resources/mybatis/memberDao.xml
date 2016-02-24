@@ -67,8 +67,7 @@
 		tel, to_char(wdate,'yyyy-mm-dd') wdate, grade
 		from member
 		order
-		by grade
-		desc, id
+		by grade, id
 	</select>
 
 	<!-- 등급변경 -->
