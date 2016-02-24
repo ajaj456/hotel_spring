@@ -37,8 +37,6 @@
 
 	</bean>
 
-
-
 	<!-- Dao -->
 	<bean id="replyDao" class="com.hotel.reply.dao.ReplyDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
