@@ -16,6 +16,7 @@ import com.hotel.util.DuplicateFile;
 
 @Controller
 public class BoardController {
+	// board
 	private ServiceInterface boardListService, boardViewService, boardWriteProcessService, boardUpdateProcessService,
 			boardDeleteProcessService;
 
@@ -39,12 +40,37 @@ public class BoardController {
 		this.boardDeleteProcessService = boardDeleteProcessService;
 	}
 
+	// reply
+	private ServiceInterface replyListService, replyViewService, replyWriteProcessService, replyUpdateProcessService,
+			replyDeleteProcessService;
+
+	public void setReplyListService(ServiceInterface replyListService) {
+		this.replyListService = replyListService;
+	}
+
+	public void setReplyViewService(ServiceInterface replyViewService) {
+		this.replyViewService = replyViewService;
+	}
+
+	public void setReplyWriteProcessService(ServiceInterface replyWriteProcessService) {
+		this.replyWriteProcessService = replyWriteProcessService;
+	}
+
+	public void setReplyUpdateProcessService(ServiceInterface replyUpdateProcessService) {
+		this.replyUpdateProcessService = replyUpdateProcessService;
+	}
+
+	public void setReplyDeleteProcessService(ServiceInterface replyDeleteProcessService) {
+		this.replyDeleteProcessService = replyDeleteProcessService;
+	}
+
 	// 글리스트
 	@RequestMapping("/board/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("boardController.list()");
 		model.addAttribute("list", boardListService.service(page));
+		
 		return "board/list";
 	}
 
@@ -53,6 +79,7 @@ public class BoardController {
 	public String view(@RequestParam("no") String no, Model model) throws Exception {
 		System.out.println("boardController.view()");
 		model.addAttribute("review", boardViewService.service((Integer.parseInt(no))));
+		model.addAttribute("relist", replyListService.service((Integer.parseInt(no))));
 		return "board/view";
 	}
 

@@ -10,7 +10,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				/WEB-INF/config/booked.xml
+<!-- 				/WEB-INF/config/booked.xml -->
 				/WEB-INF/config/index.xml
 				/WEB-INF/config/main.xml
 				/WEB-INF/config/member.xml

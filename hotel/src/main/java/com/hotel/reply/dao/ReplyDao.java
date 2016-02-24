@@ -11,8 +11,9 @@ public class ReplyDao {
 
 	private SqlSessionTemplate sqlSessionTemplate;
 
-	public Object list() {
-		return sqlSessionTemplate.selectList("dao.Reply.list");
+	public Object list(Object obj ) {
+		System.out.println(obj);
+		return sqlSessionTemplate.selectList("dao.Reply.list", obj);
 	}
 
 	public Object view(Reply reply) {

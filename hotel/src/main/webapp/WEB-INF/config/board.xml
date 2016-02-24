@@ -7,15 +7,23 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<!-- controller -->
+	<!-- board -->
 	<bean class="com.hotel.board.controller.BoardController">
 		<property name="boardListService" ref="boardListService" />
 		<property name="boardViewService" ref="boardViewService" />
 		<property name="boardWriteProcessService" ref="boardWriteProcessService" />
 		<property name="boardUpdateProcessService" ref="boardUpdateProcessService" />
 		<property name="boardDeleteProcessService" ref="boardDeleteProcessService" />
+		<!-- reply -->
+		<property name="replyListService" ref="replyListService" />
+		<property name="replyViewService" ref="replyViewService" />
+		<property name="replyWriteProcessService" ref="replyWriteProcessService" />
+		<property name="replyUpdateProcessService" ref="replyUpdateProcessService" />
+		<property name="replyDeleteProcessService" ref="replyDeleteProcessService" />
 	</bean>
 
 	<!-- service -->
+	<!-- board -->
 	<bean id="boardListService" class="com.hotel.board.service.BoardListService">
 		<property name="boardDao" ref="boardDao"></property>
 
@@ -37,8 +45,37 @@
 		<property name="boardDao" ref="boardDao"></property>
 	</bean>
 
+	<!-- reply -->
+	<bean id="replyListService" class="com.hotel.reply.service.ReplyListService">
+		<property name="replyDao" ref="replyDao"></property>
+
+	</bean>
+	<bean id="replyViewService" class="com.hotel.reply.service.ReplyViewService">
+		<property name="replyDao" ref="replyDao"></property>
+
+	</bean>
+	<bean id="replyWriteProcessService" class="com.hotel.reply.service.ReplyWriteProcessService">
+		<property name="replyDao" ref="replyDao"></property>
+
+	</bean>
+	<bean id="replyUpdateProcessService" class="com.hotel.reply.service.ReplyUpdateProcessService">
+		<property name="replyDao" ref="replyDao"></property>
+
+	</bean>
+	<bean id="replyDeleteProcessService" class="com.hotel.reply.service.ReplyDeleteProcessService">
+		<property name="replyDao" ref="replyDao"></property>
+
+	</bean>
+
+
 	<!-- Dao -->
+	<!-- board -->
 	<bean id="boardDao" class="com.hotel.board.dao.BoardDao">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+	</bean>
+	
+<!-- reply --> 
+	<bean id="replyDao" class="com.hotel.reply.dao.ReplyDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
 

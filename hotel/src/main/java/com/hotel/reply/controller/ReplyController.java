@@ -40,7 +40,7 @@ public class ReplyController {
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("replyController.list()");
-		model.addAttribute("list", replyListService.service(page));
+		model.addAttribute("relist", replyListService.service(page));
 		return "reply/list";
 	}
 
