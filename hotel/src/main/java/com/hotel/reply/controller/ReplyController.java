@@ -16,7 +16,7 @@ import com.hotel.room.model.Room;
 import com.hotel.util.DuplicateFile;
 
 @Controller
-public class RoomController {
+public class ReplyController {
 	private ServiceInterface roomListService, roomViewService, roomUpdateService, roomWriteProcessService,
 			roomUpdateProcessService, roomDeleteProcessService;
 
