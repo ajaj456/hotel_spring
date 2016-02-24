@@ -9,13 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.hotel.board.model.Board;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.reply.model.Reply;
-import com.hotel.room.model.Room;
-import com.hotel.util.DuplicateFile;
 
 @Controller
 public class ReplyController {
@@ -74,7 +71,7 @@ public class ReplyController {
 	// 글쓰기 처리 - POST
 	@RequestMapping(value = "/reply/write.do", method = RequestMethod.POST)
 	public String write(Reply reply) throws Exception {
-		System.out.println("roomController.write-post()");
+		System.out.println("replyController.write-post()");
 		replyWriteProcessService.service(reply);
 		return "redirect:list.do";
 	}
@@ -90,7 +87,7 @@ public class ReplyController {
 	// 글수정 처리 - POST
 	@RequestMapping(value = "/reply/update.do", method = RequestMethod.POST)
 	public String updateProcess(Reply reply, Board board, Model model, HttpServletRequest request) throws Exception {
-		System.out.println("roomController.update-post()");
+		System.out.println("replyController.update-post()");
 		System.out.println(reply);
 		replyUpdateProcessService.service(reply);
 		return "redirect" + ":view.do" + "?no=" + board.getNo();
@@ -99,7 +96,7 @@ public class ReplyController {
 	// 글삭제 처리
 	@RequestMapping("/reply/delete.do")
 	public String delete(@RequestParam("no") String reno) throws Exception {
-		System.out.println("roomController.delete()");
+		System.out.println("replyController.delete()");
 		replyDeleteProcessService.service(reno);
 		return "redirect:list.do";
 	}
