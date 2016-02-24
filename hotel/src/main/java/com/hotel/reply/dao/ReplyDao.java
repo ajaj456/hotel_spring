@@ -1,8 +1,16 @@
 package com.hotel.reply.dao;
 
+import org.mybatis.spring.SqlSessionTemplate;
+
 import com.hotel.reply.model.Reply;
 
 public class ReplyDao {
+	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+		this.sqlSessionTemplate = sqlSessionTemplate;
+	}
+
+	private SqlSessionTemplate sqlSessionTemplate;
+
 
 	public Object list() {
 		// TODO Auto-generated method stub

@@ -3,7 +3,7 @@ package com.hotel.reply.service;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.reply.dao.ReplyDao;
 
-public class ReplyViewProcessService implements ServiceInterface {
+public class ReplyViewService implements ServiceInterface {
 	private ReplyDao replyDao;
 
 	public void setReplyDao(ReplyDao replyDao) {
