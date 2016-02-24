@@ -13,7 +13,8 @@ private QnaDao qnaDao;
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		System.out.println("QnaViewService.service()");
+		return qnaDao.view(obj);
 	}
 
 

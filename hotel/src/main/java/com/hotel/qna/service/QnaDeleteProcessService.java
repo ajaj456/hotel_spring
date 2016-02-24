@@ -13,6 +13,8 @@ public class QnaDeleteProcessService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println("QnaDeleteService.service()");
+		qnaDao.delete(obj);
 		return null;
 	}
 
