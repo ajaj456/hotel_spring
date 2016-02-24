@@ -7,7 +7,7 @@ import com.hotel.common.service.ServiceInterface;
 public class BoardUpdateProcessService implements ServiceInterface {
 	private BoardDao boardDao;
 
-	public void setRoomDao(BoardDao boardDao) {
+	public void setBoardDao(BoardDao boardDao) {
 		this.boardDao = boardDao;
 	}
 	@Override

@@ -33,6 +33,7 @@
          <list>
             <value>classpath:/mybatis/memberDao.xml</value>
             <value>classpath:/mybatis/roomDao.xml</value>
+             <value>classpath:/mybatis/boardDao.xml</value>
 <!--             <value>classpath:/mybatis/replyDao.xml</value> -->
 <!--             <value>classpath:/mybatis/bookedDao.xml</value> -->
 <!--             <value>classpath:/mybatis/qnaDao.xml</value> -->
