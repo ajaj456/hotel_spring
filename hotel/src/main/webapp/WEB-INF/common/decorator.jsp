@@ -1,6 +1,7 @@
 <%@page import="com.hotel.member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="decorator"
 	uri="http://www.opensymphony.com/sitemesh/decorator"%>
@@ -108,8 +109,8 @@ img {
 
 #menutext {
 	color: white;
-	font-size: 20px;
-	margin-right: 20px;
+	font-size: 18px;
+	margin-right: 18px;
 }
 
 #padding {
@@ -126,22 +127,18 @@ img {
 					height="120px" width="200px"></a>
 			</div>
 			<div id="login">
-				<%
-					// session의 member에 정보가 있으면 회원정보 및 logout 호출
-					if (session.getAttribute("login") != null) {
-				%>
-				<a href="../member/update.do?id=${login.id }" id="text">
-					${login.name } </a> 님 [${login.grade }] 환영합니다. <a
-					href="../member/logout.do" id="text">LOGOUT </a>
-				<%
-					// session의 member에 정보가 없으면 login과 join us 호출
-					} else {
-				%>
-				<a href="../member/login.do" id="text">LOGIN</a> | <a
-					href="../member/join.do" id="text">JOIN US </a><br />
-				<%
-					}
-				%>
+				<c:choose>
+					<c:when test="${login != null}">
+						<a href="../member/update.do?id=${login.id }" id="text">
+							${login.name } </a> 님 [${login.grade }] 환영합니다. <a
+							href="../member/logout.do" id="text">LOGOUT </a>
+					</c:when>
+					<c:otherwise>
+						<a href="../member/login.do" id="text">LOGIN</a> | <a
+							href="../member/join.do" id="text">JOIN US </a>
+						<br />
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<!-- section 안에 메뉴별 각각 폼 호출 -->
@@ -150,14 +147,17 @@ img {
 				<br /> <a href="" id="menutext">호텔소개</a> <a href="../room/list.do"
 					id="menutext">객실소개</a> <a href="" id="menutext">공지사항</a> <a href=""
 					id="menutext">후기게시판</a> <a href="" id="menutext">Qna</a>
-				<%
-					// session의 member에 정보가 있으면 마이페이지 호출
-					if (session.getAttribute("login") != null) {
-				%>
-				<a href="" id="menutext">마이페이지</a>
-				<%
-					}
-				%>
+				<c:choose>
+					<c:when test="${login.grade eq 'master'}">
+						<a href="../member/update.do?id=${login.id }" id="menutext">마이페이지</a>
+						<a href="../member/list.do" id="menutext">회원리스트</a>
+					</c:when>
+					<c:when test="${login != null}">
+						<a href="../member/update.do?id=${login.id }" id="menutext">마이페이지</a>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</header>
