@@ -6,10 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	$(document).ready(function() {
-	});
-</script>
 </head>
 <body>
 	<h2>회원 리스트</h2>
@@ -30,8 +26,9 @@
 				<td>${member.wdate }</td>
 				<td>
 					<form action="grade.do">
-						<input type="hidden" id="id" name="id" class="input" value="${member.id }"> 
-							<select id="grade" name="grade"	class="input">
+						<input type="hidden" id="id" name="id" class="input"
+							value="${member.id }"> <select id="grade" name="grade"
+							class="input">
 							<option
 								<c:if test="${member.grade == 'bronze'}">selected="selected"</c:if>>bronze</option>
 							<option

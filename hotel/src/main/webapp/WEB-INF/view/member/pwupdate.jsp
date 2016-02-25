@@ -10,7 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이 페이지</title>
 <link href="../css/updatePw.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		// submit될 때 빈 데이터 있으면 팝업 표시
