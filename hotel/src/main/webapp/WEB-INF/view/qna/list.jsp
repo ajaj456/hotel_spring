@@ -15,6 +15,7 @@
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
+			<th>아이디</th>
 			<th>날짜</th>
 			<th>조회수</th>
 		</tr>
@@ -22,6 +23,7 @@
 			<tr>
 		<td><a href="view.do?no=${qna.no }">${qna.no }</a></td>
 		<td>${qna.title}</td>
+		<td>${qna.id}</td>
 		<td>${qna.wdate}</td>
 		<td>${qna.hit}</td>
 		<tr>
