@@ -72,4 +72,8 @@ public class MemberDao {
 		return sqlSessionTemplate.selectOne("dao.Member.login", member);
 	}
 
+	// 아이디중복체크
+	public Object joinCheckId(Object obj) {
+		return sqlSessionTemplate.selectOne("dao.Member.joinCheckId", obj);
+	}
 }

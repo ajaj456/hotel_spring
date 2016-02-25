@@ -3,9 +3,24 @@
 <html>
 <title></title>
 <head>
+<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		alert("a");
+		// 중복체크 버튼 클릭시
+		$("#btnCheckId").click(function() {
+			var id = $("id").val();
+			if (id != "") {
+				$("#checkIdResult").load("idCheck.do?id=" + id);
+			} else {
+				alert("아이디를 입력하셔야 합니다.");
+			}
+		});
+
+		// 아이디 입력란에 키인하면 중복체크하라는 메세지 표시
+		$("id").keydown(function() {
+			$("#checkIdResult").text("아이디 중복체크를 하셔야 합니다.")
+		});
 		// submit될 때 빈 데이터 있으면 팝업 표시
 		$("#loginform").submit(function() {
 			if ($("#id").val() == "") {
@@ -90,11 +105,13 @@
 			<fieldset>
 				<ul>
 					<li><label for="id">id</label> <input type="text" name="id"
-						id="id" maxlength="15" class="input" /></li>
+						id="id" maxlength="15" class="input" />
+						<button type="button" id="btnCheckId">중복체크</button> <span
+						id="checkIdResult">아이디 중복체크를 하셔야 합니다.</span></li>
 					<li><label for="pw">pw</label> <input type="password" id="pw"
-						name="pw" class="input" /></li>
+						name="pw" class="input" /><span></span></li>
 					<li><label for="name">이름</label> <input type="text" id="name"
-						name="name" size="10" maxlength="6" class="input" /></li>
+						name="name" size="10" maxlength="6" class="input" /><span></span></li>
 					<li><label>생년월일</label> <input type="date" id="birth"
 						name="birth" class="input" /></li>
 					<li><label>email</label> <input type="email" id="email"

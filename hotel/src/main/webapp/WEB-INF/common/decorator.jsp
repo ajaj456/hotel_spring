@@ -14,10 +14,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>hotel <decorator:title />
 </title>
-<script type="text/javascript" src="/js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript">
-	
-</script>
 <style type="text/css">
 header {
 	height: 86px;
@@ -145,8 +141,9 @@ img {
 		<div id="menu">
 			<div id="menu2">
 				<br /> <a href="" id="menutext">호텔소개</a> <a href="../room/list.do"
-					id="menutext">객실소개</a> <a href="" id="menutext">공지사항</a> <a href="../board/list.do"
-					id="menutext">후기게시판</a> <a href="" id="menutext">Qna</a>
+					id="menutext">객실소개</a> <a href="" id="menutext">공지사항</a> <a
+					href="../board/list.do" id="menutext">후기게시판</a> <a href=""
+					id="menutext">Qna</a>
 				<c:choose>
 					<c:when test="${login.grade eq 'master'}">
 						<a href="../member/update.do?id=${login.id }" id="menutext">마이페이지</a>

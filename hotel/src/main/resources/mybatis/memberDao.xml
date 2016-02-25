@@ -67,7 +67,8 @@
 		tel, to_char(wdate,'yyyy-mm-dd') wdate, grade
 		from member
 		order
-		by grade, id
+		by grade,
+		id
 	</select>
 
 	<!-- 등급변경 -->
@@ -82,6 +83,13 @@
 		member
 		where id=#{id}
 		and pw=#{pw}
+	</select>
+
+	<!-- 아이디 중복체크 -->
+	<select id="joinCheckId" resultType="String">
+		select id from member
+		where
+		id=#{id}
 	</select>
 
 </mapper>
