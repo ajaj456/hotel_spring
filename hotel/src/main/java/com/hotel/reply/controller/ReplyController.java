@@ -12,15 +12,11 @@ import com.hotel.reply.model.Reply;
 
 @Controller
 public class ReplyController {
-	private ServiceInterface replyListService, replyViewService, replyWriteProcessService, replyUpdateProcessService,
+	private ServiceInterface replyListService, replyWriteProcessService, replyUpdateProcessService,
 			replyDeleteProcessService;
 
 	public void setReplyListService(ServiceInterface replyListService) {
 		this.replyListService = replyListService;
-	}
-
-	public void setReplyViewService(ServiceInterface replyViewService) {
-		this.replyViewService = replyViewService;
 	}
 
 	public void setReplyWriteProcessService(ServiceInterface replyWriteProcessService) {
@@ -37,19 +33,11 @@ public class ReplyController {
 
 	// 글리스트
 	@RequestMapping("/board/view.do")
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String list(@RequestParam(value = "no", required = false) int no, Model model)
 			throws Exception {
 		System.out.println("replyController.list()");
-		model.addAttribute("relist", replyListService.service(page));
+		model.addAttribute("relist", replyListService.service(no));
 		return "reply/list";
-	}
-
-	// 글보기
-	@RequestMapping("/reply/view.do")
-	public String view(@RequestParam("no") String reno, Model model) throws Exception {
-		System.out.println("replyController.view()");
-		model.addAttribute("reply", replyViewService.service((Integer.parseInt(reno))));
-		return "reply/view";
 	}
 
 	// 글쓰기폼 - GET
@@ -67,29 +55,22 @@ public class ReplyController {
 		return "redirect:list.do";
 	}
 
-	// 글수정 폼 - get
-	@RequestMapping(value = "/reply/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "no", required = false) String reno, Model model) throws Exception {
-		System.out.println("replyController.update-get()");
-		model.addAttribute("reply", replyViewService.service((Integer.parseInt(reno))));
-		return "reply/update";
-	}
-
 	// 글수정 처리 - POST
-	@RequestMapping(value = "/reply/update.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/reply/update.do")
 	public String updateProcess(Reply reply, Board board, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("replyController.update-post()");
 		System.out.println(reply);
 		replyUpdateProcessService.service(reply);
-		return "redirect" + ":view.do" + "?no=" + board.getNo();
+		return "/board/view.do" + "?no=" + board.getNo();
 	}
 
 	// 글삭제 처리
 	@RequestMapping("/reply/delete.do")
-	public String delete(@RequestParam("no") String reno) throws Exception {
+	public String delete(Reply reply ) throws Exception {
 		System.out.println("replyController.delete()");
-		replyDeleteProcessService.service(reno);
-		return "redirect:list.do";
+		System.out.println(reply);
+		replyDeleteProcessService.service(reply.getReno());
+		return "/board/view.do" + "?no=" + reply.getNo();
 	}
 
 }

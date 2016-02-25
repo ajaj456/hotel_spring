@@ -16,7 +16,6 @@
 		<property name="boardDeleteProcessService" ref="boardDeleteProcessService" />
 		<!-- reply -->
 		<property name="replyListService" ref="replyListService" />
-		<property name="replyViewService" ref="replyViewService" />
 		<property name="replyWriteProcessService" ref="replyWriteProcessService" />
 		<property name="replyUpdateProcessService" ref="replyUpdateProcessService" />
 		<property name="replyDeleteProcessService" ref="replyDeleteProcessService" />
@@ -47,10 +46,6 @@
 
 	<!-- reply -->
 	<bean id="replyListService" class="com.hotel.reply.service.ReplyListService">
-		<property name="replyDao" ref="replyDao"></property>
-
-	</bean>
-	<bean id="replyViewService" class="com.hotel.reply.service.ReplyViewService">
 		<property name="replyDao" ref="replyDao"></property>
 
 	</bean>
