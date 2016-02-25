@@ -8,7 +8,8 @@
 
 	<!-- 댓글 리스트 -->
 	<select id="list" resultType="com.hotel.reply.model.Reply">
-		select no,content, to_char(wdate,'yyyy-mm-dd')wdate,id,reno from reply
+		select no,content,
+		to_char(wdate,'yyyy-mm-dd')wdate,id,reno from reply
 		where no=#{no}
 		order by reno desc
 	</select>
