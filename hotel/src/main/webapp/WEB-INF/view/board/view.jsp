@@ -87,18 +87,19 @@
 				<td>${relist.content }</td>
 				<td>${relist.wdate }</td>
 				<td>${relist.id }</td>
-				<td class="replybtn"><button>수정</button></td>
-				<td class="replyUpCancel"><button>수정취소</button></td>
-				<td class="replyUp"><form action="replyUpdate.do" method="post">
-						<input type="hidden" value="${relist.reno }" name="reno">
-						<input type="hidden" value="${review.no }" name="no">
-						<textarea rows="1" cols="50" name="content">${relist.content }</textarea>
-						<button>완료</button>
-					</form></td>
-
-
-				<td class="replyDelete"><a
-					href="replyDelete.do?reno=${relist.reno }&no=${review.no}"><button>삭제</button></a></td>
+				<c:if test="${login.id eq relist.id}">
+					<td class="replybtn"><button>수정</button></td>
+					<td class="replyUpCancel"><button>수정취소</button></td>
+					<td class="replyUp"><form action="replyUpdate.do"
+							method="post">
+							<input type="hidden" value="${relist.reno }" name="reno">
+							<input type="hidden" value="${review.no }" name="no">
+							<textarea rows="1" cols="50" name="content">${relist.content }</textarea>
+							<button>완료</button>
+						</form></td>
+					<td class="replyDelete"><a
+						href="replyDelete.do?reno=${relist.reno }&no=${review.no}"><button>삭제</button></a></td>
+				</c:if>
 			<tr>
 		</c:forEach>
 		<%-- 		<a href="replyUpdate.do?reno=${relist.reno }&no=${review.no}"></a> --%>
