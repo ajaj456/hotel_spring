@@ -6,9 +6,9 @@
 <script type="text/javascript" src="../js/util.js" ></script>
 <script type="text/javascript" src="../js/board/write.js" ></script>
 <h2>Q &amp; A 답변달기</h2>
-<form action="replyWriteProcess.do" method="post" id="boardWriteForm">
-<table id="listTable">
-<tbody id="boardWriteBody">
+<form action="replyWriteProcess.do" method="post" id="replyWrite">
+<table>
+<tbody>
 <tr>
 	<th>질문제목</th>
 	<td class="data">
@@ -31,9 +31,7 @@
 
 
 [질문] --------------------------------------------------
-${qna
-
-.content }
+${qna.content }
 </textarea>
 	</td>
 </tr>
