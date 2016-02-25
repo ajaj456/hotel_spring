@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotel.board.model.Board;
 import com.hotel.common.service.ServiceInterface;
+import com.hotel.reply.model.Reply;
 import com.hotel.util.DuplicateFile;
 
 @Controller
@@ -70,7 +71,7 @@ public class BoardController {
 			throws Exception {
 		System.out.println("boardController.list()");
 		model.addAttribute("list", boardListService.service(page));
-		
+
 		return "board/list";
 	}
 
@@ -150,5 +151,30 @@ public class BoardController {
 		System.out.println("Controller.delete()");
 		boardDeleteProcessService.service(no);
 		return "redirect:list.do";
+	}
+
+	// 댓글달기
+	@RequestMapping(value = "/board/replyWrite.do", method = RequestMethod.POST)
+	public String replyWrite(Reply reply) throws Exception {
+		System.out.println(reply);
+		replyWriteProcessService.service(reply);
+		return "redirect" + ":view.do" + "?no=" + reply.getNo();
+	}
+
+	// 댓글 수정
+	@RequestMapping(value = "/board/replyUpdate.do", method = RequestMethod.POST)
+	public String replyUpdate(Reply reply) throws Exception {
+		System.out.println(reply);
+		replyUpdateProcessService.service(reply);
+		return "redirect" + ":view.do" + "?no=" + reply.getNo();
+	}
+
+	// 댓글 삭제
+	@RequestMapping(value = "/board/replyDelete.do")
+	public String replyDelete(Reply reply) throws Exception {
+		System.out.println(reply);
+		int no = reply.getNo();
+		replyDeleteProcessService.service(reply);
+		return "redirect" + ":view.do" + "?no=" + no;
 	}
 }
