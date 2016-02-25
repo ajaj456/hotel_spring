@@ -17,10 +17,8 @@
 				/WEB-INF/config/room.xml
 				/WEB-INF/config/board.xml
 				/WEB-INF/config/qna.xml
-				
 <!-- 				/WEB-INF/config/notice.xml -->
 <!-- 				/WEB-INF/config/reply.xml -->
-				/WEB-INF/config/qna.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
