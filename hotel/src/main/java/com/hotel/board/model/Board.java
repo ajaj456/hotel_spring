@@ -3,7 +3,7 @@ package com.hotel.board.model;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Board {
-	private int no, hit, bno, grade;
+	private int no, hit, bno, grade, cnt;
 	private String title, content, wdate, fileName, id;
 	private MultipartFile file;
 
@@ -85,6 +85,14 @@ public class Board {
 
 	public void setFile(MultipartFile file) {
 		this.file = file;
+	}
+
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 
 	@Override

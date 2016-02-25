@@ -43,7 +43,7 @@ public class BoardController {
 
 	// reply
 	private ServiceInterface replyListService, replyViewService, replyWriteProcessService, replyUpdateProcessService,
-			replyDeleteProcessService;
+			replyDeleteProcessService, replyCountService;
 
 	public void setReplyListService(ServiceInterface replyListService) {
 		this.replyListService = replyListService;
@@ -65,13 +65,16 @@ public class BoardController {
 		this.replyDeleteProcessService = replyDeleteProcessService;
 	}
 
+	public void setReplyCountService(ServiceInterface replyCountService) {
+		this.replyCountService = replyCountService;
+	}
+
 	// 글리스트
 	@RequestMapping("/board/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("boardController.list()");
 		model.addAttribute("list", boardListService.service(page));
-
 		return "board/list";
 	}
 
@@ -177,4 +180,5 @@ public class BoardController {
 		replyDeleteProcessService.service(reply);
 		return "redirect" + ":view.do" + "?no=" + no;
 	}
+
 }

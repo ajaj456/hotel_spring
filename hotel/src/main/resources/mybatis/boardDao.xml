@@ -8,18 +8,31 @@
 
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.board.model.Board">
-		select * from review order by no
+		select NO, TITLE, CONTENT, HIT,
+		to_char(WDATE,'yyyy-mm-dd')WDATE,
+		FILENAME,
+		ID,
+		( select count(reno)
+		from
+		reply a, review b
+		where a.no = b.no
+		)
+		cnt
+		from review
+		order by no
 	</select>
 
 	<!-- 게시판 글보기 -->
 	<select id="view" resultType="com.hotel.board.model.Board">
-		select NO,TITLE,CONTENT,HIT,to_char(WDATE,'yyyy-mm-dd')WDATE,FILENAME,GRADE,ID,BNO from review where no=#{no}
+		select
+		NO,TITLE,CONTENT,HIT,to_char(WDATE,'yyyy-mm-dd')WDATE,FILENAME,GRADE,ID,BNO
+		from review where no=#{no}
 	</select>
 
 	<!-- 게시판 글쓰기 -->
 	<insert id="write">
 		insert into review(no, title, content, fileName,
-		grade,	id, bno)
+		grade, id, bno)
 		values(REVIEW_SEQ.nextval,#{title},#{content},#{fileName},#{grade},#{id},#{bno})
 	</insert>
 

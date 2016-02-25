@@ -59,7 +59,6 @@
 	</bean>
 	<bean id="replyDeleteProcessService" class="com.hotel.reply.service.ReplyDeleteProcessService">
 		<property name="replyDao" ref="replyDao"></property>
-
 	</bean>
 
 
@@ -68,8 +67,8 @@
 	<bean id="boardDao" class="com.hotel.board.dao.BoardDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
-	
-<!-- reply --> 
+
+	<!-- reply -->
 	<bean id="replyDao" class="com.hotel.reply.dao.ReplyDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
