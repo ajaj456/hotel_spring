@@ -22,13 +22,13 @@
 
 		// submit될 때 빈 데이터 있으면 팝업 표시
 		$("#loginform").submit(function() {
-			if ($("#checkIdResult").text("중복된 아이디입니다.")) {
-				alert("아이디를 변경해주세요.")
+			if ($("#checkIdResult").text() == "아이디 중복체크를 하셔야 합니다.") {
+				alert("아이디 중복체크를 하셔야 합니다.")
 				return false;
 			}
 			;
-			if ($("#checkIdResult").text("아이디 중복체크를 하셔야 합니다.")) {
-				alert("아이디 중복체크를 하셔야 합니다.")
+			if ($("#checkIdResult").text() == "중복된 아이디입니다.") {
+				alert("아이디를 변경해주세요.")
 				return false;
 			}
 			;
