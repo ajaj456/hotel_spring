@@ -1,5 +1,8 @@
 package com.hotel.member.controller;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -17,7 +20,7 @@ public class MemberController {
 	private ServiceInterface memberJoinProcessService, memberDeleteProcessService, memberUpdateService,
 			memberUpdateProcessService, memberPwUpdateProcessService, memberConfirmProcessService,
 			memberFindIdProcessService, memberFindPwProcessService, memberListService, memberGradeUpdateProcessService,
-			memberLoginProcessService, memberViewService;
+			memberLoginProcessService, memberViewService, memberJoinIdCheckService;
 
 	public void setMemberJoinProcessService(ServiceInterface memberJoinProcessService) {
 		this.memberJoinProcessService = memberJoinProcessService;
@@ -65,6 +68,10 @@ public class MemberController {
 
 	public void setMemberConfirmProcessService(ServiceInterface memberConfirmProcessService) {
 		this.memberConfirmProcessService = memberConfirmProcessService;
+	}
+
+	public void setMemberJoinIdCheckService(ServiceInterface memberJoinIdCheckService) {
+		this.memberJoinIdCheckService = memberJoinIdCheckService;
 	}
 
 	// 회원가입 폼 - get
@@ -252,4 +259,14 @@ public class MemberController {
 		return "redirect:../main/index.do";
 	}
 
+	// 아이디중복체크
+	@RequestMapping("/member/idCheck.do")
+	public void idCheck(String id, HttpServletResponse response) throws Exception {
+		String result = "<span style='color:blue'>사용가능한 아이디입니다.</span>";
+		if (memberJoinIdCheckService.service(id) != null)
+			result = "<span style='color:red'>중복된 아이디입니다.</span>";
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(result);
+	}
 }

@@ -32,6 +32,8 @@
 		<property name="memberGradeUpdateProcessService" ref="memberGradeUpdateProcessService" />
 		<!-- 로그인, 로그아웃 처리 -->
 		<property name="memberLoginProcessService" ref="memberLoginProcessService" />
+		<!-- 아이디중복체크 -->
+		<property name="memberJoinIdCheckService" ref="memberJoinIdCheckService" />
 	</bean>
 
 	<!-- service -->
@@ -70,6 +72,9 @@
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 	<bean id="memberLoginProcessService" class="com.hotel.member.service.MemberLoginProcessService">
+		<property name="memberDao" ref="memberDao" />
+	</bean>
+	<bean id="memberJoinIdCheckService" class="com.hotel.member.service.MemberJoinIdCheckService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 
