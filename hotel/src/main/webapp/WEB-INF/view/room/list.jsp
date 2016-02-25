@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${room }
 	<h2>객실 리스트</h2>
 	<br>
 	<table>
@@ -16,7 +15,7 @@
 			<th>객실 번호</th>
 			<th>객실 이름</th>
 			<th>객실 정보</th>
-			<th>객실 사이즈</th>
+			<th>수용 인원</th>
 			<th>객실 가격</th>
 			<th>객실 층수</th>
 		</tr>
@@ -25,14 +24,16 @@
 		<td><a href="view.do?no=${room.roomNo }">${room.roomNo }</a></td>
 		<td>${room.rName}</td>
 		<td><pre>${room.roomInfo}</pre></td>
-		<td>${room.rSize}</td>
+		<td>${room.rSize}명</td>
 		<td>${room.price}</td>
 		<td>${room.floor }</td>
 		<tr>
 		</c:forEach>
+		<c:if test="${login.grade eq 'master'}">
 		<tr>
 			<td><a href="write.do"><button>글쓰기</button></a></td>
 		</tr>
+		</c:if>
 	</table>
 	<br>
 	<br>
