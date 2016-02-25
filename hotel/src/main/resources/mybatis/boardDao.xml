@@ -18,9 +18,9 @@
 
 	<!-- 게시판 글쓰기 -->
 	<insert id="write">
-		insert into review(no, title, content, filename,
+		insert into review(no, title, content, fileName,
 		grade,	id, bno)
-		values(REVIEW_SEQ.nextval,#{title},#{content},#{filename},#{grade},#{id},#{bno})
+		values(REVIEW_SEQ.nextval,#{title},#{content},#{fileName},#{grade},#{id},#{bno})
 	</insert>
 
 	<!-- 게시판 글삭제 -->
