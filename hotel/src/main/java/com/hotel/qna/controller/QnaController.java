@@ -1,7 +1,5 @@
 package com.hotel.qna.controller;
 
-import java.io.File;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -9,12 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.qna.model.Qna;
-import com.hotel.room.model.Room;
-import com.hotel.util.DuplicateFile;
 
 @Controller
 public class QnaController {
@@ -51,7 +46,6 @@ public class QnaController {
 			throws Exception {
 		System.out.println("qnaController.list()");
 		model.addAttribute("list", qnaListService.service(page));
-
 		return "qna/list";
 	}
 
@@ -103,9 +97,9 @@ public class QnaController {
 
 	// 글수정 폼 - get
 	@RequestMapping(value = "/qna/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "no", required = false) String no, Model model) throws Exception {
+	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
 		System.out.println("qnaController.update-get()");
-		model.addAttribute("qna", qnaViewService.service((Integer.parseInt(no))));
+		model.addAttribute("qna", qnaUpdateProcessService.service(no));
 		return "qna/update";
 	}
 
@@ -125,7 +119,7 @@ public class QnaController {
 		// qna.setFileName(file.getName());
 		// qnaUpdateProcessService.service(qna);
 		//
-		return "redirect" + ":view.do" + "?no=";
+		return "redirect:view.do?no="+qna.getNo();
 		//
 		// }else {
 		// System.out.println(realPath);
@@ -137,7 +131,7 @@ public class QnaController {
 
 	// 글삭제 처리
 	@RequestMapping("/qna/delete.do")
-	public String delete(@RequestParam("no") String no) throws Exception {
+	public String delete(@RequestParam("no") int no) throws Exception {
 		System.out.println("qnaController.delete()");
 		qnaDeleteProcessService.service(no);
 		return "redirect:list.do";
