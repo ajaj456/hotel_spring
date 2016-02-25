@@ -5,10 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/findIdPw.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#loginForm").submit(function() {
+		$("#findIdForm").submit(function() {
 			if ($("#name").val() == "") {
 				alert("이름을 입력하셔야 됩니다.");
 				$("#name").focus();

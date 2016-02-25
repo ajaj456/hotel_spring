@@ -8,7 +8,7 @@
 <link href="../css/findIdPw.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#loginForm").submit(function() {
+		$("#findPwForm").submit(function() {
 			if ($("#id").val() == "") {
 				alert("아이디를 입력하셔야 됩니다.");
 				$("#id").focus();

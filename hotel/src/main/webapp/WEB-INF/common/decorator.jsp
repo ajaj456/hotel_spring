@@ -13,6 +13,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#logout").click(function() {
+			alert("로그아웃처리되었습니다.")
+		});
+	});
+</script>
 <title>hotel <decorator:title />
 </title>
 <style type="text/css">
@@ -104,6 +111,11 @@ img {
 	color: white;
 }
 
+#logout {
+	font-size: 12px;
+	color: white;
+}
+
 #menutext {
 	color: white;
 	font-size: 18px;
@@ -128,7 +140,7 @@ img {
 					<c:when test="${login != null}">
 						<a href="../member/update.do?id=${login.id }" id="text">
 							${login.name } </a> 님 [${login.grade }] 환영합니다. <a
-							href="../member/logout.do" id="text">LOGOUT </a>
+							href="../member/logout.do" id="logout">LOGOUT </a>
 					</c:when>
 					<c:otherwise>
 						<a href="../member/login.do" id="text">LOGIN</a> | <a

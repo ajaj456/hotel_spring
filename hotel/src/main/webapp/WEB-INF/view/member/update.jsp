@@ -12,7 +12,6 @@
 <title>마이 페이지</title>
 <script type="text/javascript">
 	$(document).ready(function() {
-		alert("1");
 		// submit될 때 빈 데이터 있으면 팝업 표시
 		$("#loginForm").submit(function() {
 			if ($("#name").val() == "") {
