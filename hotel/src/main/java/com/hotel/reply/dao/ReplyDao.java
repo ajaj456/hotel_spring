@@ -21,6 +21,7 @@ public class ReplyDao {
 	}
 
 	public Object write(Reply reply) {
+		System.out.println(reply);
 		return sqlSessionTemplate.insert("dao.Reply.write", reply);
 	}
 

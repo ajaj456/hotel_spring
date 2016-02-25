@@ -10,7 +10,7 @@
 	<select id="list" resultType="com.hotel.reply.model.Reply">
 		select no,content, to_char(wdate,'yyyy-mm-dd')wdate,id,reno from reply
 		where no=#{no}
-		order by reno
+		order by reno desc
 	</select>
 
 
@@ -23,7 +23,7 @@
 	<!-- 댓글 쓰기 -->
 	<insert id="write">
 		insert into reply(reno, content, id, no)
-		values(REPLY_SEQ.nextval, #{roomNo}, #{id}, #{no})
+		values(REPLY_SEQ.nextval, #{content}, #{id}, #{no})
 	</insert>
 
 	<!-- 댓글 수정 -->
@@ -35,7 +35,7 @@
 
 	<!-- 댓글 삭제 -->
 	<delete id="delete">
-		delete from reply where reno=#{reno} and no=#{no}
+		delete from reply where reno=#{reno}
 	</delete>
 
 </mapper>

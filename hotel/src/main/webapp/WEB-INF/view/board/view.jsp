@@ -6,6 +6,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".replyUp").hide();
+		$(".replyUpCancel").hide();
+		$(".replybtn").click(function() {
+			$(".replyUp").toggle();
+			$(".replyDelete").toggle();
+			$(".replybtn").toggle();
+			$(".replyUpCancel").toggle();
+		});
+		$(".replyUpCancel").click(function() {
+			$(".replyUp").toggle();
+			$(".replyDelete").toggle();
+			$(".replybtn").toggle();
+			$(".replyUpCancel").toggle();
+		});
+	});
+</script>
+<style type="text/css">
+</style>
 </head>
 <body>
 
@@ -38,7 +58,7 @@
 		</tr>
 		<tr>
 			<th>평가</th>
-			<td>${review.grade }</td>
+			<td>${review.grade }점</td>
 		</tr>
 		<tr>
 			<td><img alt="${review.fileName}"
@@ -53,7 +73,13 @@
 	</table>
 	<br>
 	<br>
-		
+
+	<form action="replyWrite.do" method="post">
+		<textarea rows="4" cols="50" name="content"></textarea>
+		<input type="hidden" name="no" value="${review.no}"> <input
+			type="hidden" name="id" value="${login.id}">
+		<button>확인</button>
+	</form>
 	<table>
 		<c:forEach var="relist" items="${relist}">
 			<tr>
@@ -61,9 +87,21 @@
 				<td>${relist.content }</td>
 				<td>${relist.wdate }</td>
 				<td>${relist.id }</td>
+				<td class="replybtn"><button>수정</button></td>
+				<td class="replyUpCancel"><button>수정취소</button></td>
+				<td class="replyUp"><form action="replyUpdate.do" method="post">
+						<input type="hidden" value="${relist.reno }" name="reno">
+						<input type="hidden" value="${review.no }" name="no">
+						<textarea rows="1" cols="50" name="content">${relist.content }</textarea>
+						<button>완료</button>
+					</form></td>
+
+
+				<td class="replyDelete"><a
+					href="replyDelete.do?reno=${relist.reno }&no=${review.no}"><button>삭제</button></a></td>
 			<tr>
 		</c:forEach>
-
+		<%-- 		<a href="replyUpdate.do?reno=${relist.reno }&no=${review.no}"></a> --%>
 	</table>
 </body>
 </html>

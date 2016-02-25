@@ -6,90 +6,90 @@
 
 <mapper namespace="dao.Member">
 
-	<!-- 회원가입 -->
-	<insert id="join">
-		insert into member(id, pw, name, birth, email, tel)
-		values(#{id}, #{pw}, #{name}, #{birth}, #{email}, #{tel})
-	</insert>
+   <!-- 회원가입 -->
+   <insert id="join">
+      insert into member(id, pw, name, birth, email, tel)
+      values(#{id}, #{pw}, #{name}, #{birth}, #{email}, #{tel})
+   </insert>
 
-	<!-- 회원탈퇴 -->
-	<delete id="delete">
-		delete from member where id=#{id}
-	</delete>
+   <!-- 회원탈퇴 -->
+   <delete id="delete">
+      delete from member where id=#{id}
+   </delete>
 
-	<!-- 회원정보보기 -->
-	<select id="view" resultType="com.hotel.member.model.Member">
-		select id, pw, name, birth, email,
-		tel, to_char(wdate,'yyyy-mm-dd') wdate, grade from member
-		where
-		id=#{id}
-	</select>
+   <!-- 회원정보보기 -->
+   <select id="view" resultType="com.hotel.member.model.Member">
+      select id, pw, name, birth, email,
+      tel, to_char(wdate,'yyyy-mm-dd') wdate, grade from member
+      where
+      id=#{id}
+   </select>
 
-	<!-- 회원정보수정 -->
-	<update id="update">
-		update member set name=#{name},birth=#{birth},
-		email=#{email}, tel=#{tel} where id=#{id}
-	</update>
+   <!-- 회원정보수정 -->
+   <update id="update">
+      update member set name=#{name},birth=#{birth},
+      email=#{email}, tel=#{tel} where id=#{id}
+   </update>
 
-	<!-- 회원정보확인처리 -->
-	<select id="confirm" resultType="com.hotel.member.model.Member">
-		select id, pw, name, birth,
-		email,
-		tel, to_char(wdate,'yyyy-mm-dd') wdate, grade from member
-		where
-		id=#{id} and pw=#{pw}
-	</select>
+   <!-- 회원정보확인처리 -->
+   <select id="confirm" resultType="com.hotel.member.model.Member">
+      select id, pw, name, birth,
+      email,
+      tel, to_char(wdate,'yyyy-mm-dd') wdate, grade from member
+      where
+      id=#{id} and pw=#{pw}
+   </select>
 
-	<!-- 비밀번호수정 -->
-	<update id="pwUpdate">
-		update member set pw=#{pw}
-		where id=#{id}
-	</update>
+   <!-- 비밀번호수정 -->
+   <update id="pwUpdate">
+      update member set pw=#{pw}
+      where id=#{id}
+   </update>
 
-	<!-- 아이디찾기 -->
-	<select id="findId" resultType="com.hotel.member.model.Member">
-		select id from member where
-		name=#{name} and
-		email=#{email}
-	</select>
+   <!-- 아이디찾기 -->
+   <select id="findId" resultType="com.hotel.member.model.Member">
+      select id from member where
+      name=#{name} and
+      email=#{email}
+   </select>
 
-	<!-- 비밀번호찾기 -->
-	<select id="findPw" resultType="com.hotel.member.model.Member">
-		select pw from member where
-		id=#{id} and
-		birth=#{birth}
-	</select>
+   <!-- 비밀번호찾기 -->
+   <select id="findPw" resultType="com.hotel.member.model.Member">
+      select pw from member where
+      id=#{id} and
+      birth=#{birth}
+   </select>
 
-	<!-- 회원리스트 -->
-	<select id="list" resultType="com.hotel.member.model.Member">
-		select
-		id, pw, name, birth, email,
-		tel, to_char(wdate,'yyyy-mm-dd') wdate, grade
-		from member
-		order
-		by grade,
-		id
-	</select>
+   <!-- 회원리스트 -->
+   <select id="list" resultType="com.hotel.member.model.Member">
+      select
+      id, pw, name, birth, email,
+      tel, to_char(wdate,'yyyy-mm-dd') wdate, grade
+      from member
+      order
+      by grade,
+      id
+   </select>
 
-	<!-- 등급변경 -->
-	<update id="gradeUpdate">
-		update member set grade=#{grade}
-		where id=#{id}
-	</update>
+   <!-- 등급변경 -->
+   <update id="gradeUpdate">
+      update member set grade=#{grade}
+      where id=#{id}
+   </update>
 
-	<!-- 로그인 -->
-	<select id="login" resultType="com.hotel.member.model.Member">
-		select id, name, grade from
-		member
-		where id=#{id}
-		and pw=#{pw}
-	</select>
+   <!-- 로그인 -->
+   <select id="login" resultType="com.hotel.member.model.Member">
+      select id, name, grade from
+      member
+      where id=#{id}
+      and pw=#{pw}
+   </select>
 
-	<!-- 아이디 중복체크 -->
-	<select id="joinCheckId" resultType="String">
-		select id from member
-		where
-		id=#{id}
-	</select>
+   <!-- 아이디 중복체크 -->
+   <select id="joinCheckId" resultType="String">
+      select id from member
+      where
+      id=#{id}
+   </select>
 
 </mapper>
