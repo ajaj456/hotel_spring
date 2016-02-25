@@ -19,8 +19,7 @@
 	<!-- 게시판 글쓰기 -->
 	<insert id="write">
 		insert into review(no, title, content, filename,
-		grade,
-		id, bno)
+		grade,	id, bno)
 		values(REVIEW_SEQ.nextval,#{title},#{content},#{filename},#{grade},#{id},#{bno})
 	</insert>
 
