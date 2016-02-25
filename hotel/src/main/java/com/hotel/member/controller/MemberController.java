@@ -220,10 +220,7 @@ public class MemberController {
 
 	// 회원등급변경 처리 - post
 	@RequestMapping(value = "/member/grade.do")
-	public String grade(Member member, @RequestParam(value = "id", required = false) String id,
-			@RequestParam(value = "grade", required = false) String grade) throws Exception {
-		member.setId(id);
-		member.setGrade(grade);
+	public String grade(Member member) throws Exception {
 		memberGradeUpdateProcessService.service(member);
 		return "redirect:list.do";
 	}
