@@ -25,7 +25,7 @@ public class BoardDao {
 	// 글쓰기
 	public Object write(Board board) {
 		System.out.println("BoardDao.write()");
-		return sqlSessionTemplate.insert("dao.Board.write",board);
+		return sqlSessionTemplate.insert("dao.Board.write", board);
 	}
 
 	// 글수정처리

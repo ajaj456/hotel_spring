@@ -11,80 +11,80 @@ public class Board {
 		return no;
 	}
 
-	public int getHit() {
-		return hit;
-	}
-
-	public int getBno() {
-		return bno;
-	}
-
-	public int getGrade() {
-		return grade;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public String getWdate() {
-		return wdate;
-	}
-
-	public String getFileName() {
-		return fileName;
-	}
-
 	public void setNo(int no) {
 		this.no = no;
+	}
+
+	public int getHit() {
+		return hit;
 	}
 
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
 
+	public int getBno() {
+		return bno;
+	}
+
 	public void setBno(int bno) {
 		this.bno = bno;
+	}
+
+	public int getGrade() {
+		return grade;
 	}
 
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getContent() {
+		return content;
 	}
 
 	public void setContent(String content) {
 		this.content = content;
 	}
 
+	public String getWdate() {
+		return wdate;
+	}
+
 	public void setWdate(String wdate) {
 		this.wdate = wdate;
+	}
+
+	public String getFileName() {
+		return fileName;
 	}
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}
-
 	public String getId() {
 		return id;
 	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public MultipartFile getFile() {
 		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 
 	@Override
