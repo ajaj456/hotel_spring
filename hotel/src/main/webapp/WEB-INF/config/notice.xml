@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- controller -->
+	<!-- notice -->
+	<bean class="com.hotel.notice.controller.NoticeController">
+		<property name="noticeListService" ref="noticeListService" />
+		<property name="noticeViewService" ref="noticeViewService" />
+		<property name="noticeWriteProcessService" ref="noticeWriteProcessService" />
+		<property name="noticeUpdateProcessService" ref="noticeUpdateProcessService" />
+		<property name="noticeDeleteProcessService" ref="noticeDeleteProcessService" />
+	</bean>
+
+	<!-- service -->
+	<!-- notice -->
+	<bean id="noticeListService" class="com.hotel.notice.service.NoticeListService">
+		<property name="noticeDao" ref="noticeDao"></property>
+
+	</bean>
+
+	<bean id="noticeViewService" class="com.hotel.notice.service.NoticeViewService">
+		<property name="noticeDao" ref="noticeDao"></property>
+	</bean>
+
+	<bean id="noticeWriteProcessService" class="com.hotel.notice.service.NoticeWriteProcess">
+		<property name="noticeDao" ref="noticeDao"></property>
+	</bean>
+
+	<bean id="noticeUpdateProcessService" class="com.hotel.notice.service.NoticeUpdateProcessService">
+		<property name="noticeDao" ref="noticeDao"></property>
+	</bean>
+
+	<bean id="noticeDeleteProcessService" class="com.hotel.notice.service.NoticeDeleteProcessService">
+		<property name="noticeDao" ref="noticeDao"></property>
+	</bean>
+
+	<!-- Dao -->
+	<!-- notice -->
+	<bean id="noticeDao" class="com.hotel.notice.dao.NoticeDao">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+	</bean>
+</beans>
