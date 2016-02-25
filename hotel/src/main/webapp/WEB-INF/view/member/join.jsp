@@ -88,6 +88,7 @@
 				return false;
 			}
 			;
+			alert("회원가입 되었습니다.");
 		});
 
 		// tel2가 4개가 되면 tel3으로 자동이동
@@ -101,6 +102,7 @@
 			if ($(this).val().length >= 4)
 				$("#join").focus();
 		});
+
 	});
 </script>
 </head>
