@@ -10,12 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>아이디 확인 결과</title>
 <link href="../css/resultIdPw.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript">
-	//    $(document).ready(function(){
-
-	//    });
-</script>
 </head>
 <body>
 	<br />

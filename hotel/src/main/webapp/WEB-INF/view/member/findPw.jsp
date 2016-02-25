@@ -6,8 +6,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/findIdPw.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#loginForm").submit(function() {
+			if ($("#id").val() == "") {
+				alert("아이디를 입력하셔야 됩니다.");
+				$("#id").focus();
+				return false;
+			}
+			;
+			if ($("#birth").val() == "") {
+				alert("생년월일을 입력하셔야 됩니다.");
+				$("#birth").focus();
+				return false;
+			}
+			;
+		});
+	});
+</script>
 </head>
 <body>
 	<br />

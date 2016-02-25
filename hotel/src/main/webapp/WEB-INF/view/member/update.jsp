@@ -10,20 +10,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이 페이지</title>
-<link href="/css/update.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-</style>
 <script type="text/javascript">
 	$(document).ready(function() {
 		alert("1");
 		// submit될 때 빈 데이터 있으면 팝업 표시
 		$("#loginForm").submit(function() {
-			if ($("#id").val() == "") {
-				alert("아이디를 입력하셔야 됩니다.");
-				$("#id").focus();
-				return false;
-			}
-			;
 			if ($("#name").val() == "") {
 				alert("이름을 입력하셔야 됩니다.");
 				$("#name").focus();

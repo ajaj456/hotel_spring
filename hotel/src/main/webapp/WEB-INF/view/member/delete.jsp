@@ -10,7 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이 페이지</title>
 <link href="../css/deleteMember.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		// 계정 삭제시 아이디와 패스워드 비워 있을 때 삭제 안된다는 팝업 호출
