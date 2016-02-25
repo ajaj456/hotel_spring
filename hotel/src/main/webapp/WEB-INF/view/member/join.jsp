@@ -3,13 +3,11 @@
 <html>
 <title></title>
 <head>
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		alert("a");
 		// 중복체크 버튼 클릭시
 		$("#btnCheckId").click(function() {
-			var id = $("id").val();
+			var id = $("#id").val();
 			if (id != "") {
 				$("#checkIdResult").load("idCheck.do?id=" + id);
 			} else {
@@ -18,11 +16,22 @@
 		});
 
 		// 아이디 입력란에 키인하면 중복체크하라는 메세지 표시
-		$("id").keydown(function() {
+		$("#id").keydown(function() {
 			$("#checkIdResult").text("아이디 중복체크를 하셔야 합니다.")
 		});
+
 		// submit될 때 빈 데이터 있으면 팝업 표시
 		$("#loginform").submit(function() {
+			if ($("#checkIdResult").text("중복된 아이디입니다.")) {
+				alert("아이디를 변경해주세요.")
+				return false;
+			}
+			;
+			if ($("#checkIdResult").text("아이디 중복체크를 하셔야 합니다.")) {
+				alert("아이디 중복체크를 하셔야 합니다.")
+				return false;
+			}
+			;
 			if ($("#id").val() == "") {
 				alert("아이디를 입력하셔야 됩니다.");
 				$("#id").focus();
@@ -80,11 +89,13 @@
 			}
 			;
 		});
+
 		// tel2가 4개가 되면 tel3으로 자동이동
 		$("#tel2").keyup(function() {
 			if ($(this).val().length >= 4)
 				$("#tel3").focus();
 		});
+
 		// tel3가 4개가 되면 가입버튼으로 자동이동
 		$("#tel3").keyup(function() {
 			if ($(this).val().length >= 4)
