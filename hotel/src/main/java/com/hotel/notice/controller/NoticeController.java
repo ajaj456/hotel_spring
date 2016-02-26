@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.notice.model.Notice;
+import com.hotel.notice.model.NoticeModel;
 import com.hotel.util.DuplicateFile;
 
 @Controller
@@ -35,10 +37,16 @@ public class NoticeController {
 	
 	// 공지리스트
 	@RequestMapping("/notice/list.do")
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
+			@RequestParam(value = "pri", required = false, defaultValue = "cur") String pri,	Model model)
 			throws Exception {
 		System.out.println("noticeController.list()");
-		model.addAttribute("list", noticeListService.service(page));
+		Notice notice = new Notice();
+		notice.setPeriod(pri);
+		notice.setPage(page);
+		NoticeModel noticeModel = (NoticeModel) noticeListService.service(notice);
+		model.addAttribute("list", noticeModel.getList());
+		model.addAttribute("jspData", noticeModel.getJspData());
 		
 		return "notice/list";
 	}

@@ -8,6 +8,15 @@ public class JspData {
 	private int startPage, endPage;
 	private int page, pagesPerGroup;
 	private int startRow, endRow;
+	private String period;
+
+	public String getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(String period) {
+		this.period = period;
+	}
 
 	public int getPage() {
 		return page;

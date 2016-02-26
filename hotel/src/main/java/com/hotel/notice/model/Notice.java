@@ -4,9 +4,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Notice {
 	private int no,hit;
-	private String title, content, wdate, startDate, endDate,fileName,firstYN, period ;
+	private String title, content, wdate, startDate, endDate,fileName,firstYN;
 	private MultipartFile file;
+
+	//	리스트를 위한 변수들
+	private String period;
+	private int page;
 	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
+	}
 	public String getPeriod() {
 		return period;
 	}
@@ -77,7 +87,7 @@ public class Notice {
 	public String toString() {
 		return "Notice [no=" + no + ", hit=" + hit + ", title=" + title + ", content=" + content + ", wdate=" + wdate
 				+ ", startDate=" + startDate + ", endDate=" + endDate + ", fileName=" + fileName + ", firstYN="
-				+ firstYN + ", file=" + file + "]";
+				+ firstYN + ", file=" + file + ", period=" + period + ", page=" + page + "]";
 	}
 	
 	
