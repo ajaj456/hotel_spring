@@ -14,6 +14,7 @@
 		<label for="title">제목</label><input type="text" name="title" id="title" value="${qna.title}"> <br>		 
 		<label for="content">내용 </label><textarea rows="7" cols="60" name="content" id="content">${qna.content}</textarea><br> 
 		<label for="wdate">작성일</label><input type="text" name="wdate" id="wdate"value="${qna.wdate}"> <br>
+		<label for="id">작성자</label><input type="text" name="id" id="wdate" value="${qna.id}"> <br>
 		<label for="hit">조회수</label><input type="text" name="hit" id="hit"value="${qna.hit}"> <br>
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
