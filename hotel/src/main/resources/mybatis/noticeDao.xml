@@ -9,8 +9,8 @@
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.notice.model.Notice">
 		select
-		no,title,content,hit,to_char(wdate,'yyyy-mm-dd')wdate,startDate,
-		endDate,fileName from notice
+		no,title,content,to_char(wdate,'yyyy-mm-dd')wdate,startDate,
+		endDate,firstYn,fileName from notice
 		<choose>
 			<when test="period == 'old'">
 
