@@ -19,7 +19,6 @@
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>
-	<form action=""></form>
 
 </body>
 </html>	
