@@ -5,44 +5,31 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.Notice">
-switch 를 선언하는 절은 choose,
-case 는 when,
-default 는 otherwise 입니다
-switch (period) {
-	case "old": // 지난 공지 조건 추가
-		sql += " where endDate < sysdate-1 ";
-		break;
-	case "res": // 예약 공지 조건 추가
-		sql += " where startDate> sysdate ";
-		break;
-	case "cur": // 현재 공지 조건 추가
-		sql += " where startDate<= sysdate and endDate >= sysdate-1 ";
-		break;
-	default: // 모든 공지니까 조건이 필요 없다.
-		break;
-	}	
-	
-	
+
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.board.model.Notice">
-		select 
-			no,title,content,hit,to_char(wdate,'yyyy-mm-dd')wdate,to_char(startdate,'yyyy-mm-dd')startDate,
-			to_char(enddate,'yyyy-mm-dd')endDate,fileName from notice
-		<c:set value="" var=""/>
-		<c:choose>
-			<c:when test="old != null">
-				where endDate < sysdate-1
-			</c:when>
-			<c:when test="res != null">
-				where startDate> sysdate
-			</c:when>
-			<c:when test="cur != null">
-				where startDate<= sysdate and endDate >= sysdate-1
-			</c:when>
-		</c:choose>
+		select
+		no,title,content,hit,to_char(wdate,'yyyy-mm-dd')wdate,to_char(startdate,'yyyy-mm-dd')startDate,
+		to_char(enddate,'yyyy-mm-dd')endDate,fileName from notice
+		<choose>
+			<when test="period == old">
+
+				where endDate<![CDATA[ < ]]>
+				sysdate-1
+			</when>
+			<when test="period == res">
+				where startDate<![CDATA[ < ]]>
+				sysdate
+			</when>
+			<when test="period == cur">
+				where startDate<![CDATA[ <= ]]>
+				sysdate and endDate >= sysdate-1
+			</when>
+		</choose>
+
 	</select>
-			
-	
+
+
 	<select id="findActiveBlogLike" resultType="Blog">
 		SELECT * FROM BLOG WHERE state = ‘ACTIVE’
 		<choose>

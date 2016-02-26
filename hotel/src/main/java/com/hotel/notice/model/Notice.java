@@ -4,8 +4,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Notice {
 	private int no,hit;
-	private String title, content, wdate, startDate, endDate,fileName,firstYN;
+	private String title, content, wdate, startDate, endDate,fileName,firstYN, period ;
 	private MultipartFile file;
+	
+	public String getPeriod() {
+		return period;
+	}
+	public void setPeriod(String period) {
+		this.period = period;
+	}
 	public int getNo() {
 		return no;
 	}
