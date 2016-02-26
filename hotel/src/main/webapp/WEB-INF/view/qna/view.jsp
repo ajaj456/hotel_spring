@@ -39,7 +39,7 @@
 
 	<table>
 		<tr>
-			<td colspan="4"><a href="update.do?no=${update.no}"><button>글수정</button></a>
+			<td colspan="4"><a href="update.do?no=${qna.no }"><button>글수정</button></a>
 				<a href="list.do"><button>게시판 리스트</button></a>
 			<a href="list.do?no=${delete.no}"><button>글삭제</button></a>
 			<a href="write.do?no=${reply.no}"><button>답변달기</button></a>
