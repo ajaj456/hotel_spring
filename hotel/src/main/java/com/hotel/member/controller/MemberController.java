@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hotel.board.model.BoardModel;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.member.model.Member;
+import com.hotel.member.model.MemberModel;
 
 @Controller
 public class MemberController {
@@ -221,7 +223,9 @@ public class MemberController {
 	@RequestMapping("/member/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
-		model.addAttribute("list", memberListService.service(page));
+		MemberModel memberModel = (MemberModel) memberListService.service(page);
+		model.addAttribute("list", memberModel.getList());
+		model.addAttribute("jspData", memberModel.getJspData());
 		return "member/list";
 	}
 

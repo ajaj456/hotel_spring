@@ -72,7 +72,7 @@ public class BoardController {
 
 	// 글리스트
 	@RequestMapping("/board/list.do")
-	public String list(@RequestParam(value = "page", required = true, defaultValue = "1") int page, Model model)
+	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("boardController.list()");
 		BoardModel boardModel = (BoardModel) boardListService.service(page);
