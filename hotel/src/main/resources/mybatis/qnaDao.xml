@@ -8,36 +8,50 @@
 
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.qna.model.Qna">
-		select no, title, to_char(wdate, 'yyyy-mm-dd') wdate, id, hit from qna order by no desc
+		select no, title, to_char(wdate,
+		'yyyy-mm-dd') wdate, id, hit from qna order by no desc
 	</select>
+	<!-- 글의 총갯수 -->
+<select id="selectCount" resultType="Integer">
+		select count(no) from board
+		</select>
+		
+		<!-- 게시판 글보기 -->
+		
+		<select id="view" resultType="com.hotel.qna.model.Qna">
+			select no, title, content, id,
+			to_char(wdate, 'yyyy-mm-dd') wdate, hit from
+			qna
+			where no=#{no}
+		</select>
 
+		<!-- 게시판 글쓰기 -->
+		<insert id="write">
+			insert into qna(no, title, content, id)
+			values(qna_seq.nextval, #{title}, #{content}, #{id})
+		</insert>
 
-	<!-- 게시판 글보기 -->
-	<select id="view" resultType="com.hotel.qna.model.Qna">
-		select no, title, content, id, to_char(wdate, 'yyyy-mm-dd') wdate, hit from qna
-		where no=#{no}
-	</select>
-
-	<!-- 게시판 글쓰기 -->
-	<insert id="write">
-		insert into qna(title, content)
-		values(#{title},#{content})
-	</insert>
-
-	<!-- 게시판 글수정 -->
-	<update id="update">
+		<!-- 게시판 글수정 -->
+		<update id="update">
 			update qna set
-			title=#{title}, content=#{content}
-	</update>
+			title=#{title}, content=#{content},
+			id=#{id} where no=#{no}
+		</update>
 
-	<!-- 게시판글삭제 -->
-	<delete id="delete">
-		delete from qna where no=#{no}
-	</delete>
-	
-<!-- 	게시판답변 -->
-<delete id="reply">
-		insert into qna(no, title, content)
-		values(#{no},#{title},#{content})
-	</delete>
-</mapper>
+		<!-- 게시판글삭제 -->
+		<delete id="delete">
+			delete from qna where no=#{no}
+		</delete>
+
+		<!-- 게시판답변 -->
+		<insert id="reply">
+			insert into qna(no, title, content)
+			values(#{no},#{title},#{content})
+		</insert>
+		
+		<!-- 조회수 증가 -->
+		<update id="hit">
+			update board set hit=hit+1 where no=#{no}
+		</update>
+
+		</mapper>
