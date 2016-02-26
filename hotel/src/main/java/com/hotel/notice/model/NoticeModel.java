@@ -10,13 +10,13 @@ import com.hotel.common.model.JspData;
 
 public class NoticeModel {
  // 게시판 리스트를 담은 LIst 객체 변수 선언
-	private List<Board> list;
+	private List<Notice> list;
 	private JspData jspData;
 	
-	public List<Board> getList() {
+	public List<Notice> getList() {
 		return list;
 	}
-	public void setList(List<Board> list) {
+	public void setList(List<Notice> list) {
 		this.list = list;
 	}
 	public JspData getJspData() {

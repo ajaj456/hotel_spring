@@ -7,21 +7,21 @@
 <mapper namespace="dao.Notice">
 
 	<!-- 게시판리스트 -->
-	<select id="list" resultType="com.hotel.board.model.Notice">
+	<select id="list" resultType="com.hotel.notice.model.Notice">
 		select
-		no,title,content,hit,to_char(wdate,'yyyy-mm-dd')wdate,to_char(startdate,'yyyy-mm-dd')startDate,
-		to_char(enddate,'yyyy-mm-dd')endDate,fileName from notice
+		no,title,content,hit,to_char(wdate,'yyyy-mm-dd')wdate,startDate,
+		endDate,fileName from notice
 		<choose>
-			<when test="period == old">
+			<when test="period == 'old'">
 
 				where endDate<![CDATA[ < ]]>
 				sysdate-1
 			</when>
-			<when test="period == res">
+			<when test="period == 'res'">
 				where startDate<![CDATA[ < ]]>
 				sysdate
 			</when>
-			<when test="period == cur">
+			<when test="period == 'cur'">
 				where startDate<![CDATA[ <= ]]>
 				sysdate and endDate >= sysdate-1
 			</when>
@@ -30,18 +30,10 @@
 	</select>
 
 
-	<select id="findActiveBlogLike" resultType="Blog">
-		SELECT * FROM BLOG WHERE state = ‘ACTIVE’
-		<choose>
-			<when test="title != null">
-				AND title like #{title}
-			</when>
-			<when test="author != null and author.name != null">
-				AND author_name like #{author.name}
-			</when>
-			<otherwise>
-				AND featured = 1
-			</otherwise>
-		</choose>
+	<!-- 게시판 글갯수 -->
+	<select id="totalCount" resultType="Integer">
+		select
+		count(*)
+		from notice
 	</select>
 </mapper>
