@@ -18,7 +18,7 @@ public class BoardListService implements ServiceInterface{
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("RoomListService.service()");
+		System.out.println("BoardListService.service()");
 		// page처리를 위한 변수 선언
 		// page : 현재 page = 보여줄 페이지 ( 기본  =  1 )
 		int page = (Integer)obj;
