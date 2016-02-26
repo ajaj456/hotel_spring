@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotel.board.model.Board;
+import com.hotel.board.model.BoardModel;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.reply.model.Reply;
 import com.hotel.util.DuplicateFile;
@@ -71,10 +72,12 @@ public class BoardController {
 
 	// 글리스트
 	@RequestMapping("/board/list.do")
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String list(@RequestParam(value = "page", required = true, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("boardController.list()");
-		model.addAttribute("list", boardListService.service(page));
+		BoardModel boardModel = (BoardModel) boardListService.service(page);
+		model.addAttribute("list", boardModel.getList());
+		model.addAttribute("jspData", boardModel.getJspData());
 		return "board/list";
 	}
 

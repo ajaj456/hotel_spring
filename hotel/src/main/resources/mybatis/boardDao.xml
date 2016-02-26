@@ -8,18 +8,22 @@
 
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.board.model.Board">
-		select NO, TITLE, CONTENT, HIT,
-		to_char(WDATE,'yyyy-mm-dd')WDATE,
-		FILENAME,
-		ID,
-		( select count(reno)
-		from
-		reply a, review b
-		where a.no = b.no
+	
+		select * from
+		
+		(
+		select rownum rnum , no,title,content,id, wdate, hit,fileName, cnt from
+		
+		(
+		
+		select NO, TITLE, CONTENT, HIT, to_char(WDATE,'yyyy-mm-dd')WDATE, FILENAME,ID,
+		( select count(reno) from reply a, review b where a.no = b.no ) cnt
+		from review order by no desc
+		
 		)
-		cnt
-		from review
-		order by no
+		
+		)
+		where rnum between #{startRow} and #{endRow}
 	</select>
 
 	<!-- 게시판 글보기 -->
@@ -49,4 +53,11 @@
 		<if test="fileName!= null">,fileName=#{fileName}</if>
 		where no=#{no}
 	</update>
+	
+	<!-- 게시판 글갯수 -->
+	<select id="totalCount" resultType="Integer">
+		select
+		count(*)
+		from review
+	</select>
 </mapper>
