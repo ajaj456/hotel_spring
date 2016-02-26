@@ -17,8 +17,8 @@
 		(
 		
 		select NO, TITLE, CONTENT, HIT, to_char(WDATE,'yyyy-mm-dd')WDATE, FILENAME,ID,
-		( select count(reno) from reply a, review b where a.no = b.no ) cnt
-		from review order by no desc
+		( select count(reno) from reply a where a.no = b.no ) cnt
+		from review b order by no desc
 		
 		)
 		
