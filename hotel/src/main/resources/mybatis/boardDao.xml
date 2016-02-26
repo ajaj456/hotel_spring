@@ -60,4 +60,9 @@
 		count(*)
 		from review
 	</select>
+	
+		<!-- 	조회수 증가 --> 
+	<update id="hitUp">
+		update review set hit = hit +1 where no =#{no}
+	</update>
 </mapper>
