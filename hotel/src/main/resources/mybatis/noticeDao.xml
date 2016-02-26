@@ -6,34 +6,34 @@
 
 <mapper namespace="dao.Notice">
 
-	<!-- 게시판리스트 -->
-	<select id="list" resultType="com.hotel.notice.model.Notice">
-		select
-		no,title,content,hit,to_char(wdate,'yyyy-mm-dd')wdate,startDate,
-		endDate,fileName from notice
-		<choose>
-			<when test="period == 'old'">
+   <!-- 게시판리스트 -->
+   <select id="list" resultType="com.hotel.notice.model.Notice">
+      select
+      no,title,content,hit,to_char(wdate,'yyyy-mm-dd')wdate,startDate,
+      endDate,fileName from notice
+      <choose>
+         <when test="period == 'old'">
 
-				where endDate<![CDATA[ < ]]>
-				sysdate-1
-			</when>
-			<when test="period == 'res'">
-				where startDate<![CDATA[ < ]]>
-				sysdate
-			</when>
-			<when test="period == 'cur'">
-				where startDate<![CDATA[ <= ]]>
-				sysdate and endDate >= sysdate-1
-			</when>
-		</choose>
+            where endDate<![CDATA[ < ]]>
+            sysdate-1
+         </when>
+         <when test="period == 'res'">
+            where startDate<![CDATA[ < ]]>
+            sysdate
+         </when>
+         <when test="period == 'cur'">
+            where startDate<![CDATA[ <= ]]>
+            sysdate and endDate >= sysdate-1
+         </when>
+      </choose>
 
-	</select>
+   </select>
 
 
-	<!-- 게시판 글갯수 -->
-	<select id="totalCount" resultType="Integer">
-		select
-		count(*)
-		from notice
-	</select>
+   <!-- 게시판 글갯수 -->
+   <select id="totalCount" resultType="Integer">
+      select
+      count(*)
+      from notice
+   </select>
 </mapper>
