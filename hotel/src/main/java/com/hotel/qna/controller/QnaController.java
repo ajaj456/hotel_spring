@@ -13,7 +13,7 @@ import com.hotel.qna.model.Qna;
 
 @Controller
 public class QnaController {
-	private ServiceInterface qnaListService, qnaViewService, qnaWriteProcessService, qnaUpdateProcessService,
+	private ServiceInterface qnaListService, qnaViewService, qnaWriteProcessService, qnaUpdateProcessService, qnaUpdateService,
 			qnaDeleteProcessService, qnaReplyWriteProcess;
 
 	public void setQnaListService(ServiceInterface qnaListService) {
@@ -38,6 +38,11 @@ public class QnaController {
 
 	public void setQnaReplyWriteProcess(ServiceInterface qnaReplyWriteProcess) {
 		this.qnaReplyWriteProcess = qnaReplyWriteProcess;
+	}
+	
+
+	public void setQnaUpdateService(ServiceInterface qnaUpdateService) {
+		this.qnaUpdateService = qnaUpdateService;
 	}
 
 	// 글리스트
@@ -72,61 +77,22 @@ public class QnaController {
 		return "redirect:list.do";
 	}
 
-	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
-	// @RequestMapping(value = "/qna/write.do", method = RequestMethod.POST)
-	// public String write(Qna qna, Model model,
-	// HttpServletRequest request) throws Exception {
-	// System.out.println("QnaController.write():post");
-
-	// 서버에 올라갈 실제 폴더 찾기
-	// String realPath = request.getServletContext().getRealPath("upload/qna");
-	// System.out.println(realPath);
-	// if (!qna.getFile().isEmpty()) {
-	// String fileName = qna.getFile().getOriginalFilename();
-	// File file = DuplicateFile.getFile(realPath, qna.getFile());
-	// qna.getFile().transferTo(file); // 파일 이동
-	// qna.setFileName(file.getName());
-	// qnaWriteProcessService.service(room);
-	//
-	// return "redirect:list.do";
-	// }
-	// System.out.println(realPath);
-	// return "redirect:list.do";
-	//
-	// }
 
 	// 글수정 폼 - get
 	@RequestMapping(value = "/qna/update.do", method = RequestMethod.GET)
 	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
 		System.out.println("qnaController.update-get()");
-		model.addAttribute("qna", qnaUpdateProcessService.service(no));
+		model.addAttribute("qna", qnaViewService.service(no));
 		return "qna/update";
 	}
 
 	// 글수정 처리 - POST
 	@RequestMapping(value = "/qna/update.do", method = RequestMethod.POST)
-	public String qnaUpdateProcess(Qna qna, Model model, HttpServletRequest request) throws Exception {
+	public String qnaUpdateService(Qna qna, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("qnaController.update-post()");
-		System.out.println(qna);
-		// 서버에 올라갈 실제 폴더 찾기
-		// String realPath =
-		// request.getServletContext().getRealPath("upload/room");
-		// System.out.println(realPath);
-		// if (!qna.getFile().isEmpty()) {
-		// String fileName = qna.getFile().getOriginalFilename();
-		// File file = DuplicateFile.getFile(realPath, qna.getFile());
-		// qna.getFile().transferTo(file); // 파일 이동
-		// qna.setFileName(file.getName());
-		// qnaUpdateProcessService.service(qna);
-		//
-		return "redirect:view.do?no="+qna.getNo();
-		//
-		// }else {
-		// System.out.println(realPath);
-		// qnaUpdateProcessService.service(qna);
-		// return "redirect"
-		// + ":view.do" + "?no=" + qna.getQnaNo();
-		// }
+		qnaUpdateProcessService.service(qna);
+		return "redirect" + ":view.do" + "?no=" + qna.getNo();
+		
 	}
 
 	// 글삭제 처리
@@ -144,11 +110,13 @@ public class QnaController {
 		return "qna/reply";
 	}
 
-	// 글쓰기 처리 - POST
+	// 답변글쓰기 처리 - POST
 	@RequestMapping(value = "/qna/reply.do", method = RequestMethod.POST)
 	public String reply(Qna qna) throws Exception {
 		System.out.println("qnaController.reply-post()");
 		qnaReplyWriteProcess.service(qna);
 		return "redirect:list.do";
 	}
+
+	
 }
