@@ -18,7 +18,7 @@
 				/WEB-INF/config/board.xml
 				/WEB-INF/config/qna.xml				
 				/WEB-INF/config/booked.xml				
-<!-- 				/WEB-INF/config/notice.xml -->
+				/WEB-INF/config/notice.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>

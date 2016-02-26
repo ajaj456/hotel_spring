@@ -3,14 +3,11 @@ package com.hotel.notice.controller;
 import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.hotel.board.model.Board;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.notice.model.Notice;
 import com.hotel.util.DuplicateFile;
@@ -60,27 +57,27 @@ public class NoticeController {
 		return "notice/write";
 	}
 
-//	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
-//	@RequestMapping(value = "/notice/write.do", method = RequestMethod.POST)
-//	public String write(Notice notice, Model model, HttpServletRequest request) throws Exception {
-//		System.out.println("NoticeController.write():post");
-//
-//		// 서버에 올라갈 실제 폴더 찾기
-//		String realPath = request.getServletContext().getRealPath("upload/notice");
-//		System.out.println(realPath);
-//		if (!notice.getFile().isEmpty()) {
-//			String fileName = notice.getFile().getOriginalFilename();
-//			File file = DuplicateFile.getFile(realPath, board.getFile());
-//			board.getFile().transferTo(file); // 파일 이동
-//			board.setFileName(file.getName());
-//			boardWriteProcessService.service(board);
-//
-//			return "redirect:list.do";
-//		}
-//		System.out.println(realPath);
-//		return "redirect:list.do";
-//
-//	}
+	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
+	@RequestMapping(value = "/notice/write.do", method = RequestMethod.POST)
+	public String write(Notice notice, Model model, HttpServletRequest request) throws Exception {
+		System.out.println("NoticeController.write():post");
+
+		// 서버에 올라갈 실제 폴더 찾기
+		String realPath = request.getServletContext().getRealPath("upload/notice");
+		System.out.println(realPath);
+		if (!notice.getFile().isEmpty()) {
+			String fileName = notice.getFile().getOriginalFilename();
+			File file = DuplicateFile.getFile(realPath, notice.getFile());
+			notice.getFile().transferTo(file); // 파일 이동
+			notice.setFileName(file.getName());
+			noticeWriteProcessService.service(notice);
+
+			return "redirect:list.do";
+		}
+		System.out.println(realPath);
+		return "redirect:list.do";
+
+	}
 
 	// 글수정 폼 - get
 	@RequestMapping(value = "/notice/update.do", method = RequestMethod.GET)
@@ -95,24 +92,23 @@ public class NoticeController {
 	public String updateProcess(Notice notice, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("noticeController.update-post()");
 		System.out.println(notice);
-//		// 서버에 올라갈 실제 폴더 찾기
-//		String realPath = request.getServletContext().getRealPath("upload/review");
-//		System.out.println(realPath);
-//		if (!board.getFile().isEmpty()) {
-//			String fileName = board.getFile().getOriginalFilename();
-//			File file = DuplicateFile.getFile(realPath, board.getFile());
-//			board.getFile().transferTo(file); // 파일 이동
-//			board.setFileName(file.getName());
-//			boardUpdateProcessService.service(board);
-//
-//			return "redirect" + ":view.do" + "?no=" + board.getNo();
-//
-//		} else {
-//			System.out.println(realPath);
-//			boardUpdateProcessService.service(board);
-//			return "redirect" + ":view.do" + "?no=" + board.getNo();
-//		}
-		return "redirect:view.do";
+		// 서버에 올라갈 실제 폴더 찾기
+		String realPath = request.getServletContext().getRealPath("upload/review");
+		System.out.println(realPath);
+		if (!notice.getFile().isEmpty()) {
+			String fileName = notice.getFile().getOriginalFilename();
+			File file = DuplicateFile.getFile(realPath, notice.getFile());
+			notice.getFile().transferTo(file); // 파일 이동
+			notice.setFileName(file.getName());
+			noticeUpdateProcessService.service(notice);
+
+			return "redirect" + ":view.do" + "?no=" + notice.getNo();
+
+		} else {
+			System.out.println(realPath);
+			noticeUpdateProcessService.service(notice);
+			return "redirect" + ":view.do" + "?no=" + notice.getNo();
+		}
 	}
 
 	// 글삭제 처리
