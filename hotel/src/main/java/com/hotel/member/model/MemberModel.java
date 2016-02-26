@@ -8,15 +8,15 @@ import java.util.List;
 
 import com.hotel.common.model.JspData;
 
-public class BoardModel {
+public class MemberModel {
  // 게시판 리스트를 담은 LIst 객체 변수 선언
-	private List<Board> list;
+	private List<Member> list;
 	private JspData jspData;
 	
-	public List<Board> getList() {
+	public List<Member> getList() {
 		return list;
 	}
-	public void setList(List<Board> list) {
+	public void setList(List<Member> list) {
 		this.list = list;
 	}
 	public JspData getJspData() {

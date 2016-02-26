@@ -2,6 +2,8 @@
 package com.hotel.member.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
+
+import com.hotel.common.model.JspData;
 import com.hotel.member.model.Member;
 
 public class MemberDao {
@@ -57,8 +59,8 @@ public class MemberDao {
 	}
 
 	// 회원리스트
-	public Object list() {
-		return sqlSessionTemplate.selectList("dao.Member.list");
+	public Object list(JspData jspData) {
+		return sqlSessionTemplate.selectList("dao.Member.list", jspData);
 	}
 
 	// 회원등급변경
@@ -75,5 +77,12 @@ public class MemberDao {
 	// 아이디중복체크
 	public Object joinCheckId(Object obj) {
 		return sqlSessionTemplate.selectOne("dao.Member.joinCheckId", obj);
+	}
+
+	// 총 글수
+	public int totalRow() {
+		// TODO Auto-generated method stub
+		System.out.println("MemberDao.totalRow()");
+		return sqlSessionTemplate.selectOne("dao.Member.totalCount");
 	}
 }
