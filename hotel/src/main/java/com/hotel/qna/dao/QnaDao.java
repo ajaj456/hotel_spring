@@ -25,6 +25,11 @@ public class QnaDao {
 		return sqlSessionTemplate.selectOne("dao.Qna.view", obj);
 
 	}
+	// 글수정처리
+		public Object update(Qna qna) {
+			System.out.println("QnaDao.update()");
+			return sqlSessionTemplate.update("dao.Qna.update", qna);
+		}
 
 	// 3답변
 	public Object reply(Qna qna) {
@@ -44,7 +49,7 @@ public class QnaDao {
 	// 5글보기
 	public Object view(Object obj) {
 		// TODO Auto-generated method stub
-		System.out.println("QnaDao.delete()");
+		System.out.println("QnaDao.view()");
 		return sqlSessionTemplate.selectOne("dao.Qna.view", obj);
 	}
 
@@ -55,5 +60,18 @@ public class QnaDao {
 		System.out.println(qna);
 		return sqlSessionTemplate.insert("dao.Qna.write", qna);
 	}
-
+	
+	// 총 글의 갯수
+	public int totalRow() {
+		// TODO Auto-generated method stub
+		System.out.println("QnaDao.totalRow()");
+		return sqlSessionTemplate.selectOne("dao.Qna.totalCount");
+		
+	}
+	// 조회수 증가 
+	public void hitUp(Object obj) {
+		// TODO Auto-generated method stub
+		System.out.println("QnaDao.hitUp()");
+		sqlSessionTemplate.update("dao.Qna.hitUp", obj);
+	}
 }
