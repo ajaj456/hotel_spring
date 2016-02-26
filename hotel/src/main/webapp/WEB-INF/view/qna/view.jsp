@@ -9,13 +9,40 @@
 <body>
 	<h2>보기</h2>
 	<br>
+	
 	<table>
-		<tr><th>번호</th><td>${qna.no }</td></tr>
-		<tr><th>제목</th><td>${qna.title}</td></tr>
-		<tr><th>제목</th><td>${qna.id}</td></tr>
-		<tr><th>내용</th><td>${qna.content}</td></tr>
-		<tr><th>작성일</th><td>${qna.wdate}</td></tr>
-		<tr><th>조회수</th><td>${qna.hit }</td></tr>
+		<tr>
+			<th><b>번호</b></th>
+			<td>${qna.no }</td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td>${qna.title}</td>
+		</tr>
+		<tr>
+			<th>작성자</th>
+			<td>${qna.id}</td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td>${qna.content}</td>
+		</tr>
+		<tr>
+			<th>작성일</th>
+			<td>${qna.wdate}</td>
+		</tr>
+		<tr>
+			<th>조회수</th>
+			<td>${qna.hit }</td>
+		</tr>
+ </table>
+
+	<table>
+		<tr>
+			<td colspan="2"><a href="update.do?no=${update.no}"><button>글수정</button></a>
+				<a href="list.do"><button>게시판 리스트</button></a></td>
+		</tr>
 	</table>
+	
 </body>
 </html>
