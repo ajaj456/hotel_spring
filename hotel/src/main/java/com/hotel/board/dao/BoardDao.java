@@ -11,10 +11,10 @@ public class BoardDao {
 		this.sqlSessionTemplate = sqlSessionTemplate;
 	}
 	// 글리스트 
-	public Object list() {
+	public Object list(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("BoardDao.list()");
-		return sqlSessionTemplate.selectList("dao.Board.list");
+		return sqlSessionTemplate.selectList("dao.Board.list", obj);
 	}
 	// 글보기 - 글수정
 	public Object view(Object obj) {
@@ -39,4 +39,12 @@ public class BoardDao {
 		System.out.println("BoardDao.delete()");
 		return sqlSessionTemplate.delete("dao.Board.delete",obj);
 	}
+	
+	// 총 글의 갯수
+	public int totalRow() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("dao.Board.totalCount");
+		
+	}
+	
 }
