@@ -38,7 +38,7 @@ public class NoticeController {
 	// 공지리스트
 	@RequestMapping("/notice/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
-			@RequestParam(value = "pri", required = false, defaultValue = "cur") String pri,	Model model)
+			@RequestParam(value = "pri", required = true, defaultValue = "cur") String pri,	Model model)
 			throws Exception {
 		System.out.println("noticeController.list()");
 		Notice notice = new Notice();

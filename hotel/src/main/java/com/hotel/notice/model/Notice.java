@@ -3,8 +3,8 @@ package com.hotel.notice.model;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Notice {
-	private int no,hit;
-	private String title, content, wdate, startDate, endDate,fileName,firstYN;
+	private int no,hit,firstYn;
+	private String title, content, wdate, startDate, endDate,fileName;
 	private MultipartFile file;
 
 	//	리스트를 위한 변수들
@@ -19,6 +19,13 @@ public class Notice {
 	}
 	public String getPeriod() {
 		return period;
+	}
+
+	public void setFirstYn(int firstYn) {
+		this.firstYn = firstYn;
+	}
+	public int getFirstYn() {
+		return firstYn;
 	}
 	public void setPeriod(String period) {
 		this.period = period;
@@ -71,12 +78,7 @@ public class Notice {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	public String getFirstYN() {
-		return firstYN;
-	}
-	public void setFirstYN(String firstYN) {
-		this.firstYN = firstYN;
-	}
+	
 	public MultipartFile getFile() {
 		return file;
 	}
@@ -87,7 +89,7 @@ public class Notice {
 	public String toString() {
 		return "Notice [no=" + no + ", hit=" + hit + ", title=" + title + ", content=" + content + ", wdate=" + wdate
 				+ ", startDate=" + startDate + ", endDate=" + endDate + ", fileName=" + fileName + ", firstYN="
-				+ firstYN + ", file=" + file + ", period=" + period + ", page=" + page + "]";
+				+ firstYn + ", file=" + file + ", period=" + period + ", page=" + page + "]";
 	}
 	
 	

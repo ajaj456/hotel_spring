@@ -18,7 +18,7 @@
 				sysdate-1
 			</when>
 			<when test="period == 'res'">
-				where startDate<![CDATA[ < ]]>
+				where startDate<![CDATA[ > ]]>
 				sysdate
 			</when>
 			<when test="period == 'cur'">
@@ -26,8 +26,20 @@
 				sysdate and endDate >= sysdate-1
 			</when>
 		</choose>
-
 	</select>
+	
+	<!-- 게시판 글보기 -->
+	<select id="view" resultType="com.hotel.notice.model.Notice">
+		select
+		no,title,content,to_char(wdate,'yyyy-mm-dd')wdate,startDate,
+		endDate,firstYn,fileName from notice where no=#{no}
+	</select>
+	
+	<!-- 게시판 글쓰기 -->
+	<insert id="write">
+		insert into notice(no, title, content, startDate, endDate, fileName, firstYn)
+		values(notice_SEQ.nextval,#{title},#{content},#{startDate},#{endDate},#{fileName},#{firstYn})
+	</insert>
 
 
 	<!-- 게시판 글갯수 -->
