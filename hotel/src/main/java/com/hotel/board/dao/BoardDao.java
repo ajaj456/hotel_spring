@@ -43,8 +43,15 @@ public class BoardDao {
 	// 총 글의 갯수
 	public int totalRow() {
 		// TODO Auto-generated method stub
+		System.out.println("BoardDao.totalRow()");
 		return sqlSessionTemplate.selectOne("dao.Board.totalCount");
 		
+	}
+	// 조회수 증가 
+	public void hitUp(Object obj) {
+		// TODO Auto-generated method stub
+		System.out.println("BoardDao.hitUp()");
+		sqlSessionTemplate.update("dao.Board.hitUp", obj);
 	}
 	
 }

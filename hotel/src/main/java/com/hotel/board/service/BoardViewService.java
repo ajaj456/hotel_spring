@@ -14,6 +14,7 @@ public class BoardViewService implements ServiceInterface{
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("BoardViewService.service()");
+		boardDao.hitUp(obj);
 		return boardDao.view(obj); 
 	}
 }
