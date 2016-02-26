@@ -9,7 +9,7 @@
 <body>
 	<h2>보기</h2>
 	<br>
-	
+
 	<table>
 		<tr>
 			<th><b>번호</b></th>
@@ -35,14 +35,18 @@
 			<th>조회수</th>
 			<td>${qna.hit }</td>
 		</tr>
- </table>
+	</table>
 
 	<table>
 		<tr>
-			<td colspan="2"><a href="update.do?no=${update.no}"><button>글수정</button></a>
-				<a href="list.do"><button>게시판 리스트</button></a></td>
+			<td colspan="4"><a href="update.do?no=${update.no}"><button>글수정</button></a>
+				<a href="list.do"><button>게시판 리스트</button></a>
+			<a href="list.do?no=${delete.no}"><button>글삭제</button></a>
+			<a href="write.do?no=${reply.no}"><button>답변달기</button></a>
+			
+			</td>
 		</tr>
 	</table>
-	
+
 </body>
 </html>
