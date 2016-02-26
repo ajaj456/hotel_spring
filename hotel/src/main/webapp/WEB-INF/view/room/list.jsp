@@ -10,6 +10,11 @@
 <body>
 	<h2>객실 리스트</h2>
 	<br>
+	<div id="notice_list_pbtn">
+		<a onclick="location='list.do?pri=cur'"><button>1층</button></a> <a
+			onclick="location='list.do?pri=old'"><button>2층</button></a> <a
+			onclick="location='list.do?pri=res'"><button>3층</button></a>
+	</div>
 	<table>
 		<tr>
 			<th>객실 번호</th>
@@ -21,18 +26,18 @@
 		</tr>
 		<c:forEach var="room" items="${list}">
 			<tr>
-		<td><a href="view.do?no=${room.roomNo }">${room.roomNo }</a></td>
-		<td>${room.rName}</td>
-		<td><pre>${room.roomInfo}</pre></td>
-		<td>${room.rSize}명</td>
-		<td>${room.price}</td>
-		<td>${room.floor }</td>
-		<tr>
+				<td><a href="view.do?no=${room.roomNo }">${room.roomNo }</a></td>
+				<td>${room.rName}</td>
+				<td><pre>${room.roomInfo}</pre></td>
+				<td>${room.rSize}명</td>
+				<td>${room.price}</td>
+				<td>${room.floor }</td>
+			<tr>
 		</c:forEach>
 		<c:if test="${login.grade eq 'master'}">
-		<tr>
-			<td><a href="write.do"><button>글쓰기</button></a></td>
-		</tr>
+			<tr>
+				<td><a href="write.do"><button>글쓰기</button></a></td>
+			</tr>
 		</c:if>
 	</table>
 	<br>
