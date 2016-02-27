@@ -10,23 +10,25 @@ public class RoomDao {
 	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
 		this.sqlSessionTemplate = sqlSessionTemplate;
 	}
-	// 글리스트 
-	public Object list() {
+
+	// 글리스트
+	public Object list(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("RoomDao.list()");
-		return sqlSessionTemplate.selectList("dao.Room.list");
+		System.out.println(obj);
+		return sqlSessionTemplate.selectList("dao.Room.list", obj);
 	}
-	
+
 	// 글보기 - 글수정
 	public Object view(Object obj) {
 		System.out.println("RoomDao.view()");
 		return sqlSessionTemplate.selectOne("dao.Room.view", obj);
 	}
-	
+
 	// 글쓰기
 	public Object write(Room room) {
 		System.out.println("RoomDao.write()");
-		return sqlSessionTemplate.insert("dao.Room.write",room);
+		return sqlSessionTemplate.insert("dao.Room.write", room);
 	}
 
 	// 글수정처리
@@ -38,6 +40,6 @@ public class RoomDao {
 	// 글삭제
 	public Object delete(Object obj) {
 		System.out.println("RoomDao.delete()");
-		return sqlSessionTemplate.delete("dao.Room.delete",obj);
+		return sqlSessionTemplate.delete("dao.Room.delete", obj);
 	}
 }

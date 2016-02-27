@@ -11,9 +11,9 @@
 	<h2>객실 리스트</h2>
 	<br>
 	<div id="notice_list_pbtn">
-		<a onclick="location='list.do?pri=cur'"><button>1층</button></a> <a
-			onclick="location='list.do?pri=old'"><button>2층</button></a> <a
-			onclick="location='list.do?pri=res'"><button>3층</button></a>
+		<a onclick="location='list.do?floor=1'"><button>1층</button></a> <a
+			onclick="location='list.do?floor=2'"><button>2층</button></a> <a
+			onclick="location='list.do?floor=3'"><button>3층</button></a>
 	</div>
 	<table>
 		<tr>

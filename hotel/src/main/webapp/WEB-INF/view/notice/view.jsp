@@ -26,13 +26,26 @@
 		</div>
 	</div>
 	<div id="btn_wrapper">
-		<a class="view_btn" href="list.do?page=${param.page}"><button>글목록</button></a>
-		<c:if test="${login.grade eq 'master' }">
-			<a class="view_btn"
-				href="update.jsp?no=${notice.no }&page=${param.page}"><button>글수정</button></a>
-			<a class="view_btn" id="delete_btn"
-				href="deleteProcess.jsp?no=${notice.no }&page=${param.page}"><button>글삭제</button></a>
+		<c:if test="${empty param.page }">
+			<a class="view_btn" href="list.do"><button>글목록</button></a>
+			<c:if test="${login.grade eq 'master' }">
+				<a class="view_btn"
+					href="update.do?no=${notice.no }"><button>글수정</button></a>
+				<a class="view_btn" id="delete_btn"
+					href="delete.do?no=${notice.no }"><button>글삭제</button></a>
+			</c:if>
 		</c:if>
+		
+		<c:if test="${!empty param.page}">
+			<a class="view_btn" href="list.do?page=${param.page}"><button>글목록</button></a>
+			<c:if test="${login.grade eq 'master' }">
+				<a class="view_btn"
+					href="update.do?no=${notice.no }&page=${param.page}"><button>글수정</button></a>
+				<a class="view_btn" id="delete_btn"
+					href="delete.do?no=${notice.no }&page=${param.page}"><button>글삭제</button></a>
+			</c:if>
+		</c:if>
+		
 	</div>
 </body>
 </html>

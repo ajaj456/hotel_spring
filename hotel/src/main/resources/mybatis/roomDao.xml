@@ -10,7 +10,18 @@
 	<select id="list" resultType="com.hotel.room.model.Room">
 		select roomNo,roomInfo,rSize,
 		floor,price,rName from room
-		order by floor asc
+		<choose>
+			<when test="floor == 1">
+				where floor = 1
+			</when>
+			<when test="floor == 2">
+				where floor = 2
+			</when>
+			<when test="floor == 3">
+				where floor = 3
+			</when>
+		</choose>
+		order by roomNo asc
 	</select>
 
 
@@ -30,11 +41,11 @@
 
 	<!-- 게시판 글수정 -->
 	<update id="update">
-			update room set
-			roomInfo=#{roomInfo},floor=#{floor},price=#{price},
-			rName=#{rName},rSize=#{rSize}
-			<if test="fileName!= null">,fileName=#{fileName}</if>
-			where roomNo=#{roomNo}
+		update room set
+		roomInfo=#{roomInfo},floor=#{floor},price=#{price},
+		rName=#{rName},rSize=#{rSize}
+		<if test="fileName!= null">,fileName=#{fileName}</if>
+		where roomNo=#{roomNo}
 	</update>
 
 	<!-- 게시판글삭제 -->
