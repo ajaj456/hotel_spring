@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hotel.common.service.ServiceInterface;
+import com.hotel.notice.model.Notice;
+import com.hotel.notice.model.NoticeModel;
 import com.hotel.room.model.Room;
 import com.hotel.util.DuplicateFile;
 
@@ -46,11 +48,14 @@ public class RoomController {
 
 	// 글리스트
 	@RequestMapping("/room/list.do")
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
+			@RequestParam(value = "floor", required = true, defaultValue = "1") int floor, Model model)
 			throws Exception {
 		System.out.println("roomController.list()");
-		model.addAttribute("list", roomListService.service(page));
-
+		Room room= new Room();
+		room.setFloor(floor);
+		room.setPage(page);
+		model.addAttribute("list", roomListService.service(room));
 		return "room/list";
 	}
 

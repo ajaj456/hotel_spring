@@ -34,7 +34,16 @@
 		</tr>
 		<c:forEach var="notice" items="${list}">
 			<tr>
-				<td><a href="view.do?no=${notice.no}">${notice.no}</a></td>
+				
+				<td>
+					<c:if test="${empty param.page }">
+						<a href="view.do?no=${notice.no}">${notice.no}</a>
+					</c:if>
+					<c:if test="${!empty param.page }">
+						<a href="view.do?no=${notice.no}&page=${param.page }">${notice.no}</a>
+					</c:if>
+				</td>
+				
 				<td>${notice.title}</td>
 				<td><pre>${notice.hit}</pre></td>
 				<td>${notice.wdate}</td>

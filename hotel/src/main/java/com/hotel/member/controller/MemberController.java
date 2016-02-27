@@ -231,9 +231,10 @@ public class MemberController {
 
 	// 회원등급변경 처리 - post
 	@RequestMapping(value = "/member/grade.do")
-	public String grade(Member member) throws Exception {
+	public String grade(@RequestParam(value = "page", required = true) int page, Member member) throws Exception {
 		memberGradeUpdateProcessService.service(member);
-		return "redirect:list.do";
+		System.out.println(page);
+		return "redirect:list.do?page="+page;
 	}
 
 	// 로그인처리 폼

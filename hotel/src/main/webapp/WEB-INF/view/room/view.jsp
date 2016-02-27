@@ -23,7 +23,7 @@
 		<tr><td colspan="2">
 		<a href="update.do?no=${room.roomNo }"><button>객실 바꾸기</button></a>
 		<a href="delete.do?no=${room.roomNo }"><button>객실 지우기</button></a>
-		<a href="list.do"><button>객실 리스트로</button></a>
+		<a href="list.do?floor=${room.floor }"><button>객실 리스트로</button></a>
 		</td></tr>
 		</c:if>
 	</table>
