@@ -7,13 +7,12 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
-
 				/WEB-INF/config/index.xml
 				/WEB-INF/config/main.xml
 				/WEB-INF/config/member.xml
 				/WEB-INF/config/room.xml
 				/WEB-INF/config/board.xml
-				/WEB-INF/config/qna.xml				
+<!-- 				/WEB-INF/config/qna.xml				 -->
 				/WEB-INF/config/booked.xml				
 				/WEB-INF/config/notice.xml
 			</param-value>
@@ -63,5 +62,8 @@
 		<filter-name>loginCheck</filter-name>
 		<url-pattern>/member/*</url-pattern>
 		<url-pattern>/booked/*</url-pattern>
+		<url-pattern>/room/write.do</url-pattern>
+		<url-pattern>/review/write.do</url-pattern>
+		
 	</filter-mapping>
 </web-app>
