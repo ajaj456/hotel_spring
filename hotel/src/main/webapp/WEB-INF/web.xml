@@ -12,7 +12,7 @@
 				/WEB-INF/config/member.xml
 				/WEB-INF/config/room.xml
 				/WEB-INF/config/board.xml
-<!-- 				/WEB-INF/config/qna.xml				 -->
+				/WEB-INF/config/qna.xml				
 				/WEB-INF/config/booked.xml				
 				/WEB-INF/config/notice.xml
 			</param-value>
