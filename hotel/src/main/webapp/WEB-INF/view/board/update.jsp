@@ -4,24 +4,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>자유게시판</title>
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="../js/common/util.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	$("#updateForm").submit(function(){
+		if (isEmpty("#title", "제목을 작성하세요."))
+			return false;
+		if (isEmpty("#content", "내용을 작성하세요."))
+			return false;
+		});
+	});
+</script>
 </head>
 <body>
-	<h2>게시판 글수정</h2>
-	<br>
-	<form action="update.do" method="post" enctype="multipart/form-data">
-		<label for="roomNo">방 번호 </label><input type="text" name="roomNo" id="roomNo" value="${room.roomNo}" readonly="readonly"> <br>
-		<label for="rName">방 이름</label><input type="text" name="rName" id="rName" value="${room.rName}"> <br>		 
-		<label for="content">방 정보 </label><textarea rows="7" cols="60" name="roomInfo" id="content">${room.roomInfo}</textarea><br> 
-		<label for="floor">층수</label><input type="text" name="floor" id="floor"value="${room.floor}"> <br>
-		<label for="rSize">방 사이즈</label><input type="text" name="rSize" id="rSize"value="${room.rSize}"> <br>
-		<label for="price">방 가격</label><input type="text" name="price" id="price"value="${room.price}"> <br>
-		<img alt="" src="../upload/room/${room.fileName}"><br/>
- 		<label for="fileName">변경 이미지 사진 </label><input type="file" name="file" id="fileName" > <br> 
-		<button>작성</button>
-		<button type="button" onclick="history.back()">취소</button>
-	</form>
-	<form action=""></form>
-
+<h2>글수정</h2>
+<form action="update.do" method="post" id="updateForm">
+	<input type="hidden" name="no" value="${qna.no }"/>
+	<label for="title">글제목</label>
+	<input type="text" name="title" id="title" value="${qna.title }"/><br/>
+	<label for="content">글내용</label>
+	<textarea rows="7" cols="60" name="content" id="content">${qna.content}</textarea><br/>
+	<label for="writer">작성자</label>
+	<input type="text" value="${qna.id }" readonly="readonly"/><br/>
+	<input type="hidden" name="writer" value="${qna.id }">
+	<button>수정</button>
+	<button type="button" onclick="history.back()">취소</button>
+</form>
 </body>
 </html>	

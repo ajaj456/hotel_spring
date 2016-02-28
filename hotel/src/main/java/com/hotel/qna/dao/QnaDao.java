@@ -28,6 +28,7 @@ public class QnaDao {
 	// 글수정처리
 		public Object update(Qna qna) {
 			System.out.println("QnaDao.update()");
+			System.out.println(qna);
 			return sqlSessionTemplate.update("dao.Qna.update", qna);
 		}
 
