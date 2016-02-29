@@ -70,6 +70,7 @@ img {
 	height: 740px;
 	background: #3b312a;
 	color: white;
+	padding: 10px 100px;
 }
 
 #body2 {
