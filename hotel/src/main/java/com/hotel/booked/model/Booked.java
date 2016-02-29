@@ -1,5 +1,7 @@
 package com.hotel.booked.model;
 
+import java.util.Date;
+
 public class Booked {
 	private int bno, payck, inoutck, roomNo, stay, page, people;
 	private String id, startDate;

@@ -11,7 +11,10 @@
 		select b.bno, b.roomNo, stayDate,
 		a.id, to_char(stayDate, 'yyyy') as year, to_char(stayDate, 'mm')
 		as
-		month, to_char(stayDate, 'dd') as day from booked a, booking b order
+		month, to_char(stayDate, 'dd') as day from booked a, booking b
+		where
+		a.bno=b.bno
+		order
 		by bno desc
 	</select>
 

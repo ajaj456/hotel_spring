@@ -15,6 +15,7 @@ public class BookingWriteProcessService implements ServiceInterface {
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("BookedWritrProcessService.service()");
+		System.out.println(obj);
 		return bookedDao.bookingwrite((Booking) obj);
 
 	}

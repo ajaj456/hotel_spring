@@ -24,10 +24,10 @@
 		<h2>예약 하기</h2>
 		<form action="write.do">
 			<input type="hidden" name="id" id="id" maxlength="15" class="input"
-				value="${member.id }" />
+				value="${login.id }" />
 			<ul>
-				<li><label>예약일자</label> <input type="date" name="stayDate" /></li>
-				<li><label>예약일수</label> <input type="text" name="stayDate"
+				<li><label>예약일자</label> <input type="date" name="startDate" /></li>
+				<li><label>예약일수</label> <input type="text" name="stay"
 					size="1" maxlength="3" /></li>
 				<li><label>호실</label> <select name="roomNo">
 						<c:forEach var="room" items="${room }">
