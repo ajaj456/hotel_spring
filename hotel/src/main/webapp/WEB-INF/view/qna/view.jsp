@@ -42,7 +42,7 @@
 			<td colspan="4"><a href="update.do?no=${qna.no }"><button>글수정</button></a>
 				<a href="list.do"><button>게시판 리스트</button></a>
 			<a href="delete.do?no=${qna.no}"><button>글삭제</button></a>
-			<a href="reply.do?no=${reply.no}"><button>답변달기</button></a>
+			<a href="reply.do?no=${qna.no}"><button>답변달기</button></a>
 			
 			</td>
 		</tr>
