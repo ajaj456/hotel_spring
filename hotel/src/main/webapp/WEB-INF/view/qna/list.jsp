@@ -25,8 +25,15 @@
 		</tr>
 		<c:forEach var="qna" items="${list}">
 			<tr>
-		<td><a href="view.do?no=${qna.no }"><font color="white">${qna.no }</font></a></td>
-		<td><a href="view.do?no=${qna.no }"><font color="white">${qna.title }</font></a></td>
+		<td>${qna.no }</td>
+		<td>
+					<c:if test="${empty param.page }">
+						<a href="view.do?no=${qna.no }">${qna.no }</a>
+					</c:if>
+					<c:if test="${!empty param.page }">
+						<a href="view.do?no=${qna.no }&page=${param.page }">${qna.no }</a>
+					</c:if>
+				</td>
 		<td>${qna.id}</td>
 		<td>${qna.wdate}</td>
 		<td>${qna.hit}</td>
@@ -64,6 +71,7 @@
 			href="list.do?page=${jspData.totalPage }"><i
 			class="fa fa-step-forward"></i></a>
 	</div>
+	
 	<br>
 	<br>
 </body>

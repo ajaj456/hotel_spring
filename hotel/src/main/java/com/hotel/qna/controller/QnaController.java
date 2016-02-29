@@ -56,9 +56,8 @@ public class QnaController {
 			throws Exception {
 		System.out.println("qnaController.list()");
 		QnaModel qnaModel = (QnaModel) qnaListService.service(page);
-		System.out.println(qnaModel.getJspData());
 		model.addAttribute("list",qnaModel.getList());
-		model.addAttribute("JspData", qnaModel.getJspData());
+		model.addAttribute("jspData", qnaModel.getJspData());
 		
 		return "qna/list";
 	}
