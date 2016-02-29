@@ -10,25 +10,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#booking").hide();
-
+		$("#booklist").hide();
 	});
 </script>
 <style type="text/css">
-#bookingbtn {
-	padding-left: 30px;
+.bookbtn {
 	border: 1px solid white;
-	width: 527px;
-	height: 58px;
-	color: black;
-	font-size: 32px;
-	text-align: center;
-	background: white;
-}
-
-#booklistbtn {
-	border: 1px solid white;
-	width: 527px;
+	width: 420px;
 	height: 58px;
 	color: black;
 	font-size: 32px;
@@ -40,8 +28,8 @@
 </head>
 <body>
 	<div>
-		<button id="bookingbtn">예약 하기</button>
-		<button id="booklistbtn">예약 리스트</button>
+		<button class="bookbtn">예약 하기</button>
+		<button class="bookbtn">예약 리스트</button>
 	</div>
 	<div id="booking">
 		<h2>예약 하기</h2>
@@ -97,18 +85,18 @@
 				</td>
 			</tr>
 		</table>
-		<table border=1 style="width: 100%;">
+		<table border=1 style="width: 90%;">
 			<!-- 달력 부분 -->
 			<tr>
-				<td width="100" height="40" align="center" style="color: red">일요일</td>
-				<td width="100" height="40" align="center">월요일</td>
-				<td width="100" height="40" align="center">화요일</td>
-				<td width="100" height="40" align="center">수요일</td>
-				<td width="100" height="40" align="center">목요일</td>
-				<td width="100" height="40" align="center">금요일</td>
-				<td width="100" height="40" align="center" style="color: blue">토요일</td>
+				<td width="55" height="40" align="center" style="color: red">일요일</td>
+				<td width="55" height="40" align="center">월요일</td>
+				<td width="55" height="40" align="center">화요일</td>
+				<td width="55" height="40" align="center">수요일</td>
+				<td width="55" height="40" align="center">목요일</td>
+				<td width="55" height="40" align="center">금요일</td>
+				<td width="55" height="40" align="center" style="color: yellow">토요일</td>
 			</tr>
-			<tr height=30>
+			<tr height=55>
 				<%
 					cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
 					int startDay = cal.get(Calendar.DAY_OF_WEEK); //현재날짜(1일)의 요일
@@ -123,13 +111,19 @@
 					}
 					for (int i = 1; i <= end; i++) { //날짜출력
 						if ((br % 7) == 0) { // 일요일 색깔 출력
-							out.println("<div><td valign='top' align='right' width='100' height='120' style='color: red;'>" + i
+							out.println("<div><td valign='top' align='right' width='70' height='55' style='color: red;'>" + i
 									+ "<br></div>");
 						} else if ((br % 7) == 6) { // 토요일 색깔 출력
-							out.println("<div><td valign='top' align='right' width='100' height='120' style='color: blue;'>" + i
+							out.println("<div><td valign='top' align='right' width='70' height='55' style='color: yellow;'>" + i
 									+ "<br></div>");
 						} else {
-							out.println("<div><td valign='top' align='right' width='100' height='120'>" + i + "<br></div>");
+							out.println("<div><td valign='top' align='right' width='70' height='55'>" + i + "<br></div>");
+						}
+
+						for (Booked booked : list) { // 달력내 내용표시
+							if (year == booked.getYear() && month + 1 == booked.getMonth() && i == booked.getDay())
+								out.println("<div align='left' style='display:block; text-overflow:ellipsis; overflow:hidden;'>"
+										+ "<a href='view.do?no=" + booked.getBno() + "'>roomNo</a>");
 						}
 
 						out.println("</td>");
