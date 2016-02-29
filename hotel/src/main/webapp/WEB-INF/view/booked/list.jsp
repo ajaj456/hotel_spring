@@ -9,8 +9,80 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-	$(document).ready(function() {
-	});
+	$(document)
+			.ready(
+					function() {
+						$("#chkbook").click(
+								function() {
+									var roomNo = $("#roomNo").val();
+									var stay = $("#stay").val();
+									var startDate = $("#startDate").val();
+									$("#checkresult")
+											.load(
+													"bookCheck.do?roomNo="
+															+ roomNo + "&stay="
+															+ stay
+															+ "&startDate="
+															+ startDate);
+								});
+						// 날짜 입력란에 키인하면 중복체크하라는 메세지 표시
+						$("#startDate").click(function() {
+							$("#checkresult").text("[ 예약 중복체크를 하셔야 합니다. ]")
+						});
+						$("#bookbtn")
+								.submit(
+										function() {
+											if ($("#checkresult").text() == "[ 이미 예약이 되어있습니다. 다른 날짜를 선택해주세요. ]") {
+												alert("예약시간 중복입니다. 변경해주세요.")
+												return false;
+											}
+											;
+											if ($("#checkresult").text() == "[ 예약 중복체크를 하셔야 합니다. ]") {
+												alert("예약시간 중복체크하세요.")
+												return false;
+											}
+											;
+											if ($("#startDate").val() == "") {
+												alert("예약일자를 선택하세요.");
+												$("#startDate").focus();
+												return false;
+											}
+											;
+											if ($("#stay").val() == "") {
+												alert("예약일수를 입력하세요.");
+												$("#stay").focus();
+												return false;
+											}
+											;
+											if ($("#stay").val() == "1"
+													|| $("#stay").val() == "2"
+													|| $("#stay").val() == "3"
+													|| $("#stay").val() == "4"
+													|| $("#stay").val() == "5"
+													|| $("#stay").val() == "6"
+													|| $("#stay").val() == "7"
+													|| $("#stay").val() == "8"
+													|| $("#stay").val() == "9"
+													|| $("#stay").val() == "10"
+													|| $("#stay").val() == "11"
+													|| $("#stay").val() == "12"
+													|| $("#stay").val() == "13"
+													|| $("#stay").val() == "14"
+													|| $("#stay").val() == "15") {
+											} else {
+												alert("예약일수를 확인해주세요.(최대 15일 사이로 입력해주세요.)");
+												$("#stay").focus();
+												return false;
+											}
+											;
+											if ($("#people").val() == "") {
+												alert("인원수를 입력하세요.");
+												$("#people").focus();
+												return false;
+											}
+											;
+										});
+					});
 </script>
 <style type="text/css">
 #alink {
@@ -22,23 +94,28 @@
 <body>
 	<div>
 		<h2>예약 하기</h2>
-		<form action="write.do" id="bookbtn">
-			<input type="hidden" name="id" id="id" maxlength="15" class="input"
+		<form action="write.do" method="post" id="bookbtn">
+			<input type="hidden" maxlength="15" class="input"
 				value="${login.id }" />
 			<ul>
-				<li><label>예약일자</label> <input type="date" name="startDate" /></li>
-				<li><label>예약일수</label> <input type="text" name="stay" size="1"
-					maxlength="3" />일간</li>
-				<li><label>호실</label> <select name="roomNo">
+				<li><label>예약일자</label> <input type="date" id="startDate"
+					name="startDate" /></li>
+				<li><label>예약일수</label> <input type="text" id="stay"
+					name="stay" size="1" maxlength="3" />일간 ( 최대 15일까지 예약가능합니다. )</li>
+				<li><label>호실</label> <select name="roomNo" id="roomNo">
 						<c:forEach var="room" items="${room }">
-							<option selected="selected">${room.roomNo }</option>
+							<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명)</option>
 						</c:forEach>
 				</select>호</li>
-				<li><label>인원수</label> <input type="text" name="people"
-					size="1" maxlength="2" />명</li>
+				<li><label>인원수</label> <input type="text" id="people"
+					name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
+					[인당 만원] )</li>
 			</ul>
+			<button type="button" id="chkbook">예약확인하기</button>
 			<button>예약</button>
+			<span id=checkresult>[ 예약 중복체크를 하셔야 합니다. ]</span>
 		</form>
+
 	</div>
 	<div>
 		<h2>예약 현황</h2>

@@ -51,7 +51,7 @@
 
 	<!-- 예약 방번호 뿌리기 -->
 	<select id="roomList" resultType="com.hotel.room.model.Room">
-		select roomNo from room
+		select roomNo, rSize from room
 		order by
 		roomNo asc
 	</select>
