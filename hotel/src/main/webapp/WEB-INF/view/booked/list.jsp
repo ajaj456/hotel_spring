@@ -20,7 +20,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>예약 하기</h2>
+	<h2>예약 현황</h2>
 	<%
 		@SuppressWarnings("unchecked")
 		List<Booked> list = (List<Booked>) request.getAttribute("list");
@@ -111,8 +111,7 @@
 					for (Booked booked : list) { // 달력내 내용표시
 						if (year == booked.getYear() && month + 1 == booked.getMonth() && i == booked.getDay())
 							out.print("<div align='left' style='display:block; text-overflow:ellipsis; overflow:hidden;'>"
-									+ "<a href='view.do?no=" + booked.getBno() + "' id='alink'>" + booked.getRoomNo() + "("
-									+ booked.getPeople() + ")" + "</a>");
+									+ booked.getRoomNo() + "(" + booked.getPeople() + ")");
 					}
 
 					out.println("</td>");
