@@ -38,5 +38,11 @@
 	<delete id="delete">
 		delete from reply where reno=#{reno}
 	</delete>
-
+	<!-- 게시판 글갯수 -->
+	<select id="totalCount" resultType="Integer">
+		select
+		count(*)
+		from reply
+		where no=#{no}
+	</select>
 </mapper>

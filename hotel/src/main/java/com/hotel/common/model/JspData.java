@@ -9,6 +9,16 @@ public class JspData {
 	private int page, pagesPerGroup;
 	private int startRow, endRow;
 	private String period;
+	private int no;
+
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
 
 	public String getPeriod() {
 		return period;
