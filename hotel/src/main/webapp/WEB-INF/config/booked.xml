@@ -14,6 +14,7 @@
 		<property name="bookedUpdateService" ref="bookedUpdateService" />
 		<property name="bookedUpdateProcessService" ref="bookedUpdateProcessService" />
 		<property name="bookedDeleteProcessService" ref="bookedDeleteProcessService" />
+		<property name="roomListService" ref="roomListService" />
 	</bean>
 
 	<!-- service -->
@@ -25,30 +26,32 @@
 	<bean id="bookedViewService" class="com.hotel.booked.service.BookedViewService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
-	
-	<bean id="bookedWriteProcessService"
-		class="com.hotel.booked.service.BookedWriteProcessService">
-		<property name="bookedDao" ref="bookedDao"></property>
-	</bean>
-	
-	<bean id="bookedUpdateService"
-		class="com.hotel.booked.service.BookedUpdateService">
+
+	<bean id="bookedWriteProcessService" class="com.hotel.booked.service.BookedWriteProcessService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
-	<bean id="bookedUpdateProcessService"
-		class="com.hotel.booked.service.BookedUpdateProcessService">
-		<property name="bookedDao" ref="bookedDao"></property>
-	</bean>
-	
-	<bean id="bookedDeleteProcessService"
-		class="com.hotel.booked.service.BookedDeleteProcessService">
+	<bean id="bookedUpdateService" class="com.hotel.booked.service.BookedUpdateService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
-<!-- Dao -->
+	<bean id="bookedUpdateProcessService" class="com.hotel.booked.service.BookedUpdateProcessService">
+		<property name="bookedDao" ref="bookedDao"></property>
+	</bean>
+
+	<bean id="bookedDeleteProcessService" class="com.hotel.booked.service.BookedDeleteProcessService">
+		<property name="bookedDao" ref="bookedDao"></property>
+	</bean>
+	<bean id="roomListService" class="com.hotel.booked.service.RoomListService">
+		<property name="bookedDao" ref="bookedDao"></property>
+
+	</bean>
+
+	<!-- Dao -->
 	<bean id="bookedDao" class="com.hotel.booked.dao.BookedDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
-
+	<bean id="roomDao" class="com.hotel.room.dao.RoomDao">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+	</bean>
 </beans>

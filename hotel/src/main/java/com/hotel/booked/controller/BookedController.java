@@ -12,7 +12,11 @@ import com.hotel.common.service.ServiceInterface;
 @Controller
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
-			bookedUpdateProcessService, bookedDeleteProcessService;
+			bookedUpdateProcessService, bookedDeleteProcessService, roomListService;
+
+	public void setRoomListService(ServiceInterface roomListService) {
+		this.roomListService = roomListService;
+	}
 
 	public void setBookedListService(ServiceInterface bookedListService) {
 		this.bookedListService = bookedListService;
@@ -44,6 +48,8 @@ public class BookedController {
 			throws Exception {
 		System.out.println("bookedController.list()");
 		model.addAttribute("list", bookedListService.service(page));
+		System.out.println(roomListService.service(page));
+		model.addAttribute("room", roomListService.service(null));
 		return "booked/list";
 	}
 

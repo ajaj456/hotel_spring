@@ -29,8 +29,13 @@
 				<li><label>예약일자</label> <input type="date" name="stayDate" /></li>
 				<li><label>예약일수</label> <input type="text" name="stayDate"
 					size="1" maxlength="3" /></li>
-				<li><label>호실</label> <input type="text" name="roomNo" size="1" maxlength="3" /></li>
-				<li><label>인원수</label> <input type="text" name="people" size="1" maxlength="2" /></li>
+				<li><label>호실</label> <select name="roomNo">
+						<c:forEach var="room" items="${room }">
+							<option>${room.roomNo }</option>
+						</c:forEach>
+				</select></li>
+				<li><label>인원수</label> <input type="text" name="people"
+					size="1" maxlength="2" /></li>
 			</ul>
 			<button>예약</button>
 		</form>
