@@ -41,4 +41,8 @@ public class IndexController {
 		// bookedListService.service(member.getId()));
 		return "main/index";
 	}
+//	@RequestMapping("/main/pageMove.do")
+//	public String pageMove(HttpSession session, Model model) throws Exception {
+//		return "member/login";
+//	}
 }

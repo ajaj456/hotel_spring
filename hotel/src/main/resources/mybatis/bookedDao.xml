@@ -8,8 +8,8 @@
 
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.booked.model.Booked">
-		select bno, payck, inoutck, r.roomNo, stay, m.id, startDate from booked b, member m, room r 
-		order by b.bno desc;
+		select bno, payck, inoutck, roomNo, stay, id, startDate from booked 
+		order by bno desc
 	</select>
 
 
