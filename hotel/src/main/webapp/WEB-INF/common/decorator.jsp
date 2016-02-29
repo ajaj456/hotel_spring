@@ -38,7 +38,7 @@ footer {
 	height: auto;
 	margin-bottom: 2px;
 	background: #3b312a;
-	color: #867a6f;
+	color: white;
 }
 
 a {
