@@ -14,7 +14,11 @@ import com.hotel.qna.model.Qna;
 @Controller
 public class QnaController {
 	private ServiceInterface qnaListService, qnaViewService, qnaWriteProcessService, qnaUpdateProcessService, qnaUpdateService,
-			qnaDeleteProcessService, qnaReplyWriteProcess;
+			qnaDeleteProcessService, qnaReplyWriteProcess, qnaReplyWrite;
+
+	public void setQnaReplyWrite(ServiceInterface qnaReplyWrite) {
+		this.qnaReplyWrite = qnaReplyWrite;
+	}
 
 	public void setQnaListService(ServiceInterface qnaListService) {
 		this.qnaListService = qnaListService;
@@ -105,7 +109,11 @@ public class QnaController {
 
 	// 답변 글쓰기폼 - GET
 	@RequestMapping(value = "/qna/reply.do", method = RequestMethod.GET)
-	public String reply() {
+	public String reply(int no, Model model) throws Exception{
+		Qna qna = (Qna)qnaReplyWrite.service(no);
+		if(qna.getLevNo()>=1)
+			return "redirect:list.do";
+					model.addAttribute("qna", qnaReplyWrite.service(no));
 		System.out.println("qnaController.reply-get()");
 		return "qna/reply";
 	}
