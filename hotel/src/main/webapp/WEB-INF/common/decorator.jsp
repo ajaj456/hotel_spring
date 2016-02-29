@@ -74,9 +74,8 @@ img {
 
 #body2 {
 	width: 1019;
-	margin-right: 100px;
-	margin-left: 100px;
-	margin-top: 10px;
+	height: 100%;
+	maegin : 100px 10px;
 	overflow-y: scroll;
 }
 
