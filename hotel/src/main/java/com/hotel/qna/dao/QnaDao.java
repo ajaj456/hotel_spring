@@ -2,6 +2,7 @@ package com.hotel.qna.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import com.hotel.common.model.JspData;
 import com.hotel.qna.model.Qna;
 
 public class QnaDao {
@@ -12,10 +13,10 @@ public class QnaDao {
 	}
 
 	// 1글리스트
-	public Object list() {
+	public Object list(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("QnaDao.list()");
-		return sqlSessionTemplate.selectList("dao.Qna.list");
+		return sqlSessionTemplate.selectList("dao.Qna.list", obj);
 	}
 	// 2글보기-글수정
 
@@ -66,7 +67,7 @@ public class QnaDao {
 	public int totalRow() {
 		// TODO Auto-generated method stub
 		System.out.println("QnaDao.totalRow()");
-		return sqlSessionTemplate.selectOne("dao.Qna.totalCount");
+		return sqlSessionTemplate.selectOne("dao.Qna.totalRow");
 		
 	}
 	// 조회수 증가 

@@ -15,12 +15,14 @@
 		<property name="qnaWriteProcessService" ref="qnaWriteProcessService" />
 		<property name="qnaUpdateProcessService" ref="qnaUpdateProcessService" />
 		<property name="qnaUpdateService" ref="qnaUpdateService" />
-		
+
 		<property name="qnaDeleteProcessService" ref="qnaDeleteProcessService" />
 
 		<!-- qna 답변 -->
 		<property name="qnaReplyWriteProcess" ref="qnaReplyWriteProcess" />
+		<property name="qnaReplyWrite" ref="qnaReplyWrite" />
 	</bean>
+
 
 	<!-- service -->
 	<bean id="qnaListService" class="com.hotel.qna.service.QnaListService">
@@ -48,6 +50,10 @@
 	</bean>
 
 	<bean id="qnaReplyWriteProcess" class="com.hotel.qna.service.QnaReplyWriteProcess">
+		<property name="qnaDao" ref="qnaDao"></property>
+	</bean>
+	
+	<bean id="qnaReplyWrite" class="com.hotel.qna.service.QnaReplyWrite">
 		<property name="qnaDao" ref="qnaDao"></property>
 	</bean>
 
