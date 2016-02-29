@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.hotel.board.model.BoardModel;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.member.model.Member;
 import com.hotel.member.model.MemberModel;
@@ -234,7 +233,7 @@ public class MemberController {
 	public String grade(@RequestParam(value = "page", required = true) int page, Member member) throws Exception {
 		memberGradeUpdateProcessService.service(member);
 		System.out.println(page);
-		return "redirect:list.do?page="+page;
+		return "redirect:list.do?page=" + page;
 	}
 
 	// 로그인처리 폼
