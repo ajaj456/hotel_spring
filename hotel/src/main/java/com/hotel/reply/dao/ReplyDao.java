@@ -33,4 +33,9 @@ public class ReplyDao {
 		return sqlSessionTemplate.delete("dao.Reply.delete", reply);
 	}
 
+	public int totalRow() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

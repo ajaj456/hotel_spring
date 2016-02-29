@@ -14,6 +14,8 @@ import com.hotel.board.model.Board;
 import com.hotel.board.model.BoardModel;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.reply.model.Reply;
+import com.hotel.reply.model.ReplyModel;
+import com.hotel.reply.service.ReplyListService;
 import com.hotel.util.DuplicateFile;
 
 @Controller
@@ -83,9 +85,14 @@ public class BoardController {
 
 	// 글보기
 	@RequestMapping("/board/view.do")
-	public String view(@RequestParam("no") String no, Model model) throws Exception {
+	public String view(@RequestParam(value = "page", required = false, defaultValue = "1") int page, @RequestParam("no") String no, Model model) throws Exception {
 		System.out.println("boardController.view()");
+		Reply reply = new Reply();
+		reply.setPage(page);
+		reply.setNo((Integer.parseInt(no)));
+		ReplyModel replyModel = (ReplyModel) replyListService.service(reply);
 		model.addAttribute("review", boardViewService.service((Integer.parseInt(no))));
+		model.addAttribute("jspData", replyModel.getJspData());
 		model.addAttribute("relist", replyListService.service((Integer.parseInt(no))));
 		return "board/view";
 	}

@@ -6,6 +6,8 @@ public class Board {
 	private int no, hit, bno, grade, cnt;
 	private String title, content, wdate, fileName, id;
 	private MultipartFile file;
+	
+	
 
 	public int getNo() {
 		return no;
