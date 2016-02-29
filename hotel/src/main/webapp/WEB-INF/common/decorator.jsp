@@ -73,7 +73,7 @@ img {
 }
 
 #body2 {
-	width: 1019;
+	width: 100%;
 	height: 100%;
 	maegin : 100px 10px;
 	overflow-y: scroll;
