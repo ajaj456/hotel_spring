@@ -3,6 +3,18 @@ package com.hotel.reply.model;
 public class Reply {
 	private int no, reno;
 	private String content, wdate, id;
+	
+//	페이지 처리를 위한 변수선언
+	
+	private int page;
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
 
 	@Override
 	public String toString() {

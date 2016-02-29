@@ -15,7 +15,8 @@
 
 	<!-- 게시판 글보기 -->
 	<select id="view" resultType="com.hotel.booked.model.Booked">
-		
+		select bno, payck, inoutck, roomNo, stay, id, startDate from booked 
+		where bno=1
 	</select>
 
 	<!-- 게시판 글쓰기 -->
