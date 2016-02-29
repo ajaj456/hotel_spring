@@ -110,7 +110,7 @@
 
 					for (Booked booked : list) { // 달력내 내용표시
 						if (year == booked.getYear() && month + 1 == booked.getMonth() && i == booked.getDay())
-							out.println("<div align='left' style='display:block; text-overflow:ellipsis; overflow:hidden;'>"
+							out.print("<div align='left' style='display:block; text-overflow:ellipsis; overflow:hidden;'>"
 									+ "<a href='view.do?no=" + booked.getBno() + "' id='alink'>" + booked.getRoomNo() + "("
 									+ booked.getPeople() + ")" + "</a>");
 					}

@@ -10,7 +10,7 @@
 	<select id="list" resultType="com.hotel.booked.model.Booked">
 		select bno, payck, inoutck, roomNo,
 		stay, id, to_char(startDate, 'yyyy') as year, to_char(startDate, 'mm')
-		as month, to_char(startDate, 'dd') as day from booked
+		as month, to_char(startDate, 'dd') as day, people from booked
 		order by bno desc
 
 
