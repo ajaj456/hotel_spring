@@ -1,9 +1,12 @@
 package com.hotel.booked.controller;
 
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -76,27 +79,15 @@ public class BookedController {
 	}
 
 	// 글쓰기 처리 - POST
-	@RequestMapping(value = "/booked/write.do")
-	public String write(@RequestParam(value = "roomNo", required = false) int roomNo, Booked booked, Booking booking)
-			throws Exception {
+	@RequestMapping(value = "/booked/write.do", method = RequestMethod.POST)
+	public String write(@RequestParam(value = "roomNo", required = false) int roomNo, HttpServletResponse response,
+			Booked booked, Booking booking, Model model) throws Exception {
 		System.out.println("bookedController.write-post()");
 
 		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 		Date date = null;
 		String dat;
 		Calendar cal = Calendar.getInstance();
-
-		for (int i = 0; i < booked.getStay(); i++) {
-			booking.setRoomNo(roomNo);
-			date = df.parse(booked.getStartDate());
-			cal.setTime(date);
-			cal.add(Calendar.DATE, i);
-			dat = df.format(cal.getTime());
-			booking.setStayDate(dat);
-			if ((Booking) bookedConfirmService.service(booking) != null)
-				return "redirect:list.do";
-		}
-		bookedWriteProcessService.service(booked);
 
 		for (int i = 0; i < booked.getStay(); i++) {
 			booking = new Booking();
@@ -138,4 +129,34 @@ public class BookedController {
 		return "redirect:list.do";
 	}
 
+	// 예약중복체크
+	@RequestMapping("/booked/bookCheck.do")
+	public void bookCheck(@RequestParam(value = "startDate", required = false) String startDate,
+			@RequestParam(value = "roomNo", required = false) int roomNo,
+			@RequestParam(value = "stay", required = false) int stay, HttpServletResponse response, Booking booking,
+			Booked booked) throws Exception {
+
+		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+		Date date = null;
+		String dat;
+		Calendar cal = Calendar.getInstance();
+		String result = "<span style='color:yellow'>[ 예약가능합니다. ]</span>";
+
+		for (int i = 0; i < stay; i++) {
+			booking.setRoomNo(roomNo);
+			date = df.parse(startDate);
+			cal.setTime(date);
+			cal.add(Calendar.DATE, i);
+			dat = df.format(cal.getTime());
+			booking.setStayDate(dat);
+			if ((Booking) bookedConfirmService.service(booking) != null) {
+				if (bookedConfirmService.service(booking) != null)
+					result = "<span style='color:white'>[ 이미 예약이 되어있습니다. 다른 날짜를 선택해주세요. ]</span>";
+			}
+		}
+
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(result);
+	}
 }
