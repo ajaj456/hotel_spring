@@ -36,7 +36,7 @@
 		</c:forEach>
 		<c:if test="${login.grade eq 'master'}">
 			<tr>
-				<td><a href="write.do"><button>글쓰기</button></a></td>
+				<td><a href="write.do"><button>객실 추가</button></a></td>
 			</tr>
 		</c:if>
 	</table>

@@ -6,32 +6,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet" />
 </head>
 <body>
 	<h2>예약 리스트</h2>
-	<br>
 	<table>
 		<tr>
+			<th>예약 번호</th>
 			<th>객실 번호</th>
-			<th>객실 이름</th>
-			<th>객실 정보</th>
-			<th>객실 사이즈</th>
-			<th>객실 가격</th>
-			<th>객실 층수</th>
+			<th>예약자</th>
+			<th>예약시작일</th>
+			<th>숙박일수</th>
 		</tr>
-		<c:forEach var="booked" items="${list}">
+		<c:forEach var="booked" items="${list }">
 			<tr>
-		<td><a href="view.do?no=${booked.roomNo }">${booked.roomNo }</a></td>
-<%-- 		<td>${booked.rName}</td> --%>
-<%-- 		<td><pre>${booked.roomInfo}</pre></td> --%>
-<%-- 		<td>${booked.rSize}</td> --%>
-<%-- 		<td>${booked.price}</td> --%>
-<%-- 		<td>${booked.floor }</td> --%>
-		<tr>
+				<td>${booked.bno }</td>
+				<td>${booked.roomNo }</td>
+				<td>${booked.id }</td>
+				<td>${booked.startDate }</td>
+				<td>${booked.stay }</td>
+			<tr>
 		</c:forEach>
-		<tr>
-			<td><a href="write.do"><button>글쓰기</button></a></td>
-		</tr>
 	</table>
 	<br>
 	<br>

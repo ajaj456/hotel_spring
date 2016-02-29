@@ -1,7 +1,5 @@
 package com.hotel.booked.controller;
 
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +44,6 @@ public class BookedController {
 			throws Exception {
 		System.out.println("bookedController.list()");
 		model.addAttribute("list", bookedListService.service(page));
-
 		return "booked/list";
 	}
 
@@ -65,13 +62,13 @@ public class BookedController {
 		return "booked/write";
 	}
 
-	 // 글쓰기 처리 - POST
-	 @RequestMapping(value = "/booked/write.do", method = RequestMethod.POST)
-	 public String write(Booked booked) throws Exception {
-	 System.out.println("bookedController.write-post()");
-	 bookedWriteProcessService.service(booked);
-	 return "redirect:list.do";
-	 }
+	// 글쓰기 처리 - POST
+	@RequestMapping(value = "/booked/write.do", method = RequestMethod.POST)
+	public String write(Booked booked) throws Exception {
+		System.out.println("bookedController.write-post()");
+		bookedWriteProcessService.service(booked);
+		return "redirect:list.do";
+	}
 
 	// 글수정 폼 - get
 	@RequestMapping(value = "/booked/update.do", method = RequestMethod.GET)
@@ -80,14 +77,14 @@ public class BookedController {
 		model.addAttribute("booked", bookedUpdateService.service((Integer.parseInt(roomNo))));
 		return "booked/update";
 	}
-	
+
 	// 글수정 처리 - POST
-		@RequestMapping(value = "/booked/update.do", method = RequestMethod.POST)
-		public String update(Booked booked) throws Exception {
-			System.out.println("bookedController.update-post()");
-			bookedUpdateProcessService.service(booked);
-			return "redirect:view.do?no="+booked.getBno();
-		}
+	@RequestMapping(value = "/booked/update.do", method = RequestMethod.POST)
+	public String update(Booked booked) throws Exception {
+		System.out.println("bookedController.update-post()");
+		bookedUpdateProcessService.service(booked);
+		return "redirect:view.do?no=" + booked.getBno();
+	}
 
 	// 글삭제 처리
 	@RequestMapping("/booked/delete.do")
