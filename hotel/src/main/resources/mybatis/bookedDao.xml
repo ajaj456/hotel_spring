@@ -8,21 +8,32 @@
 
 	<!-- 예약 리스트 -->
 	<select id="list" resultType="com.hotel.booked.model.Booking">
-		select b.bno, b.roomNo, stayDate,
-		b.people,
-		a.id, to_char(stayDate, 'yyyy') as year, to_char(stayDate,
+		select bno, roomNo,
+		stayDate,
+		people,
+		id, to_char(stayDate,
+		'yyyy') as
+		year,
+		to_char(stayDate,
 		'mm')
 		as
-		month, to_char(stayDate, 'dd') as day from booked a, booking b
-		where
-		a.bno=b.bno
+		month, to_char(stayDate, 'dd')
+		as day from
+		booking
+		<choose>
+			<when test="page == 2">
+				where id=#{id}
+			</when>
+		</choose>
 		order
 		by bno desc
 	</select>
 
-
 	<!-- 예약 보기 -->
 	<select id="view" resultType="com.hotel.booked.model.Booked">
+		select * from booking where
+		id=#{id} order
+		by bno desc
 	</select>
 
 	<!-- 예약 하기 -->
@@ -34,8 +45,8 @@
 
 	<!-- 예약 하기 -->
 	<insert id="bookingwrite">
-		insert into booking (roomNo, bno, stayDate,
-		bookingNo, people) values (#{roomNo }, #{bno }, #{stayDate },
+		insert into booking (roomNo, bno, stayDate, id,
+		bookingNo, people) values (#{roomNo }, #{bno }, #{stayDate }, #{id },
 		booking_seq.nextval, #{people })
 	</insert>
 

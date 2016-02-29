@@ -24,8 +24,6 @@ public class BookedController {
 			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
 			bookedConfirmService;
 
-
-
 	public void setBookedRoomListService(ServiceInterface bookedRoomListService) {
 		this.bookedRoomListService = bookedRoomListService;
 	}
@@ -64,10 +62,12 @@ public class BookedController {
 
 	// 글리스트
 	@RequestMapping("/booked/list.do")
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
-			throws Exception {
+	public String list(@RequestParam(value = "list", required = true, defaultValue = "1") int list,
+			@RequestParam(value = "id", required = false) String id, Model model, Booked booked) throws Exception {
 		System.out.println("bookedController.list()");
-		model.addAttribute("list", bookedListService.service(page));
+		booked.setId(id);
+		booked.setPage(list);
+		model.addAttribute("list", bookedListService.service(booked));
 		model.addAttribute("room", bookedRoomListService.service(null));
 		return "booked/list";
 	}
@@ -111,9 +111,9 @@ public class BookedController {
 
 	// 글수정 폼 - get
 	@RequestMapping(value = "/booked/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "no", required = false) String roomNo, Model model) throws Exception {
+	public String update(@RequestParam(value = "id", required = false) String id, Model model) throws Exception {
 		System.out.println("bookedController.update-get()");
-		model.addAttribute("booked", bookedUpdateService.service((Integer.parseInt(roomNo))));
+		model.addAttribute("booked", bookedUpdateService.service(id));
 		return "booked/update";
 	}
 
