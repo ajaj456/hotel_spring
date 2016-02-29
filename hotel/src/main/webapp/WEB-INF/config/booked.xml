@@ -48,7 +48,7 @@
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
-	<bean id="bookingWriteService" class="com.hotel.booked.service.BookingWriteService">
+	<bean id="bookingWriteService" class="com.hotel.booked.service.BookingWriteProcessService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
