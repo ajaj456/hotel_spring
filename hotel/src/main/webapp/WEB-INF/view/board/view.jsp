@@ -84,9 +84,13 @@
 		<button>확인</button>
 	</form>
 	<table>
-		<c:forEach  var="relist" items="${relist.list}" begin="${jspData.startPage }" end="${jspData.endPage }">
+		<tr>
+			<td>내용</td>
+			<td>작성일</td>
+			<td>아이디</td>
+		</tr>
+		<c:forEach var="relist" items="${relist.list}">
 			<tr>
-				<td>${relist.reno }</td>
 				<td>${relist.content }</td>
 				<td>${relist.wdate }</td>
 				<td>${relist.id }</td>
@@ -106,16 +110,18 @@
 			<tr>
 		</c:forEach>
 	</table>
-	
+
 	<div id="pageMove">
 		<!-- 	페이지 처리 = 반복문 처리-->
-		<a href="view.do?no=${review.no}&page=1"><i class="fa fa-step-backward"></i></a> <a
+		<a href="view.do?no=${review.no}&page=1"><i
+			class="fa fa-step-backward"></i></a> <a
 			href="view.do?no=${review.no}&page=${jspData.startPage >1?jspData.startPage-jspData.pagesPerGroup:1 }"><i
 			class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a> <a
 			href="view.do?no=${review.no}&page=${jspData.page >1?jspData.page-1:1 }"><i
 			class="fa fa-chevron-left"></i></a>
 
-		<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
+		<c:forEach var="i" begin="${jspData.startPage }"
+			end="${jspData.endPage }">
 			<c:choose>
 				<c:when test="${jspData.page eq i }">
 					<span id="cpage">${i }</span>
