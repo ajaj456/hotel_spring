@@ -27,15 +27,15 @@
 				value="${login.id }" />
 			<ul>
 				<li><label>예약일자</label> <input type="date" name="startDate" /></li>
-				<li><label>예약일수</label> <input type="text" name="stay"
-					size="1" maxlength="3" /></li>
+				<li><label>예약일수</label> <input type="text" name="stay" size="1"
+					maxlength="3" />일간</li>
 				<li><label>호실</label> <select name="roomNo">
 						<c:forEach var="room" items="${room }">
 							<option>${room.roomNo }</option>
 						</c:forEach>
-				</select></li>
+				</select>호</li>
 				<li><label>인원수</label> <input type="text" name="people"
-					size="1" maxlength="2" /></li>
+					size="1" maxlength="2" />명</li>
 			</ul>
 			<button>예약</button>
 		</form>
@@ -94,16 +94,16 @@
 				</td>
 			</tr>
 		</table>
-		<table border=1 style="width: 90%;">
+		<table border=1>
 			<!-- 달력 부분 -->
 			<tr>
-				<td width="55" height="40" align="center" style="color: green">일요일</td>
-				<td width="55" height="40" align="center">월요일</td>
-				<td width="55" height="40" align="center">화요일</td>
-				<td width="55" height="40" align="center">수요일</td>
-				<td width="55" height="40" align="center">목요일</td>
-				<td width="55" height="40" align="center">금요일</td>
-				<td width="55" height="40" align="center" style="color: yellow">토요일</td>
+				<td height="40" align="center" style="color: yellow">일요일</td>
+				<td height="40" align="center">월요일</td>
+				<td height="40" align="center">화요일</td>
+				<td height="40" align="center">수요일</td>
+				<td height="40" align="center">목요일</td>
+				<td height="40" align="center">금요일</td>
+				<td height="40" align="center" style="color: yellow">토요일</td>
 			</tr>
 			<tr height=55>
 				<%
@@ -120,19 +120,19 @@
 					}
 					for (int i = 1; i <= end; i++) { //날짜출력
 						if ((br % 7) == 0) { // 일요일 색깔 출력
-							out.println("<div><td valign='top' align='right' width='70' height='55' style='color: green;'>" + i
-									+ "<br></div>");
+							out.println("<div><td valign='top' align='right' width='150' height='55' style='color: yellow;'>"
+									+ i + "<br></div>");
 						} else if ((br % 7) == 6) { // 토요일 색깔 출력
-							out.println("<div><td valign='top' align='right' width='70' height='55' style='color: yellow;'>" + i
-									+ "<br></div>");
+							out.println("<div><td valign='top' align='right' width='150' height='55' style='color: yellow;'>"
+									+ i + "<br></div>");
 						} else {
-							out.println("<div><td valign='top' align='right' width='70' height='55'>" + i + "<br></div>");
+							out.println("<div><td valign='top' align='right' width='150' height='55'>" + i + "<br></div>");
 						}
 
 						for (Booking booking : list) { // 달력내 내용표시
 							if (year == booking.getYear() && month + 1 == booking.getMonth() && i == booking.getDay())
 								out.print("<div align='left' style='display:block; text-overflow:ellipsis; overflow:hidden;'>"
-										+ booking.getRoomNo());
+										+ booking.getRoomNo() + "호 예약(" + booking.getPeople() + "명)");
 						}
 
 						out.println("</td>");

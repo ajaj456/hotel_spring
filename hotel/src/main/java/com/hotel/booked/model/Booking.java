@@ -1,9 +1,17 @@
 package com.hotel.booked.model;
 
 public class Booking {
-	private int roomNo, bno, bookingNo;
+	private int roomNo, bno, bookingNo, people;
 	private String id, stayDate;
 	private int year, month, day;
+
+	public int getPeople() {
+		return people;
+	}
+
+	public void setPeople(int people) {
+		this.people = people;
+	}
 
 	public int getRoomNo() {
 		return roomNo;

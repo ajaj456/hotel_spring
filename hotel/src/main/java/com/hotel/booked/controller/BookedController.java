@@ -83,6 +83,7 @@ public class BookedController {
 		for (int i = 0; i < booked.getStay(); i++) {
 			booking.setId(booked.getId());
 			booking.setRoomNo(booked.getRoomNo());
+			booking.setPeople(booked.getPeople());
 			booking.setBno(9);
 			date = df.parse(booked.getStartDate());
 			cal.setTime(date);
