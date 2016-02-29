@@ -77,7 +77,6 @@ img {
 	margin-right: 100px;
 	margin-left: 100px;
 	margin-top: 10px;
-	border: 1px solid white;
 }
 
 #head {
