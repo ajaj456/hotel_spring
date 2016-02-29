@@ -113,7 +113,7 @@ public class QnaController {
 
 	// 답변 글쓰기폼 - GET
 	@RequestMapping(value = "/qna/reply.do", method = RequestMethod.GET)
-	public String reply(int no, Model model) throws Exception{
+	public String reply(int no, Model model) throws Exception {
 		Qna qna = (Qna)qnaReplyWrite.service(no);
 		if(qna.getLevNo()>=1)
 			return "redirect:list.do";
