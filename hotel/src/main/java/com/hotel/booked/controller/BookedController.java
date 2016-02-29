@@ -1,5 +1,10 @@
 package com.hotel.booked.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotel.booked.model.Booked;
+import com.hotel.booked.model.Booking;
 import com.hotel.common.service.ServiceInterface;
 
 @Controller
@@ -67,11 +73,24 @@ public class BookedController {
 
 	// 글쓰기 처리 - POST
 	@RequestMapping(value = "/booked/write.do")
-	public String write(Booked booked) throws Exception {
+	public String write(Booked booked, Booking booking) throws Exception {
 		System.out.println("bookedController.write-post()");
 		bookedWriteProcessService.service(booked);
-		for (int i = 0; i < booked.getStay(); i++)
-			bookingWriteService.service(booked);
+		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+		Date date = null;
+		String dat;
+		Calendar cal = Calendar.getInstance();
+		for (int i = 0; i < booked.getStay(); i++) {
+			booking.setId(booked.getId());
+			booking.setRoomNo(booked.getRoomNo());
+			booking.setBno(9);
+			date = df.parse(booked.getStartDate());
+			cal.setTime(date);
+			cal.add(Calendar.DATE, i);
+			dat = df.format(cal.getTime());
+			booking.setStayDate(dat);
+			bookingWriteService.service(booking);
+		}
 		return "redirect:list.do";
 	}
 
