@@ -76,7 +76,7 @@ img {
 #body2 {
 	width: 100%;
 	height: 100%;
-	maegin : 100px 10px;
+	maegin: 100px 10px;
 	overflow-y: scroll;
 }
 
@@ -158,7 +158,6 @@ img {
 					href="../booked/list.do" id="menutext">예약</a>
 				<c:choose>
 					<c:when test="${login.grade eq 'master'}">
-						<a href="../member/update.do?id=${login.id }" id="menutext">마이페이지</a>
 						<a href="../member/list.do" id="menutext">회원리스트</a>
 					</c:when>
 					<c:when test="${login != null}">
