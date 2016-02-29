@@ -130,7 +130,7 @@
 					<li><label>email</label> <input type="email" id="email"
 						name="email" class="input" /></li>
 					<li><label>연락처</label> <select id="tel1" name="tel1">
-							<option>010</option>
+							<option selected="selected">010</option>
 							<option>016</option>
 							<option>017</option>
 							<option>018</option>

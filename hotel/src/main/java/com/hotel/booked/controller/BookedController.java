@@ -18,7 +18,8 @@ import com.hotel.common.service.ServiceInterface;
 @Controller
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
-			bookedUpdateProcessService, bookedDeleteProcessService, roomListService, bookingWriteService;
+			bookedUpdateProcessService, bookedDeleteProcessService, roomListService, bookingWriteService,
+			bookedConfirmService;
 
 	public void setRoomListService(ServiceInterface roomListService) {
 		this.roomListService = roomListService;
@@ -52,13 +53,16 @@ public class BookedController {
 		this.bookingWriteService = bookingWriteService;
 	}
 
+	public void setBookedConfirmService(ServiceInterface bookedConfirmService) {
+		this.bookedConfirmService = bookedConfirmService;
+	}
+
 	// 글리스트
 	@RequestMapping("/booked/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("bookedController.list()");
 		model.addAttribute("list", bookedListService.service(page));
-		System.out.println(roomListService.service(page));
 		model.addAttribute("room", roomListService.service(null));
 		return "booked/list";
 	}
@@ -73,16 +77,31 @@ public class BookedController {
 
 	// 글쓰기 처리 - POST
 	@RequestMapping(value = "/booked/write.do")
-	public String write(Booked booked, Booking booking) throws Exception {
+	public String write(@RequestParam(value = "roomNo", required = false) int roomNo, Booked booked, Booking booking)
+			throws Exception {
 		System.out.println("bookedController.write-post()");
-		bookedWriteProcessService.service(booked);
+
 		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 		Date date = null;
 		String dat;
 		Calendar cal = Calendar.getInstance();
+
 		for (int i = 0; i < booked.getStay(); i++) {
+			booking.setRoomNo(roomNo);
+			date = df.parse(booked.getStartDate());
+			cal.setTime(date);
+			cal.add(Calendar.DATE, i);
+			dat = df.format(cal.getTime());
+			booking.setStayDate(dat);
+			if ((Booking) bookedConfirmService.service(booking) != null)
+				return "redirect:list.do";
+		}
+		bookedWriteProcessService.service(booked);
+
+		for (int i = 0; i < booked.getStay(); i++) {
+			booking = new Booking();
 			booking.setId(booked.getId());
-			booking.setRoomNo(booked.getRoomNo());
+			booking.setRoomNo(roomNo);
 			booking.setPeople(booked.getPeople());
 			booking.setBno(9);
 			date = df.parse(booked.getStartDate());

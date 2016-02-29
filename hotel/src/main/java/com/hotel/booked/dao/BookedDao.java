@@ -61,4 +61,9 @@ public class BookedDao {
 		return sqlSessionTemplate.selectList("dao.Booked.roomList");
 	}
 
+	// 예약확인
+	public Object confirm(Booking booking) {
+		return sqlSessionTemplate.selectOne("dao.Booked.confirm", booking);
+	}
+
 }

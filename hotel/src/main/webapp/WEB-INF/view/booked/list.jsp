@@ -22,7 +22,7 @@
 <body>
 	<div>
 		<h2>예약 하기</h2>
-		<form action="write.do">
+		<form action="write.do" id="bookbtn">
 			<input type="hidden" name="id" id="id" maxlength="15" class="input"
 				value="${login.id }" />
 			<ul>
@@ -31,7 +31,7 @@
 					maxlength="3" />일간</li>
 				<li><label>호실</label> <select name="roomNo">
 						<c:forEach var="room" items="${room }">
-							<option>${room.roomNo }</option>
+							<option selected="selected">${room.roomNo }</option>
 						</c:forEach>
 				</select>호</li>
 				<li><label>인원수</label> <input type="text" name="people"
