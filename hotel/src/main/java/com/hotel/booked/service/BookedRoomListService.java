@@ -3,7 +3,7 @@ package com.hotel.booked.service;
 import com.hotel.booked.dao.BookedDao;
 import com.hotel.common.service.ServiceInterface;
 
-public class RoomListService implements ServiceInterface {
+public class BookedRoomListService implements ServiceInterface {
 private BookedDao bookedDao;
 
 	public void setBookedDao(BookedDao bookedDao) {
@@ -13,7 +13,7 @@ private BookedDao bookedDao;
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("RoomListService.service()");
+		System.out.println("BooekRoomListService.service()");
 		return bookedDao.roomList(); 
 	}
 

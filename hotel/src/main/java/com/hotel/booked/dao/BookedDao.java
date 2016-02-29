@@ -57,7 +57,7 @@ public class BookedDao {
 	// 예약리스트
 	public Object roomList() {
 		// TODO Auto-generated method stub
-		System.out.println("Booked.lsit()");
+		System.out.println("Booked.list()");
 		return sqlSessionTemplate.selectList("dao.Booked.roomList");
 	}
 
