@@ -33,9 +33,13 @@ public class ReplyDao {
 		return sqlSessionTemplate.delete("dao.Reply.delete", reply);
 	}
 
+	
+	// 총 글의 갯수
 	public int totalRow() {
 		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("ReplyDao.totalRow()");
+		return sqlSessionTemplate.selectOne("dao.Reply.totalCount");
+		
 	}
 
 }

@@ -8,6 +8,7 @@ import com.hotel.common.model.JspData;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.reply.dao.ReplyDao;
 import com.hotel.reply.model.Reply;
+import com.hotel.reply.model.ReplyModel;
 
 public class ReplyListService implements ServiceInterface {
 	private ReplyDao replyDao;
@@ -21,7 +22,8 @@ public class ReplyListService implements ServiceInterface {
 		System.out.println("BoardListService.service()");
 		// page처리를 위한 변수 선언
 		// page : 현재 page = 보여줄 페이지 ( 기본  =  1 )
-		int page = (Integer)obj;
+		Reply reply = (Reply) obj;
+		int page = reply.getPage();
 		int totalPage = 0; // 전체 페이지 =  (전체글수-1) / 페이지당 글 수 + 1
 		int totalRow = 0; // 전체 글수 = DB에서 가져온다. Dao의 메소드 호출
 		int rowsPerPage = 5; // 한페이지에 보여 줄 글의 갯수 = 정해준다.
@@ -67,11 +69,11 @@ public class ReplyListService implements ServiceInterface {
 		@SuppressWarnings("unchecked")
 		List<Reply> list = (List<Reply>) replyDao.list(jspData);
 		// jsp에 totalPage를 넘기기 위해서 JspDate를 생성 후 담는다.
-		BoardModel boardModel = new BoardModel();
+		ReplyModel replyModel = new ReplyModel();
 		// BoardModel은 List와 JspData를 다 가지고 있다. 
-		boardModel.setList(list);
-		boardModel.setJspData(jspData);
-		return boardModel;
+		replyModel.setList(list);
+		replyModel.setJspData(jspData);
+		return replyModel;
 	}
 
 }
