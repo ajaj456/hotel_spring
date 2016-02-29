@@ -77,6 +77,7 @@ img {
 	margin-right: 100px;
 	margin-left: 100px;
 	margin-top: 10px;
+	overflow-y: scroll;
 }
 
 #head {
