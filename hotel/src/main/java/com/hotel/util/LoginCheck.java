@@ -53,9 +53,12 @@ public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 		if(uri.equals("/member/login.do"))
 			chain.doFilter(req, res);
 		else {
-			if(member == null)
+			if(member == null){
+				
+//				response.sendRedirect("/hotel/main/pageMove.do");
 				response.sendRedirect("/hotel/member/login.do");
-			else
+				
+			}else
 				chain.doFilter(req, res);
 		}
 	}
