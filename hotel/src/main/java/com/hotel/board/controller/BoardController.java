@@ -90,10 +90,11 @@ public class BoardController {
 		Reply reply = new Reply();
 		reply.setPage(page);
 		reply.setNo((Integer.parseInt(no)));
+		System.out.println(reply);
 		ReplyModel replyModel = (ReplyModel) replyListService.service(reply);
 		model.addAttribute("review", boardViewService.service((Integer.parseInt(no))));
+		model.addAttribute("relist", replyListService.service(reply));
 		model.addAttribute("jspData", replyModel.getJspData());
-		model.addAttribute("relist", replyListService.service((Integer.parseInt(no))));
 		return "board/view";
 	}
 

@@ -35,10 +35,10 @@ public class ReplyDao {
 
 	
 	// 총 글의 갯수
-	public int totalRow() {
+	public int totalRow(Reply reply) {
 		// TODO Auto-generated method stub
 		System.out.println("ReplyDao.totalRow()");
-		return sqlSessionTemplate.selectOne("dao.Reply.totalCount");
+		return sqlSessionTemplate.selectOne("dao.Reply.totalCount", reply);
 		
 	}
 

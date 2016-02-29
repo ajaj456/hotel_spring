@@ -19,7 +19,7 @@ public class ReplyListService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("BoardListService.service()");
+		System.out.println("ReplyListService.service()");
 		// page처리를 위한 변수 선언
 		// page : 현재 page = 보여줄 페이지 ( 기본  =  1 )
 		Reply reply = (Reply) obj;
@@ -40,7 +40,7 @@ public class ReplyListService implements ServiceInterface {
 		
 		
 		// 전체 줄 수를 구해오는 메소드 호출
-		totalRow = replyDao.totalRow();
+		totalRow = replyDao.totalRow(reply);
 		//System.out.println("BoardListService.service().totalRow:" + totalRow);
 		// 전체 페이지 = ( 전체 줄수 -1 ) / 한페이지당 줄의 수 +1
 		totalPage = (totalRow-1)/rowsPerPage + 1;
@@ -65,6 +65,7 @@ public class ReplyListService implements ServiceInterface {
 		jspData.setPagesPerGroup(pagesPerGroup);
 		jspData.setStartRow(startRow);
 		jspData.setEndRow(endRow);
+		jspData.setNo(reply.getNo());
 		
 		@SuppressWarnings("unchecked")
 		List<Reply> list = (List<Reply>) replyDao.list(jspData);
