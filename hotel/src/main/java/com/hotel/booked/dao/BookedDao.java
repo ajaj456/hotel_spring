@@ -47,5 +47,13 @@ public class BookedDao {
 		System.out.println("Booked.delete()");
 		return sqlSessionTemplate.delete("dao.Booked.delete",obj);
 	}
+	
+	// 예약리스트
+		public Object roomList() {
+			// TODO Auto-generated method stub
+			System.out.println("Booked.lsit()");
+			return sqlSessionTemplate.selectList("dao.Booked.roomList");
+		}
+
 
 }

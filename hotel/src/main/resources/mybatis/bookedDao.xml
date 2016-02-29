@@ -34,5 +34,11 @@
 	<delete id="delete">
 
 	</delete>
-
+	
+<!-- 	예약 방번호 뿌리기 -->
+<select id="roomList" resultType="com.hotel.room.model.Room">
+		select roomNo from room
+		order by roomNo asc
+	</select>
+	
 </mapper>
