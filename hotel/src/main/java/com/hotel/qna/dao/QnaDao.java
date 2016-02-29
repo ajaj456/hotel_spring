@@ -75,4 +75,38 @@ public class QnaDao {
 		System.out.println("QnaDao.hitUp()");
 		sqlSessionTemplate.update("dao.Qna.hitUp", obj);
 	}
+	// 최소 ordNo 구하기
+		public Object minOrdNo(Qna qna){
+			return sqlSessionTemplate.selectOne("dao.Qna.minOrdNo", qna);
+		}
+		
+		// 최대 ordNo 구하기
+		public Object maxOrdNo(Object obj){
+			return sqlSessionTemplate.selectOne("dao.Qna.maxOrdNo", obj);
+		}
+		
+		// 부모 글번호 갯수 세기
+		public Object countParentNo(Object obj){
+			return sqlSessionTemplate.selectOne("dao.Qna.countParentNo", obj);
+		}
+		
+		// 같은 부모를 가진 글 중 가장 높은 ordNo 구하기
+		public Object parentMaxOrdNo(Object obj){
+			return sqlSessionTemplate.selectOne("dao.Qna.parentMaxOrdNo", obj);
+		}
+		
+		// 밀어낼 글의 levNo 구하기
+		public Object nextLevNo(Object obj){
+			return sqlSessionTemplate.selectOne("dao.Qna.nextLevNo", obj);
+		}
+		
+		// 밀어낼 글의 levNo가 더 높을 때 밀어낼 글과 같은 부모를 가진 글 중 가장 높은 ordNo 구하기
+		public Object nextLevMaxOrdNo(Object obj){
+			return sqlSessionTemplate.selectOne("dao.Qna.nextLevMaxOrdNo", obj);
+		}
+		
+		// 같은 refNo를 가지고 ordNo가 큰 글들에 ordNo + 1 해주기
+		public void ordNoIncrease(Qna qna){
+			sqlSessionTemplate.update("dao.Qna.ordNoIncrease", qna);
+		}
 }
