@@ -14,7 +14,7 @@
 		<property name="bookedUpdateService" ref="bookedUpdateService" />
 		<property name="bookedUpdateProcessService" ref="bookedUpdateProcessService" />
 		<property name="bookedDeleteProcessService" ref="bookedDeleteProcessService" />
-		<property name="roomListService" ref="roomListService" />
+		<property name="bookedRoomListService" ref="bookedRoomListService" />
 		<property name="bookingWriteService" ref="bookingWriteService" />
 		<property name="bookedConfirmService" ref="bookedConfirmService" />
 	</bean>
@@ -45,7 +45,7 @@
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
-	<bean id="roomListService" class="com.hotel.booked.service.RoomListService">
+	<bean id="bookedRoomListService" class="com.hotel.booked.service.BookedRoomListService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 

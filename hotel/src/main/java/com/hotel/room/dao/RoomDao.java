@@ -15,7 +15,7 @@ public class RoomDao {
 	public Object list(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("RoomDao.list()");
-		System.out.println(obj);
+		System.out.println("obj111");
 		return sqlSessionTemplate.selectList("dao.Room.list", obj);
 	}
 

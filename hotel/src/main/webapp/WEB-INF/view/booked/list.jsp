@@ -95,7 +95,7 @@
 	<div>
 		<h2>예약 하기</h2>
 		<form action="write.do" method="post" id="bookbtn">
-			<input type="hidden" maxlength="15" class="input"
+			<input type="hidden" maxlength="15" class="input" name="id"
 				value="${login.id }" />
 			<ul>
 				<li><label>예약일자</label> <input type="date" id="startDate"

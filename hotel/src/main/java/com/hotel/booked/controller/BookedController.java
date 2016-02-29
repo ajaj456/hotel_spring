@@ -21,11 +21,13 @@ import com.hotel.common.service.ServiceInterface;
 @Controller
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
-			bookedUpdateProcessService, bookedDeleteProcessService, roomListService, bookingWriteService,
+			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
 			bookedConfirmService;
 
-	public void setRoomListService(ServiceInterface roomListService) {
-		this.roomListService = roomListService;
+
+
+	public void setBookedRoomListService(ServiceInterface bookedRoomListService) {
+		this.bookedRoomListService = bookedRoomListService;
 	}
 
 	public void setBookedListService(ServiceInterface bookedListService) {
@@ -66,7 +68,7 @@ public class BookedController {
 			throws Exception {
 		System.out.println("bookedController.list()");
 		model.addAttribute("list", bookedListService.service(page));
-		model.addAttribute("room", roomListService.service(null));
+		model.addAttribute("room", bookedRoomListService.service(null));
 		return "booked/list";
 	}
 
@@ -83,18 +85,20 @@ public class BookedController {
 	public String write(@RequestParam(value = "roomNo", required = false) int roomNo, HttpServletResponse response,
 			Booked booked, Booking booking, Model model) throws Exception {
 		System.out.println("bookedController.write-post()");
-
 		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 		Date date = null;
 		String dat;
 		Calendar cal = Calendar.getInstance();
+		booked.setRoomNo(roomNo);
+		System.out.println(booked);
+		bookedWriteProcessService.service(booked);
 
 		for (int i = 0; i < booked.getStay(); i++) {
 			booking = new Booking();
 			booking.setId(booked.getId());
 			booking.setRoomNo(roomNo);
 			booking.setPeople(booked.getPeople());
-			booking.setBno(9);
+			booking.setBno(1);
 			date = df.parse(booked.getStartDate());
 			cal.setTime(date);
 			cal.add(Calendar.DATE, i);
