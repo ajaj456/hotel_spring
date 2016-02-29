@@ -1,15 +1,41 @@
 package com.hotel.qna.model;
 
 public class Qna {
-	private int no;
+	private int no, hit, refNo, ordNo, levNo, parentNo;
 	private String title, content, wdate, id;
-	private int hit;
 
-	@Override
-	public String toString() {
-		return "Qna [no=" + no + ", title=" + title + ", content=" + content + ", wdate=" + wdate + ", id=" + id
-				+ ", hit=" + hit + "]";
+	public int getRefNo() {
+		return refNo;
 	}
+
+	public void setRefNo(int refNo) {
+		this.refNo = refNo;
+	}
+
+	public int getOrdNo() {
+		return ordNo;
+	}
+
+	public void setOrdNo(int ordNo) {
+		this.ordNo = ordNo;
+	}
+
+	public int getLevNo() {
+		return levNo;
+	}
+
+	public void setLevNo(int levNo) {
+		this.levNo = levNo;
+	}
+
+	public int getParentNo() {
+		return parentNo;
+	}
+
+	public void setParentNo(int parentNo) {
+		this.parentNo = parentNo;
+	}
+
 
 	public int getNo() {
 		return no;
@@ -58,5 +84,14 @@ public class Qna {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
+
+	@Override
+	public String toString() {
+		return "Qna [no=" + no + ", hit=" + hit + ", refNo=" + refNo + ", ordNo=" + ordNo + ", levNo=" + levNo
+				+ ", parentNo=" + parentNo + ", title=" + title + ", content=" + content + ", wdate=" + wdate + ", id="
+				+ id + "]";
+	}
+	
+	
 
 }
