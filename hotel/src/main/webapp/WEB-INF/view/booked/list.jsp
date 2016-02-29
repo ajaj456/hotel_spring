@@ -81,6 +81,7 @@
 												return false;
 											}
 											;
+											alert("예약이 완료되었습니다.");
 										});
 					});
 </script>
@@ -117,12 +118,21 @@
 		</form>
 
 	</div>
+	<br />
 	<div>
+	<a onclick="location='list.do?list=1&id=${login.id }'" id="btn1"><button
+			type="button">전체 예약현황 보기</button></a>
+	<a onclick="location='list.do?list=2&id=${login.id}'" id="btn2"><button
+			type="button">나의 예약현황 보기</button></a>
+	<a onclick="location='update.do?id=${login.id}'" id="btn2"><button
+			type="button">예약변경 및 취소요청</button></a>
+	</div>	
+	
+	<div id="booked_inform">
 		<h2>예약 현황</h2>
 		<%
 			@SuppressWarnings("unchecked")
 			List<Booking> list = (List<Booking>) request.getAttribute("list");
-
 			Calendar cal = Calendar.getInstance(); //Calendar객체 cal생성
 			int currentYear = cal.get(Calendar.YEAR); //현재 날짜 기억
 			int currentMonth = cal.get(Calendar.MONTH);

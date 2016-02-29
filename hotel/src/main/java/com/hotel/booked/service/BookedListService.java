@@ -1,6 +1,7 @@
 package com.hotel.booked.service;
 
 import com.hotel.booked.dao.BookedDao;
+import com.hotel.booked.model.Booked;
 import com.hotel.common.service.ServiceInterface;
 
 public class BookedListService implements ServiceInterface {
@@ -14,7 +15,7 @@ public class BookedListService implements ServiceInterface {
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("BookedListService.service()");
-		return bookedDao.list(); 
+		return bookedDao.list((Booked) obj);
 	}
 
 }

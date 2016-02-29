@@ -13,17 +13,17 @@ public class BookedDao {
 	}
 
 	// 예약리스트
-	public Object list() {
+	public Object list(Booked booked) {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.lsit()");
-		return sqlSessionTemplate.selectList("dao.Booked.list");
+		return sqlSessionTemplate.selectList("dao.Booked.list", booked);
 	}
 
 	// 예약보기
 	public Object view(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.view()");
-		return sqlSessionTemplate.selectOne("dao.Booked.view", obj);
+		return sqlSessionTemplate.selectList("dao.Booked.view", obj);
 	}
 
 	// 예약하기
