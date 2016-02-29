@@ -69,7 +69,7 @@ img {
 	border: 1px solid #ccc;
 	height: 740px;
 	background: #3b312a;
-	color: #867a6f;
+	color: white;
 }
 
 #body2 {
