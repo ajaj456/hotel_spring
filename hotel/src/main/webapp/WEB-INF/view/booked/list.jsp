@@ -10,156 +10,123 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#booklist").hide();
 	});
 </script>
 <style type="text/css">
-.bookbtn {
-	border: 1px solid white;
-	width: 420px;
-	height: 58px;
-	color: black;
-	font-size: 32px;
-	text-align: center;
-	background: white;
+#alink {
+	color: white;
 }
 </style>
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-		<button class="bookbtn">예약 하기</button>
-		<button class="bookbtn">예약 리스트</button>
-	</div>
-	<div id="booking">
-		<h2>예약 하기</h2>
-		<%
-			@SuppressWarnings("unchecked")
-			List<Booked> list = (List<Booked>) request.getAttribute("list");
+	<h2>예약 하기</h2>
+	<%
+		@SuppressWarnings("unchecked")
+		List<Booked> list = (List<Booked>) request.getAttribute("list");
 
-			Calendar cal = Calendar.getInstance(); //Calendar객체 cal생성
-			int currentYear = cal.get(Calendar.YEAR); //현재 날짜 기억
-			int currentMonth = cal.get(Calendar.MONTH);
-			int currentDate = cal.get(Calendar.DATE);
-			String Year = request.getParameter("year"); //나타내고자 하는 날짜
-			String Month = request.getParameter("month");
-			int year, month;
-			if (Year == null && Month == null) { //처음 호출했을 때
-				year = currentYear;
-				month = currentMonth;
-			} else { //나타내고자 하는 날짜를 숫자로 변환
-				year = Integer.parseInt(Year);
-				month = Integer.parseInt(Month);
-				if (month < 0) {
-					month = 11;
-					year = year - 1;
-				} //1월부터 12월까지 범위 지정.
-				if (month > 11) {
-					month = 0;
-					year = year + 1;
-				}
+		Calendar cal = Calendar.getInstance(); //Calendar객체 cal생성
+		int currentYear = cal.get(Calendar.YEAR); //현재 날짜 기억
+		int currentMonth = cal.get(Calendar.MONTH);
+		int currentDate = cal.get(Calendar.DATE);
+		String Year = request.getParameter("year"); //나타내고자 하는 날짜
+		String Month = request.getParameter("month");
+		int year, month;
+		if (Year == null && Month == null) { //처음 호출했을 때
+			year = currentYear;
+			month = currentMonth;
+		} else { //나타내고자 하는 날짜를 숫자로 변환
+			year = Integer.parseInt(Year);
+			month = Integer.parseInt(Month);
+			if (month < 0) {
+				month = 11;
+				year = year - 1;
+			} //1월부터 12월까지 범위 지정.
+			if (month > 11) {
+				month = 0;
+				year = year + 1;
 			}
-		%>
-		<table>
-			<tr>
-				<td align=left width=100>
-					<!-- 년 도--> <a
-					href="list.do?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">◀</a>
-					<%
-						out.print(year);
-					%>년 <a
-					href="list.do?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">▶</a>
-				</td>
-				<td align=center width=200>
-					<!-- 월 --> <a
-					href="list.do?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">◀</a>
-					<%
-						out.print(month + 1);
-					%>월 <a
-					href="list.do?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">▶</a>
-				</td>
-				<td align=right width=200>
-					<%
-						out.print("오늘날짜 : " + currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
-					%>
-				</td>
-			</tr>
-		</table>
-		<table border=1 style="width: 90%;">
-			<!-- 달력 부분 -->
-			<tr>
-				<td width="55" height="40" align="center" style="color: red">일요일</td>
-				<td width="55" height="40" align="center">월요일</td>
-				<td width="55" height="40" align="center">화요일</td>
-				<td width="55" height="40" align="center">수요일</td>
-				<td width="55" height="40" align="center">목요일</td>
-				<td width="55" height="40" align="center">금요일</td>
-				<td width="55" height="40" align="center" style="color: yellow">토요일</td>
-			</tr>
-			<tr height=55>
+		}
+	%>
+	<table>
+		<tr>
+			<td align=left width=100>
+				<!-- 년 도--> <a
+				href="list.do?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">◀</a>
 				<%
-					cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
-					int startDay = cal.get(Calendar.DAY_OF_WEEK); //현재날짜(1일)의 요일
-					int end = cal.getActualMaximum(Calendar.DAY_OF_MONTH); //이 달의 끝나는 날
-					int br = 0; //7일마다 줄 바꾸기
-					for (int i = 0; i < (startDay - 1); i++) { //빈칸출력
-						out.println("<td>&nbsp;</td>");
-						br++;
-						if ((br % 7) == 0) {
-							out.println("<br>");
-						}
-					}
-					for (int i = 1; i <= end; i++) { //날짜출력
-						if ((br % 7) == 0) { // 일요일 색깔 출력
-							out.println("<div><td valign='top' align='right' width='70' height='55' style='color: red;'>" + i
-									+ "<br></div>");
-						} else if ((br % 7) == 6) { // 토요일 색깔 출력
-							out.println("<div><td valign='top' align='right' width='70' height='55' style='color: yellow;'>" + i
-									+ "<br></div>");
-						} else {
-							out.println("<div><td valign='top' align='right' width='70' height='55'>" + i + "<br></div>");
-						}
-
-						for (Booked booked : list) { // 달력내 내용표시
-							if (year == booked.getYear() && month + 1 == booked.getMonth() && i == booked.getDay())
-								out.println("<div align='left' style='display:block; text-overflow:ellipsis; overflow:hidden;'>"
-										+ "<a href='view.do?no=" + booked.getBno() + "'>roomNo</a>");
-						}
-
-						out.println("</td>");
-
-						br++;
-						if ((br % 7) == 0 && i != end) { // 7일이후 줄바꿈
-							out.println("</tr><tr height=30>");
-						}
-					}
-					while ((br++) % 7 != 0) //말일 이후 빈칸출력
-						out.println("<td>&nbsp;</td>");
+					out.print(year);
+				%>년 <a
+				href="list.do?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">▶</a>
+			</td>
+			<td align=center width=200>
+				<!-- 월 --> <a
+				href="list.do?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">◀</a>
+				<%
+					out.print(month + 1);
+				%>월 <a
+				href="list.do?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">▶</a>
+			</td>
+			<td align=right width=200>
+				<%
+					out.print("오늘날짜 : " + currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
 				%>
-			</tr>
-		</table>
-	</div>
-	<div id="booklist">
-		<h2>예약 리스트</h2>
-		<table>
-			<tr>
-				<th>예약 번호</th>
-				<th>객실 번호</th>
-				<th>예약자</th>
-				<th>예약시작일</th>
-				<th>숙박일수</th>
-			</tr>
-			<c:forEach var="booked" items="${list }">
-				<tr>
-					<td>${booked.bno }</td>
-					<td>${booked.roomNo }</td>
-					<td>${booked.id }</td>
-					<td>${booked.startDate }</td>
-					<td>${booked.stay }</td>
-				<tr>
-			</c:forEach>
-		</table>
-	</div>
+			</td>
+		</tr>
+	</table>
+	<table border=1 style="width: 90%;">
+		<!-- 달력 부분 -->
+		<tr>
+			<td width="55" height="40" align="center" style="color: green">일요일</td>
+			<td width="55" height="40" align="center">월요일</td>
+			<td width="55" height="40" align="center">화요일</td>
+			<td width="55" height="40" align="center">수요일</td>
+			<td width="55" height="40" align="center">목요일</td>
+			<td width="55" height="40" align="center">금요일</td>
+			<td width="55" height="40" align="center" style="color: yellow">토요일</td>
+		</tr>
+		<tr height=55>
+			<%
+				cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
+				int startDay = cal.get(Calendar.DAY_OF_WEEK); //현재날짜(1일)의 요일
+				int end = cal.getActualMaximum(Calendar.DAY_OF_MONTH); //이 달의 끝나는 날
+				int br = 0; //7일마다 줄 바꾸기
+				for (int i = 0; i < (startDay - 1); i++) { //빈칸출력
+					out.println("<td>&nbsp;</td>");
+					br++;
+					if ((br % 7) == 0) {
+						out.println("<br>");
+					}
+				}
+				for (int i = 1; i <= end; i++) { //날짜출력
+					if ((br % 7) == 0) { // 일요일 색깔 출력
+						out.println("<div><td valign='top' align='right' width='70' height='55' style='color: green;'>" + i
+								+ "<br></div>");
+					} else if ((br % 7) == 6) { // 토요일 색깔 출력
+						out.println("<div><td valign='top' align='right' width='70' height='55' style='color: yellow;'>" + i
+								+ "<br></div>");
+					} else {
+						out.println("<div><td valign='top' align='right' width='70' height='55'>" + i + "<br></div>");
+					}
+
+					for (Booked booked : list) { // 달력내 내용표시
+						if (year == booked.getYear() && month + 1 == booked.getMonth() && i == booked.getDay())
+							out.println("<div align='left' style='display:block; text-overflow:ellipsis; overflow:hidden;'>"
+									+ "<a href='view.do?no=" + booked.getBno() + "' id='alink'>" + booked.getRoomNo() + "("
+									+ booked.getPeople() + ")" + "</a>");
+					}
+
+					out.println("</td>");
+
+					br++;
+					if ((br % 7) == 0 && i != end) { // 7일이후 줄바꿈
+						out.println("</tr><tr height=30>");
+					}
+				}
+				while ((br++) % 7 != 0) //말일 이후 빈칸출력
+					out.println("<td>&nbsp;</td>");
+			%>
+		</tr>
+	</table>
 	<br>
 	<br>
 </body>
