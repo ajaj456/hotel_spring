@@ -1,53 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
-<link rel="stylesheet" href="../css/board/board.css" type="text/css">
-<link rel="stylesheet" href="../css/board/boardUpdate.css" type="text/css">
-<script type="text/javascript" src="../js/util.js" ></script>
-<script type="text/javascript" src="../js/board/write.js" ></script>
-<h2>Q &amp; A 답변달기</h2>
-<form action="replyWriteProcess.do" method="post" id="replyWrite">
-<table>
-<tbody>
-<tr>
-	<th>질문제목</th>
-	<td class="data">
-		<input type="hidden" name="no" value="${qna.no }" />
-		<input type="hidden" name="page" value="${page }" />
-		<div id="qustionTitle">${qna.title }</div>
-		<input type="button" id="useQuestionTitle" value="질문제목사용하기" />
-	</td>
-</tr>
-<tr>
-	<th>답변제목</th>
-	<td class="data">
-		<input type="text" name="title" id="inputTitle" maxlength="100"/>
-	</td>
-</tr>
-<tr>
-	<th>내용</th>
-	<td class="data">
-		<textarea name="content" id="inputContent">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>답변 하기</title>
+</head>
+<body>
+	<form action="reply.do" method="post">
+		<input type="hidden" name="no" value="${qna.no}">
+		<input type="hidden" name="refNo" value="${qna.refNo}">
+		<input type="hidden" name="ordNo" value="${qna.ordNo}">
+		<input type="hidden" name="levNo" value="${qna.levNo}">
+		<input type="hidden" name="parentNo" value="${qna.no}">
+		글제목 : <input name="title" value="[답변] ${qna.title}"><br>
+		내용 : <textarea name="content" rows="20" cols="60">
+		
+		
+=======[원문내용]=======
+${qna.content}</textarea><br>
+		작성자 : <input name="id" value="${qna.id}" readonly="readonly"><br>
+		<button>답변</button><button type="button" onclick="history.back()">취소</button>
+	</form>
+</body>
+</html>
 
 
-[질문] --------------------------------------------------
-${qna.content }
-</textarea>
-	</td>
-</tr>
-<tr>
-	<th>작성자</th>
-	<td class="data"><input type="text" name="writer" id="inputWriter"/></td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-	<td colspan="2" class="buttonTd">
-		<input type="submit" value="답변달기" />
-		<input type="reset" value="재입력" />
-		<input type="button" value="이전페이지 가기" class="back" />
-	</td>
-</tr>
-</tfoot>
-</table>
-</form>
+
+
