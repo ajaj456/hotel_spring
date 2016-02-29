@@ -22,7 +22,16 @@
 
 	<!-- 예약 하기 -->
 	<insert id="write">
+		insert into booked (bno, id, roomNo, startDate, stay,
+		people) values (booked_seq.nextval, #{id }, #{roomNo }, #{startDate },
+		#{stay }, #{people })
+	</insert>
 
+	<!-- 예약 하기 -->
+	<insert id="bookingwrite">
+		insert into booking (roomNo, bno, stayDate,
+		bookingNo) values (#{roomNo }, #{bno }, #{stayDate },
+		booking_seq.nextval)
 	</insert>
 
 	<!-- 예약 수정 -->
@@ -34,11 +43,12 @@
 	<delete id="delete">
 
 	</delete>
-	
-<!-- 	예약 방번호 뿌리기 -->
-<select id="roomList" resultType="com.hotel.room.model.Room">
+
+	<!-- 예약 방번호 뿌리기 -->
+	<select id="roomList" resultType="com.hotel.room.model.Room">
 		select roomNo from room
-		order by roomNo asc
+		order by
+		roomNo asc
 	</select>
-	
+
 </mapper>

@@ -9,11 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.hotel.common.service.ServiceInterface;
-import com.hotel.notice.model.Notice;
-import com.hotel.notice.model.NoticeModel;
 import com.hotel.room.model.Room;
 import com.hotel.util.DuplicateFile;
 
@@ -50,9 +47,9 @@ public class RoomController {
 	@RequestMapping("/room/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
 			@RequestParam(value = "floor", required = true, defaultValue = "1") int floor, Model model)
-			throws Exception {
+					throws Exception {
 		System.out.println("roomController.list()");
-		Room room= new Room();
+		Room room = new Room();
 		room.setFloor(floor);
 		room.setPage(page);
 		model.addAttribute("list", roomListService.service(room));
@@ -84,8 +81,7 @@ public class RoomController {
 
 	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
 	@RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
-	public String write(Room room, Model model,
-			HttpServletRequest request) throws Exception {
+	public String write(Room room, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("RoomController.write():post");
 
 		// 서버에 올라갈 실제 폴더 찾기
@@ -114,32 +110,28 @@ public class RoomController {
 	}
 
 	// 글수정 처리 - POST
-		@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
-		public String updateProcess(Room room, Model model,
-				HttpServletRequest request) throws Exception {
-			System.out.println("roomController.update-post()");
-			System.out.println(room);
-			// 서버에 올라갈 실제 폴더 찾기
-			String realPath = request.getServletContext().getRealPath("upload/room");
+	@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
+	public String updateProcess(Room room, Model model, HttpServletRequest request) throws Exception {
+		System.out.println("roomController.update-post()");
+		System.out.println(room);
+		// 서버에 올라갈 실제 폴더 찾기
+		String realPath = request.getServletContext().getRealPath("upload/room");
+		System.out.println(realPath);
+		if (!room.getFile().isEmpty()) {
+			String fileName = room.getFile().getOriginalFilename();
+			File file = DuplicateFile.getFile(realPath, room.getFile());
+			room.getFile().transferTo(file); // 파일 이동
+			room.setFileName(file.getName());
+			roomUpdateProcessService.service(room);
+
+			return "redirect" + ":view.do" + "?no=" + room.getRoomNo();
+
+		} else {
 			System.out.println(realPath);
-			if (!room.getFile().isEmpty()) {
-				String fileName = room.getFile().getOriginalFilename();
-				File file = DuplicateFile.getFile(realPath, room.getFile());
-				room.getFile().transferTo(file); // 파일 이동
-				room.setFileName(file.getName());
-				roomUpdateProcessService.service(room);
-				
-				return "redirect"
-				+ ":view.do" + "?no=" + room.getRoomNo();
-	
-			}else {
-				System.out.println(realPath);
-				roomUpdateProcessService.service(room);
-				return "redirect"
-				+ ":view.do" + "?no=" + room.getRoomNo();
-			}
+			roomUpdateProcessService.service(room);
+			return "redirect" + ":view.do" + "?no=" + room.getRoomNo();
+		}
 	}
-			
 
 	// 글삭제 처리
 	@RequestMapping("/room/delete.do")

@@ -12,7 +12,7 @@ import com.hotel.common.service.ServiceInterface;
 @Controller
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
-			bookedUpdateProcessService, bookedDeleteProcessService, roomListService;
+			bookedUpdateProcessService, bookedDeleteProcessService, roomListService, bookingWriteService;
 
 	public void setRoomListService(ServiceInterface roomListService) {
 		this.roomListService = roomListService;
@@ -42,6 +42,10 @@ public class BookedController {
 		this.bookedDeleteProcessService = bookedDeleteProcessService;
 	}
 
+	public void setBookingWriteService(ServiceInterface bookingWriteService) {
+		this.bookingWriteService = bookingWriteService;
+	}
+
 	// 글리스트
 	@RequestMapping("/booked/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
@@ -61,18 +65,13 @@ public class BookedController {
 		return "booked/view";
 	}
 
-	// 글쓰기폼 - GET
-	@RequestMapping(value = "/booked/write.do", method = RequestMethod.GET)
-	public String write() {
-		System.out.println("bookedController.write-get()");
-		return "booked/write";
-	}
-
 	// 글쓰기 처리 - POST
-	@RequestMapping(value = "/booked/write.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/booked/write.do")
 	public String write(Booked booked) throws Exception {
 		System.out.println("bookedController.write-post()");
 		bookedWriteProcessService.service(booked);
+		for (int i = 0; i < booked.getStay(); i++)
+			bookingWriteService.service(booked);
 		return "redirect:list.do";
 	}
 

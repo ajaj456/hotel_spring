@@ -15,6 +15,7 @@
 		<property name="bookedUpdateProcessService" ref="bookedUpdateProcessService" />
 		<property name="bookedDeleteProcessService" ref="bookedDeleteProcessService" />
 		<property name="roomListService" ref="roomListService" />
+		<property name="bookingWriteService" ref="bookingWriteService" />
 	</bean>
 
 	<!-- service -->
@@ -42,16 +43,17 @@
 	<bean id="bookedDeleteProcessService" class="com.hotel.booked.service.BookedDeleteProcessService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
+
 	<bean id="roomListService" class="com.hotel.booked.service.RoomListService">
 		<property name="bookedDao" ref="bookedDao"></property>
+	</bean>
 
+	<bean id="bookingWriteService" class="com.hotel.booked.service.BookingWriteService">
+		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
 	<!-- Dao -->
 	<bean id="bookedDao" class="com.hotel.booked.dao.BookedDao">
-		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
-	</bean>
-	<bean id="roomDao" class="com.hotel.room.dao.RoomDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
 </beans>
