@@ -29,17 +29,17 @@
 				<td>${member.wdate }</td>
 				<td>
 					<form action="grade.do">
-						<input type="hidden" id="id" name="id" class="input" value="${member.id }">
-						<input type="hidden" id="page" name="page" class="input"
-								<c:if test="${empty param.page }">
+						<input type="hidden" id="id" name="id" class="input"
+							value="${member.id }"> <input type="hidden" id="page"
+							name="page" class="input"
+							<c:if test="${empty param.page }">
 									value="1"
 								</c:if>
-								<c:if test="${!empty param.page }">
+							<c:if test="${!empty param.page }">
 									value="${param.page }"
-								</c:if>
-						>
+								</c:if>>
 
-							<select id="grade" name="grade" class="input">
+						<select id="grade" name="grade" class="input">
 							<option
 								<c:if test="${member.grade == 'bronze'}">selected="selected"</c:if>>bronze</option>
 							<option
@@ -48,9 +48,6 @@
 								<c:if test="${member.grade == 'gold'}">selected="selected"</c:if>>gold</option>
 							<option
 								<c:if test="${member.grade == 'platinum'}">selected="selected"</c:if>>platinum</option>
-							<option
-								<c:if test="${member.grade == 'master'}">selected="selected"</c:if>>master</option>
-
 						</select>
 						<button>등급변경</button>
 					</form>

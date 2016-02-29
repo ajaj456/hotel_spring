@@ -64,12 +64,15 @@
 	<select id="list" resultType="com.hotel.member.model.Member">
 		select * from
 		(
-		select rownum rnum, id, pw, name, birth, email, tel,
-		to_char(wdate,'yyyy-mm-dd') wdate, grade from
-		member
+		select rownum rnum,
+		id, pw, name, birth, email, tel,
+		to_char(wdate,'yyyy-mm-dd') wdate,
+		grade from
+		member where id != 'master'
 		)
 		where rnum between
-		#{startRow} and #{endRow}
+		#{startRow}
+		and #{endRow}
 
 	</select>
 
