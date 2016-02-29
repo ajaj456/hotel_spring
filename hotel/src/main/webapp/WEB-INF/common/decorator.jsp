@@ -74,12 +74,10 @@ img {
 
 #body2 {
 	width: 1019;
-	heigth: auto;
-	margin-top: 10px;
-	margin-left: 100px;
 	margin-right: 100px;
 	margin-left: 100px;
 	margin-top: 10px;
+	border: 1px solid white;
 }
 
 #head {
@@ -154,11 +152,10 @@ img {
 		<div id="menu">
 			<div id="menu2">
 				<br /> <a href="" id="menutext">호텔소개</a> <a href="../room/list.do"
-					id="menutext">객실소개</a> 
-					<a href="../notice/list.do" id="menutext">공지사항</a> 
-					<a href="../board/list.do" id="menutext">후기게시판</a> 
-					<a href="../qna/list.do"id="menutext">Qna</a>
-					<a href="../booked/list.do" id="menutext">예약</a>
+					id="menutext">객실소개</a> <a href="../notice/list.do" id="menutext">공지사항</a>
+				<a href="../board/list.do" id="menutext">후기게시판</a> <a
+					href="../qna/list.do" id="menutext">Qna</a> <a
+					href="../booked/list.do" id="menutext">예약</a>
 				<c:choose>
 					<c:when test="${login.grade eq 'master'}">
 						<a href="../member/update.do?id=${login.id }" id="menutext">마이페이지</a>
@@ -175,7 +172,7 @@ img {
 	</header>
 	<section id="body">
 		<section id="body2">
-			<br />
+			<br /> <br />
 			<decorator:body />
 		</section>
 	</section>
