@@ -56,4 +56,9 @@
 		roomNo asc
 	</select>
 
+	<!-- 예약 확인 -->
+	<select id="confirm" resultType="com.hotel.booked.model.Booking">
+		select * from booking where
+		roomNo=#{roomNo } and stayDate=#{stayDate }
+	</select>
 </mapper>

@@ -16,6 +16,7 @@
 		<property name="bookedDeleteProcessService" ref="bookedDeleteProcessService" />
 		<property name="roomListService" ref="roomListService" />
 		<property name="bookingWriteService" ref="bookingWriteService" />
+		<property name="bookedConfirmService" ref="bookedConfirmService" />
 	</bean>
 
 	<!-- service -->
@@ -49,6 +50,10 @@
 	</bean>
 
 	<bean id="bookingWriteService" class="com.hotel.booked.service.BookingWriteProcessService">
+		<property name="bookedDao" ref="bookedDao"></property>
+	</bean>
+
+	<bean id="bookedConfirmService" class="com.hotel.booked.service.BookedConfirmService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
