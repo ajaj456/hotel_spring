@@ -14,6 +14,7 @@ private QnaDao qnaDao;
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("QnaViewService.service()");
+		qnaDao.hitUp(obj);
 		return qnaDao.view(obj);
 	}
 

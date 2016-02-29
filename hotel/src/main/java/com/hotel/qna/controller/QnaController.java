@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.qna.model.Qna;
+import com.hotel.qna.model.QnaModel;
 
 @Controller
 public class QnaController {
@@ -54,7 +55,11 @@ public class QnaController {
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("qnaController.list()");
-		model.addAttribute("list", qnaListService.service(page));
+		QnaModel qnaModel = (QnaModel) qnaListService.service(page);
+		System.out.println(qnaModel.getJspData());
+		model.addAttribute("list",qnaModel.getList());
+		model.addAttribute("JspData", qnaModel.getJspData());
+		
 		return "qna/list";
 	}
 
