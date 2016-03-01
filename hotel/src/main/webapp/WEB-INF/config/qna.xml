@@ -14,7 +14,6 @@
 		<property name="qnaViewService" ref="qnaViewService" />
 		<property name="qnaWriteProcessService" ref="qnaWriteProcessService" />
 		<property name="qnaUpdateProcessService" ref="qnaUpdateProcessService" />
-		<property name="qnaUpdateService" ref="qnaUpdateService" />
 
 		<property name="qnaDeleteProcessService" ref="qnaDeleteProcessService" />
 
@@ -39,9 +38,6 @@
 	</bean>
 
 	<bean id="qnaUpdateProcessService" class="com.hotel.qna.service.QnaUpdateProcessService">
-		<property name="qnaDao" ref="qnaDao"></property>
-	</bean>
-	<bean id="qnaUpdateService" class="com.hotel.qna.service.QnaUpdateService">
 		<property name="qnaDao" ref="qnaDao"></property>
 	</bean>
 
