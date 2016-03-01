@@ -14,7 +14,7 @@ import com.hotel.qna.model.QnaModel;
 
 @Controller
 public class QnaController {
-	private ServiceInterface qnaListService, qnaViewService, qnaWriteProcessService, qnaUpdateProcessService, qnaUpdateService,
+	private ServiceInterface qnaListService, qnaViewService, qnaWriteProcessService, qnaUpdateProcessService,
 			qnaDeleteProcessService, qnaReplyWriteProcess, qnaReplyWrite;
 
 	public void setQnaReplyWrite(ServiceInterface qnaReplyWrite) {
@@ -46,9 +46,6 @@ public class QnaController {
 	}
 	
 
-	public void setQnaUpdateService(ServiceInterface qnaUpdateService) {
-		this.qnaUpdateService = qnaUpdateService;
-	}
 
 	// 글리스트
 	@RequestMapping("/qna/list.do")
