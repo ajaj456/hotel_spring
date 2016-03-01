@@ -40,12 +40,10 @@
 
 	<table>
 		<tr>
-			<td colspan="4"><a href="update.do?no=${qna.no }"><button>글수정</button></a>
+			<td colspan="4">
+			<c:if test="${qna.id eq login.id || login.grade eq 'master'}"><a href="update.do?no=${qna.no }"><button>글수정</button></a></c:if>
 				<a href="list.do"><button>게시판 리스트</button></a>
-			<a href="delete.do?no=${qna.no}"><button>글삭제</button></a>
-			</td>
-			</tr>
-			<tr>
+			<c:if test="${qna.id eq login.id || login.grade eq 'master'}"><a href="delete.do?no=${qna.no}"><button>글삭제</button></a></c:if>
 			<c:if test="${login.grade eq 'master'}">
 			<td> <a href="reply.do?no=${qna.no}"><button>답변달기</button></a>
 			</td>
