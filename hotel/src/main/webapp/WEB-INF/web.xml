@@ -55,6 +55,7 @@
 		<filter-name>loginCheck</filter-name>
 		<filter-class>
 			com.hotel.util.LoginCheck
+			
 		</filter-class>
 	</filter>
 
