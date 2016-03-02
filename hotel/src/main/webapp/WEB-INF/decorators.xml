@@ -14,6 +14,7 @@
 		<pattern>/product/*</pattern>
 		<pattern>/qna/*</pattern>
 		<pattern>/room/*</pattern>
+		<pattern>/info/*</pattern>
 	</decorator>
 
 	<!-- 꾸미기에 적용하지 않는 것들에 대한 선언 -->
