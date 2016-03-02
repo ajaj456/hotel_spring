@@ -101,7 +101,8 @@ public class BookedDao {
 		sqlSessionTemplate.update("dao.Booked.myReviewUpdate", booked);
 		return null;
 	}
-	// 예약 번호  가져오기
+
+	// 예약 번호 가져오기
 	public Object bnoConfirm(Booked booked) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("dao.Booked.bnoConfirm", booked);

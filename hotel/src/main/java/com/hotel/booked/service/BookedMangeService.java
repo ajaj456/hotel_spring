@@ -14,6 +14,7 @@ public class BookedMangeService implements ServiceInterface {
 	public void setBookedDao(BookedDao bookedDao) {
 		this.bookedDao = bookedDao;
 	}
+
 	@Override
 	public Object service(Object obj) throws Exception {
 		// page처리를 위한 변수 선언
