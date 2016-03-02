@@ -52,9 +52,8 @@
 <body>
 	<br />
 	<br />
-	<img src="../images/mypage.png" width="370px" height="100px"
-		id="loginimg">
-	<br />
+	<h2>개인정보 수정</h2>
+	<h4>회원님의 정보를 수정하실 수 있습니다.</h4>
 	<br />
 	<br />
 	<br />

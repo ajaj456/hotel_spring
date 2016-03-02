@@ -14,10 +14,8 @@
 <body>
 	<br />
 	<br />
-	<a href="../member/findIdPw.jsp"> <img src="../images/idpw.png"
-		width="570px" height="90px" id="loginimg">
-	</a>
-	<br />
+	<h2>ID/PW 찾기</h2>
+	<h4>아래의 정보를 입력하시면 회원님의 아이디와 비밀번호를 확인하실 수 있습니다.</h4>
 	<br />
 	<br />
 	<hr>

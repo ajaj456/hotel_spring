@@ -108,8 +108,10 @@
 </head>
 <body>
 	<div id="joindiv">
-		<br /> <br /> <img src="../images/join.png" width="400px"
-			height="100px"><br /> <br /> <br /> <br />
+		<br /> <br />
+		<h2>회원가입</h2>
+		<h4>중앙호텔의 풍성하고 알찬 혜택을 누리세요!</h4>
+		<br /> <br /> <br />
 		<form action="join.do" method="post" id="loginform">
 			<h4>
 				<b>기본 정보 입력</b>
