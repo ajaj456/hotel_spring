@@ -1,10 +1,7 @@
-<%@page import="com.hotel.booked.model.Booking"%>
-<%@page import="java.util.Calendar"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE>
+    pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,7 +20,7 @@
 			<th>결제유무</th>
 			<th>체크인유무</th>
 		</tr>
-		<!-- 	반복의 시작 -->
+<!-- 			반복의 시작 -->
 		<c:forEach var="bookedmange" items="${list }">
 			<tr>
 				<td>${bookedmange.id }</td>
@@ -31,36 +28,33 @@
 				<td>${bookedmange.stay }</td>
 				<td>${bookedmange.pacyck }</td>
 				<td>${bookedmange.inoutck }</td>
-
-
-
-<!-- 				<td> -->
-<!-- 					<form action="grade.do"> -->
-<!-- 						<input type="hidden" id="id" name="id" class="input" -->
-<%-- 							value="${member.id }"> <input type="hidden" id="page" --%>
-<!-- 							name="page" class="input" -->
-<%-- 							<c:if test="${empty param.page }"> --%>
-<!-- 									value="1" -->
-<!-- 								</c:if> -->
-<%-- 							<c:if test="${!empty param.page }"> --%>
-<%-- 									value="${param.page }" --%>
-<!-- 								</c:if>> -->
-<!-- 						<select id="grade" name="grade" class="input"> -->
-<!-- 							<option -->
-<%-- 								<c:if test="${member.grade == 'bronze'}">selected="selected"</c:if>>bronze</option> --%>
-<!-- 							<option -->
-<%-- 								<c:if test="${member.grade == 'silver'}">selected="selected"</c:if>>silver</option> --%>
-<!-- 							<option -->
-<%-- 								<c:if test="${member.grade == 'gold'}">selected="selected"</c:if>>gold</option> --%>
-<!-- 							<option -->
-<%-- 								<c:if test="${member.grade == 'platinum'}">selected="selected"</c:if>>platinum</option> --%>
-<!-- 						</select> -->
-<!-- 						<button>등급변경</button> -->
-<!-- 					</form> -->
-<!-- 				</td> -->
+				<td>
+					<form action="grade.do">
+						<input type="hidden" id="id" name="id" class="input"
+							value="${member.id }"> <input type="hidden" id="page"
+							name="page" class="input"
+							<c:if test="${empty param.page }">
+									value="1"
+								</c:if>
+							<c:if test="${!empty param.page }">
+									value="${param.page }"
+								</c:if>>
+						<select id="grade" name="grade" class="input">
+							<option
+								<c:if test="${member.grade == 'bronze'}">selected="selected"</c:if>>bronze</option>
+							<option
+								<c:if test="${member.grade == 'silver'}">selected="selected"</c:if>>silver</option>
+							<option
+								<c:if test="${member.grade == 'gold'}">selected="selected"</c:if>>gold</option>
+							<option
+								<c:if test="${member.grade == 'platinum'}">selected="selected"</c:if>>platinum</option>
+						</select>
+						<button>등급변경</button>
+					</form>
+				</td>
 			</tr>
 		</c:forEach>
-		<!-- 	반복의 끝 -->
+<!-- 			반복의 끝 -->
 	</table>
 	<br>
 	<br>
