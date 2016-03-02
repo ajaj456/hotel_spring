@@ -22,7 +22,7 @@ import com.hotel.common.service.ServiceInterface;
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
 			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
-			bookedConfirmService;
+			bookedConfirmService, bookingRoomListService;
 
 	public void setBookedRoomListService(ServiceInterface bookedRoomListService) {
 		this.bookedRoomListService = bookedRoomListService;
@@ -59,6 +59,9 @@ public class BookedController {
 	public void setBookedConfirmService(ServiceInterface bookedConfirmService) {
 		this.bookedConfirmService = bookedConfirmService;
 	}
+	public void setBookingRoomListService(ServiceInterface bookingRoomListService) {
+		this.bookingRoomListService = bookingRoomListService;
+	}
 
 	// 글리스트
 	@RequestMapping("/booked/list.do")
@@ -67,10 +70,14 @@ public class BookedController {
 		System.out.println("bookedController.list()");
 		booked.setId(id);
 		booked.setPage(list);
+		System.out.println(id);
 		model.addAttribute("list", bookedListService.service(booked));
 		model.addAttribute("room", bookedRoomListService.service(null));
+		System.out.println( "before"+id);
+		model.addAttribute("bookinglist", bookingRoomListService.service(id));
 		return "booked/list";
 	}
+
 
 	// 글보기
 	@RequestMapping("/booked/view.do")
@@ -106,7 +113,7 @@ public class BookedController {
 			booking.setStayDate(dat);
 			bookingWriteService.service(booking);
 		}
-		return "redirect:list.do";
+		return "redirect:list.do?id="+booking.getId();
 	}
 
 	// 글수정 폼 - get
@@ -125,12 +132,16 @@ public class BookedController {
 		return "redirect:view.do?no=" + booked.getBno();
 	}
 
-	// 글삭제 처리
+	// 예약 취소 처리
 	@RequestMapping("/booked/delete.do")
-	public String delete(@RequestParam("bno") String bno) throws Exception {
+	public String delete(@RequestParam(value = "stayDate", required = false) String stayDate,
+			@RequestParam(value = "id", required = false) String id, Booking booking) throws Exception {
 		System.out.println("bookedController.delete()");
-		bookedDeleteProcessService.service(bno);
-		return "redirect:list.do";
+		booking.setId(id);
+		System.out.println(stayDate);
+		booking.setStayDate(stayDate);
+		bookedDeleteProcessService.service(booking);
+		return "redirect:list.do?id="+booking.getId();
 	}
 
 	// 예약중복체크

@@ -12,6 +12,16 @@
 	$(document)
 			.ready(
 					function() {
+						$("#cancel").click(function() {
+							var answer = confirm("예약 취소하시겠습니까?");
+							if (answer) {
+								var form = $(this).parents('form');
+								form.submit();
+								alert("예약 취소가 완료되었습니다.");
+							} else {
+								return false;
+							}
+						});
 						$("#chkbook").click(
 								function() {
 									var roomNo = $("#roomNo").val();
@@ -89,47 +99,80 @@
 #alink {
 	color: white;
 }
+
+#allBook {
+	width: 1040px;
+}
+
+#insertBook {
+	width: 600px;
+	float: left;
+}
+
+#deleteBook {
+	width: 400px;
+	float: left;
+}
+
+#booked_inform {
+	clear: both;
+}
 </style>
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-		<h2>예약 하기</h2>
-		<form action="write.do" method="post" id="bookbtn">
-			<input type="hidden" maxlength="15" class="input" name="id"
-				value="${login.id }" />
-			<ul>
-				<li><label>예약일자</label> <input type="date" id="startDate"
-					name="startDate" /></li>
-				<li><label>예약일수</label> <input type="text" id="stay"
-					name="stay" size="1" maxlength="3" />일간 ( 최대 15일까지 예약가능합니다. )</li>
-				<li><label>호실</label> <select name="roomNo" id="roomNo">
-						<c:forEach var="room" items="${room }">
-							<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명)</option>
-						</c:forEach>
-				</select>호</li>
-				<li><label>인원수</label> <input type="text" id="people"
-					name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
-					[인당 만원] )</li>
-			</ul>
-			<button type="button" id="chkbook">예약확인하기</button>
-			<button>예약</button>
-			<span id=checkresult>[ 예약 중복체크를 하셔야 합니다. ]</span>
-		</form>
+	<div id="allBook">
+		<div id="insertBook">
+			<h2>예약 하기</h2>
+			<form action="write.do" method="post" id="bookbtn">
+				<input type="hidden" maxlength="15" class="input" name="id"
+					value="${login.id }" />
+				<ul>
+					<li><label>예약일자</label> <input type="date" id="startDate"
+						name="startDate" /></li>
+					<li><label>예약일수</label> <input type="text" id="stay"
+						name="stay" size="1" maxlength="3" />일간 ( 최대 15일까지 예약가능합니다. )</li>
+					<li><label>호실</label> <select name="roomNo" id="roomNo">
+							<c:forEach var="room" items="${room }">
+								<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명)</option>
+							</c:forEach>
+					</select>호</li>
+					<li><label>인원수</label> <input type="text" id="people"
+						name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
+						[인당 만원] )</li>
+				</ul>
+				<button type="button" id="chkbook">예약확인하기</button>
+				<button>예약</button>
+				<span id=checkresult>[ 예약 중복체크를 하셔야 합니다. ]</span>
+			</form>
+		</div>
 
+		<div id="deleteBook">
+			<h2>예약 취소</h2>
+			<form action="delete.do">
+				<input type="hidden" maxlength="15" class="input" name="id"
+					value="${login.id }" />
+				<ul>
+					<li><label>예약일자</label> <select name="stayDate" id="stayDate">
+							<c:forEach var="bookinglist" items="${bookinglist }">
+								<option value="${bookinglist.stayDate }">${bookinglist.stayDate }(${bookinglist.roomNo }호)</option>
+							</c:forEach>
+					</select></li>
+				</ul>
+				<button id="cancel">예약 취소</button>
+			</form>
+		</div>
 	</div>
-	<br />
-	<div>
-	<a onclick="location='list.do?list=1&id=${login.id }'" id="btn1"><button
-			type="button">전체 예약현황 보기</button></a>
-	<a onclick="location='list.do?list=2&id=${login.id}'" id="btn2"><button
-			type="button">나의 예약현황 보기</button></a>
-	<a onclick="location='update.do?id=${login.id}'" id="btn2"><button
-			type="button">예약변경 및 취소요청</button></a>
-	</div>	
-	
+
 	<div id="booked_inform">
+		<br />
 		<h2>예약 현황</h2>
+		<div>
+			<a onclick="location='list.do?list=1&id=${login.id }'" id="btn1"><button
+					type="button">전체 예약현황 보기</button></a> <a
+				onclick="location='list.do?list=2&id=${login.id}'" id="btn2"><button
+					type="button">나의 예약현황 보기</button></a>
+		</div>
 		<%
 			@SuppressWarnings("unchecked")
 			List<Booking> list = (List<Booking>) request.getAttribute("list");
