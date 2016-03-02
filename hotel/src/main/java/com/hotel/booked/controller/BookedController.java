@@ -21,7 +21,11 @@ public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
 			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
 			bookedConfirmService, bookingRoomListService, bookedMangeService, bookedCkUpdateProcessService,
-			mylistService;
+			mylistService, bookedBnoConfirmService;
+
+	public void setBookedBnoConfirmService(ServiceInterface bookedBnoConfirmService) {
+		this.bookedBnoConfirmService = bookedBnoConfirmService;
+	}
 
 	public void setBookedRoomListService(ServiceInterface bookedRoomListService) {
 		this.bookedRoomListService = bookedRoomListService;
@@ -110,13 +114,14 @@ public class BookedController {
 		booked.setRoomNo(roomNo);
 		System.out.println(booked);
 		bookedWriteProcessService.service(booked);
+		int bno = (Integer) bookedBnoConfirmService.service(booked);
 
 		for (int i = 0; i < booked.getStay(); i++) {
 			booking = new Booking();
 			booking.setId(booked.getId());
 			booking.setRoomNo(roomNo);
 			booking.setPeople(booked.getPeople());
-			booking.setBno(1);
+			booking.setBno(bno);
 			date = df.parse(booked.getStartDate());
 			cal.setTime(date);
 			cal.add(Calendar.DATE, i);

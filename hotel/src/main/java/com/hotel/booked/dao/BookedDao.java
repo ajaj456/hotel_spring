@@ -70,7 +70,6 @@ public class BookedDao {
 	// 예약 취소리스트
 	public Object bookingRoomList(Object obj) {
 		System.out.println("BookedDao.bookingRoomList()");
-		System.out.println("11111111" + obj);
 		return sqlSessionTemplate.selectList("dao.Booked.bookingRoomList", obj);
 	}
 
@@ -96,9 +95,15 @@ public class BookedDao {
 		System.out.println("bookedmylist()");
 		return sqlSessionTemplate.selectList("dao.Booked.mylist", jspData);
 	}
+
 	// 나의 리뷰 상태 변경
 	public Object myReviewUpdate(Booked booked) {
 		sqlSessionTemplate.update("dao.Booked.myReviewUpdate", booked);
 		return null;
+	}
+	// 예약 번호  가져오기
+	public Object bnoConfirm(Booked booked) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("dao.Booked.bnoConfirm", booked);
 	}
 }
