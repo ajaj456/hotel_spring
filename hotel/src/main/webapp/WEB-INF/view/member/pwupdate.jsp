@@ -38,7 +38,6 @@
 				return false;
 			}
 			;
-			alert("패스워드가 변경되었습니다. 다시 로그인하세요!")
 		});
 	});
 </script>
@@ -60,9 +59,9 @@
 	<div id="logindiv">
 		<form action="pwupdate.do" method="post" id="loginForm">
 			<hr>
+			<input type="hidden" name="id" id="id" maxlength="15" class="input"
+				value="${member.id }" />
 			<ul>
-				<li><input type="hidden" name="id" id="id" maxlength="15"
-					class="input" value="${member.id }" /></li>
 				<li><label for="pw">현재 pw</label> <input type="password"
 					name="pw" id="pw" maxlength="15" class="input" /></li>
 				<li><label for="pw">바꿀 pw</label> <input type="password"
