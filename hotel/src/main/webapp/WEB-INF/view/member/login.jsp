@@ -28,8 +28,8 @@
 <body>
 	<br />
 	<br />
-	<img src="../images/login.png" width="370px" height="90px" id="loginimg">
-	<br />
+	<h2>로그인</h2>
+	<h4>중앙호텔에 오신 것을 환영합니다.</h4>
 	<br />
 	<br />
 	<br />

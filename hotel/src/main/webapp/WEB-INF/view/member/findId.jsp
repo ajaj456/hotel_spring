@@ -27,9 +27,8 @@
 <body>
 	<br />
 	<br />
-	<img src="../images/idpw.png" width="570px" height="100px"
-		id="loginimg">
-	<br />
+	<h2>ID 찾기</h2>
+	<h4>아래의 정보를 입력하시면 회원님의 아이디를 확인하실 수 있습니다.</h4>
 	<br />
 	<br />
 	<br />

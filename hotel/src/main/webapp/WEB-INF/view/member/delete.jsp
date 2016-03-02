@@ -33,9 +33,8 @@
 <body>
 	<br />
 	<br />
-	<img src="../images/deleteMember.png" width="370px" height="100px"
-		id="loginimg">
-	<br />
+	<h2>회원탈퇴처리</h2>
+	<h4>회원님의 정보를 안전하게 삭제하겠습니다.</h4>
 	<br />
 	<br />
 	<br />
