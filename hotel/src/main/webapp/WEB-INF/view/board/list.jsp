@@ -31,10 +31,7 @@
 				<td>${board.id}</td>
 			<tr>
 		</c:forEach>
-		<tr>
-			<td><a href="write.do"><button>글쓰기</button></a></td>
-		</tr>
-
+	
 	</table>
 	<div id="pageMove">
 		<!-- 	페이지 처리 = 반복문 처리-->

@@ -116,4 +116,33 @@
 		startDate=#{startDate}
 		and roomNo=#{roomNo }
 	</update>
+
+	<!-- 나의 예약확인 리스트 -->
+	<select id="mylist" resultType="com.hotel.booked.model.Booked">
+		select * from
+		(
+		select rownum
+		rnum,
+		id, inoutck, roomNo, to_char(startDate,'yyyy-mm-dd')startDate, stay,
+		people
+		from
+		booked where
+		id =
+		#{id}order by startDate
+		)
+		where rnum
+		between
+		#{startRow}
+		and #{endRow}
+	</select>
+
+	<!-- 체크인변경 -->
+	<update id="myReviewUpdate">
+		update booked set inoutck = 3
+		where
+		id=#{id} 
+		and startDate=#{startDate}
+		and roomNo=#{roomNo }
+	</update>
+
 </mapper>

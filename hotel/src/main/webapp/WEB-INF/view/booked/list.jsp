@@ -172,7 +172,7 @@
 					type="button">전체 현황</button></a> <a
 				onclick="location='list.do?list=2&id=${login.id}'" id="btn2"><button
 					type="button">나의 현황</button></a> <a
-				onclick="location='list.do?id=${login.id}'"><button
+				onclick="location='mylist.do?id=${login.id}&page=1'"><button
 					type="button">나의 예약 확인</button></a>
 		</div>
 		<%

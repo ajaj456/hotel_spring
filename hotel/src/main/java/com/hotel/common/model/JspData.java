@@ -8,7 +8,15 @@ public class JspData {
 	private int startPage, endPage;
 	private int page, pagesPerGroup;
 	private int startRow, endRow;
-	private String period;
+	private String period, id;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	private int no;
 
 
