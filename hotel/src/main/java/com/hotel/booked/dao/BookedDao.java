@@ -4,6 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 
 import com.hotel.booked.model.Booked;
 import com.hotel.booked.model.Booking;
+import com.hotel.common.model.JspData;
 
 public class BookedDao {
 	private SqlSessionTemplate sqlSessionTemplate;
@@ -70,8 +71,17 @@ public class BookedDao {
 	public Object bookingRoomList(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("BookedDao.bookingRoomList()");
-		System.out.println("11111111"+obj);
+		System.out.println("11111111" + obj);
 		return sqlSessionTemplate.selectList("dao.Booked.bookingRoomList", obj);
+	}
+
+	public Object mangelist(JspData jspData) {
+		return sqlSessionTemplate.selectList("dao.Booked.mangelist", jspData);
+	}
+
+	public int totalRow() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("dao.Booked.totalCount");
 	}
 
 }
