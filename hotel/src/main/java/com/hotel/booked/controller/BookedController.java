@@ -11,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.hotel.board.model.BoardModel;
 import com.hotel.booked.model.Booked;
 import com.hotel.booked.model.BookedModel;
 import com.hotel.booked.model.Booking;
@@ -24,8 +22,6 @@ public class BookedController {
 			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
 			bookedConfirmService, bookingRoomListService, bookedMangeService, bookedCkUpdateProcessService,
 			mylistService;
-
-
 
 	public void setBookedRoomListService(ServiceInterface bookedRoomListService) {
 		this.bookedRoomListService = bookedRoomListService;
@@ -220,5 +216,3 @@ public class BookedController {
 		return "booked/mylist";
 	}
 }
-	
-	
