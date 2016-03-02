@@ -124,6 +124,7 @@
 		select rownum
 		rnum,
 		id, inoutck, roomNo, to_char(startDate,'yyyy-mm-dd')startDate, stay,
+		bno,
 		people
 		from
 		booked where
