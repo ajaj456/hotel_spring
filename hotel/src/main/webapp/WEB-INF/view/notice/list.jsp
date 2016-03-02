@@ -6,6 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<style type="text/css">
+#firstYn {
+	color: yellow;
+}
+</style>
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
@@ -31,25 +36,46 @@
 			<th>조회수</th>
 			<th>작성일</th>
 			<th>아이디</th>
-
 		</tr>
 		<c:forEach var="notice" items="${list}">
-			<tr>
+			<c:choose>
+				<c:when test="${notice.firstYn == '2'}">
+					<tr>
+						<td id="firstYn">☆</td>
+						<td id="firstYn"><c:if test="${empty param.page }">
+								<a href="view.do?no=${notice.no}">${notice.title}</a>
+							</c:if> <c:if test="${!empty param.page }">
+								<a href="view.do?no=${notice.no}&page=${param.page }">${notice.title}</a>
+							</c:if></td>
+						<td id="firstYn"><pre>${notice.hit}</pre></td>
+						<td id="firstYn">${notice.wdate}</td>
+						<td id="firstYn">관리자</td>
+					<tr>
+				</c:when>
+				<c:otherwise>
+					<tr>
+						<td>${notice.no}</td>
+						<td id="firstYn"><c:if test="${empty param.page }">
+								<a href="view.do?no=${notice.no}">${notice.title}</a>
+							</c:if> <c:if test="${!empty param.page }">
+								<a href="view.do?no=${notice.no}&page=${param.page }">${notice.title}</a>
+							</c:if></td>
+						<td><pre>${notice.hit}</pre></td>
+						<td>${notice.wdate}</td>
+						<td>관리자</td>
+					<tr>
+				</c:otherwise>
+			</c:choose>
 
-				<td><c:if test="${empty param.page }">
-						<a href="view.do?no=${notice.no}">${notice.no}</a>
-					</c:if> <c:if test="${!empty param.page }">
-						<a href="view.do?no=${notice.no}&page=${param.page }">${notice.no}</a>
-					</c:if></td>
 
-				<td>${notice.title}</td>
-				<td><pre>${notice.hit}</pre></td>
-				<td>${notice.wdate}</td>
-			<tr>
+
+
+
 		</c:forEach>
 		<tr>
 			<c:if test="${login.grade eq 'master' }">
-				<td><a href="write.do"><button>글쓰기</button></a></td>
+				<td><a href="write
+				.do"><button>글쓰기</button></a></td>
 			</c:if>
 		</tr>
 
