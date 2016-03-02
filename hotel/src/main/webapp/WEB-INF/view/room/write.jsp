@@ -5,18 +5,59 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(document).ready(function(){
+	$($(".roomWrite")).submit(function(){
+		if($("#roomNo").val()==""){
+			alert("객실 번호를 입력해주세요.");
+			$("#roomNo").focus();
+			return false;
+		}
+		if($("#rName").val()==""){
+			alert("객실 이름을 입력해주세요.");
+			$("#rName").focus();
+			return false;
+		}
+		if($("#roomInfo").val()==""){
+			alert("객실 정보를 입력해주세요.");
+			$("#roomInfo").focus();
+			return false;
+		}
+		if($("#floor").val()==""){
+			alert("객실 정보를 입력해주세요.");
+			$("#floor").focus();
+			return false;
+		}
+		if($("#rSize").val()==""){
+			alert("객실 정보를 입력해주세요.");
+			$("#rSize").focus();
+			return false;
+		}
+		if($("#price").val()==""){
+			alert("객실 정보를 입력해주세요.");
+			$("#price").focus();
+			return false;
+		}
+		if($("#file").val()==""){
+			alert("이미지를 등록해 주세요.");
+			$("#file").focus();
+			return false;
+		}
+	});
+});
+</script>
 </head>
 <body>
 	<h2>객실 올리기</h2>
 	<br>
-	<form action="write.do" method="post" enctype="multipart/form-data">
-		<label for="title">방 번호 </label><input type="text" name="roomNo" id="title"> <br>
-		<label for="name">방 이름</label><input type="text" name="rName" id="name"> <br>		 
-		<label for="content">방 정보 </label><textarea rows="7" cols="60" name="roomInfo" id="content"></textarea><br> 
-		<label for="floor">층수</label><input type="text" name="floor" id="floor"> <br>
-		<label for="rSize">방 사이즈</label><input type="text" name="rSize" id="rSize"> <br>
-		<label for="price">방 가격</label><input type="text" name="price" id="price"> <br>
-		<label for="fileName">이미지 사진 </label><input type="file" name="file" id="fileName"> <br>
+	<form action="write.do" method="post" enctype="multipart/form-data" class="roomWrite">
+		<label for="roomNo">객실 번호 </label><input type="text" name="roomNo" id="roomNo" class="input" size="4">호 <br>
+		<label for="rName">객실 이름</label><input type="text" name="rName" id="rName" class="input" > <br>		 
+		<label for="roomInfo">객실 정보 </label><textarea rows="7" cols="60" name="roomInfo" id="roomInfo" class="input"></textarea><br> 
+		<label for="floor">층수</label><input type="text" name="floor" id="floor" size="3" class="input">층 <br>
+		<label for="rSize">수용인원</label><input type="text" name="rSize" id="rSize" size="3" class="input">명<br>
+		<label for="price">객실 가격</label><input type="text" name="price" id="price" size="5" class="input">원 <br>
+		<label for="file">이미지 사진 </label><input type="file" name="file" id="file" class="input"> <br>
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>
