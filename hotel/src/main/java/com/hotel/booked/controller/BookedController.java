@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.hotel.board.model.BoardModel;
 import com.hotel.booked.model.Booked;
 import com.hotel.booked.model.BookedModel;
 import com.hotel.booked.model.Booking;
@@ -20,7 +22,10 @@ import com.hotel.common.service.ServiceInterface;
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
 			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
-			bookedConfirmService, bookingRoomListService, bookedMangeService, bookedCkUpdateProcessService;
+			bookedConfirmService, bookingRoomListService, bookedMangeService, bookedCkUpdateProcessService,
+			mylistService;
+
+
 
 	public void setBookedRoomListService(ServiceInterface bookedRoomListService) {
 		this.bookedRoomListService = bookedRoomListService;
@@ -68,6 +73,10 @@ public class BookedController {
 
 	public void setBookedCkUpdateProcessService(ServiceInterface bookedCkUpdateProcessService) {
 		this.bookedCkUpdateProcessService = bookedCkUpdateProcessService;
+	}
+
+	public void setMylistService(ServiceInterface mylistService) {
+		this.mylistService = mylistService;
 	}
 
 	// 글리스트
@@ -198,4 +207,18 @@ public class BookedController {
 		bookedCkUpdateProcessService.service(booked);
 		return "redirect:bookedlist.do?page=" + page;
 	}
+
+	// 나의 예약 리스트
+	@RequestMapping(value = "/booked/mylist.do")
+	public String mylist(@RequestParam(value = "page", required = true) int page, Model model,
+			@RequestParam(value = "id", required = false) String id, Booked booked) throws Exception {
+		booked.setPage(page);
+		booked.setId(id);
+		BookedModel bookedModel = (BookedModel) mylistService.service(booked);
+		model.addAttribute("mylist", bookedModel.getList());
+		model.addAttribute("jspData", bookedModel.getJspData());
+		return "booked/mylist";
+	}
 }
+	
+	

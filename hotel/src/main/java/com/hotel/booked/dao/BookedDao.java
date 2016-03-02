@@ -89,4 +89,16 @@ public class BookedDao {
 		sqlSessionTemplate.update("dao.Booked.ckUpdate", booked);
 		return null;
 	}
+
+	// mylist보기
+	public Object mylist(JspData jspData) {
+		// TODO Auto-generated method stub
+		System.out.println("bookedmylist()");
+		return sqlSessionTemplate.selectList("dao.Booked.mylist", jspData);
+	}
+	// 나의 리뷰 상태 변경
+	public Object myReviewUpdate(Booked booked) {
+		sqlSessionTemplate.update("dao.Booked.myReviewUpdate", booked);
+		return null;
+	}
 }

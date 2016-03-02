@@ -69,9 +69,11 @@
 
 		</tr>
 		<tr>
-			<td colspan="2"><a href="update.do?no=${review.no }"><button>글수정</button></a>
-				<a href="delete.do?no=${review.no }"><button>객실 지우기</button></a> <a
-				href="list.do"><button>리뷰게시판 리스트로</button></a></td>
+			<td colspan="2">
+				<c:if test="${login.id eq review.id }">
+					<a href="delete.do?no=${review.no }"><button>리뷰 지우기</button></a>
+				</c:if>
+					<a href="list.do"><button>리뷰게시판 리스트로</button></a></td>
 		</tr>
 	</table>
 	<br>
