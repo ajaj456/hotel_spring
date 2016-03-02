@@ -1,21 +1,21 @@
-package com.hotel.member.service;
+package com.hotel.booked.service;
 
 import java.util.List;
 
+import com.hotel.booked.dao.BookedDao;
+import com.hotel.booked.model.Booked;
+import com.hotel.booked.model.BookedModel;
 import com.hotel.common.model.JspData;
 import com.hotel.common.service.ServiceInterface;
-import com.hotel.member.dao.MemberDao;
 import com.hotel.member.model.Member;
 import com.hotel.member.model.MemberModel;
 
-public class MemberListService implements ServiceInterface {
+public class BookedMangeService implements ServiceInterface {
+	private BookedDao bookedDao;
 
-	private MemberDao memberDao;
-
-	public void setMemberDao(MemberDao memberDao) {
-		this.memberDao = memberDao;
+	public void setBookedDao(BookedDao bookedDao) {
+		this.bookedDao = bookedDao;
 	}
-
 	@Override
 	public Object service(Object obj) throws Exception {
 		// page처리를 위한 변수 선언
@@ -36,7 +36,7 @@ public class MemberListService implements ServiceInterface {
 		// 시작페이지+한 화면의 페이지 갯수 -1 : 마지막 페이지를 넘을 수 없다.
 
 		// 전체 줄 수를 구해오는 메소드 호출
-		totalRow = memberDao.totalRow();
+		totalRow = bookedDao.totalRow();
 		// System.out.println("BoardListService.service().totalRow:" +
 		// totalRow);
 		// 전체 페이지 = ( 전체 줄수 -1 ) / 한페이지당 줄의 수 +1
@@ -63,13 +63,13 @@ public class MemberListService implements ServiceInterface {
 		jspData.setEndRow(endRow);
 
 		@SuppressWarnings("unchecked")
-		List<Member> list = (List<Member>) memberDao.list(jspData);
+		List<Booked> list = (List<Booked>) bookedDao.mangelist(jspData);
 		// jsp에 totalPage를 넘기기 위해서 JspDate를 생성 후 담는다.
-		MemberModel memberModel = new MemberModel();
+		BookedModel bookedModel = new BookedModel();
 		// BoardModel은 List와 JspData를 다 가지고 있다.
-		memberModel.setList(list);
-		memberModel.setJspData(jspData);
-		return memberModel;
+		bookedModel.setList(list);
+		bookedModel.setJspData(jspData);
+		return bookedModel;
 	}
 
 }

@@ -67,11 +67,12 @@
 		order by
 		roomNo asc
 	</select>
-	
+
 	<!-- 예약 취소를 위한 취소 리스트 -->
 	<select id="bookingRoomList" resultType="com.hotel.booked.model.Booking">
 		select roomNo, to_char(stayDate,'yyyy-mm-dd')stayDate from booking
-		where id=#{id} and stayDate <![CDATA[ >= ]]> sysdate
+		where id=#{id} and stayDate <![CDATA[ >= ]]>
+		sysdate
 		order by
 		stayDate asc
 	</select>
@@ -80,5 +81,27 @@
 	<select id="confirm" resultType="com.hotel.booked.model.Booking">
 		select * from booking where
 		roomNo=#{roomNo } and stayDate=#{stayDate }
+	</select>
+
+	<!-- 회원 예약 리스트 -->
+	<select id="mangelist" resultType="com.hotel.booked.model.Booked">
+		select * from
+		(
+		select rownum
+		rnum,
+		id, startDate, stay, payck, inoutck
+		from
+		booked
+		)
+		where rnum between
+		#{startRow}
+		and #{endRow}
+	</select>
+	
+	<!-- 게시판 글갯수 -->
+	<select id="totalCount" resultType="Integer">
+		select
+		count(*)
+		from review
 	</select>
 </mapper>

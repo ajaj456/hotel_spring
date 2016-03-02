@@ -5,16 +5,14 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.hotel.booked.model.Booked;
+import com.hotel.booked.model.BookedModel;
 import com.hotel.booked.model.Booking;
 import com.hotel.common.service.ServiceInterface;
 
@@ -22,7 +20,7 @@ import com.hotel.common.service.ServiceInterface;
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
 			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
-			bookedConfirmService, bookingRoomListService;
+			bookedConfirmService, bookingRoomListService, bookedMangeService;
 
 	public void setBookedRoomListService(ServiceInterface bookedRoomListService) {
 		this.bookedRoomListService = bookedRoomListService;
@@ -59,8 +57,13 @@ public class BookedController {
 	public void setBookedConfirmService(ServiceInterface bookedConfirmService) {
 		this.bookedConfirmService = bookedConfirmService;
 	}
+
 	public void setBookingRoomListService(ServiceInterface bookingRoomListService) {
 		this.bookingRoomListService = bookingRoomListService;
+	}
+
+	public void setBookedMangeService(ServiceInterface bookedMangeService) {
+		this.bookedMangeService = bookedMangeService;
 	}
 
 	// 글리스트
@@ -73,11 +76,10 @@ public class BookedController {
 		System.out.println(id);
 		model.addAttribute("list", bookedListService.service(booked));
 		model.addAttribute("room", bookedRoomListService.service(null));
-		System.out.println( "before"+id);
+		System.out.println("before" + id);
 		model.addAttribute("bookinglist", bookingRoomListService.service(id));
 		return "booked/list";
 	}
-
 
 	// 글보기
 	@RequestMapping("/booked/view.do")
@@ -113,7 +115,7 @@ public class BookedController {
 			booking.setStayDate(dat);
 			bookingWriteService.service(booking);
 		}
-		return "redirect:list.do?id="+booking.getId();
+		return "redirect:list.do?id=" + booking.getId();
 	}
 
 	// 글수정 폼 - get
@@ -141,7 +143,7 @@ public class BookedController {
 		System.out.println(stayDate);
 		booking.setStayDate(stayDate);
 		bookedDeleteProcessService.service(booking);
-		return "redirect:list.do?id="+booking.getId();
+		return "redirect:list.do?id=" + booking.getId();
 	}
 
 	// 예약중복체크
@@ -173,5 +175,15 @@ public class BookedController {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(result);
+	}
+
+	// 예약관리리스트
+	@RequestMapping("/booked/bookedlist.do")
+	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+			throws Exception {
+		BookedModel bookedModel = (BookedModel) bookedMangeService.service(page);
+		model.addAttribute("list", bookedModel.getList());
+		model.addAttribute("jspData", bookedModel.getJspData());
+		return "member/list";
 	}
 }
