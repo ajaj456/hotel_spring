@@ -48,13 +48,13 @@ public class BookedDao {
 	}
 
 	// 예약취소
-	public Object delete(Object obj) {
+	public Object delete(Booking booking) {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.delete()");
-		return sqlSessionTemplate.delete("dao.Booked.delete", obj);
+		return sqlSessionTemplate.delete("dao.Booked.delete", booking);
 	}
 
-	// 예약리스트
+	// 예약방리스트
 	public Object roomList() {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.list()");
@@ -64,6 +64,14 @@ public class BookedDao {
 	// 예약확인
 	public Object confirm(Booking booking) {
 		return sqlSessionTemplate.selectOne("dao.Booked.confirm", booking);
+	}
+
+	// 예약 취소리스트
+	public Object bookingRoomList(Object obj) {
+		// TODO Auto-generated method stub
+		System.out.println("BookedDao.bookingRoomList()");
+		System.out.println("11111111"+obj);
+		return sqlSessionTemplate.selectList("dao.Booked.bookingRoomList", obj);
 	}
 
 }

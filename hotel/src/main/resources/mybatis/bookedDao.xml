@@ -57,7 +57,8 @@
 
 	<!-- 예약 삭제 -->
 	<delete id="delete">
-
+		delete from booking where stayDate=#{stayDate} and
+		id=#{id}
 	</delete>
 
 	<!-- 예약 방번호 뿌리기 -->
@@ -65,6 +66,14 @@
 		select roomNo, rSize from room
 		order by
 		roomNo asc
+	</select>
+	
+	<!-- 예약 취소를 위한 취소 리스트 -->
+	<select id="bookingRoomList" resultType="com.hotel.booked.model.Booking">
+		select roomNo, to_char(stayDate,'yyyy-mm-dd')stayDate from booking
+		where id=#{id} and stayDate <![CDATA[ >= ]]> sysdate
+		order by
+		stayDate asc
 	</select>
 
 	<!-- 예약 확인 -->
