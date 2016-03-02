@@ -20,7 +20,7 @@ import com.hotel.common.service.ServiceInterface;
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
 			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
-			bookedConfirmService, bookingRoomListService, bookedMangeService;
+			bookedConfirmService, bookingRoomListService, bookedMangeService, bookedCkUpdateProcessService;
 
 	public void setBookedRoomListService(ServiceInterface bookedRoomListService) {
 		this.bookedRoomListService = bookedRoomListService;
@@ -64,6 +64,10 @@ public class BookedController {
 
 	public void setBookedMangeService(ServiceInterface bookedMangeService) {
 		this.bookedMangeService = bookedMangeService;
+	}
+
+	public void setBookedCkUpdateProcessService(ServiceInterface bookedCkUpdateProcessService) {
+		this.bookedCkUpdateProcessService = bookedCkUpdateProcessService;
 	}
 
 	// 글리스트
@@ -185,5 +189,13 @@ public class BookedController {
 		model.addAttribute("list", bookedModel.getList());
 		model.addAttribute("jspData", bookedModel.getJspData());
 		return "booked/bookedlist";
+	}
+
+	// ck업데이트
+	@RequestMapping(value = "/booked/inoutck.do")
+	public String grade(@RequestParam(value = "page", required = true) int page, Booked booked) throws Exception {
+		System.out.println(booked);
+		bookedCkUpdateProcessService.service(booked);
+		return "redirect:bookedlist.do?page=" + page;
 	}
 }

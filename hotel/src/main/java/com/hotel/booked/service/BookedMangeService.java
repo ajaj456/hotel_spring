@@ -7,8 +7,6 @@ import com.hotel.booked.model.Booked;
 import com.hotel.booked.model.BookedModel;
 import com.hotel.common.model.JspData;
 import com.hotel.common.service.ServiceInterface;
-import com.hotel.member.model.Member;
-import com.hotel.member.model.MemberModel;
 
 public class BookedMangeService implements ServiceInterface {
 	private BookedDao bookedDao;
@@ -61,7 +59,7 @@ public class BookedMangeService implements ServiceInterface {
 		jspData.setPagesPerGroup(pagesPerGroup);
 		jspData.setStartRow(startRow);
 		jspData.setEndRow(endRow);
-
+		System.out.println(jspData);
 		@SuppressWarnings("unchecked")
 		List<Booked> list = (List<Booked>) bookedDao.mangelist(jspData);
 		// jsp에 totalPage를 넘기기 위해서 JspDate를 생성 후 담는다.

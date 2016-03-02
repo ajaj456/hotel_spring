@@ -15,42 +15,25 @@
 	<table>
 		<tr>
 			<th>아이디</th>
+			<th>객실번호</th>
 			<th>숙박시작일</th>
 			<th>숙박기간</th>
-			<th>결제유무</th>
 			<th>체크인유무</th>
 		</tr>
 		<!-- 반복의 시작 -->
 		<c:forEach var="bookedmange" items="${list }">
 			<tr>
 				<td>${bookedmange.id }</td>
+				<td>${bookedmange.roomNo }</td>
 				<td>${bookedmange.startDate }</td>
 				<td>${bookedmange.stay }</td>
 				<td>
-					<form action="payck.do">
-						<input type="hidden" id="id" name="id" class="input"
-							value="${login.id }"> <input type="hidden" id="page"
-							name="page" class="input"
-							<c:if test="${empty param.page }">
-									value="1"
-								</c:if>
-							<c:if test="${!empty param.page }">
-									value="${param.page }"
-								</c:if>>
-						<select id="payck" name="payck">
-							<option value="1"
-								<c:if test="${bookedmange.pacyck == 1}">selected="selected"</c:if>>입금전</option>
-							<option value="2"
-								<c:if test="${bookedmange.pacyck == 2}">selected="selected"</c:if>>입금완료</option>
-						</select>
-						<button>변경</button>
-					</form>
-				</td>
-				<td>
 					<form action="inoutck.do">
-						<input type="hidden" id="id" name="id" class="input"
-							value="${login.id }"> <input type="hidden" id="page"
-							name="page" class="input"
+						<input type="hidden" id="startDate" name="startDate" class="input"
+							value="${bookedmange.startDate }"> <input type="hidden"
+							id="roomNo" name="roomNo" class="input"
+							value="${bookedmange.roomNo }"> <input type="hidden"
+							id="page" name="page" class="input"
 							<c:if test="${empty param.page }">
 									value="1"
 								</c:if>
@@ -59,9 +42,9 @@
 								</c:if>>
 						<select id="inoutck" name="inoutck">
 							<option value="1"
-								<c:if test="${bookedmange.pacyck == 1}">selected="selected"</c:if>>미입실</option>
+								<c:if test="${bookedmange.inoutck == '1'}">selected="selected"</c:if>>미입실</option>
 							<option value="2"
-								<c:if test="${bookedmange.pacyck == 2}">selected="selected"</c:if>>체크인</option>
+								<c:if test="${bookedmange.inoutck == '2'}">selected="selected"</c:if>>체크인</option>
 						</select>
 						<button>변경</button>
 					</form>

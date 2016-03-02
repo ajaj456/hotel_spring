@@ -69,19 +69,24 @@ public class BookedDao {
 
 	// 예약 취소리스트
 	public Object bookingRoomList(Object obj) {
-		// TODO Auto-generated method stub
 		System.out.println("BookedDao.bookingRoomList()");
 		System.out.println("11111111" + obj);
 		return sqlSessionTemplate.selectList("dao.Booked.bookingRoomList", obj);
 	}
 
+	// 회원예약리스트
 	public Object mangelist(JspData jspData) {
 		return sqlSessionTemplate.selectList("dao.Booked.mangelist", jspData);
 	}
 
+	// 총개수
 	public int totalRow() {
-		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("dao.Booked.totalCount");
 	}
 
+	// ck업데이트
+	public Object ckUpdate(Booked booked) {
+		sqlSessionTemplate.update("dao.Booked.ckUpdate", booked);
+		return null;
+	}
 }

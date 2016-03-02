@@ -1,7 +1,7 @@
 package com.hotel.booked.model;
 
 public class Booked {
-	private int bno, payck, inoutck, roomNo, stay, page, people;
+	private int bno, inoutck, roomNo, stay, page, people;
 	private String id, startDate;
 	private int year, month, day;
 
@@ -39,14 +39,6 @@ public class Booked {
 
 	public void setBno(int bno) {
 		this.bno = bno;
-	}
-
-	public int getPayck() {
-		return payck;
-	}
-
-	public void setPayck(int payck) {
-		this.payck = payck;
 	}
 
 	public int getInoutck() {
@@ -103,8 +95,10 @@ public class Booked {
 
 	@Override
 	public String toString() {
-		return "Booked [bno=" + bno + ", payck=" + payck + ", inoutck=" + inoutck + ", roomNo=" + roomNo + ", stay="
-				+ stay + ", page=" + page + ", people=" + people + ", id=" + id + ", startDate=" + startDate + "]";
+		return "Booked [bno=" + bno + ", inoutck=" + inoutck + ", roomNo=" + roomNo + ", stay=" + stay + ", page="
+				+ page + ", people=" + people + ", id=" + id + ", startDate=" + startDate + ", year=" + year
+				+ ", month=" + month + ", day=" + day + "]";
 	}
 
+	
 }

@@ -89,19 +89,31 @@
 		(
 		select rownum
 		rnum,
-		id, startDate, stay, payck, inoutck
+		id, to_char(startDate,'yyyy-mm-dd')startDate, stay,
+		inoutck,roomNo
 		from
-		booked
+		booked where
+		startDate =
+		to_char(sysdate,'yyyy-mm-dd')order by id,startDate
 		)
-		where rnum between
+		where rnum
+		between
 		#{startRow}
 		and #{endRow}
 	</select>
-	
+
 	<!-- 게시판 글갯수 -->
 	<select id="totalCount" resultType="Integer">
 		select
 		count(*)
 		from review
 	</select>
+
+	<!-- 체크인변경 -->
+	<update id="ckUpdate">
+		update booked set inoutck=#{inoutck}
+		where
+		startDate=#{startDate}
+		and roomNo=#{roomNo }
+	</update>
 </mapper>
