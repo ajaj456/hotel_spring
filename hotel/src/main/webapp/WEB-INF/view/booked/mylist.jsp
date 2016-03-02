@@ -62,14 +62,13 @@
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
-
 		<a
-			href="mylist.do?id=${login.id}&page=${jspData.totalPage > jspData.endPage ? jspData.page + 1 : jspData.totalPage }"><i
+			href="mylist.do?id=${login.id}&page=${jspData.totalPage>jspData.endPage?jspData.page+1:jspData.totalPage}"><i
 			class="fa fa-chevron-right"></i></a> <a
-			href="mylist.do?id=${login.id}&page=${jspData.totalPage > jspData.endPage ? jspData.endPage + 1 : jspData.totalPage }"><i
+			href="mylist.do?id=${login.id}&page=${jspData.totalPage>jspData.endPage?jspData.endPage+1:jspData.totalPage }"><i
 			class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a> <a
 			href="mylist.do?id=${login.id}&page=${jspData.totalPage }"><i
-			class="fa fa-step-forward"></i></a>
+			class="fa fa-step-forward"></i></a> <br />
 	</div>
 </body>
 </html>
