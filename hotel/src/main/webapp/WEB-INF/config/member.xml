@@ -18,8 +18,6 @@
 		<!-- 회원정보 변경 -->
 		<property name="memberUpdateService" ref="memberUpdateService" />
 		<property name="memberUpdateProcessService" ref="memberUpdateProcessService" />
-		<!-- 회원정보확인 처리 -->
-		<property name="memberConfirmProcessService" ref="memberConfirmProcessService" />
 		<!-- 비밀번호변경 처리 -->
 		<property name="memberPwUpdateProcessService" ref="memberPwUpdateProcessService" />
 		<!-- 아이디찾기 처리 -->
@@ -50,9 +48,6 @@
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 	<bean id="memberUpdateProcessService" class="com.hotel.member.service.MemberUpdateProcessService">
-		<property name="memberDao" ref="memberDao" />
-	</bean>
-	<bean id="memberConfirmProcessService" class="com.hotel.member.service.MemberConfirmProcessService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 	<bean id="memberPwUpdateProcessService" class="com.hotel.member.service.MemberPwUpdateProcessService">

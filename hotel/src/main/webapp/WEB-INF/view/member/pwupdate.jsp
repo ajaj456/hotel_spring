@@ -32,12 +32,19 @@
 				return false;
 			}
 			;
+			if ($("#oldpw").val() != $("#pw").val()) {
+				alert("현재 패스워드를 확인하셔야 됩니다.");
+				$("#pw").focus();
+				return false;
+			}
+			;
 			if ($("#pw1").val() != $("#pw2").val()) {
 				alert("바꿀 패스워드를 확인하셔야 됩니다.");
 				$("#pw1").focus();
 				return false;
 			}
 			;
+			alert("비밀번호 변경을 완료하였습니다. 새로 로그인해주세요.")
 		});
 	});
 </script>
@@ -59,8 +66,7 @@
 	<div id="logindiv">
 		<form action="pwupdate.do" method="post" id="loginForm">
 			<hr>
-			<input type="hidden" name="id" id="id" maxlength="15" class="input"
-				value="${member.id }" />
+			<input type="hidden" name="oldpw" id="oldpw" value="${login.pw }" />
 			<ul>
 				<li><label for="pw">현재 pw</label> <input type="password"
 					name="pw" id="pw" maxlength="15" class="input" /></li>
