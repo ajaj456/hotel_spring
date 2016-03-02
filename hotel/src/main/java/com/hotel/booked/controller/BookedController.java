@@ -184,6 +184,6 @@ public class BookedController {
 		BookedModel bookedModel = (BookedModel) bookedMangeService.service(page);
 		model.addAttribute("list", bookedModel.getList());
 		model.addAttribute("jspData", bookedModel.getJspData());
-		return "member/list";
+		return "booked/booekdlist";
 	}
 }
