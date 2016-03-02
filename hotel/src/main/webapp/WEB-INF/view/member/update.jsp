@@ -52,7 +52,7 @@
 <body>
 	<br />
 	<br />
-	<img src="../images/logo.png" width="370px" height="100px"
+	<img src="../images/mypage.png" width="370px" height="100px"
 		id="loginimg">
 	<br />
 	<br />
