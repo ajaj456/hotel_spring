@@ -65,4 +65,11 @@
 	<update id="hitUp">
 		update review set hit = hit +1 where no =#{no}
 	</update>
+	
+	<!-- 체크인변경 -->
+	<update id="myReviewDeleteUpdate">
+		update booked set inoutck = 2
+		where
+		bno = #{bno}
+	</update>
 </mapper>

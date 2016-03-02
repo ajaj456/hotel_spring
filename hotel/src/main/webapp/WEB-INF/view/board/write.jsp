@@ -16,7 +16,7 @@
 		<textarea rows="7" cols="60" name="content" id="content"></textarea>
 		<br> <label for="id">아이디 </label><input type="text" name="id"
 			id="id" value="${login.id }" readonly="readonly"> <input
-			type="hidden" name="bno" id="bno" value="1"> <br> <label
+			type="hidden" name="bno" id="bno" value="${param.bno} "> <br> <label
 			for="grade">평가</label><select id="grade" name="grade" class="grade">
 			<option value="1">1점</option>
 			<option value="2">2점</option>

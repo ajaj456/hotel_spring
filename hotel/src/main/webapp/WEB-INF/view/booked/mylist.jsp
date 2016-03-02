@@ -30,7 +30,7 @@
 				<td><c:if test="${mylist.inoutck == '2' }">
 						<a
 							href="../board/write.do?startDate=${ mylist.startDate }
-							&roomNo=${mylist.roomNo  }">
+							&roomNo=${mylist.roomNo  }&bno=${mylist.bno  }">
 							<button>후기 작성</button>
 						</a>
 					</c:if> <c:if test="${mylist.inoutck == '3' }">
@@ -44,11 +44,11 @@
 	<br>
 	<div id="pageMove">
 		<!-- 	페이지 처리 = 반복문 처리-->
-		<a href="bookedlist.do?page=1"><i class="fa fa-step-backward"></i></a>
+		<a href="mylist.do?id=${login.id}&page=1"><i class="fa fa-step-backward"></i></a>
 		<a
-			href="bookedlist.do?page=${jspData.startPage >1?jspData.startPage-jspData.pagesPerGroup:1 }"><i
+			href="mylist.do?id=${login.id}&page=${jspData.startPage >1?jspData.startPage-jspData.pagesPerGroup:1 }"><i
 			class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a> <a
-			href="bookedlist.do?page=${jspData.page >1?jspData.page-1:1 }"><i
+			href="mylist.do?id=${login.id}&page=${jspData.page >1?jspData.page-1:1 }"><i
 			class="fa fa-chevron-left"></i></a>
 
 		<c:forEach var="i" begin="${jspData.startPage }"
@@ -58,17 +58,17 @@
 					<span id="cpage">${i }</span>
 				</c:when>
 				<c:otherwise>
-					<a href="bookedlist.do?page=${i }">${i }</a>
+					<a href="mylist.do?page=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 
 		<a
-			href="bookedlist.do?page=${jspData.totalPage > jspData.endPage ? jspData.page + 1 : jspData.totalPage }"><i
+			href="mylist.do?id=${login.id}&page=${jspData.totalPage > jspData.endPage ? jspData.page + 1 : jspData.totalPage }"><i
 			class="fa fa-chevron-right"></i></a> <a
-			href="bookedlist.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage + 1 : jspData.totalPage }"><i
+			href="mylist.do?id=${login.id}&page=${jspData.totalPage > jspData.endPage ? jspData.endPage + 1 : jspData.totalPage }"><i
 			class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a> <a
-			href="bookedlist.do?page=${jspData.totalPage }"><i
+			href="mylist.do?id=${login.id}&page=${jspData.totalPage }"><i
 			class="fa fa-step-forward"></i></a>
 	</div>
 </body>

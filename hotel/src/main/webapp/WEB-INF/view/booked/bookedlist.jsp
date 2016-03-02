@@ -68,10 +68,10 @@
 			end="${jspData.endPage }">
 			<c:choose>
 				<c:when test="${jspData.page eq i }">
-					<span id="cpage">${i }</span>
+					<span id="cpage">?${i }</span>
 				</c:when>
 				<c:otherwise>
-					<a href="bookedlist.do?page=${i }">${i }</a>
+					<a href="bookedlist.do?id=${login.id}&page=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
