@@ -205,19 +205,19 @@
 			<tr>
 				<td align=left width=100>
 					<!-- 년 도--> <a
-					href="list.do?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">◀</a>
+					href="list.do?id=${login.id}&year=<%out.print(year - 1);%>&month=<%out.print(month);%>">◀</a>
 					<%
 						out.print(year);
 					%>년 <a
-					href="list.do?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">▶</a>
+					href="list.do?id=${login.id}&year=<%out.print(year + 1);%>&month=<%out.print(month);%>">▶</a>
 				</td>
 				<td align=center width=200>
 					<!-- 월 --> <a
-					href="list.do?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">◀</a>
+					href="list.do?id=${login.id}&year=<%out.print(year);%>&month=<%out.print(month - 1);%>">◀</a>
 					<%
 						out.print(month + 1);
 					%>월 <a
-					href="list.do?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">▶</a>
+					href="list.do?id=${login.id}&year=<%out.print(year);%>&month=<%out.print(month + 1);%>">▶</a>
 				</td>
 				<td align=right width=200>
 					<%

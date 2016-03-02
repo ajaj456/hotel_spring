@@ -31,8 +31,13 @@
 				<td>${board.id}</td>
 			<tr>
 		</c:forEach>
-	
 	</table>
+	<c:choose>
+		<c:when test="${login != null}">
+			<a href="../booked/mylist.do?id=${login.id }&page=1"><button
+					type="button">나의 예약 확인</button></a>
+		</c:when>
+	</c:choose>
 	<div id="pageMove">
 		<!-- 	페이지 처리 = 반복문 처리-->
 		<a href="list.do?page=1"><i class="fa fa-step-backward"></i></a> <a

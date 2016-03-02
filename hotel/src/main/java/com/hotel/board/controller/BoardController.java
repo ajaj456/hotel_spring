@@ -138,8 +138,11 @@ public class BoardController {
 
 	// 글삭제 처리
 	@RequestMapping("/board/delete.do")
-	public String delete(@RequestParam("no") String no) throws Exception {
+	public String delete(@RequestParam("no") String no, Booked booked) throws Exception {
 		System.out.println("Controller.delete()");
+//		booked.setStartDate(startDate);
+//		booked.setRoomNo(roomNo);
+		myReviewUpdateService.service(booked);
 		boardDeleteProcessService.service(no);
 		return "redirect:list.do";
 	}
