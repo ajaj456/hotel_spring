@@ -169,9 +169,11 @@
 		<h2>예약 현황</h2>
 		<div>
 			<a onclick="location='list.do?list=1&id=${login.id }'" id="btn1"><button
-					type="button">전체 예약현황 보기</button></a> <a
+					type="button">전체 현황</button></a> <a
 				onclick="location='list.do?list=2&id=${login.id}'" id="btn2"><button
-					type="button">나의 예약현황 보기</button></a>
+					type="button">나의 현황</button></a> <a
+				onclick="location='list.do?id=${login.id}'"><button
+					type="button">나의 예약 확인</button></a>
 		</div>
 		<%
 			@SuppressWarnings("unchecked")
