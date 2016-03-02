@@ -26,12 +26,12 @@
 		</tr>
 		<c:forEach var="room" items="${list}">
 			<tr>
-				<td><a href="view.do?no=${room.roomNo }">${room.roomNo }</a></td>
-				<td>${room.rName}</td>
+				<td>${room.roomNo }호</td>
+				<td><a href="view.do?no=${room.roomNo }">${room.rName}</a></td>
 				<td><pre>${room.roomInfo}</pre></td>
 				<td>${room.rSize}명</td>
-				<td>${room.price}</td>
-				<td>${room.floor }</td>
+				<td>${room.price}원</td>
+				<td>${room.floor }층</td>
 			<tr>
 		</c:forEach>
 		<c:if test="${login.grade eq 'master'}">
