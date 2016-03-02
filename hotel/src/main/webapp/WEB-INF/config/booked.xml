@@ -19,6 +19,7 @@
 		<property name="bookedConfirmService" ref="bookedConfirmService" />
 		<property name="bookingRoomListService" ref="bookingRoomListService" />
 		<property name="bookedMangeService" ref="bookedMangeService" />
+		<property name="bookedCkUpdateProcessService" ref="bookedCkUpdateProcessService" />
 	</bean>
 
 	<!-- service -->
@@ -64,6 +65,10 @@
 	</bean>
 
 	<bean id="bookedMangeService" class="com.hotel.booked.service.BookedMangeService">
+		<property name="bookedDao" ref="bookedDao"></property>
+	</bean>
+
+	<bean id="bookedCkUpdateProcessService" class="com.hotel.booked.service.BookedCkUpdateProcessService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
