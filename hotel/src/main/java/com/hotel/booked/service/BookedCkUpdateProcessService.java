@@ -15,6 +15,7 @@ public class BookedCkUpdateProcessService implements ServiceInterface {
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("BookedCkUpdateProcessService.service()");
+		System.out.println(obj);
 		bookedDao.ckUpdate((Booked) obj);
 		return null;
 	}
