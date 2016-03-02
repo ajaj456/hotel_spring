@@ -52,7 +52,8 @@
 <body>
 	<br />
 	<br />
-	<img src="" width="370px" height="100px" id="loginimg">
+	<img src="../images/logo.png" width="370px" height="100px"
+		id="loginimg">
 	<br />
 	<br />
 	<br />

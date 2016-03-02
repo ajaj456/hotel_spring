@@ -28,7 +28,7 @@
 <body>
 	<br />
 	<br />
-	<img src="" width="370px" height="90px" id="loginimg">
+	<img src="../images/login.png" width="370px" height="90px" id="loginimg">
 	<br />
 	<br />
 	<br />

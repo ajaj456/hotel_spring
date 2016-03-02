@@ -130,7 +130,7 @@ img {
 	<header>
 		<div id="head">
 			<div id="logo">
-				<a href="../main/index.do"><img src="../images/logo.png"
+				<a href="../main/index.do"><img src="../images/mypage.png"
 					height="120px" width="200px"></a>
 			</div>
 			<div id="login">

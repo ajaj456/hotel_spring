@@ -108,8 +108,8 @@
 </head>
 <body>
 	<div id="joindiv">
-		<br /> <br /> <img src="" width="400px" height="100px"><br />
-		<br /> <br /> <br />
+		<br /> <br /> <img src="../images/join.png" width="400px"
+			height="100px"><br /> <br /> <br /> <br />
 		<form action="join.do" method="post" id="loginform">
 			<h4>
 				<b>기본 정보 입력</b>

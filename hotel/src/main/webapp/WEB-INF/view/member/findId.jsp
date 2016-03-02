@@ -27,7 +27,8 @@
 <body>
 	<br />
 	<br />
-	<img src="" width="570px" height="100px" id="loginimg">
+	<img src="../images/idpw.png" width="570px" height="100px"
+		id="loginimg">
 	<br />
 	<br />
 	<br />
