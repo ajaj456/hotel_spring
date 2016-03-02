@@ -12,6 +12,6 @@
 	<img src="../images/info.png">
 	
 	<h2>찾아오시는길</h2>
-	<img src="../images/info.png">
+	<img src="../images/info2.png">
 </body>
 </html>
