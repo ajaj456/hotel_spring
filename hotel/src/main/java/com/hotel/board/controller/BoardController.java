@@ -21,7 +21,11 @@ import com.hotel.util.DuplicateFile;
 public class BoardController {
 	// board
 	private ServiceInterface boardListService, boardViewService, boardWriteProcessService, boardUpdateProcessService,
-			boardDeleteProcessService, myReviewUpdateService;
+			boardDeleteProcessService, myReviewUpdateService, myReviewDeleteUpdateService;
+
+	public void setMyReviewDeleteUpdateService(ServiceInterface myReviewDeleteUpdateService) {
+		this.myReviewDeleteUpdateService = myReviewDeleteUpdateService;
+	}
 
 	public void setMyReviewUpdateService(ServiceInterface myReviewUpdateService) {
 		this.myReviewUpdateService = myReviewUpdateService;
@@ -138,11 +142,9 @@ public class BoardController {
 
 	// 글삭제 처리
 	@RequestMapping("/board/delete.do")
-	public String delete(@RequestParam("no") String no, Booked booked) throws Exception {
+	public String delete(@RequestParam("no") String no,@RequestParam("bno") int bno ) throws Exception {
 		System.out.println("Controller.delete()");
-//		booked.setStartDate(startDate);
-//		booked.setRoomNo(roomNo);
-		myReviewUpdateService.service(booked);
+		myReviewDeleteUpdateService.service(bno);
 		boardDeleteProcessService.service(no);
 		return "redirect:list.do";
 	}

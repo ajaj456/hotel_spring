@@ -69,9 +69,10 @@
 
 		</tr>
 		<tr>
+		
 			<td colspan="2">
 				<c:if test="${login.id eq review.id }">
-					<a href="delete.do?no=${review.no }"><button>리뷰 지우기</button></a>
+					<a href="delete.do?no=${review.no }&bno=${review.bno}"><button>리뷰 지우기</button></a>
 				</c:if>
 					<a href="list.do"><button>리뷰게시판 리스트로</button></a></td>
 		</tr>

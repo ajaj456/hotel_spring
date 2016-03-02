@@ -15,6 +15,7 @@
 		<property name="boardUpdateProcessService" ref="boardUpdateProcessService" />
 		<property name="boardDeleteProcessService" ref="boardDeleteProcessService" />
 		<property name="myReviewUpdateService" ref="myReviewUpdateService" />
+		<property name="myReviewDeleteUpdateService" ref="myReviewDeleteUpdateService" />
 		<!-- reply -->
 		<property name="replyListService" ref="replyListService" />
 		<property name="replyWriteProcessService" ref="replyWriteProcessService" />
@@ -44,7 +45,10 @@
 	<bean id="boardDeleteProcessService" class="com.hotel.board.service.BoardDeleteProcessService">
 		<property name="boardDao" ref="boardDao"></property>
 	</bean>
-	
+	<bean id="myReviewDeleteUpdateService" class="com.hotel.board.service.MyReviewDeleteUpdateService">
+		<property name="boardDao" ref="boardDao"></property>
+	</bean>
+
 	<bean id="myReviewUpdateService" class="com.hotel.booked.service.MyReviewUpdateService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
@@ -72,7 +76,7 @@
 	<bean id="boardDao" class="com.hotel.board.dao.BoardDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
-	
+
 	<!-- booked -->
 	<bean id="bookedDao" class="com.hotel.booked.dao.BookedDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>

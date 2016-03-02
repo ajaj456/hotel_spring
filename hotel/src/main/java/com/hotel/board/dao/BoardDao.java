@@ -54,4 +54,12 @@ public class BoardDao {
 		sqlSessionTemplate.update("dao.Board.hitUp", obj);
 	}
 	
+	// 회원 체크인 유무 변경
+	public Object myReviewDeleteUpdateService(Object obj) {
+		// TODO Auto-generated method stub
+		System.out.println("BoardDao.update()");
+		return sqlSessionTemplate.update("dao.Board.myReviewDeleteUpdate", obj);
+		
+	}
+	
 }
