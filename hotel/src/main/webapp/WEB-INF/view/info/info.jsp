@@ -9,9 +9,9 @@
 </head>
 <body>
 	<h2>소개</h2>
-	<img src="../images/info.png">
+	<img src="../images/info.png" width="800px"  height="500px"  >
 	
 	<h2>찾아오시는길</h2>
-	<img src="../images/info2.png">
+	<img src="../images/info2.png" width="800px" height="300px" >
 </body>
 </html>
