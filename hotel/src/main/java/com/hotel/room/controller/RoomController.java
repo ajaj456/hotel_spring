@@ -141,4 +141,9 @@ public class RoomController {
 		return "redirect:list.do";
 	}
 
+	@RequestMapping("/info/info.do")
+	public String info() throws Exception {
+		System.out.println("infoController");
+		return "info/info";
+	}
 }
