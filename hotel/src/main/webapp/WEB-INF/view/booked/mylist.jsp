@@ -44,8 +44,8 @@
 	<br>
 	<div id="pageMove">
 		<!-- 	페이지 처리 = 반복문 처리-->
-		<a href="mylist.do?id=${login.id}&page=1"><i class="fa fa-step-backward"></i></a>
-		<a
+		<a href="mylist.do?id=${login.id}&page=1"><i
+			class="fa fa-step-backward"></i></a> <a
 			href="mylist.do?id=${login.id}&page=${jspData.startPage >1?jspData.startPage-jspData.pagesPerGroup:1 }"><i
 			class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a> <a
 			href="mylist.do?id=${login.id}&page=${jspData.page >1?jspData.page-1:1 }"><i
@@ -58,7 +58,7 @@
 					<span id="cpage">${i }</span>
 				</c:when>
 				<c:otherwise>
-					<a href="mylist.do?page=${i }">${i }</a>
+					<a href="mylist.do?id=${login.id}&page=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>

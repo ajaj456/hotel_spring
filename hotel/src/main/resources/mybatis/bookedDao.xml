@@ -106,7 +106,7 @@
 	<select id="totalCount" resultType="Integer">
 		select
 		count(*)
-		from review
+		from booked
 	</select>
 
 	<!-- 체크인변경 -->
@@ -145,8 +145,9 @@
 	<update id="myReviewUpdate">
 		update booked set inoutck = 3
 		where
-		id=#{id} 
-		and startDate=#{startDate}
+		id=#{id}
+		and
+		startDate=#{startDate}
 		and roomNo=#{roomNo }
 	</update>
 
