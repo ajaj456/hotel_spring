@@ -151,10 +151,12 @@ img {
 		<!-- section 안에 메뉴별 각각 폼 호출 -->
 		<div id="menu">
 			<div id="menu2">
-				<br /> <a href="" id="menutext">호텔소개</a> <a href="../room/list.do"
-					id="menutext">객실소개</a> <a href="../notice/list.do" id="menutext">공지사항</a>
-				<a href="../board/list.do" id="menutext">후기게시판</a> <a
-					href="../qna/list.do" id="menutext">Qna</a>
+				<br/> 
+				<a href="../info/info.do" id="menutext">호텔소개</a> 
+				<a href="../room/list.do" id="menutext">객실소개</a> 
+				<a href="../notice/list.do" id="menutext">공지사항</a>
+				<a href="../board/list.do" id="menutext">후기게시판</a> 
+				<a href="../qna/list.do" id="menutext">Qna</a>
 				<c:choose>
 					<c:when test="${login.grade eq 'master'}">
 						<a href="../booked/bookedlist.do" id="menutext">예약관리</a>
