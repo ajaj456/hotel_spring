@@ -107,4 +107,10 @@ public class BookedDao {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("dao.Booked.bnoConfirm", booked);
 	}
+
+	public Object roomInfo(Object obj) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("dao.Booked.roomInfo", obj);
+		
+	}
 }

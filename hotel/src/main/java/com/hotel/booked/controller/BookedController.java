@@ -15,13 +15,18 @@ import com.hotel.booked.model.Booked;
 import com.hotel.booked.model.BookedModel;
 import com.hotel.booked.model.Booking;
 import com.hotel.common.service.ServiceInterface;
+import com.hotel.room.model.Room;
 
 @Controller
 public class BookedController {
 	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
 			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
 			bookedConfirmService, bookingRoomListService, bookedMangeService, bookedCkUpdateProcessService,
-			mylistService, bookedBnoConfirmService;
+			mylistService, bookedBnoConfirmService, roomInfoService;
+
+	public void setRoomInfoService(ServiceInterface roomInfoService) {
+		this.roomInfoService = roomInfoService;
+	}
 
 	public void setBookedBnoConfirmService(ServiceInterface bookedBnoConfirmService) {
 		this.bookedBnoConfirmService = bookedBnoConfirmService;
@@ -219,5 +224,34 @@ public class BookedController {
 		model.addAttribute("mylist", bookedModel.getList());
 		model.addAttribute("jspData", bookedModel.getJspData());
 		return "booked/mylist";
+	}
+
+	// 가격조회
+	@RequestMapping(value = "/booked/price.do")
+	public void price(@RequestParam(value = "roomNo", required = true) int roomNo,
+			@RequestParam(value = "stay", required = true) int stay,
+			@RequestParam(value = "people", required = true) int people, Room room, HttpServletResponse response)
+					throws Exception {
+		room = (Room) roomInfoService.service(roomNo);
+		int result = 0;
+		int roomPeople = room.getrSize();
+		int price = room.getPrice();
+		if (roomPeople >= people) {
+			if (stay != 0) {
+				result = price * stay;
+			} else {
+				result = price;
+			}
+		} else {
+			int gap = people - roomPeople;
+			if (stay != 0) {
+				result = (gap * 10000) * stay + (price * stay);
+			} else {
+				result = (gap * 10000) + price;
+			}
+		}
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(result);
 	}
 }

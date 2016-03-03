@@ -39,8 +39,9 @@
 	<!-- 예약 하기 -->
 	<insert id="write">
 		insert into booked (bno, id, roomNo, startDate, stay,
-		people) values (booked_seq.nextval, #{id }, #{roomNo }, #{startDate },
-		#{stay }, #{people })
+		people, totalPrice) values (booked_seq.nextval, #{id }, #{roomNo },
+		#{startDate },
+		#{stay }, #{people }, #{totalPrice})
 	</insert>
 
 	<!-- 예약 하기 -->
@@ -125,7 +126,7 @@
 		rnum,
 		id, inoutck, roomNo, to_char(startDate,'yyyy-mm-dd')startDate, stay,
 		bno,
-		people
+		people, totalPrice
 		from
 		booked where
 		id =
@@ -151,5 +152,12 @@
 		startDate=#{startDate}
 		and roomNo=#{roomNo }
 	</update>
+
+	<!-- 예약 번호 가져오기 -->
+	<select id="roomInfo" resultType="com.hotel.room.model.Room">
+		select rSize, price from room
+		where
+		roomNo=#{roomNo}
+	</select>
 
 </mapper>
