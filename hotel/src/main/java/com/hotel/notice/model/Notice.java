@@ -88,7 +88,7 @@ public class Notice {
 	@Override
 	public String toString() {
 		return "Notice [no=" + no + ", hit=" + hit + ", title=" + title + ", content=" + content + ", wdate=" + wdate
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", fileName=" + fileName + ", firstYN="
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", fileName=" + fileName + ", firstYn="
 				+ firstYn + ", file=" + file + ", period=" + period + ", page=" + page + "]";
 	}
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +26,11 @@
 				<li><label for="endDate">공지종료일</label> <input type="date"
 					name="endDate" id="endDate" class="writeForm"
 					value="${notice.endDate }" /></li>
-				<li><label>우선사항</label> <select id="title" class="writeForm"
-					name="firstYn">
-						<option value="1"
-							<c:if test="${notice.firstYn == '1'}">selected="selected"</c:if>>일반공지</option>
-						<option value="2"
-							<c:if test="${notice.firstYn == '2'}">selected="selected"</c:if>>우선공지</option>
+				<li><label>우선사항</label> 
+				<select id="title" class="writeForm" name="firstYn">
+						<option value="1" ${notice.firstYn == 1?"selected='selected'":""}>일반공지</option> 
+						<option value="2" ${notice.firstYn == 2?"selected='selected'":""}>우선공지</option>
+						
 				</select></li>
 				<li><label for="file">첨부파일</label> <input type="file"
 					name="file" id="file" class="writeForm"></li>
