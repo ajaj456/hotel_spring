@@ -69,7 +69,8 @@ img {
 
 #body {
 	border: 1px solid #ccc;
-	height: 740px;
+	height: 729px;
+	width: 1050px;
 	background: #3b312a;
 	color: white;
 	padding: 10px 100px;
@@ -77,7 +78,7 @@ img {
 
 #body2 {
 	width: 100%;
-	height: 100%;
+	height: 94%;
 	maegin: 100px 10px;
 	overflow-y: scroll;
 }
