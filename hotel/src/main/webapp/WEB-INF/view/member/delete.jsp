@@ -9,11 +9,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이 페이지</title>
-<link href="../css/deleteMember.css" rel="stylesheet" type="text/css" />
+<link href="../css/member/delete.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
 		// 계정 삭제시 아이디와 패스워드 비워 있을 때 삭제 안된다는 팝업 호출
-		$("#loginbtn").click(function() {
+		$("#btn").click(function() {
 			if ($("#id").val() == "") {
 				alert("아이디를 입력하셔야 됩니다.");
 				$("#id").focus();
@@ -42,7 +42,7 @@
 			if (answer) {
 				var form = $(this).parents('form');
 				form.submit();
-				alert("회웥 탈퇴 처리되었습니다.");
+				alert("회원 탈퇴 처리되었습니다.");
 			} else {
 				return false;
 			}
@@ -58,10 +58,10 @@
 	<br />
 	<br />
 	<br />
-	<div id="divlogin">
-		<h4>
+	<div>
+		<h3>
 			<b>회원정보입력</b>
-		</h4>
+		</h3>
 	</div>
 	<div id="logindiv">
 		<form action="delete.do" method="post" id="loginForm">
@@ -69,14 +69,14 @@
 			<input type="hidden" name="oldid" id="oldid" value="${login.id }" />
 			<input type="hidden" name="oldpw" id="oldpw" value="${login.pw }" />
 			<ul>
-				<li><label for="id">id</label> <input type="text" name="id"
+				<li><label for="id">아이디</label> <input type="text" name="id"
 					id="id" maxlength="15" class="input" /></li>
-				<li><label for="pw">pw</label> <input type="password" id="pw"
+				<li><label for="pw">패스워드</label> <input type="password" id="pw"
 					name="pw" class="input" /></li>
 			</ul>
 			<hr>
 			<br />
-			<button id="loginbtn">탈퇴</button>
+			<button id="btn">탈퇴</button>
 		</form>
 	</div>
 

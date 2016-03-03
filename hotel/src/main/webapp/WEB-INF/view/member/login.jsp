@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/member/login.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#loginForm").submit(function() {
@@ -33,10 +34,10 @@
 	<br />
 	<br />
 	<br />
-	<div id="divlogin">
+	<div id="logindiv">
 		<h4>
-			<b>로그인 정보 입력</b> <a href="../member/findId.do"><button id="btn">id
-					찾기</button></a> <a href="../member/findPw.do"><button id="btn">pw
+			<b>로그인 정보 입력</b> <a href="../member/findPw.do"><button id="btn">패스워드
+					찾기</button></a> <a href="../member/findId.do"><button id="btn">아이디
 					찾기</button></a>
 		</h4>
 	</div>
@@ -44,14 +45,14 @@
 		<form action="login.do" method="post" id="loginForm">
 			<hr>
 			<ul>
-				<li><label for="id">id</label> <input type="text" name="id"
+				<li><label for="id">아이디</label> <input type="text" name="id"
 					id="id" maxlength="15" class="input" /></li>
-				<li><label for="pw">pw</label> <input type="password" id="pw"
+				<li><label for="pw">패스워드</label> <input type="password" id="pw"
 					name="pw" class="input" /></li>
 			</ul>
 			<hr>
 			<br />
-			<button id="lo">로그인</button>
+			<button id="btn">로그인</button>
 		</form>
 	</div>
 </body>

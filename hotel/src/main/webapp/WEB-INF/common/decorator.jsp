@@ -156,7 +156,7 @@ img {
 				<a href="../room/list.do" id="menutext">객실소개</a> 
 				<a href="../notice/list.do" id="menutext">공지사항</a>
 				<a href="../board/list.do" id="menutext">후기게시판</a> 
-				<a href="../qna/list.do" id="menutext">Qna</a>
+				<a href="../qna/list.do" id="menutext">질의응답</a>
 				<c:choose>
 					<c:when test="${login.grade eq 'master'}">
 						<a href="../booked/bookedlist.do" id="menutext">예약관리</a>

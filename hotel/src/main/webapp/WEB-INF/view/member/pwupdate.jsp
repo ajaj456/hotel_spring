@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이 페이지</title>
-<link href="../css/updatePw.css" rel="stylesheet" type="text/css" />
+<link href="../css/member/pwupdate.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
 		// submit될 때 빈 데이터 있으면 팝업 표시
@@ -52,32 +52,31 @@
 <body>
 	<br />
 	<br />
-	<img src="../images/mypage.png" width="370px" height="100px"
-		id="loginimg">
+	<h2>개인정보 수정</h2>
+	<h4>회원님의 정보를 수정하실 수 있습니다.</h4>
 	<br />
 	<br />
 	<br />
-	<br />
-	<div id="divlogin">
-		<h4>
+	<div>
+		<h3>
 			<b>비밀번호수정</b>
-		</h4>
+		</h3>
 	</div>
 	<div id="logindiv">
 		<form action="pwupdate.do" method="post" id="loginForm">
 			<hr>
 			<input type="hidden" name="oldpw" id="oldpw" value="${login.pw }" />
 			<ul>
-				<li><label for="pw">현재 pw</label> <input type="password"
-					name="pw" id="pw" maxlength="15" class="input" /></li>
-				<li><label for="pw">바꿀 pw</label> <input type="password"
-					name="pw1" id="pw1" maxlength="15" class="input" /></li>
-				<li><label for="pw">pw 확인</label> <input type="password"
-					name="pw2" id="pw2" maxlength="15" class="input" /></li>
+				<li><label>현재 패스워드</label> <input type="password" name="pw"
+					id="pw" maxlength="15" class="input" /></li>
+				<li><label>바꿀 패스워드</label> <input type="password" name="pw1"
+					id="pw1" maxlength="15" class="input" /></li>
+				<li><label>패스워드 확인</label> <input type="password" name="pw2"
+					id="pw2" maxlength="15" class="input" /></li>
 			</ul>
 			<hr>
 			<br />
-			<button id="pwup">수정</button>
+			<button id="btn">수정</button>
 		</form>
 	</div>
 

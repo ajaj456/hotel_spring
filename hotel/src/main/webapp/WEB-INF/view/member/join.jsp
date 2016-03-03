@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
-<title></title>
 <head>
+<title>join</title>
+<link href="../css/member/join.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
 		// 중복체크 버튼 클릭시
@@ -96,54 +97,50 @@
 			if ($(this).val().length >= 4)
 				$("#tel3").focus();
 		});
-
-		// tel3가 4개가 되면 가입버튼으로 자동이동
-		$("#tel3").keyup(function() {
-			if ($(this).val().length >= 4)
-				$("#join").focus();
-		});
-
 	});
 </script>
 </head>
 <body>
-	<div id="joindiv">
-		<br /> <br />
-		<h2>회원가입</h2>
-		<h4>중앙호텔의 풍성하고 알찬 혜택을 누리세요!</h4>
-		<br /> <br /> <br />
+	<br />
+	<br />
+	<h2>회원가입</h2>
+	<h4>중앙호텔의 풍성하고 알찬 혜택을 누리세요!</h4>
+	<br />
+	<br />
+	<br />
+	<div>
+		<h4>
+			<b>기본 정보 입력</b>
+		</h4>
+	</div>
+	<div id="logindiv">
 		<form action="join.do" method="post" id="loginform">
-			<h4>
-				<b>기본 정보 입력</b>
-			</h4>
 			<hr>
-			<fieldset>
-				<ul>
-					<li><label for="id">id</label> <input type="text" name="id"
-						id="id" maxlength="15" class="input" />
-						<button type="button" id="btnCheckId">중복체크</button> <span
-						id="checkIdResult">아이디 중복체크를 하셔야 합니다.</span></li>
-					<li><label for="pw">pw</label> <input type="password" id="pw"
-						name="pw" class="input" /><span></span></li>
-					<li><label for="name">이름</label> <input type="text" id="name"
-						name="name" size="10" maxlength="6" class="input" /><span></span></li>
-					<li><label>생년월일</label> <input type="date" id="birth"
-						name="birth" class="input" /></li>
-					<li><label>email</label> <input type="email" id="email"
-						name="email" class="input" /></li>
-					<li><label>연락처</label> <select id="tel1" name="tel1">
-							<option selected="selected">010</option>
-							<option>016</option>
-							<option>017</option>
-							<option>018</option>
-							<option>019</option>
-					</select> - <input name="tel2" id="tel2" size="4" maxlength="4" /> - <input
-						name="tel3" id="tel3" size="4" maxlength="4" /></li>
-				</ul>
-			</fieldset>
+			<ul>
+				<li><label for="id">아이디</label> <input type="text" name="id"
+					id="id" maxlength="15" class="input" />
+					<button type="button" id="btnCheckId">중복체크</button> <span
+					id="checkIdResult">아이디 중복체크를 하셔야 합니다.</span></li>
+				<li><label for="pw">패스워드</label> <input type="password" id="pw"
+					name="pw" class="input" /><span></span></li>
+				<li><label for="name">이름</label> <input type="text" id="name"
+					name="name" size="10" maxlength="6" class="input" /><span></span></li>
+				<li><label>생년월일</label> <input type="date" id="birth"
+					name="birth" class="input" /></li>
+				<li><label>이메일</label> <input type="email" id="email"
+					name="email" class="input" /></li>
+				<li><label>연락처</label> <select id="tel1" name="tel1" class="input">
+						<option selected="selected">010</option>
+						<option>016</option>
+						<option>017</option>
+						<option>018</option>
+						<option>019</option>
+				</select> - <input name="tel2" id="tel2" size="4" maxlength="4" class="input1" /> - <input
+					name="tel3" id="tel3" size="4" maxlength="4" class="input1" /></li>
+			</ul>
 			<hr>
 			<br />
-			<button id="join">가입</button>
+			<button id="btn">가입</button>
 			<br />
 		</form>
 	</div>
