@@ -140,7 +140,7 @@
 					<li><label>인원수</label> <input type="text" id="people"
 						name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
 						[인당 만원] )</li>
-						<li><label>가격</label>in</li>
+						<li><label>지불하실 가격</label><input type="text" name="totalPrice" readonly="readonly" size="5">원</li>
 				</ul>
 				<button type="button" id="chkbook">예약확인하기</button>
 				<button>예약</button>
