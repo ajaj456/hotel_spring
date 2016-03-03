@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+
+header {
+	height: 84px;
+	width: 1250px;
+	border: 1px solid #ccc;
+	background: #3b312a;
+	color: white;
+}
+
+footer {
+	border: 1px solid #ccc;
+	clear: both;
+	text-align: center;
+	font-size: 13px;
+	height: auto;
+	width: 1250px;
+	margin-bottom: 2px;
+	background: #3b312a;
+	color: white;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+#menu {
+	height: 53px;
+	background: #3b312a;
+}
+
+#menu2 {
+	margin-right: 150px;
+	background: #3b312a;
+	text-align: right;
+}
+
+img {
+	cursor: pointer;
+}
+
+#label {
+	color: orange;
+	font-size: 14px;
+}
+
+#body {
+	border: 1px solid #ccc;
+	height: 729px;
+	width: 1050px;
+	background: #3b312a;
+	color: white;
+	padding: 10px 100px;
+}
+
+#body2 {
+	width: 100%;
+	height: 94%;
+	maegin: 100px 10px;
+	overflow-y: scroll;
+}
+
+#head {
+	margin-top: 1px;
+	background: black;
+	height: 24px;
+	text-align: right;
+	margin-top: 1px;
+}
+
+#login {
+	float: right;
+	margin-right: 100px;
+	margin-top: 1px;
+	text-align: right;
+	margin-right: 100px;
+	width: 719px;
+}
+
+#logo {
+	float: left;
+	margin-right: 50px;
+	width: 300px;
+	margin-right: 50px;
+}
+
+#text {
+	font-size: 12px;
+	color: white;
+}
+
+#logout {
+	font-size: 12px;
+	color: white;
+}
+
+#menutext {
+	color: white;
+	font-size: 18px;
+	margin-right: 18px;
+}
+
+#padding {
+	width: 250px;
+}
