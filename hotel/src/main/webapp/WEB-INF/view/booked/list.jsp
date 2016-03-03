@@ -12,12 +12,13 @@
 	$(document)
 			.ready(
 					function() {
+						//$("#priceA").hide();
 						$("#chkprice").click(
 								function() {
 									var roomNo = $("#roomNo").val();
 									var stay = $("#stay").val();
 									var people = $("#people").val();
-									$("#totalPrice").load(
+									$("#priceA").load(
 											"price.do?roomNo=" + roomNo
 													+ "&stay=" + stay
 													+ "&people=" + people);
@@ -146,9 +147,9 @@
 					</c:forEach>
 				</select>호<br> <label>인원수</label> <input type="text" id="people"
 					name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
-				[인당 만원] )<br> <label>결제금액</label><input type="text"
-					name="totalPrice" readonly="readonly" size="5" id="totalPrice">원
-
+				[인당 만원] )<br> <label>결제금액</label>
+				<span id="priceA"><input type="text"
+					name="totalPrice" readonly="readonly" size="5" id="totalPrice">원</span>
 				<button type="button" id="chkprice">가격조회</button>
 				<br>
 				<button type="button" id="chkbook">예약확인</button>

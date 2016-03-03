@@ -5,6 +5,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -230,7 +232,7 @@ public class BookedController {
 	@RequestMapping(value = "/booked/price.do")
 	public void price(@RequestParam(value = "roomNo", required = true) int roomNo,
 			@RequestParam(value = "stay", required = true) int stay,
-			@RequestParam(value = "people", required = true) int people, Room room, HttpServletResponse response)
+			@RequestParam(value = "people", required = true) int people, Room room, HttpServletResponse response )
 					throws Exception {
 		room = (Room) roomInfoService.service(roomNo);
 		int result = 0;
@@ -250,8 +252,13 @@ public class BookedController {
 				result = (gap * 10000) + price;
 			}
 		}
+		
+		String result1 =
+		"<input type=\"text\" name=\"totalPrice\" readonly=\"readonly\" size=\"5\" "
+		+ " id=\"totalPrice\" value=\""+result+"\">원";
+		
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		out.print(result);
+		out.print(result1);
 	}
 }
