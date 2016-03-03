@@ -9,7 +9,7 @@
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.room.model.Room">
 		select roomNo,roomInfo,rSize,
-		floor,price,rName from room
+		floor,price,rName, fileName from room
 		<choose>
 			<when test="floor == 1">
 				where floor = 1

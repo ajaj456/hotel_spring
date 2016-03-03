@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/room/write.css" rel="stylesheet" type="text/css" />
 <title>Insert title here</title>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -48,18 +49,29 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<h2>객실 올리기</h2>
-	<br>
+	<div id="all">
+	<div id="MainContent_title">객실 올리기</div>
+	<div id="Content_form">
 	<form action="write.do" method="post" enctype="multipart/form-data" class="roomWrite">
-		<label for="roomNo">객실 번호 </label><input type="text" name="roomNo" id="roomNo" class="input" size="4">호 <br>
-		<label for="rName">객실 이름</label><input type="text" name="rName" id="rName" class="input" > <br>		 
-		<label for="roomInfo">객실 정보 </label><textarea rows="7" cols="60" name="roomInfo" id="roomInfo" class="input"></textarea><br> 
-		<label for="floor">층수</label><input type="text" name="floor" id="floor" size="3" class="input">층 <br>
-		<label for="rSize">수용인원</label><input type="text" name="rSize" id="rSize" size="3" class="input">명<br>
-		<label for="price">객실 가격</label><input type="text" name="price" id="price" size="5" class="input">원 <br>
-		<label for="file">이미지 사진 </label><input type="file" name="file" id="file" class="input"> <br>
+	<ul>
+		<li><label for="roomNo">객실 번호 </label><input type="text" name="roomNo" id="roomNo" class="input" >&nbsp;호</li>
+		<li><label for="rName">객실 이름</label><input type="text" name="rName" id="rName" class="input" >&nbsp;방</li>		 
+		<li><label for="roomInfo">객실 정보 </label><textarea rows="6" cols="40" name="roomInfo" id="roomInfo" class="input"></textarea></li> 
+		<li><label for="floor">층수</label>
+			<select name="floor" id="content_floor"> 
+				<option value="1">1층
+				<option value="2">2층
+				<option value="3">3층
+			</select></li>
+		<li><label for="rSize">수용 인원</label><input type="text" name="rSize" id="rSize" class="input" >&nbsp;명</li>
+		<li><label for="price">객실 가격</label><input type="text" name="price" id="price"  class="input">&nbsp;원 </li>
+		<li><label for="file">이미지 사진 </label><input type="file" name="file" id="file" class="input"></li>
+	</ul>
+	<br>
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>
+	</div>
+	</div>
 </body>
 </html>
