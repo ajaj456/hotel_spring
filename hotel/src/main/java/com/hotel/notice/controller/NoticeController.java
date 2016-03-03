@@ -89,9 +89,12 @@ public class NoticeController {
 
 	// 글수정 폼 - get
 	@RequestMapping(value = "/notice/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "no", required = false) String no, Model model) throws Exception {
+	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
 		System.out.println("noticeController.update-get()");
-		model.addAttribute("notice", noticeViewService.service((Integer.parseInt(no))));
+		System.out.println(no);
+		Notice notice =  (Notice) noticeViewService.service(no);
+		System.out.println(notice);
+		model.addAttribute("notice", notice);
 		return "notice/update";
 	}
 
