@@ -1,7 +1,15 @@
 package com.hotel.booked.model;
 
 public class Booked {
-	private int bno, inoutck, roomNo, stay, page, people;
+	private int bno, inoutck, roomNo, stay, page, people, totalPrice;
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 	private String id, startDate;
 	private int year, month, day;
 
@@ -96,8 +104,8 @@ public class Booked {
 	@Override
 	public String toString() {
 		return "Booked [bno=" + bno + ", inoutck=" + inoutck + ", roomNo=" + roomNo + ", stay=" + stay + ", page="
-				+ page + ", people=" + people + ", id=" + id + ", startDate=" + startDate + ", year=" + year
-				+ ", month=" + month + ", day=" + day + "]";
+				+ page + ", people=" + people + ", totalPrice=" + totalPrice + ", id=" + id + ", startDate=" + startDate
+				+ ", year=" + year + ", month=" + month + ", day=" + day + "]";
 	}
 
 	

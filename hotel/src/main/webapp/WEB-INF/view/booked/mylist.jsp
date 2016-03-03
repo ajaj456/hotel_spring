@@ -18,6 +18,7 @@
 			<th>객실번호</th>
 			<th>숙박시작일</th>
 			<th>숙박기간</th>
+			<th>결제 금액</th>
 			<th>후기</th>
 		</tr>
 		<!-- 반복의 시작 -->
@@ -27,14 +28,17 @@
 				<td>${mylist.roomNo }호</td>
 				<td>${mylist.startDate }</td>
 				<td>${mylist.stay }일</td>
-				<td><c:if test="${mylist.inoutck == '2' }">
+				<td>${mylist.totalPrice }원</td>
+				<td><c:if test="${mylist.inoutck == '1' }">
+					미입실
+					</c:if> <c:if test="${mylist.inoutck == '2' }">
 						<a
 							href="../board/write.do?startDate=${ mylist.startDate }
 							&roomNo=${mylist.roomNo  }&bno=${mylist.bno  }">
 							<button>후기 작성</button>
 						</a>
 					</c:if> <c:if test="${mylist.inoutck == '3' }">
-						후기가 작성되었습니다.
+						작성완료
 					</c:if></td>
 			</tr>
 		</c:forEach>

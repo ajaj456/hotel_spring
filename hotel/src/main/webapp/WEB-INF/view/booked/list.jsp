@@ -12,6 +12,16 @@
 	$(document)
 			.ready(
 					function() {
+						$("#chkprice").click(
+								function() {
+									var roomNo = $("#roomNo").val();
+									var stay = $("#stay").val();
+									var people = $("#people").val();
+									$("#totalPrice").load(
+											"price.do?roomNo=" + roomNo
+													+ "&stay=" + stay
+													+ "&people=" + people);
+								});
 						$("#cancel").click(function() {
 							var answer = confirm("예약 취소하시겠습니까?");
 							if (answer) {
@@ -126,25 +136,25 @@
 			<h2>예약 하기</h2>
 			<form action="write.do" method="post" id="bookbtn">
 				<input type="hidden" maxlength="15" class="input" name="id"
-					value="${login.id }" />
-				<ul>
-					<li><label>예약일자</label> <input type="date" id="startDate"
-						name="startDate" /></li>
-					<li><label>예약일수</label> <input type="text" id="stay"
-						name="stay" size="1" maxlength="3" />일간 ( 최대 15일까지 예약가능합니다. )</li>
-					<li><label>호실</label> <select name="roomNo" id="roomNo">
-							<c:forEach var="room" items="${room }">
-								<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명)</option>
-							</c:forEach>
-					</select>호</li>
-					<li><label>인원수</label> <input type="text" id="people"
-						name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
-						[인당 만원] )</li>
-						<li><label>지불하실 가격</label><input type="text" name="totalPrice" readonly="readonly" size="5">원</li>
-				</ul>
-				<button type="button" id="chkbook">예약확인하기</button>
+					value="${login.id }" /> <label>예약일자</label> <input type="date"
+					id="startDate" name="startDate" /><br> <label>예약일수</label> <input
+					type="text" id="stay" name="stay" size="1" maxlength="3" />일간 ( 최대
+				15일까지 예약가능합니다. )<br> <label>호실</label> <select name="roomNo"
+					id="roomNo">
+					<c:forEach var="room" items="${room }">
+						<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명)</option>
+					</c:forEach>
+				</select>호<br> <label>인원수</label> <input type="text" id="people"
+					name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
+				[인당 만원] )<br> <label>결제금액</label><input type="text"
+					name="totalPrice" readonly="readonly" size="5" id="totalPrice">원
+
+				<button type="button" id="chkprice">가격조회</button>
+				<br>
+				<button type="button" id="chkbook">예약확인</button>
 				<button>예약</button>
 				<span id=checkresult>[ 예약 중복체크를 하셔야 합니다. ]</span>
+
 			</form>
 		</div>
 
