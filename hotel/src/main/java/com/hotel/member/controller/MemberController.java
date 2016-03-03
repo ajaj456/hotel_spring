@@ -250,7 +250,7 @@ public class MemberController {
 	// 아이디중복체크
 	@RequestMapping("/member/idCheck.do")
 	public void idCheck(String id, HttpServletResponse response) throws Exception {
-		String result = "<span style='color:blue'>사용가능한 아이디입니다.</span>";
+		String result = "<span style='color:yellow'>사용가능한 아이디입니다.</span>";
 		if (memberJoinIdCheckService.service(id) != null)
 			result = "<span style='color:red'>중복된 아이디입니다.</span>";
 		response.setCharacterEncoding("utf-8");
