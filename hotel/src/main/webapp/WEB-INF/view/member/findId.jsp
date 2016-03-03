@@ -42,9 +42,9 @@
 			<hr>
 			<ul>
 				<li><label for="name">이름</label> <input type="text" id="name"
-					name="name" placeholder="이름" class="input" maxlength="15" /></li>
+					name="name" class="input" maxlength="15" /></li>
 				<li><label for="email">이메일</label> <input type="email"
-					id="email" name="email" placeholder="이메일" class="input" /></li>
+					id="email" name="email" class="input" /></li>
 			</ul>
 			<hr>
 			<br />
