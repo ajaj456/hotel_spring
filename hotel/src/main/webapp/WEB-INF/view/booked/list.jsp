@@ -143,13 +143,14 @@
 				15일까지 예약가능합니다. )<br> <label>호실</label> <select name="roomNo"
 					id="roomNo">
 					<c:forEach var="room" items="${room }">
-						<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명)</option>
+						<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명,
+							${room.price }원)</option>
 					</c:forEach>
 				</select>호<br> <label>인원수</label> <input type="text" id="people"
 					name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
-				[인당 만원] )<br> <label>결제금액</label>
-				<span id="priceA"><input type="text"
-					name="totalPrice" readonly="readonly" size="5" id="totalPrice">원</span>
+				[인당 만원] )<br> <label>결제금액</label> <span id="priceA"><input
+					type="text" name="totalPrice" readonly="readonly" size="5"
+					id="totalPrice">원</span>
 				<button type="button" id="chkprice">가격조회</button>
 				<br>
 				<button type="button" id="chkbook">예약확인</button>

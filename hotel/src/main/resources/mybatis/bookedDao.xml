@@ -64,7 +64,8 @@
 
 	<!-- 예약 방번호 뿌리기 -->
 	<select id="roomList" resultType="com.hotel.room.model.Room">
-		select roomNo, rSize from room
+		select roomNo, rSize, price
+		from room
 		order by
 		roomNo asc
 	</select>
@@ -77,9 +78,9 @@
 		sysdate
 		and a.id=b.id
 		and a.bno=b.bno
-		and b.INOUTCK = 1
+		and b.inoutck = 1
 		order by stayDate
-		asc;
+		asc
 	</select>
 
 	<!-- 예약 확인 -->

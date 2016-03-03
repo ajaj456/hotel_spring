@@ -91,10 +91,8 @@ public class BookedController {
 		System.out.println("bookedController.list()");
 		booked.setId(id);
 		booked.setPage(list);
-		System.out.println(id);
 		model.addAttribute("list", bookedListService.service(booked));
 		model.addAttribute("room", bookedRoomListService.service(null));
-		System.out.println("before" + id);
 		model.addAttribute("bookinglist", bookingRoomListService.service(id));
 		return "booked/list";
 	}
