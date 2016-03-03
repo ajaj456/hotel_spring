@@ -24,7 +24,8 @@
 </title>
 <style type="text/css">
 header {
-	height: 86px;
+	height: 84px;
+	width: 1250px;
 	border: 1px solid #ccc;
 	background: #3b312a;
 	color: white;
@@ -36,6 +37,7 @@ footer {
 	text-align: center;
 	font-size: 13px;
 	height: auto;
+	width: 1250px;
 	margin-bottom: 2px;
 	background: #3b312a;
 	color: white;
@@ -67,7 +69,7 @@ img {
 
 #body {
 	border: 1px solid #ccc;
-	height: 742px;
+	height: 740px;
 	background: #3b312a;
 	color: white;
 	padding: 10px 100px;
@@ -151,12 +153,11 @@ img {
 		<!-- section 안에 메뉴별 각각 폼 호출 -->
 		<div id="menu">
 			<div id="menu2">
-				<br/> 
-				<a href="../info/info.do" id="menutext">호텔소개</a> 
-				<a href="../room/list.do" id="menutext">객실소개</a> 
-				<a href="../notice/list.do" id="menutext">공지사항</a>
-				<a href="../board/list.do" id="menutext">후기게시판</a> 
-				<a href="../qna/list.do" id="menutext">질의응답</a>
+				<br /> <a href="../info/info.do" id="menutext">호텔소개</a> <a
+					href="../room/list.do" id="menutext">객실소개</a> <a
+					href="../notice/list.do" id="menutext">공지사항</a> <a
+					href="../board/list.do" id="menutext">후기게시판</a> <a
+					href="../qna/list.do" id="menutext">질의응답</a>
 				<c:choose>
 					<c:when test="${login.grade eq 'master'}">
 						<a href="../booked/bookedlist.do" id="menutext">예약관리</a>
