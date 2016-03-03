@@ -5,10 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/room/update.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(update_btn).click(function() {
-			var answer = confirm("진정 수정하시겠습니까?");
+			var answer = confirm("정말 수정하시겠습니까?");
 			if (answer) {
 				var form = $(this).parents('form');
 				form.submit();
@@ -20,30 +21,33 @@
 	});
 </script>
 </head>
-<body>
-	<h2>객실 수정</h2>
-	<form action="update.do" method="post" enctype="multipart/form-data">
-		<label for="roomNo">객실 번호 </label><input type="text" name="roomNo"
-			id="roomNo" class="input" size="4" value="${room.roomNo }"
-			readonly="readonly">호 <br> <label for="rName">객실
-			이름</label><input type="text" name="rName" id="rName" class="input"
-			value="${room.rName }"> <br> <label for="roomInfo">객실
-			정보 </label>
-		<textarea rows="7" cols="60" name="roomInfo" id="roomInfo"
-			class="input">${room.roomInfo }"</textarea>
-		<br> <label for="floor">층수</label><input type="text" name="floor"
-			id="floor" size="3" class="input" value="${room.floor }">층 <br>
-		<label for="rSize">수용인원</label><input type="text" name="rSize"
-			id="rSize" size="3" class="input" value="${room.rSize }">명<br>
-		<label for="price">객실 가격</label><input type="text" name="price"
-			id="price" size="5" class="input" value="${room.price }">원 <br>
-		<img alt="" src="../upload/room/${room.fileName}"><br /> <label
-			for="OldfileName">기존 이미지</label><span id="OldfileName">${room.fileName}</span><br>
-		<label for="NewFile">변경될 이미지 사진 </label><input type="file" name="file"
-			id="NewFile"> <br>
-		<button id="update_btn">작성</button>
-		<button type="button" onclick="history.back()">취소</button>
-	</form>
 
+<body>
+	<div id="all">
+	<div id="MainContent_title">객실 올리기</div>
+	<form action="update.do" method="post" enctype="multipart/form-data">
+	<div id="Content_form">
+	<ul>
+		<li><label for="roomNo">객실 번호 </label><input type="text" name="roomNo" id="roomNo" class="input" value="${room.roomNo}">&nbsp;호</li>
+		<li><label for="rName">객실 이름</label><input type="text" name="rName" id="rName" class="input" value="${room.rName}">&nbsp;방</li>		 
+		<li><label for="roomInfo">객실 정보 </label><textarea rows="6" cols="40" name="roomInfo" id="roomInfo" class="input" >${room.roomInfo}</textarea></li> 
+		<li><label for="floor">층수</label>
+			<select name="floor" id="content_floor"> 
+				<option value="1"${room.floor == 1?"selected='selected'":""}>1층</option>
+				<option value="2"${room.floor == 2?"selected='selected'":""}>2층</option>
+				<option value="3"${room.floor == 3?"selected='selected'":""}>3층</option>
+			</select></li>
+		<li><label for="rSize">수용 인원</label><input type="text" name="rSize" id="rSize" class="input" value="${room.rSize}">&nbsp;명</li>
+		<li><label for="price">객실 가격</label><input type="text" name="price" id="price"  class="input" value="${room.price}">&nbsp;원 </li>
+		<li><label for="OldfileName">기존 이미지</label><span id="OldfileName">${room.fileName}</span></li>
+		<li><img alt="" src="../images/room/${room.fileName}"></li>
+		<li><label for="NewFile">변경될 이미지 사진 </label> <input type="file" name="file" id="NewFile"></li>
+	</ul>
+	<br>
+		<button>작성</button>
+		<button type="button" onclick="history.back()">취소</button>
+		</div>
+	</form>
+	</div>
 </body>
 </html>
