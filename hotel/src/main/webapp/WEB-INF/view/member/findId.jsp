@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/member/findIdPw.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#findIdForm").submit(function() {
@@ -31,20 +32,23 @@
 	<h4>아래의 정보를 입력하시면 회원님의 아이디를 확인하실 수 있습니다.</h4>
 	<br />
 	<br />
-	<br />
-	<div id="IdPw">
+	<div id="logindiv">
+		<div>
+			<h3>
+				<b>아이디 찾기</b>
+			</h3>
+		</div>
 		<form action="findId.do" method="post" id="findIdForm">
-			<fieldset>
-				<legend> 아이디 찾기</legend>
-				<ul>
-					<li><label for="name">이름</label> <input type="text" id="name"
-						name="name" placeholder="이름" class="input" maxlength="15" /></li>
-					<li><label for="email">email</label> <input type="email"
-						id="email" name="email" placeholder="email" class="input" /></li>
-				</ul>
-				<button class="findIdPw">아이디 찾기</button>
-			</fieldset>
+			<hr>
+			<ul>
+				<li><label for="name">이름</label> <input type="text" id="name"
+					name="name" placeholder="이름" class="input" maxlength="15" /></li>
+				<li><label for="email">이메일</label> <input type="email"
+					id="email" name="email" placeholder="이메일" class="input" /></li>
+			</ul>
+			<hr>
 			<br />
+			<button class="findIdPw" id="btn">아이디 찾기</button>
 		</form>
 	</div>
 </body>

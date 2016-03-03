@@ -10,6 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이 페이지</title>
+<link href="../css/member/update.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
 		// submit될 때 빈 데이터 있으면 팝업 표시
@@ -57,14 +58,14 @@
 	<br />
 	<br />
 	<br />
-	<div id="divlogin">
-		<h4>
-			<b>기본정보입력</b> <a href="../member/pwupdate.do">
-				<button id="btn">pw 변경</button>
+	<div id="logindiv">
+		<h3>
+			<b>기본정보입력</b><a href="../member/pwupdate.do">
+				<button id="btn">패스워드 변경</button>
 			</a> <a href="../member/delete.do">
 				<button id="btn">회원탈퇴</button>
 			</a>
-		</h4>
+		</h3>
 	</div>
 	<div id="logindiv">
 		<form action="update.do?id" method="post" id="loginForm">
@@ -89,12 +90,12 @@
 						<option <c:if test="${tel1 == '018'}">selected="selected"</c:if>>018</option>
 						<option <c:if test="${tel1 == '019'}">selected="selected"</c:if>>019</option>
 				</select> - <input name="tel2" id="tel2" size="4" maxlength="4"
-					value="${tel2 }" /> - <input name="tel3" id="tel3" size="4"
-					maxlength="4" value="${tel3 }" /></li>
+					value="${tel2 }" class="input1" /> - <input name="tel3" id="tel3"
+					size="4" maxlength="4" value="${tel3 }" class="input1" /></li>
 			</ul>
 			<hr>
 			<br />
-			<button id="update">수정</button>
+			<button id="btn">수정</button>
 		</form>
 	</div>
 
