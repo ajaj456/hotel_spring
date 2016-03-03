@@ -71,11 +71,15 @@
 
 	<!-- 예약 취소를 위한 취소 리스트 -->
 	<select id="bookingRoomList" resultType="com.hotel.booked.model.Booking">
-		select roomNo, to_char(stayDate,'yyyy-mm-dd')stayDate from booking
-		where id=#{id} and stayDate <![CDATA[ >= ]]>
+		select a.roomNo, to_char(stayDate,'yyyy-mm-dd')stayDate from booking
+		a, booked b
+		where a.id=#{id} and stayDate <![CDATA[ >= ]]>
 		sysdate
-		order by
-		stayDate asc
+		and a.id=b.id
+		and a.bno=b.bno
+		and b.INOUTCK = 1
+		order by stayDate
+		asc;
 	</select>
 
 	<!-- 예약 확인 -->
