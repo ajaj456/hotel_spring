@@ -42,7 +42,7 @@
 			<hr>
 			<ul>
 				<li><label for="id">아이디</label><input type="text" id="id"
-					name="id" placeholder="아이디" class="input" /></li>
+					name="id" class="input" /></li>
 				<li><label for="birth">생년월일</label> <input type="date"
 					id="birth" name="birth" class="input" /></li>
 			</ul>
