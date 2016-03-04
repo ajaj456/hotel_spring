@@ -3,11 +3,19 @@ package com.hotel.room.model;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Room {
-	private int roomNo, rSize, price;
+	private int roomNo, rSize, price, hot;
 	private String rName, roomInfo, fileName;
 	private MultipartFile file;
 	// 페이지 처리를 위한 변수 선언
 	private int page, floor;
+
+	public int getHot() {
+		return hot;
+	}
+
+	public void setHot(int hot) {
+		this.hot = hot;
+	}
 
 	public int getRoomNo() {
 		return roomNo;
