@@ -1,7 +1,7 @@
 package com.hotel.booked.service;
 
 import com.hotel.booked.dao.BookedDao;
-import com.hotel.booked.model.Booking;
+import com.hotel.booked.model.Booked;
 import com.hotel.common.service.ServiceInterface;
 
 public class BookedDeleteProcessService implements ServiceInterface {
@@ -11,12 +11,11 @@ public class BookedDeleteProcessService implements ServiceInterface {
 		this.bookedDao = bookedDao;
 	}
 
-
 	@Override
 	public Object service(Object obj) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("BookedDeleteService.service()");
-		bookedDao.delete((Booking)obj);	
+		bookedDao.delete((Booked) obj);
 		return null;
 	}
 

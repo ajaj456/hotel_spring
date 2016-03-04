@@ -58,7 +58,7 @@
 
 	<!-- 예약 삭제 -->
 	<delete id="delete">
-		delete from booking where stayDate=#{stayDate} and
+		delete from booked where startDate=#{startDate} and
 		id=#{id}
 	</delete>
 
@@ -71,15 +71,14 @@
 	</select>
 
 	<!-- 예약 취소를 위한 취소 리스트 -->
-	<select id="bookingRoomList" resultType="com.hotel.booked.model.Booking">
-		select a.roomNo, to_char(stayDate,'yyyy-mm-dd')stayDate from booking
-		a, booked b
-		where a.id=#{id} and stayDate <![CDATA[ >= ]]>
-		sysdate
-		and a.id=b.id
-		and a.bno=b.bno
-		and b.inoutck = 1
-		order by stayDate
+	<select id="bookingRoomList" resultType="com.hotel.booked.model.Booked">
+		select to_char(startDate, 'yyyy-mm-dd') startDate, roomNo, stay from
+		booked
+		where
+		id=#{id}
+		and startDate <![CDATA[ >= ]]>sysdate
+		and inoutck = 1
+		order by startDate
 		asc
 	</select>
 

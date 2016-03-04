@@ -49,10 +49,10 @@ public class BookedDao {
 	}
 
 	// 예약취소
-	public Object delete(Booking booking) {
+	public Object delete(Booked booked) {
 		// TODO Auto-generated method stub
 		System.out.println("Booked.delete()");
-		return sqlSessionTemplate.delete("dao.Booked.delete", booking);
+		return sqlSessionTemplate.delete("dao.Booked.delete", booked);
 	}
 
 	// 예약방리스트
@@ -117,4 +117,5 @@ public class BookedDao {
 	public Object mainlist(Booked booked) {
 		return sqlSessionTemplate.selectList("dao.Booked.mainlist", booked);
 	}
+
 }

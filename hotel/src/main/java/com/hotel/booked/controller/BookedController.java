@@ -116,6 +116,8 @@ public class BookedController {
 		Calendar cal = Calendar.getInstance();
 		booked.setRoomNo(roomNo);
 		bookedWriteProcessService.service(booked);
+		System.out.println("----------");
+		System.out.println(booked);
 		int bno = (Integer) bookedBnoConfirmService.service(booked);
 
 		for (int i = 0; i < booked.getStay(); i++) {
@@ -134,6 +136,18 @@ public class BookedController {
 		return "redirect:list.do?id=" + booking.getId();
 	}
 
+	// 예약 취소 처리
+	@RequestMapping("/booked/delete.do")
+	public String delete(@RequestParam(value = "stayDate", required = false) String stayDate,
+			@RequestParam(value = "id", required = false) String id, Booked booked) throws Exception {
+		System.out.println("bookedController.delete()");
+		booked.setId(id);
+		booked.setStartDate(stayDate);
+		System.out.println(booked);
+		bookedDeleteProcessService.service(booked);
+		return "redirect:list.do?id=" + booked.getId();
+	}
+
 	// 글수정 폼 - get
 	@RequestMapping(value = "/booked/update.do", method = RequestMethod.GET)
 	public String update(@RequestParam(value = "id", required = false) String id, Model model) throws Exception {
@@ -148,17 +162,6 @@ public class BookedController {
 		System.out.println("bookedController.update-post()");
 		bookedUpdateProcessService.service(booked);
 		return "redirect:view.do?no=" + booked.getBno();
-	}
-
-	// 예약 취소 처리
-	@RequestMapping("/booked/delete.do")
-	public String delete(@RequestParam(value = "stayDate", required = false) String stayDate,
-			@RequestParam(value = "id", required = false) String id, Booking booking) throws Exception {
-		System.out.println("bookedController.delete()");
-		booking.setId(id);
-		booking.setStayDate(stayDate);
-		bookedDeleteProcessService.service(booking);
-		return "redirect:list.do?id=" + booking.getId();
 	}
 
 	// 예약중복체크
