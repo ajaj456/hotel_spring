@@ -1,5 +1,16 @@
 @CHARSET "UTF-8";
 
+table .Active_hoover:HOVER {
+	background: rgb(255, 169, 238);
+	cursor: pointer;
+}
+
+#fistYn {
+	font-weight: bolder;
+	font-size: 14p;
+	color: yellow;
+}
+
 #hatbang {
 	height: 660px;
 	width: 460px;
