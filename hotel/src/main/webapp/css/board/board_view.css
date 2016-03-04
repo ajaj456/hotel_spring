@@ -1,16 +1,18 @@
 @CHARSET "UTF-8";
 
-#articleMain{
-	background: white;
+#all{
 	margin: 0 120px;
 	padding: 20px;
+	text-align: center;
+	
 	
 }
 #articleTitle {
-	padding: 15px 0 15px 0;
+	padding: 15px 0 30px 0;
 	color: #ffffff0205205;
 	font-size: 18pt;
 	font-weight: bolder;
+	font-size: 30pt;
 	
 }
 
@@ -45,12 +47,39 @@
 }
 
 #articleImage{
+	text-align:center;
 	margin: 10px;
 	
 }
 
-img {
-	width: 300px;
+#mainContent{
+	widows:400px;
+	}
+#reply{
+	width:auto;
+	padding-top:30px;
+	display: inline-block;
+	text-align: center;
+	}
+#reply label{
+	padding-right:30px;
+	}
+table{
+	padding-left: 40px;
+	}
+#replycontent{
+	width: 200px;
+}
+#replywdate{
+	width: 90px;
+}
+#replybtn input{
+	widows: 60px;
+	
+}
+ 
+#articleImage img {
+	width: 400px;
 }
 
 .view_btn{
@@ -98,6 +127,33 @@ button {
 }
 
 table button {
+	margin-left: 60px;
+	-moz-box-shadow: inset 0px 50px 50px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 50px 50px 0px #ffffff;
+	box-shadow: inset 0px 50px 50px 0px #ffffff;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff
+		), color-stop(1, #f6f6f6));
+	background: -moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
+		endColorstr='#f6f6f6', GradientType=0);
+	background-color: #ffffff;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 3px 10px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+	margin-left: 10px;
+}
+form button {
 	margin-left: 60px;
 	-moz-box-shadow: inset 0px 50px 50px 0px #ffffff;
 	-webkit-box-shadow: inset 0px 50px 50px 0px #ffffff;
