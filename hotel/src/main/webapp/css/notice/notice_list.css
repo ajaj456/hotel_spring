@@ -16,6 +16,9 @@
 	width: 1000px;
 	border:none;
 	}
+#fistYn{
+	background: rgb(255,169,238);
+}
 
 .list_img img {
 	height: 150px;
