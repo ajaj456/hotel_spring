@@ -18,7 +18,8 @@
 	width: 1000px;
 	border: none;
 }
-#fistYn{
+
+#fistYn {
 	font-weight: bolder;
 	font-size: 14pt
 }
@@ -54,6 +55,12 @@ th {
 table .Active_hoover:HOVER {
 	background: rgb(255, 169, 238);
 	cursor: pointer;
+}
+
+#fistYn {
+	font-weight: bolder;
+	font-size: 14p;
+	color: yellow;
 }
 
 table .table_title {
