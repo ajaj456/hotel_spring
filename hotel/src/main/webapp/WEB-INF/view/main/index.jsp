@@ -42,10 +42,11 @@
 			</tr>
 			<c:forEach var="notice" items="${noticeList}">
 				<tr>
-					<td>${notice.no }</td>
-					<td>${notice.title}</td>
-					<td>${notice.wdate}</td>
-					<td>관리자</td>
+					<td id="nno">${notice.no }</td>
+					<td id="ntitle"><a class="ntitle"
+						href="../notice/view.do?no=${notice.no}">${notice.title}</a></td>
+					<td id="nwdate">${notice.wdate}</td>
+					<td id="nwriter">관리자</td>
 				<tr>
 			</c:forEach>
 		</table>
@@ -59,7 +60,7 @@
 				<table>
 					<tr>
 						<th>아이디</th>
-						<th>객실번호</th>
+						<th>호실</th>
 						<th>숙박시작일</th>
 						<th>숙박기간</th>
 						<th>결제 금액</th>
@@ -68,12 +69,12 @@
 					<!-- 반복의 시작 -->
 					<c:forEach var="booked" items="${bookedList }">
 						<tr>
-							<td>${booked.id }</td>
-							<td>${booked.roomNo }호</td>
-							<td>${booked.startDate }</td>
-							<td>${booked.stay }일</td>
-							<td>${booked.totalPrice }원</td>
-							<td><c:if test="${booked.inoutck == '1' }">
+							<td id="booka">${booked.id }</td>
+							<td id="bookb">${booked.roomNo }호</td>
+							<td id="bookc">${booked.startDate }</td>
+							<td id="bookd">${booked.stay }일</td>
+							<td id="booke">${booked.totalPrice }원</td>
+							<td id="bookf"><c:if test="${booked.inoutck == '1' }">
 					미입실
 					</c:if> <c:if test="${booked.inoutck == '2' }">
 									<a
