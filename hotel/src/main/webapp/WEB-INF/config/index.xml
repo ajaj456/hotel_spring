@@ -22,11 +22,19 @@
 		<property name="roomDao" ref="roomDao" />
 	</bean>
 
+	<bean id="bookedMainListService" class="com.hotel.booked.service.BookedMainListService">
+		<property name="bookedDao" ref="bookedDao" />
+	</bean>
+
 	<bean id="noticeDao" class="com.hotel.notice.dao.NoticeDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
 	</bean>
 
 	<bean id="roomDao" class="com.hotel.room.dao.RoomDao">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+	</bean>
+
+	<bean id="bookedDao" class="com.hotel.booked.dao.BookedDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
 	</bean>
 </beans>

@@ -9,8 +9,8 @@
 <link href="../css/main/index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<div id="me"></div>
-	<div id="div">
+
+	<div id="hatbang">
 		<a href="../room/list.do" id="more">▷더보기</a>
 		<h2>핫방</h2>
 		<table id="hot">
@@ -20,17 +20,19 @@
 				</tr>
 				<tr>
 					<td><c:if test="${!empty room.fileName }">
-							<img src="../images/room/${room.fileName}" height="120px"
-								width="200px" />
+							<a href="../room/view.do?no=${room.roomNo }"> <img
+								src="../images/room/${room.fileName}" height="115px"
+								width="200px" /></a>
 						</c:if></td>
 					<td>${room.roomInfo }</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	<div id="div">
+
+	<div id="gonggi">
 		<a href="../notice/list.do" id="more">▷더보기</a>
-		<h2>공지사항</h2>
+		<h2>공지</h2>
 		<table>
 			<tr>
 				<th>번호</th>
@@ -48,5 +50,30 @@
 			</c:forEach>
 		</table>
 	</div>
+
+	<div id="mybooked">
+		<a href="../booked/mylist.do?id=${login.id}&page=1" id="more">▷더보기</a>
+		<table>
+			<tr>
+				<th>아이디</th>
+				<th>객실번호</th>
+				<th>숙박시작일</th>
+				<th>숙박기간</th>
+				<th>결제 금액</th>
+			</tr>
+			<!-- 반복의 시작 -->
+			<c:forEach var="booked" items="${bookedList }">
+				<tr>
+					<td>${booked.id }</td>
+					<td>${booked.roomNo }호</td>
+					<td>${booked.startDate }</td>
+					<td>${booked.stay }일</td>
+					<td>${booked.totalPrice }원</td>
+				</tr>
+			</c:forEach>
+			<!-- 반복의 끝 -->
+		</table>
+	</div>
+
 </body>
 </html>
