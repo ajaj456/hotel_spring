@@ -1,7 +1,23 @@
 @CHARSET "UTF-8";
 
-#div {
-	height: 570px;
+#hatbang {
+	height: 660px;
+	width: 460px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+#gonggi {
+	height: 323px;
+	width: 460px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+#mybooked {
+	height: 323px;
 	width: 460px;
 	float: left;
 	margin-left: 30px;
