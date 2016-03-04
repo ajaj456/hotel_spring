@@ -35,15 +35,34 @@
 				</c:if>
 			</div>
 			<div id="MainContent_info">
-				<ul>
-					<li id="content_roomNo"><span>객실번호</span><span>${room.roomNo}호</span></li>
-					<li id="content_rName"><span>객실이름</span><span>${room.rName}방</span></li>
-					<li id="content_roomInfo"><span>객실정보</span><span><pre >${room.roomInfo}<pre></span></li>
-					<li id="content_floor"><span>층수</span><span>${room.floor}층</span></li>
-					<li id="content_people"><span>수용인원</span><span>${room.rSize}명</span></li>
-					<li id="content_price"><span>숙박비용</span><span>${room.price}원</span></li>
-				</ul>
+				<table>
+					<tr>
+						<th>객실번호</th>
+						<td>${room.roomNo}호</td>
+					</tr>
+					<tr>
+						<th>객실이름</th>
+						<td>${room.rName}방</td>
+					</tr>
+					<tr>
+						<th>객실정보</th>
+						<td><pre>${room.roomInfo}</pre></td>
+					</tr>
+					<tr>
+						<th>층수</th>
+						<td>${room.floor}층</td>
+					</tr>
+					<tr>
+						<th>수용인원</th>
+						<td>${room.rSize}명</td>
+					</tr>
+					<tr>
+						<th>숙박비용</th>
+						<td>${room.price}원</td>
+					</tr>
+				</table>
 			</div>
+
 		</div>
 		<div id="btn_wrapper">
 			<c:if test="${login.grade eq 'master'}">
