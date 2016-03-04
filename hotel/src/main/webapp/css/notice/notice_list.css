@@ -10,12 +10,14 @@
 }
 
 #content {
-/* 	margin: 0 350px; */
-	}
-#content table{
+	/* 	margin: 0 350px; */
+	
+}
+
+#content table {
 	width: 1000px;
-	border:none;
-	}
+	border: none;
+}
 #fistYn{
 	font-weight: bolder;
 	font-size: 14pt
@@ -25,11 +27,9 @@
 	height: 150px;
 }
 
-
-th{
+th {
 	width: 100px;
 	padding: 10px 20px;
-	
 }
 
 #btn_wrapper {
@@ -52,12 +52,12 @@ th{
 }
 
 table .Active_hoover:HOVER {
-	background: rgb(255,169,238);
+	background: rgb(255, 169, 238);
 	cursor: pointer;
 }
- table .table_title{
+
+table .table_title {
 	width: 100px;
-	
 }
 
 #write_btn {
@@ -79,12 +79,14 @@ table .Active_hoover:HOVER {
 	padding: 6px 12px;
 	font-weight: bolder;
 }
+
 /* 페이지처리 화살표 */
 #pageMove a:VISITED {
 	color: #ffffff;
 	font-weight: bolder;
 	text-decoration: none;
 }
+
 /* 페이지번호 */
 #cpage {
 	/* 	background: #80ffff; */
