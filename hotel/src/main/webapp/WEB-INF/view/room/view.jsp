@@ -36,12 +36,12 @@
 			</div>
 			<div id="MainContent_info">
 				<ul>
-					<li id="content_roomNo"><span>객실번호</span><span>${room.roomNo}</span></li>
-					<li id="content_rName"><span>객실이름</span><span>${room.rName}</span></li>
+					<li id="content_roomNo"><span>객실번호</span><span>${room.roomNo}호</span></li>
+					<li id="content_rName"><span>객실이름</span><span>${room.rName}방</span></li>
 					<li id="content_roomInfo"><span>객실정보</span><span><pre >${room.roomInfo}<pre></span></li>
-					<li id="content_floor"><span>층수</span><span>${room.floor}</span></li>
-					<li id="content_people"><span>수용인원</span><span>${room.rSize}</span></li>
-					<li id="content_price"><span>숙박비용</span><span>${room.price}</span></li>
+					<li id="content_floor"><span>층수</span><span>${room.floor}층</span></li>
+					<li id="content_people"><span>수용인원</span><span>${room.rSize}명</span></li>
+					<li id="content_price"><span>숙박비용</span><span>${room.price}원</span></li>
 				</ul>
 			</div>
 		</div>
