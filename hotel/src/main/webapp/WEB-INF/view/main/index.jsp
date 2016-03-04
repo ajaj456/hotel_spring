@@ -11,23 +11,25 @@
 <body>
 	<div id="me"></div>
 	<div id="div">
-		<h2>객실정보</h2>
-		<table>
-			<tr>
-				<th>호실</th>
-				<th>객실사진</th>
-			</tr>
+		<a href="../room/list.do" id="more">▷더보기</a>
+		<h2>핫방</h2>
+		<table id="hot">
 			<c:forEach var="room" items="${roomList}">
 				<tr>
-					<td>${room.roomNo }</td>
-					<td><c:if test="${!empty room.fileName }">
-							<img src="../images/room/${room.fileName}" />
-						</c:if></td>
+					<td>[${room.roomNo }호] ${room.rName }방</td>
+				</tr>
 				<tr>
+					<td><c:if test="${!empty room.fileName }">
+							<img src="../images/room/${room.fileName}" height="120px"
+								width="200px" />
+						</c:if></td>
+					<td>${room.roomInfo }</td>
+				</tr>
 			</c:forEach>
 		</table>
 	</div>
 	<div id="div">
+		<a href="../notice/list.do" id="more">▷더보기</a>
 		<h2>공지사항</h2>
 		<table>
 			<tr>

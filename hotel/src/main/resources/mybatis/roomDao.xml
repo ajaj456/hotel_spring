@@ -8,8 +8,9 @@
 
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.room.model.Room">
-		select roomNo,roomInfo,rSize,
-		floor,price,rName, fileName from room
+		select roomNo,roomInfo,rSize, hot,
+		floor,price,rName, fileName from
+		room
 		<choose>
 			<when test="floor == 1">
 				where floor = 1
@@ -26,14 +27,14 @@
 
 	<!-- 게시판 글보기 -->
 	<select id="view" resultType="com.hotel.room.model.Room">
-		select roomNo,roomInfo,rSize,
+		select roomNo,roomInfo,rSize,hot,
 		floor,price,rName, fileName from room
 		where roomNo=#{roomNo}
 	</select>
 
 	<!-- 게시판 글쓰기 -->
 	<insert id="write">
-		insert into room(roomNo,roomInfo,rSize,
+		insert into room(roomNo,roomInfo,rSize,hot,
 		floor,price,rName,fileName )
 		values(#{roomNo},#{roomInfo},#{rSize},#{floor},#{price},#{rName},#{fileName})
 	</insert>
@@ -42,7 +43,7 @@
 	<update id="update">
 		update room set
 		roomInfo=#{roomInfo},floor=#{floor},price=#{price},
-		rName=#{rName},rSize=#{rSize}
+		rName=#{rName},rSize=#{rSize}, hot=#{hot}
 		<if test="fileName!= null">,fileName=#{fileName}</if>
 		where roomNo=#{roomNo}
 	</update>
@@ -55,9 +56,11 @@
 	<!-- 메인 리스트 -->
 	<select id="mainlist" resultType="com.hotel.room.model.Room">
 		select roomNo,roomInfo,rSize,
+		hot,
 		floor,price,rName, fileName from room
-		
-		order by roomNo asc
+		where hot=2
+		order by roomNo
+		asc
 	</select>
 
 </mapper>

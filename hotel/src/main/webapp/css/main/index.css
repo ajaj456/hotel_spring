@@ -1,7 +1,6 @@
 @CHARSET "UTF-8";
 
 #div {
-	border: 1px solid white;
 	height: 570px;
 	width: 460px;
 	float: left;
@@ -10,9 +9,22 @@
 }
 
 #me {
-	border: 1px solid white;
 	margin-top: 15px;
 	margin-left: 30px;
 	width: 952px;
 	height: 85px;
+}
+
+#more {
+	float: right;
+	color: white;
+	font-size: 10pt;
+}
+
+#hot {
+	float: left;
+}
+
+a {
+	text-decoration: none !important;
 }
