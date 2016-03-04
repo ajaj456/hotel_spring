@@ -188,6 +188,7 @@
 					id="totalPrice">원</span>
 				<button type="button" id="chkprice" class="btn">가격조회</button>
 				<br>
+				<br />
 				<button type="button" id="chkbook" class="btn">예약확인</button>
 				<button class="btn">예약</button>
 				<span id=checkresult>[ 예약 중복체크를 하셔야 합니다. ]</span>
