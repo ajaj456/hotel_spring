@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+#hotelinfo {
+	width: 1020px;
+}
+
+#hotelinfo1 {
+	width: 410px;
+	float: left;
+}
+
+#hotelinfo2 {
+	width: 610px;
+	float: left;
+}
+
+#hotelinfo3 {
+	width: 610px;
+	height: 180px;
+	float: left;
+}

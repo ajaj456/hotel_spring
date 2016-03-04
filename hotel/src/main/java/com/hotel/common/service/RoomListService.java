@@ -12,7 +12,7 @@ public class RoomListService implements ServiceInterface {
 
 	@Override
 	public Object service(Object obj) throws Exception {
-		return roomDao.mainlist();
+		return roomDao.mainlist(obj);
 	}
 
 }

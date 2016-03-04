@@ -12,7 +12,7 @@ public class NoticeListService implements ServiceInterface {
 
 	@Override
 	public Object service(Object obj) throws Exception {
-		return noticeDao.mainlist();
+		return noticeDao.mainlist(obj);
 	}
 
 }
