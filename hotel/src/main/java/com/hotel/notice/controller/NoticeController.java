@@ -69,10 +69,8 @@ public class NoticeController {
 	@RequestMapping(value = "/notice/write.do", method = RequestMethod.POST)
 	public String write(Notice notice, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("NoticeController.write():post");
-
 		// 서버에 올라갈 실제 폴더 찾기
 		String realPath = request.getServletContext().getRealPath("upload/notice");
-		System.out.println(realPath);
 		if (!notice.getFile().isEmpty()) {
 			String fileName = notice.getFile().getOriginalFilename();
 			File file = DuplicateFile.getFile(realPath, notice.getFile());
@@ -82,7 +80,6 @@ public class NoticeController {
 
 			return "redirect:list.do";
 		}
-		System.out.println(realPath);
 		return "redirect:list.do";
 
 	}
@@ -91,9 +88,7 @@ public class NoticeController {
 	@RequestMapping(value = "/notice/update.do", method = RequestMethod.GET)
 	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
 		System.out.println("noticeController.update-get()");
-		System.out.println(no);
 		Notice notice =  (Notice) noticeViewService.service(no);
-		System.out.println(notice);
 		model.addAttribute("notice", notice);
 		return "notice/update";
 	}
@@ -102,10 +97,8 @@ public class NoticeController {
 	@RequestMapping(value = "/notice/update.do", method = RequestMethod.POST)
 	public String updateProcess(Notice notice, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("noticeController.update-post()");
-		System.out.println(notice);
 		// 서버에 올라갈 실제 폴더 찾기
 		String realPath = request.getServletContext().getRealPath("upload/review");
-		System.out.println(realPath);
 		if (!notice.getFile().isEmpty()) {
 			String fileName = notice.getFile().getOriginalFilename();
 			File file = DuplicateFile.getFile(realPath, notice.getFile());
@@ -116,7 +109,6 @@ public class NoticeController {
 			return "redirect" + ":view.do" + "?no=" + notice.getNo();
 
 		} else {
-			System.out.println(realPath);
 			noticeUpdateProcessService.service(notice);
 			return "redirect" + ":view.do" + "?no=" + notice.getNo();
 		}
