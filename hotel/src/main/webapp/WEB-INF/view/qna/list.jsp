@@ -12,7 +12,6 @@
 
 </head>
 <body>
-	${qna }
 	<h2>질문답변리스트</h2>
 	<br>
 	<table>
@@ -44,12 +43,13 @@
 
 	<div id="pageMove">
 		<!-- 	페이지 처리 = 반복문 처리-->
-		<a href="list.do?page=1"><font color="white"><i class="fa fa-step-backward"></i></font></a> <a
-			href="list.do?page=${jspData.startPage >1?jspData.startPage-jspData.pagesPerGroup:1 }"><font color="white"><i
-			class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a> 
-			<a
-			href="list.do?page=${jspData.page >1?jspData.page-1:1 }">
-			<font color="white"> <i class="fa fa-chevron-left"></i></font></a>
+		<a href="list.do?page=1"><font color="white"><i
+				class="fa fa-step-backward"></i></font></a> <a
+			href="list.do?page=${jspData.startPage >1?jspData.startPage-jspData.pagesPerGroup:1 }"><font
+			color="white"><i class="fa fa-chevron-left"></i><i
+				class="fa fa-chevron-left"></i></a> <a
+			href="list.do?page=${jspData.page >1?jspData.page-1:1 }"> <font
+			color="white"> <i class="fa fa-chevron-left"></i></font></a>
 
 		<c:forEach var="i" begin="${jspData.startPage }"
 			end="${jspData.endPage }">
@@ -68,9 +68,10 @@
 			<font color="white"><i class="fa fa-chevron-right"></i></font>
 		</a> <a
 			href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage + 1 : jspData.totalPage }">
-			<font color="white"><i class="fa fa-chevron-right"></i></font> <font color="white"><i class="fa fa-chevron-right"></i></font>
+			<font color="white"><i class="fa fa-chevron-right"></i></font> <font
+			color="white"><i class="fa fa-chevron-right"></i></font>
 		</a> <a href="list.do?page=${jspData.totalPage }"><font color="white"><i
-			class="fa fa-step-forward"></i></font></a>
+				class="fa fa-step-forward"></i></font></a>
 	</div>
 
 	<br>

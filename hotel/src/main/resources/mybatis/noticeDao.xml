@@ -69,6 +69,8 @@
 		select
 		no,title,content,to_char(wdate,'yyyy-mm-dd')wdate,startDate,
 		endDate,firstYn,fileName from notice
+		where startDate<![CDATA[ <= ]]>
+		sysdate and endDate >= sysdate-1
 		order by firstYn desc, no desc
 	</select>
 </mapper>

@@ -56,6 +56,7 @@
 	<select id="mainlist" resultType="com.hotel.room.model.Room">
 		select roomNo,roomInfo,rSize,
 		floor,price,rName, fileName from room
+		
 		order by roomNo asc
 	</select>
 
