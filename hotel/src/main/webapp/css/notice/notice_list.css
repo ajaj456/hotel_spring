@@ -21,7 +21,9 @@
 
 #fistYn {
 	font-weight: bolder;
-	font-size: 14pt
+	font-size: 14pt;
+	background: rgb(255, 169, 238);
+	
 }
 
 .list_img img {
@@ -38,6 +40,9 @@ th {
 	width: 200px;
 	background: none;
 	text-align: right;
+}
+#link{
+	color : yellow;
 }
 
 #content a {
