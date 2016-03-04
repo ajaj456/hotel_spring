@@ -47,7 +47,7 @@
 					<c:forEach var="notice" items="${list}">
 						<c:choose>
 							<c:when test="${notice.firstYn == '2'}">
-								<tr class="Active_hoover">
+								<tr class="Active_hoover" id="fistYn">
 									<td id="firstYn">☆</td>
 									<td class="table_title"><c:if test="${empty param.page }">
 											<a href="view.do?no=${notice.no}">${notice.title}</a>

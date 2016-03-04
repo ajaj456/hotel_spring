@@ -9,10 +9,11 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
-	<link href="../css/booked/list.css" rel="stylesheet" type="text/css" />
+	<link href="../css/booked/booked_list.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<h2>예약 리스트</h2>
+<div id="all">
+	<div id="list_head">나의 예약 리스트</div>
 	<table>
 		<tr>
 			<th>아이디</th>
@@ -24,7 +25,7 @@
 		</tr>
 		<!-- 반복의 시작 -->
 		<c:forEach var="mylist" items="${mylist }">
-			<tr>
+			<tr class="Active_hoover">
 				<td>${mylist.id }</td>
 				<td>${mylist.roomNo }호</td>
 				<td>${mylist.startDate }</td>
@@ -74,6 +75,7 @@
 			class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a> <a
 			href="mylist.do?id=${login.id}&page=${jspData.totalPage }"><i
 			class="fa fa-step-forward"></i></a> <br />
+	</div>
 	</div>
 </body>
 </html>
