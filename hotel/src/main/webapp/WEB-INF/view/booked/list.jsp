@@ -35,6 +35,7 @@
 						});
 						$("#chkbook").click(
 								function() {
+									var today = $('#today').val();
 									var roomNo = $("#roomNo").val();
 									var stay = $("#stay").val();
 									var startDate = $("#startDate").val();
@@ -42,7 +43,8 @@
 											.load(
 													"bookCheck.do?roomNo="
 															+ roomNo + "&stay="
-															+ stay
+															+ stay + "&today="
+															+ today
 															+ "&startDate="
 															+ startDate);
 								});
@@ -53,8 +55,13 @@
 						$("#bookbtn")
 								.submit(
 										function() {
+											if ($("#checkresult").text() == "[ 오늘 이전의 날짜로는 예약이 불가능합니다. ]") {
+												alert("오늘 이전의 날짜로는 예약이 불가능 합니다. 날짜를 변경해주세요.")
+												return false;
+											}
+											;
 											if ($("#checkresult").text() == "[ 이미 예약이 되어있습니다. 다른 날짜를 선택해주세요. ]") {
-												alert("예약시간 중복입니다. 변경해주세요.")
+												alert("예약시간 중복입니다. 날짜를 변경해주세요.")
 												return false;
 											}
 											;
@@ -239,6 +246,8 @@
 				</td>
 			</tr>
 		</table>
+		<input type="text" id="today"
+			value="<%out.print(currentYear + "-" + (currentMonth + 1) + "-" + currentDate);%>">
 		<table border=1>
 			<!-- 달력 부분 -->
 			<tr>

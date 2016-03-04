@@ -166,12 +166,14 @@ public class BookedController {
 	// 예약중복체크
 	@RequestMapping("/booked/bookCheck.do")
 	public void bookCheck(@RequestParam(value = "startDate", required = false) String startDate,
+			@RequestParam(value = "today", required = false) String today,
 			@RequestParam(value = "roomNo", required = false) int roomNo,
 			@RequestParam(value = "stay", required = false) int stay, HttpServletResponse response, Booking booking,
 			Booked booked) throws Exception {
 
 		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 		Date date = null;
+		Date todate = null;
 		String dat;
 		Calendar cal = Calendar.getInstance();
 		String result = "<span style='color:yellow'>[ 예약가능합니다. ]</span>";
@@ -179,16 +181,22 @@ public class BookedController {
 		for (int i = 0; i < stay; i++) {
 			booking.setRoomNo(roomNo);
 			date = df.parse(startDate);
+			todate = df.parse(today);
+			int compare = date.compareTo(todate);
 			cal.setTime(date);
 			cal.add(Calendar.DATE, i);
 			dat = df.format(cal.getTime());
 			booking.setStayDate(dat);
+			System.out.println(compare);
 			if ((Booking) bookedConfirmService.service(booking) != null) {
-				if (bookedConfirmService.service(booking) != null)
+				if (bookedConfirmService.service(booking) != null) {
 					result = "<span style='color:white'>[ 이미 예약이 되어있습니다. 다른 날짜를 선택해주세요. ]</span>";
-			}
+				} else if (compare < 0) {
+					result = "<span style='color:white'>[ 오늘 이전의 날짜로는 예약이 불가능합니다. ]</span>";
+				}
+			} else if (compare < 0)
+				result = "<span style='color:white'>[ 오늘 이전의 날짜로는 예약이 불가능합니다. ]</span>";
 		}
-
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(result);
