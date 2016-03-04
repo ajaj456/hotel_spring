@@ -10,7 +10,23 @@
 	<!-- controller -->
 
 	<bean class="com.hotel.common.controller.IndexController">
-	
+		<property name="noticeListService" ref="noticeListService" />
+		<property name="roomListService" ref="roomListService" />
 	</bean>
 
+	<bean id="noticeListService" class="com.hotel.common.service.NoticeListService">
+		<property name="noticeDao" ref="noticeDao" />
+	</bean>
+
+	<bean id="roomListService" class="com.hotel.common.service.RoomListService">
+		<property name="roomDao" ref="roomDao" />
+	</bean>
+
+	<bean id="noticeDao" class="com.hotel.notice.dao.NoticeDao">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+	</bean>
+
+	<bean id="roomDao" class="com.hotel.room.dao.RoomDao">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+	</bean>
 </beans>
