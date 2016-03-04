@@ -14,9 +14,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
-		$("#logout").click(function() {
-			alert("로그아웃처리되었습니다.")
-		});
+	$("#logout").click(function() {
+		alert("로그아웃처리되었습니다.")
 	});
 </script>
 <title>hotel <decorator:title />

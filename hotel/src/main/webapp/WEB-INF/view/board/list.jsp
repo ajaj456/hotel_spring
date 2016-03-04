@@ -17,7 +17,7 @@
 		<div id="list_head">후기 게시판</div>
 		<div id="content">
 			<table>
-				<tr>
+				<tr id="table_title">
 					<th>글번호</th>
 					<th>글제목</th>
 					<th>조회수</th>
@@ -26,12 +26,12 @@
 
 				</tr>
 				<c:forEach var="board" items="${list}">
-					<tr>
-						<td>${board.no}</td>
-						<td><a href="view.do?no=${board.no}">${board.title}(${board.cnt })</a></td>
-						<td><pre>${board.hit}</pre></td>
-						<td>${board.wdate}</td>
-						<td>${board.id}</td>
+					<tr class="Active_hoover">
+						<td id="tdno">${board.no}</td>
+						<td id="tdtitle"><a href="view.do?no=${board.no}">${board.title}(${board.cnt })</a></td>
+						<td id="tdhit"><pre>${board.hit}</pre></td>
+						<td id="tdwdate">${board.wdate}</td>
+						<td id="tdId">${board.id}</td>
 					<tr>
 				</c:forEach>
 			</table>

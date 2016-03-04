@@ -15,7 +15,7 @@
 	<div id="all">
 		<div id="list_head">나의 예약 리스트</div>
 		<table>
-			<tr class="topTable">
+			<tr class="table_top">
 				<th>아이디</th>
 				<th>객실번호</th>
 				<th>숙박시작일</th>
