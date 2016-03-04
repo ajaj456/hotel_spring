@@ -9,10 +9,13 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
-
+<link href="../css/board/board_list.css" rel="stylesheet"
+	type="text/css" />
 </head>
 <body>
-	<h2>질문답변리스트</h2>
+<div id="all">
+<div id="list_head">질문답변 게시판</div>
+	<div id="content">
 	<br>
 	<table>
 		<tr>
@@ -36,20 +39,23 @@
 				<td>${qna.hit}</td>
 			<tr>
 		</c:forEach>
+		
+		
 		<tr>
-			<td><a href="write.do"><button>글쓰기</button></a></td>
+			<td colspan="5"><a href="write.do"><button><font face="verdana">글쓰기</font></button></a></td>
 		</tr>
+	
 	</table>
 
 	<div id="pageMove">
 		<!-- 	페이지 처리 = 반복문 처리-->
 		<a href="list.do?page=1"><font color="white"><i
 				class="fa fa-step-backward"></i></font></a> <a
-			href="list.do?page=${jspData.startPage >1?jspData.startPage-jspData.pagesPerGroup:1 }"><font
-			color="white"><i class="fa fa-chevron-left"></i><i
+			href="list.do?page=${jspData.startPage >1?jspData.startPage-jspData.pagesPerGroup:1 }">
+			<font color="white"><i class="fa fa-chevron-left"></i></font><i
 				class="fa fa-chevron-left"></i></a> <a
 			href="list.do?page=${jspData.page >1?jspData.page-1:1 }"> <font
-			color="white"> <i class="fa fa-chevron-left"></i></font></a>
+			color="white"><i class="fa fa-chevron-left"></i></font></a>
 
 		<c:forEach var="i" begin="${jspData.startPage }"
 			end="${jspData.endPage }">
@@ -73,7 +79,8 @@
 		</a> <a href="list.do?page=${jspData.totalPage }"><font color="white"><i
 				class="fa fa-step-forward"></i></font></a>
 	</div>
-
+</div>
+</div>
 	<br>
 	<br>
 </body>
