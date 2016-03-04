@@ -43,12 +43,12 @@
 			<c:forEach var="notice" items="${noticeList}">
 				<c:choose>
 					<c:when test="${notice.firstYn == '2'}">
-						<tr class="Active_hoover" id="fistYn">
-							<td id="nno">☆</td>
-							<td id="ntitle"><a class="ntitle"
+						<tr class="Active_hoover">
+							<td id="nno" class="first_yn">☆</td>
+							<td id="ntitle" class="first_yn"><a class="ntitle"
 								href="../notice/view.do?no=${notice.no}">${notice.title}</a></td>
-							<td id="nwdate">${notice.wdate}</td>
-							<td id="nwriter">관리자</td>
+							<td id="nwdate" class="first_yn">${notice.wdate}</td>
+							<td id="nwriter" class="first_yn">관리자</td>
 						<tr>
 					</c:when>
 					<c:otherwise>
