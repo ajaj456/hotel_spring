@@ -11,8 +11,8 @@
 <body>
 
 	<div id="hatbang">
-		<a href="../room/list.do" id="more">▷더보기</a>
-		<h2>핫방</h2>
+		<a href="../room/list.do" id="more">☞더보기</a>
+		<h2>▷뜨거운방</h2>
 		<table id="hot">
 			<c:forEach var="room" items="${roomList}">
 				<tr>
@@ -31,8 +31,8 @@
 	</div>
 
 	<div id="gonggi">
-		<a href="../notice/list.do" id="more">▷더보기</a>
-		<h2>공지</h2>
+		<a href="../notice/list.do" id="more">☞더보기</a>
+		<h2>▷공지</h2>
 		<table>
 			<tr>
 				<th>번호</th>
@@ -68,8 +68,8 @@
 	<c:choose>
 		<c:when test="${login != null}">
 			<div id="mybooked">
-				<a href="../booked/mylist.do?id=${login.id}&page=1" id="more">▷더보기</a>
-				<h2>나의 예약</h2>
+				<a href="../booked/mylist.do?id=${login.id}&page=1" id="more">☞더보기</a>
+				<h2>▷나의 예약</h2>
 				<table>
 					<tr>
 						<th>아이디</th>
