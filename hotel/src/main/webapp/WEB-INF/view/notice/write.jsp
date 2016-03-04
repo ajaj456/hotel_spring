@@ -7,13 +7,50 @@
 <link rel="stylesheet" type="text/css"
 	href="../css/notice/notice_write.css">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#formwrite").submit(function() {
+			if ($("#title").val() == "") {
+				alert("제목을 입력하셔야 됩니다.");
+				$("#title").focus();
+				return false;
+			}
+			;
+			if ($("#content").val() == "") {
+				alert("내용을 입력하셔야 됩니다.");
+				$("#content").focus();
+				return false;
+			}
+			;
+			if ($("#startDate").val() == "") {
+				alert("공지시작일을 입력하셔야 됩니다.");
+				$("#startDate").focus();
+				return false;
+			}
+			;
+			if ($("#endDate").val() == "") {
+				alert("공지종료일을 입력하셔야 됩니다.");
+				$("#endDate").focus();
+				return false;
+			}
+			;
+			if ($("#file").val() == "") {
+				alert("파일을 첨부하셔야 됩니다.");
+				$("#file").focus();
+				return false;
+			}
+			;
+			alert("수정이 완료되었습니다.")
+		});
+	});
+</script>
 </head>
 <body>
 	<div id="notice_write_title">공지사항 글쓰기</div>
 	<br>
 	<br>
 	<form action="write.do" method="post" enctype="multipart/form-data"
-		class="writeForm">
+		class="writeForm" id="formwrite">
 		<div id="form_wrapper">
 			<ul>
 				<li><label>제목</label> <input id="title" class="writeForm"
@@ -33,8 +70,9 @@
 					name="file" id="file" class="writeForm"></li>
 			</ul>
 			<div id="btn">
-			<button id="notice_write_btn">작성</button>
-			<a href="list.do" onclick="history.back()"><button id="notice_write_btn">취소</button></a>
+				<button id="notice_write_btn">작성</button>
+				<a href="list.do" onclick="history.back()"><button
+						id="notice_write_btn" type="button">취소</button></a>
 			</div>
 			<br>
 		</div>
