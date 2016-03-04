@@ -9,11 +9,13 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
+<link href="../css/member/list.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div id="all">
 	<h2>예약 리스트</h2>
 	<table>
-		<tr>
+		<tr id="topTable">
 			<th>아이디</th>
 			<th>객실번호</th>
 			<th>숙박시작일</th>
@@ -83,6 +85,7 @@
 			class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a> <a
 			href="bookedlist.do?page=${jspData.totalPage }"><i
 			class="fa fa-step-forward"></i></a>
+	</div>
 	</div>
 </body>
 </html>

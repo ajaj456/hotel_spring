@@ -35,6 +35,14 @@ th {
 	padding: 10px 20px;
 }
 
+#tdno{
+	width: 50px;
+	
+}
+#tdtitle{
+	width: 450px;
+	
+}
 #btn_wrapper {
 	float: right;
 	width: 200px;
@@ -69,6 +77,11 @@ table .Active_hoover:HOVER {
 
 table .table_title {
 	width: 100px;
+}
+
+#table_title{
+	font-size: 20px;
+	
 }
 
 #write_btn {

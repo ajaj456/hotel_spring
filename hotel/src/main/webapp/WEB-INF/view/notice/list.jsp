@@ -32,9 +32,9 @@
 			</div>
 			<div id="content">
 				<table>
-					<tr>
-						<th>글번호</th>
-						<th class="table_title">글제목</th>
+					<tr id="table_title">
+						<th >글번호</th>
+						<th >글제목</th>
 						<th>작성일</th>
 						<th>작성자</th>
 						<th>조회수</th>
@@ -43,15 +43,15 @@
 						<c:choose>
 							<c:when test="${notice.firstYn == '2'}">
 								<tr class="Active_hoover" id="fistYn">
-									<td id="firstYn">☆</td>
-									<td class="table_title"><c:if test="${empty param.page }">
+									<td id="tdno">☆</td>
+									<td id="tdtitle"><c:if test="${empty param.page }">
 											<a href="view.do?no=${notice.no}">${notice.title}</a>
 										</c:if> <c:if test="${!empty param.page }">
 											<a href="view.do?no=${notice.no}&page=${param.page }">${notice.title}</a>
 										</c:if></td>
-									<td id="firstYn">${notice.wdate}</td>
-									<td id="firstYn">관리자</td>
-									<td id="firstYn"><pre>${notice.hit}</pre></td>
+									<td id="tdwdate">${notice.wdate}</td>
+									<td id="tdwriter">관리자</td>
+									<td id="tdhit"><pre>${notice.hit}</pre></td>
 								<tr>
 							</c:when>
 							<c:otherwise>

@@ -33,6 +33,17 @@ th{
 	
 }
 
+#tdtitle{
+	width: 600px;
+	
+}
+
+#table_title{
+	font-size: 20px;
+	
+}
+
+
 #btn_wrapper {
 	background: none;
 	padding: 20px;
@@ -50,12 +61,12 @@ th{
 	cursor: pointer;
 }
 
-table .Active_hoover:HOVER {
+ .Active_hoover:HOVER {
 	background: rgb(255,169,238);
 }
- table .table_title{
-	width: 100px;
-	
+
+#table_head{
+	font-size: 20pt;	
 }
 
 #write_btn {

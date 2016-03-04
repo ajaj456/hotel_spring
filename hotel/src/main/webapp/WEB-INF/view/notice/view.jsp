@@ -11,8 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>객실 보기</h2>
-	<br>
 	<div id="articleTop">
 		<div id="articleTitle">${notice.title }</div>
 		<div id="articleWdate">
@@ -22,7 +20,7 @@
 		<div id="articleImage">
 			<c:if test="${!empty notice.fileName }">
 
-				<img src="../upload/${notice.fileName}" />
+				<img src="../upload/notice/${notice.fileName}" />
 			</c:if>
 		</div>
 	</div>
