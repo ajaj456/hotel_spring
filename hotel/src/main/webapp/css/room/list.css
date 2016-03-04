@@ -19,9 +19,10 @@
 
 #content{
 	width: 500px;
-/* 	padding: 20px 40px; */
+ 	padding-bottom: 20px; 
 	font-size: 20pt;
 	float: left;	
+
 }
 #content a{
 	color: white;	
@@ -46,6 +47,7 @@
 
 
 button{
+	margin-left: 60px;
 	-moz-box-shadow: inset 0px 50px 50px 0px #ffffff;
 	-webkit-box-shadow: inset 0px 50px 50px 0px #ffffff;
 	box-shadow: inset 0px 50px 50px 0px #ffffff;

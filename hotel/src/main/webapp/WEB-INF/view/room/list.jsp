@@ -10,9 +10,6 @@
 </head>
 <body>
 	<div id="section">
-		<div id="section_title">
-		객실 리스트
-		</div>
 		<div id="room_list_btn">
 			<a onclick="location='list.do?floor=1'"><button>1층</button></a> <a
 				onclick="location='list.do?floor=2'"><button>2층</button></a> <a
@@ -29,7 +26,7 @@
 		<c:forEach var="room" items="${list}">
 			<div id="content">
 				<div id="content_info">
-					${room.roomNo }호<br> <br>
+					${room.roomNo }호
 <%-- 					<a href="view.do?no=${room.roomNo }">${room.rName}</a><br> --%>
 <%-- 					${room.roomInfo}<br>  --%>
 <%-- 					${room.rSize}명<br>  --%>

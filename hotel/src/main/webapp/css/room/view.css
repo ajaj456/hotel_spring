@@ -15,6 +15,10 @@
 }
 
 
+#MainContent_image {
+	float: left;
+}
+
 #MainContent_info {
 	float: left;
 }
@@ -26,6 +30,7 @@
 #MainContent_info ul li{
 	list-style: none;
 	width: 400px;
+	margin-bottom:30px;
 }
 
 #MainContent_info span{
@@ -40,6 +45,8 @@
 }
 
 #btn_wrapper {
+	clear: both;
+	padding-top: 30px;
 	
 }
 

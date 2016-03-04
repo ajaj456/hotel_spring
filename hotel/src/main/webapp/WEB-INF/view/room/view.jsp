@@ -23,27 +23,28 @@
 </script>
 </head>
 <body>
-<div id="all">
-	<div id="MainCotent_title">객실 보기</div>
+	<div id="all">
+		<div id="MainCotent_title">객실 보기</div>
 
-	<div id="MainCotent">
-		<div id="MainContent_info">
-		<ul>
-			<li id="content_roomNo"><span>객실번호</span><span>${room.roomNo}</span></li>
-			<li id="content_rName"><span>객실이름</span><span>${room.rName}</span></li>
-			<li id="content_roomInfo"><span>객실정보</span><span>${room.roomInfo}</span></li>
-			<li id="content_floor"><span>층수</span><span>${room.floor}</span></li>
-			<li id="content_people"><span>수용인원</span><span>${room.rSize}</span></li>
-			<li id="content_price"><span>숙박비용</span><span>${room.price}</span></li>
-		</ul>
-		</div>
+		<div id="MainCotent">
 
-		<div id="MainContent_image">
-			<c:if test="${!empty room.fileName }">
-				<img alt="${room.fileName}" src="../images/room/${room.fileName}">
-			</c:if>
+
+			<div id="MainContent_image">
+				<c:if test="${!empty room.fileName }">
+					<img alt="${room.fileName}" src="../images/room/${room.fileName}">
+				</c:if>
+			</div>
+			<div id="MainContent_info">
+				<ul>
+					<li id="content_roomNo"><span>객실번호</span><span>${room.roomNo}</span></li>
+					<li id="content_rName"><span>객실이름</span><span>${room.rName}</span></li>
+					<li id="content_roomInfo"><span>객실정보</span><span><pre >${room.roomInfo}<pre></span></li>
+					<li id="content_floor"><span>층수</span><span>${room.floor}</span></li>
+					<li id="content_people"><span>수용인원</span><span>${room.rSize}</span></li>
+					<li id="content_price"><span>숙박비용</span><span>${room.price}</span></li>
+				</ul>
+			</div>
 		</div>
-	</div>
 		<div id="btn_wrapper">
 			<c:if test="${login.grade eq 'master'}">
 				<a href="update.do?no=${room.roomNo }"><button>객실 바꾸기</button></a>
@@ -52,6 +53,6 @@
 				<a href="list.do?floor=${room.floor }"><button>다른 객실보기</button></a>
 			</c:if>
 		</div>
-</div>
+	</div>
 </body>
 </html>
