@@ -86,7 +86,6 @@ public class RoomController {
 
 		// 서버에 올라갈 실제 폴더 찾기
 		String realPath = request.getServletContext().getRealPath("upload/room");
-		System.out.println(realPath);
 		if (!room.getFile().isEmpty()) {
 			String fileName = room.getFile().getOriginalFilename();
 			File file = DuplicateFile.getFile(realPath, room.getFile());
@@ -96,9 +95,7 @@ public class RoomController {
 
 			return "redirect:list.do";
 		}
-		System.out.println(realPath);
 		return "redirect:list.do";
-
 	}
 
 	// 글수정 폼 - get
@@ -113,10 +110,8 @@ public class RoomController {
 	@RequestMapping(value = "/room/update.do", method = RequestMethod.POST)
 	public String updateProcess(Room room, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("roomController.update-post()");
-		System.out.println(room);
 		// 서버에 올라갈 실제 폴더 찾기
 		String realPath = request.getServletContext().getRealPath("upload/room");
-		System.out.println(realPath);
 		if (!room.getFile().isEmpty()) {
 			String fileName = room.getFile().getOriginalFilename();
 			File file = DuplicateFile.getFile(realPath, room.getFile());
@@ -127,7 +122,6 @@ public class RoomController {
 			return "redirect" + ":view.do" + "?no=" + room.getRoomNo();
 
 		} else {
-			System.out.println(realPath);
 			roomUpdateProcessService.service(room);
 			return "redirect" + ":view.do" + "?no=" + room.getRoomNo();
 		}

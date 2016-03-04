@@ -98,7 +98,6 @@ public class BoardController {
 		Reply reply = new Reply();
 		reply.setPage(page);
 		reply.setNo((Integer.parseInt(no)));
-		System.out.println(reply);
 		ReplyModel replyModel = (ReplyModel) replyListService.service(reply);
 		model.addAttribute("review", boardViewService.service((Integer.parseInt(no))));
 		model.addAttribute("relist", replyListService.service(reply));
@@ -120,22 +119,18 @@ public class BoardController {
 		System.out.println("BoardController.write():post");
 		booked.setStartDate(startDate);
 		booked.setRoomNo(roomNo);
-		System.out.println(booked);
 		// 서버에 올라갈 실제 폴더 찾기
 		String realPath = request.getServletContext().getRealPath("upload/review");
-		System.out.println(realPath);
 		if (!board.getFile().isEmpty()) {
 			String fileName = board.getFile().getOriginalFilename();
 			File file = DuplicateFile.getFile(realPath, board.getFile());
 			board.getFile().transferTo(file); // 파일 이동
 			board.setFileName(file.getName());
-			System.out.println("여기까지 오나?");
 			myReviewUpdateService.service(booked);
 			boardWriteProcessService.service(board);
 
 			return "redirect:list.do";
 		}
-		System.out.println(realPath);
 		return "redirect:list.do";
 
 	}
@@ -152,7 +147,6 @@ public class BoardController {
 	// 댓글달기
 	@RequestMapping(value = "/board/replyWrite.do", method = RequestMethod.POST)
 	public String replyWrite(Reply reply) throws Exception {
-		System.out.println(reply);
 		replyWriteProcessService.service(reply);
 		return "redirect" + ":view.do" + "?no=" + reply.getNo();
 	}
@@ -160,7 +154,6 @@ public class BoardController {
 	// 댓글 수정
 	@RequestMapping(value = "/board/replyUpdate.do", method = RequestMethod.POST)
 	public String replyUpdate(Reply reply) throws Exception {
-		System.out.println(reply);
 		replyUpdateProcessService.service(reply);
 		return "redirect" + ":view.do" + "?no=" + reply.getNo();
 	}
@@ -168,7 +161,6 @@ public class BoardController {
 	// 댓글 삭제
 	@RequestMapping(value = "/board/replyDelete.do")
 	public String replyDelete(Reply reply) throws Exception {
-		System.out.println(reply);
 		int no = reply.getNo();
 		replyDeleteProcessService.service(reply);
 		return "redirect" + ":view.do" + "?no=" + no;
