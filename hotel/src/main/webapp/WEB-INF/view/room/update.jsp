@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/room/update.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/util/onlyNum.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#update_btn").click(function() {
@@ -61,7 +62,8 @@
 			<div id="Content_form">
 				<ul>
 					<li><label for="roomNo">객실 번호 </label><input type="text"
-						name="roomNo" id="roomNo" class="input" value="${room.roomNo}">&nbsp;호</li>
+						name="roomNo" id="roomNo" class="onlynum"
+						placeholder="only Number" value="${room.roomNo}">&nbsp;호</li>
 					<li><label for="rName">객실 이름</label><input type="text"
 						name="rName" id="rName" class="input" value="${room.rName}">&nbsp;방</li>
 					<li><label for="roomInfo">객실 정보 </label> <textarea rows="6"
@@ -78,10 +80,11 @@
 							<option value="2" ${room.hot == 2?"selected='selected'":""}>핫방</option>
 					</select></li>
 					<li><label for="rSize">수용 인원</label><input type="text"
-						name="rSize" id="rSize" class="input" value="${room.rSize}">&nbsp;명</li>
+						name="rSize" id="rSize" class="onlynum" placeholder="only Number"
+						value="${room.rSize}">&nbsp;명</li>
 					<li><label for="price">객실 가격</label><input type="text"
-						name="price" id="price" class="input" value="${room.price}">&nbsp;원
-					</li>
+						name="price" id="price" class="onlynum" placeholder="only Number"
+						value="${room.price}">&nbsp;원</li>
 					<li><label for="OldfileName">기존 이미지</label><span
 						id="OldfileName">${room.fileName}</span></li>
 					<li><img alt="" src="../images/room/${room.fileName}"></li>
