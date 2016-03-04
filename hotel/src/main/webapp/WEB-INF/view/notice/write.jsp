@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="../css/notice/notice_write.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -31,6 +33,7 @@
 					name="file" id="file" class="writeForm"></li>
 			</ul>
 			<button id="notice_write_btn">작성</button>
+			<button id="notice_write_btn">취소</button>
 			<br>
 		</div>
 	</form>
