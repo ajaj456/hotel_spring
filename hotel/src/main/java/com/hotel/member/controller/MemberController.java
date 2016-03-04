@@ -216,7 +216,6 @@ public class MemberController {
 	@RequestMapping(value = "/member/grade.do")
 	public String grade(@RequestParam(value = "page", required = true) int page, Member member) throws Exception {
 		memberGradeUpdateProcessService.service(member);
-		System.out.println(page);
 		return "redirect:list.do?page=" + page;
 	}
 
