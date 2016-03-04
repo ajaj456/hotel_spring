@@ -43,7 +43,7 @@
 </style>
 </head>
 <body>
-	<div id="articleTitle">리뷰게시판</div>
+	<div id="articleT">리뷰게시판</div>
 	<div id="all">
 		<div id="mainContent">
 			<div id="articleTop">

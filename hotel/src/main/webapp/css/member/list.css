@@ -4,15 +4,16 @@
 	text-align: center;
 }
 
-#content {
-/* 	margin: 0 350px; */
-	}
-
-#topTable{
-	font-size: 20pt;
+#toptitle {
+	font-size: 30pt;
+	font-weight: bolder;
 }
 
-#all table{
+#topTable {
+	font-size: 20px;
+}
+
+#all table {
 	width: 1000px;
 }
 
@@ -35,10 +36,10 @@
 	cursor: pointer;
 }
 
-table .Active_hoover:HOVER {
-	background: rgb(255,169,238);
+table #Active_hoover:HOVER {
+	background: rgb(255, 169, 238);
 }
-	
+
 }
 #write_btn {
 	text-decoration: none;
