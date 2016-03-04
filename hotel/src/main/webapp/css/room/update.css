@@ -9,7 +9,7 @@
 #MainContent_title {
 	font-size: 20pt;
 	font-weight: bolder;
-	margin-bottom: 50px;
+	height: 60px;
 	text-align: center;
 }
 
@@ -25,16 +25,12 @@ ul li {
 	font-weight: bold;
 	padding-right: 60px;
 }
-#Content_form{
-	padding: 100px;
-	
-}
-
 
 #Content_form input {
 	width: 150px;
 	height: 20px;
 }
+
 #all img {
 	width: 500px;
 	height: 300px;
