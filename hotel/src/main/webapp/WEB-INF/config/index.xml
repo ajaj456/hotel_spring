@@ -12,6 +12,7 @@
 	<bean class="com.hotel.common.controller.IndexController">
 		<property name="noticeMainListService" ref="noticeMainListService" />
 		<property name="roomMainListService" ref="roomMainListService" />
+		<property name="bookedMainListService" ref="bookedMainListService" />
 	</bean>
 
 	<bean id="noticeMainListService" class="com.hotel.notice.service.NoticeMainListService">
