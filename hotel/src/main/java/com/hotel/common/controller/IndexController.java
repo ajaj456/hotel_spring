@@ -13,36 +13,20 @@ import com.hotel.member.model.Member;
 @Controller
 public class IndexController {
 
-	private ServiceInterface qnaListService, boardListService, roomListService, bookedListService;
+	private ServiceInterface noticeListService, roomListService;
 
-	public void setQnaListService(ServiceInterface qnaListService) {
-		this.qnaListService = qnaListService;
-	}
-
-	public void setBoardListService(ServiceInterface boardListService) {
-		this.boardListService = boardListService;
+	public void setNoticeListService(ServiceInterface noticeListService) {
+		this.noticeListService = noticeListService;
 	}
 
 	public void setRoomListService(ServiceInterface roomListService) {
 		this.roomListService = roomListService;
 	}
 
-	public void setBookedListService(ServiceInterface bookedListService) {
-		this.bookedListService = bookedListService;
-	}
-
 	@RequestMapping("/main/index.do")
 	public String main(HttpSession session, Model model) throws Exception {
-		// Member member = (Member) session.getAttribute("login");
-		// model.addAttribute("qnaList", qnaListService.service(null));
-		// model.addAttribute("boardList", boardListService.service(null));
-		// model.addAttribute("roomList", roomListService.service(null));
-		// model.addAttribute("bookedList",
-		// bookedListService.service(member.getId()));
+		model.addAttribute("noticeList", noticeListService.service(null));
+		model.addAttribute("roomList", roomListService.service(null));
 		return "main/index";
 	}
-//	@RequestMapping("/main/pageMove.do")
-//	public String pageMove(HttpSession session, Model model) throws Exception {
-//		return "member/login";
-//	}
 }
