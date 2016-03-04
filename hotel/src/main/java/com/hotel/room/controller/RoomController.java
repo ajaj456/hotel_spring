@@ -141,9 +141,9 @@ public class RoomController {
 		return "redirect:list.do";
 	}
 
-	@RequestMapping("/info/info.do")
+	@RequestMapping("/hotel/info.do")
 	public String info() throws Exception {
 		System.out.println("infoController");
-		return "info/info";
+		return "hotel/info";
 	}
 }
