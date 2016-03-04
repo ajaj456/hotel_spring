@@ -25,7 +25,7 @@
 								});
 
 						$("#cancel").click(function() {
-							if($("#stayDate").val() == null){
+							if ($("#stayDate").val() == null) {
 								alert("취소할 내용이 없습니다.");
 								return false;
 							}
@@ -180,7 +180,8 @@
 				<ul>
 					<li><label>예약일자</label> <select name="stayDate" id="stayDate">
 							<c:forEach var="bookinglist" items="${bookinglist }">
-								<option value="${bookinglist.stayDate }">${bookinglist.stayDate }(${bookinglist.roomNo }호)</option>
+								<option value="${bookinglist.startDate }">${bookinglist.startDate }
+									(${bookinglist.roomNo }호, ${bookinglist.stay }일간)</option>
 							</c:forEach>
 					</select></li>
 				</ul>
@@ -251,7 +252,7 @@
 				</td>
 			</tr>
 		</table>
-		<input type="text" id="today"
+		<input type="hidden" id="today"
 			value="<%out.print(currentYear + "-" + (currentMonth + 1) + "-" + currentDate);%>">
 		<table border=1>
 			<!-- 달력 부분 -->
