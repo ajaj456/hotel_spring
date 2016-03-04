@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.hotel.booked.model.Booked;
 import com.hotel.common.service.ServiceInterface;
 import com.hotel.member.model.Member;
 
@@ -27,11 +29,13 @@ public class IndexController {
 	}
 
 	@RequestMapping("/main/index.do")
-	public String main(HttpSession session, Model model) throws Exception {
+	public String main(HttpSession session, Model model, Booked booked) throws Exception {
 		Member member = (Member) session.getAttribute("login");
-		if (member.getId() != null) {
-			String id = member.getId();
-			model.addAttribute("bookedList", bookedMainListService.service(id));
+		if (member != null) {
+			booked.setId(member.getId());
+			System.out.println(booked);
+			String str = (String) bookedMainListService.service(booked);
+			model.addAttribute("bookedList", bookedMainListService.service(booked));
 		}
 		model.addAttribute("noticeList", noticeMainListService.service(null));
 		model.addAttribute("roomList", roomMainListService.service(null));

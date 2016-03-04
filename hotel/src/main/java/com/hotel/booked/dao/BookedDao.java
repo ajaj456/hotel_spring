@@ -114,7 +114,7 @@ public class BookedDao {
 
 	}
 
-	public Object mainlist(Object obj) {
-		return sqlSessionTemplate.selectList("dao.Booked.mainlist", obj);
+	public Object mainlist(Booked booked) {
+		return sqlSessionTemplate.selectList("dao.Booked.mainlist", booked);
 	}
 }
