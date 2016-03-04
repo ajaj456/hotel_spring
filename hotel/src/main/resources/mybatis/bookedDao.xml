@@ -85,7 +85,8 @@
 
 	<!-- 예약 확인 -->
 	<select id="confirm" resultType="com.hotel.booked.model.Booking">
-		select * from booking where
+		select max(bno) from booking
+		where
 		roomNo=#{roomNo } and stayDate=#{stayDate }
 	</select>
 
@@ -167,14 +168,24 @@
 
 	<!-- 메인 리스트 -->
 	<select id="mainlist" resultType="com.hotel.booked.model.Booked">
-		select
+		select * from
+		(
+		select rownum
+		rnum,
 		id, inoutck, roomNo,
-		to_char(startDate,'yyyy-mm-dd')startDate, stay,
+		to_char(startDate,'yyyy-mm-dd')startDate,
+		stay,
 		bno,
 		people, totalPrice
 		from
 		booked where id=#{id}
-		order by startDate desc
+		order by startDate
+		desc
+		)
+		where rnum
+		between
+		1
+		and 6
 	</select>
 
 </mapper>
