@@ -63,6 +63,7 @@
 						<th>숙박시작일</th>
 						<th>숙박기간</th>
 						<th>결제 금액</th>
+						<th>후기</th>
 					</tr>
 					<!-- 반복의 시작 -->
 					<c:forEach var="booked" items="${bookedList }">
@@ -72,6 +73,17 @@
 							<td>${booked.startDate }</td>
 							<td>${booked.stay }일</td>
 							<td>${booked.totalPrice }원</td>
+							<td><c:if test="${booked.inoutck == '1' }">
+					미입실
+					</c:if> <c:if test="${booked.inoutck == '2' }">
+									<a
+										href="../board/write.do?startDate=${ booked.startDate }
+							&roomNo=${booked.roomNo  }&bno=${booked.bno  }">
+										<button>후기 작성</button>
+									</a>
+								</c:if> <c:if test="${booked.inoutck == '3' }">
+						작성완료
+					</c:if></td>
 						</tr>
 					</c:forEach>
 					<!-- 반복의 끝 -->

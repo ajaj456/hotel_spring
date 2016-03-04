@@ -29,13 +29,16 @@
 								alert("취소할 내용이 없습니다.");
 								return false;
 							}
+							;
+							var answer = confirm("예약을 취소하시겠습니까?");
 							if (answer) {
 								var form = $(this).parents('form');
 								form.submit();
-								alert("예약 취소가 완료되었습니다.");
+								alert("예약이 취소되었습니다.");
 							} else {
 								return false;
 							}
+							;
 						});
 
 						$("#chkbook").click(
