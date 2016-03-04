@@ -32,8 +32,10 @@
 				<li><label for="file">첨부파일</label> <input type="file"
 					name="file" id="file" class="writeForm"></li>
 			</ul>
+			<div id="btn">
 			<button id="notice_write_btn">작성</button>
-			<button id="notice_write_btn">취소</button>
+			<a href="list.do" onclick="history.back()"><button id="notice_write_btn">취소</button></a>
+			</div>
 			<br>
 		</div>
 	</form>
