@@ -1,102 +1,116 @@
 @CHARSET "UTF-8";
 
-#all{
+a {
+	color: white;
+}
+
+#all {
 	margin: 0 120px;
 	padding: 20px;
 	text-align: center;
-	
-	
 }
+
 #articleTitle {
-	padding: 15px 0 30px 0;
+	padding: 13px 0 30px 0;
 	color: #ffffff0205205;
-	font-size: 18pt;
+	font-size: 15pt;
 	font-weight: bolder;
 	font-size: 30pt;
-	
+	text-align: center;
+}
+
+#articleT {
+	padding: 16px 0 30px 0;
+	color: #ffffff0205205;
+	font-size: 15pt;
+	font-weight: bolder;
+	font-size: 30pt;
+	text-align: center;
 }
 
 #articleWdate {
 	padding: 5px 0 3px 0;
 	text-align: right;
-	color: #959595;	
-
+	color: #959595;
 }
-#articleWdate b{
+
+#articleWdate b {
 	font-size: 15pt;
 	color: #959595;
 	padding: 0 10px 0 0;
 	font-weight: bolder;
-
 }
 
 #articleWriter {
 	padding: 3px 0 15px 0;
-	text-align: right;	
+	text-align: right;
 	font-weight: bold;
 }
 
 #articleContent {
 	padding: 15px 0 15px 0;
 	clear: both;
-	border-top : 1px solid #c8c8c8;
-	border-bottom : 1px solid #c8c8c8;
-	padding-bottom: 80px; 
+	border-top: 1px solid #c8c8c8;
+	border-bottom: 1px solid #c8c8c8;
+	padding-bottom: 80px;
 	text-align: left;
 	line-height: 20pt;
 }
 
-#articleImage{
-	text-align:center;
+#articleImage {
+	text-align: center;
 	margin: 10px;
-	
 }
 
-#mainContent{
-	widows:400px;
-	}
-#reply{
-	width:auto;
-	padding-top:30px;
+#mainContent {
+	widows: 400px;
+}
+
+#reply {
+	width: auto;
+	padding-top: 30px;
 	display: inline-block;
 	text-align: center;
-	}
-#reply label{
-	padding-right:30px;
-	}
-table{
+}
+
+#reply label {
+	padding-right: 30px;
+}
+
+table {
 	padding-left: 40px;
-	}
-#replycontent{
+}
+
+#replycontent {
 	width: 200px;
 }
-#replywdate{
+
+#replywdate {
 	width: 90px;
 }
-#replybtn input{
+
+#replybtn input {
 	widows: 60px;
-	
 }
- 
+
 #articleImage img {
 	width: 400px;
 }
 
-.view_btn{
+.view_btn {
 	text-decoration: none;
 	color: white;
 	width: 70px;
 }
-.view_btn:VISITED{
+
+.view_btn:VISITED {
 	color: white;
 }
 
-
-#btn_wrapper{
-	width: 100% ;
+#btn_wrapper {
+	width: 100%;
 	text-align: center;
-} 
-
+}
 
 button {
 	margin-left: 60px;
@@ -153,6 +167,7 @@ table button {
 	text-shadow: 0px 1px 0px #ffffff;
 	margin-left: 10px;
 }
+
 form button {
 	margin-left: 60px;
 	-moz-box-shadow: inset 0px 50px 50px 0px #ffffff;
@@ -180,4 +195,3 @@ form button {
 	text-shadow: 0px 1px 0px #ffffff;
 	margin-left: 10px;
 }
-
