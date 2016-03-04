@@ -66,11 +66,20 @@
 
 	<!-- 메인 리스트 -->
 	<select id="mainlist" resultType="com.hotel.notice.model.Notice">
-		select
+		select * from
+		(
+		select rownum
+		rnum,
 		no,title,content,to_char(wdate,'yyyy-mm-dd')wdate,startDate,
 		endDate,firstYn,fileName from notice
 		where startDate<![CDATA[ <= ]]>
 		sysdate and endDate >= sysdate-1
 		order by firstYn desc, no desc
+		)
+		where
+		rnum
+		between
+		1
+		and 6
 	</select>
 </mapper>
