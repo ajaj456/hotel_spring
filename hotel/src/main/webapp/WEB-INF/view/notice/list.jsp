@@ -62,7 +62,7 @@
 							<c:otherwise>
 								<tr class="Active_hoover">
 									<td>${notice.no}</td>
-									<td class="table_title""><c:if test="${empty param.page }">
+									<td class="table_title"><c:if test="${empty param.page }">
 											<a href="view.do?no=${notice.no}">${notice.title}</a>
 										</c:if> <c:if test="${!empty param.page }">
 											<a href="view.do?no=${notice.no}&page=${param.page }">${notice.title}</a>
