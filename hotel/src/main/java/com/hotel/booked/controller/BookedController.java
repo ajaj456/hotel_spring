@@ -115,7 +115,6 @@ public class BookedController {
 		String dat;
 		Calendar cal = Calendar.getInstance();
 		booked.setRoomNo(roomNo);
-		System.out.println(booked);
 		bookedWriteProcessService.service(booked);
 		int bno = (Integer) bookedBnoConfirmService.service(booked);
 
@@ -157,7 +156,6 @@ public class BookedController {
 			@RequestParam(value = "id", required = false) String id, Booking booking) throws Exception {
 		System.out.println("bookedController.delete()");
 		booking.setId(id);
-		System.out.println(stayDate);
 		booking.setStayDate(stayDate);
 		bookedDeleteProcessService.service(booking);
 		return "redirect:list.do?id=" + booking.getId();
@@ -187,7 +185,6 @@ public class BookedController {
 			cal.add(Calendar.DATE, i);
 			dat = df.format(cal.getTime());
 			booking.setStayDate(dat);
-			System.out.println(compare);
 			if ((Booking) bookedConfirmService.service(booking) != null) {
 				if (bookedConfirmService.service(booking) != null) {
 					result = "<span style='color:white'>[ 이미 예약이 되어있습니다. 다른 날짜를 선택해주세요. ]</span>";
@@ -215,7 +212,6 @@ public class BookedController {
 	// ck업데이트
 	@RequestMapping(value = "/booked/inoutck.do")
 	public String grade(@RequestParam(value = "page", required = true) int page, Booked booked) throws Exception {
-		System.out.println(booked);
 		bookedCkUpdateProcessService.service(booked);
 		return "redirect:bookedlist.do?page=" + page;
 	}
