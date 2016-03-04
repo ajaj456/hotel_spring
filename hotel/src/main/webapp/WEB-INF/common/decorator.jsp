@@ -51,7 +51,7 @@
 		<!-- section 안에 메뉴별 각각 폼 호출 -->
 		<div id="menu">
 			<div id="menu2">
-				<br /> <a href="../info/info.do" id="menutext">호텔소개</a> <a
+				<br /> <a href="../hotel/info.do" id="menutext">호텔소개</a> <a
 					href="../room/list.do" id="menutext">객실소개</a> <a
 					href="../notice/list.do" id="menutext">공지사항</a> <a
 					href="../board/list.do" id="menutext">후기게시판</a> <a
