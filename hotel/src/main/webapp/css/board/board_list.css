@@ -7,7 +7,7 @@
 #list_head {
 	font-size: 30pt;
 	font-weight: bolder;
-	padding-bottom: 30px;
+	padding: 20px;
 }
 
 #content {
@@ -17,14 +17,15 @@
 	width: 1000px;
 	border:none;
 	}
+#fistYn{
+	font-weight: bolder;
+	font-size: 14pt
+}
 
 .list_img img {
 	height: 150px;
 }
-.topTable{
-	padding: 50px;
-	font-size: 14pt;
-}
+
 
 th{
 	width: 100px;
@@ -33,10 +34,8 @@ th{
 }
 
 #btn_wrapper {
-	float: right;
-	width: 200px;
 	background: none;
-	text-align: right;
+	padding: 20px;
 }
 
 #content a {
