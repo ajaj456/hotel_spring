@@ -69,8 +69,8 @@
 				<a href="update.do?no=${room.roomNo }"><button>객실 바꾸기</button></a>
 				<a href="delete.do?no=${room.roomNo }"><button id="delete_btn">객실
 						지우기</button></a>
-				<a href="list.do?floor=${room.floor }"><button>다른 객실보기</button></a>
 			</c:if>
+				<a href="list.do?floor=${room.floor }"><button>다른 객실로</button></a>
 		</div>
 	</div>
 </body>
