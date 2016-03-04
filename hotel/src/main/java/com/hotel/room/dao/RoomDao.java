@@ -15,7 +15,6 @@ public class RoomDao {
 	public Object list(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("RoomDao.list()");
-		System.out.println("obj111");
 		return sqlSessionTemplate.selectList("dao.Room.list", obj);
 	}
 
@@ -44,8 +43,9 @@ public class RoomDao {
 	}
 
 	// 메인 리스트
-	public Object mainlist(Object obj) {
+	public Object mainlist() {
 		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectList("dao.Room.mainlist", obj);
+		System.out.println("RoomDao.mainlist()");
+		return sqlSessionTemplate.selectList("dao.Room.mainlist");
 	}
 }

@@ -1,8 +1,9 @@
-package com.hotel.common.service;
+package com.hotel.notice.service;
 
+import com.hotel.common.service.ServiceInterface;
 import com.hotel.notice.dao.NoticeDao;
 
-public class NoticeListService implements ServiceInterface {
+public class NoticeMainListService implements ServiceInterface {
 
 	private NoticeDao noticeDao;
 
@@ -12,6 +13,7 @@ public class NoticeListService implements ServiceInterface {
 
 	@Override
 	public Object service(Object obj) throws Exception {
+		System.out.println("NoticeMainListService.service()");
 		return noticeDao.mainlist(obj);
 	}
 

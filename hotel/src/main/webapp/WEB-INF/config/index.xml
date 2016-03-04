@@ -10,15 +10,15 @@
 	<!-- controller -->
 
 	<bean class="com.hotel.common.controller.IndexController">
-		<property name="noticeListService" ref="noticeListService" />
-		<property name="roomListService" ref="roomListService" />
+		<property name="noticeMainListService" ref="noticeMainListService" />
+		<property name="roomMainListService" ref="roomMainListService" />
 	</bean>
 
-	<bean id="noticeListService" class="com.hotel.common.service.NoticeListService">
+	<bean id="noticeMainListService" class="com.hotel.notice.service.NoticeMainListService">
 		<property name="noticeDao" ref="noticeDao" />
 	</bean>
 
-	<bean id="roomListService" class="com.hotel.common.service.RoomListService">
+	<bean id="roomMainListService" class="com.hotel.room.service.RoomMainListService">
 		<property name="roomDao" ref="roomDao" />
 	</bean>
 

@@ -51,6 +51,7 @@ public class NoticeDao {
 
 	// 메인 리스트
 	public Object mainlist(Object obj) {
+		System.out.println("NoticeDao.mainlist()");
 		return sqlSessionTemplate.selectList("dao.Notice.mainlist", obj);
 	}
 
