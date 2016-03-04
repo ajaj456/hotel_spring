@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="../css/notice/notice_write.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -35,7 +37,10 @@
 				<li><label for="file">첨부파일</label> <input type="file"
 					name="file" id="file" class="writeForm"></li>
 			</ul>
+			<div id="btn">
 			<button id="notice_write_btn">작성</button>
+			<a href="view.do" onclick="history.back()"><button id="notice_write_btn">취소</button></a>
+			</div>
 			<br>
 		</div>
 	</form>
