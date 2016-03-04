@@ -41,13 +41,26 @@
 				<th>작성자</th>
 			</tr>
 			<c:forEach var="notice" items="${noticeList}">
-				<tr>
-					<td id="nno">${notice.no }</td>
-					<td id="ntitle"><a class="ntitle"
-						href="../notice/view.do?no=${notice.no}">${notice.title}</a></td>
-					<td id="nwdate">${notice.wdate}</td>
-					<td id="nwriter">관리자</td>
-				<tr>
+				<c:choose>
+					<c:when test="${notice.firstYn == '2'}">
+						<tr class="Active_hoover" id="fistYn">
+							<td id="nno">☆</td>
+							<td id="ntitle"><a class="ntitle"
+								href="../notice/view.do?no=${notice.no}">${notice.title}</a></td>
+							<td id="nwdate">${notice.wdate}</td>
+							<td id="nwriter">관리자</td>
+						<tr>
+					</c:when>
+					<c:otherwise>
+						<tr class="Active_hoover">
+							<td id="nno">${notice.no }</td>
+							<td id="ntitle"><a class="ntitle"
+								href="../notice/view.do?no=${notice.no}">${notice.title}</a></td>
+							<td id="nwdate">${notice.wdate}</td>
+							<td id="nwriter">관리자</td>
+						<tr>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
 		</table>
 	</div>
