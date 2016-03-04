@@ -33,8 +33,6 @@ public class IndexController {
 		Member member = (Member) session.getAttribute("login");
 		if (member != null) {
 			booked.setId(member.getId());
-			System.out.println(booked);
-			String str = (String) bookedMainListService.service(booked);
 			model.addAttribute("bookedList", bookedMainListService.service(booked));
 		}
 		model.addAttribute("noticeList", noticeMainListService.service(null));
