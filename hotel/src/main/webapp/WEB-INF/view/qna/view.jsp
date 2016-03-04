@@ -9,38 +9,39 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
+	<link href="../css/board/view.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<h2>보기</h2>
+	<h1>보기</h1>
 	<br>
 
-	<table>
-		<tr>
+	<table class="table_view">
+		<tr class="num">
 			<th><b>번호</b></th>
 			<td>${qna.no }</td>
 		</tr>
-		<tr>
+		<tr class="num">
 			<th>제목</th>
 			<td>${qna.title}</td>
 		</tr>
-		<tr>
+		<tr class="num">
 			<th>작성자</th>
 			<td>${qna.id}</td>
 		</tr>
-		<tr>
+		<tr class="num">
 			<th>내용</th>
 			<td>${qna.content}</td>
 		</tr>
-		<tr>
+		<tr class="num">
 			<th>작성일</th>
 			<td>${qna.wdate}</td>
 		</tr>
-		<tr>
+		<tr class="num">
 			<th>조회수</th>
 			<td>${qna.hit }</td>
 		</tr>
 	</table>
-
+<div id="Btn">
 	<table>
 		<tr>
 			<td colspan="4">
@@ -54,6 +55,6 @@
 			
 		</tr>
 	</table>
-
+</div>
 </body>
 </html>
