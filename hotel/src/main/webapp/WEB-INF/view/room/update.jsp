@@ -8,8 +8,38 @@
 <link href="../css/room/update.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(update_btn).click(function() {
+		$("#update_btn").click(function() {
 			var answer = confirm("정말 수정하시겠습니까?");
+			if ($("#roomNo").val() == "") {
+				alert("객실 번호를 입력하셔야 됩니다.");
+				$("#roomNo").focus();
+				return false;
+			}
+			;
+			if ($("#rName").val() == "") {
+				alert("객실 이름을 입력하셔야 됩니다.");
+				$("#rName").focus();
+				return false;
+			}
+			;
+			if ($("#roomInfo").val() == "") {
+				alert("객실 정보를 입력하셔야 됩니다.");
+				$("#roomInfo").focus();
+				return false;
+			}
+			;
+			if ($("#rSize").val() == "") {
+				alert("수용 인원을 입력하셔야 됩니다.");
+				$("#rSize").focus();
+				return false;
+			}
+			;
+			if ($("#price").val() == "") {
+				alert("객실 가격을 입력하셔야 됩니다.");
+				$("#price").focus();
+				return false;
+			}
+			;
 			if (answer) {
 				var form = $(this).parents('form');
 				form.submit();
@@ -17,6 +47,7 @@
 			} else {
 				return false;
 			}
+			;
 		});
 	});
 </script>
@@ -25,16 +56,16 @@
 <body>
 	<div id="all">
 		<div id="MainContent_title">객실 수정</div>
-		<form action="update.do" method="post" enctype="multipart/form-data">
+		<form action="update.do" method="post" enctype="multipart/form-data"
+			id="updateform">
 			<div id="Content_form">
 				<ul>
 					<li><label for="roomNo">객실 번호 </label><input type="text"
 						name="roomNo" id="roomNo" class="input" value="${room.roomNo}">&nbsp;호</li>
 					<li><label for="rName">객실 이름</label><input type="text"
 						name="rName" id="rName" class="input" value="${room.rName}">&nbsp;방</li>
-					<li><label for="roomInfo">객실 정보 </label>
-					<textarea rows="6" cols="40" name="roomInfo" id="roomInfo"
-							class="input">${room.roomInfo}</textarea></li>
+					<li><label for="roomInfo">객실 정보 </label> <textarea rows="6"
+							cols="40" name="roomInfo" id="roomInfo" class="input">${room.roomInfo}</textarea></li>
 					<li><label for="floor">층수</label> <select name="floor"
 						id="content_floor">
 							<option value="1" ${room.floor == 1?"selected='selected'":""}>1층</option>
@@ -59,7 +90,7 @@
 				</ul>
 				<br>
 				<div id="btn">
-					<button>작성</button>
+					<button id="update_btn">작성</button>
 					<button type="button" onclick="history.back()">취소</button>
 				</div>
 			</div>
