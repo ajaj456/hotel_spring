@@ -37,6 +37,11 @@
 				<option value="2"${room.floor == 2?"selected='selected'":""}>2층</option>
 				<option value="3"${room.floor == 3?"selected='selected'":""}>3층</option>
 			</select></li>
+		<li><label for="hot">층수</label>
+			<select name="hot" id="content_hot"> 
+				<option value="1"${room.hot == 1?"selected='selected'":""}>일반</option>
+				<option value="2"${room.hot == 2?"selected='selected'":""}>핫방</option>
+			</select></li>
 		<li><label for="rSize">수용 인원</label><input type="text" name="rSize" id="rSize" class="input" value="${room.rSize}">&nbsp;명</li>
 		<li><label for="price">객실 가격</label><input type="text" name="price" id="price"  class="input" value="${room.price}">&nbsp;원 </li>
 		<li><label for="OldfileName">기존 이미지</label><span id="OldfileName">${room.fileName}</span></li>
