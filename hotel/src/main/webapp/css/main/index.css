@@ -5,9 +5,8 @@ table .Active_hoover:HOVER {
 	cursor: pointer;
 }
 
-#fistYn {
+.first_yn {
 	font-weight: bolder;
-	font-size: 14p;
 	color: yellow;
 }
 
