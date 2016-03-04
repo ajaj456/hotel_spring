@@ -4,8 +4,8 @@
 	height: 660px;
 	width: 460px;
 	float: left;
-	margin-left: 30px;
 	margin-top: 10px;
+	border-right: 1px solid white;
 }
 
 #gonggi {
@@ -17,6 +17,7 @@
 }
 
 #mybooked {
+	border-top: 1px solid white;
 	height: 323px;
 	width: 460px;
 	float: left;
@@ -35,10 +36,65 @@
 	float: right;
 	color: white;
 	font-size: 10pt;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+#nno {
+	width: 50px;
+	text-align: center;
+}
+
+#nwdate {
+	width: 120px;
+	text-align: center;
+}
+
+#ntitle {
+	width: 180px;
+}
+
+.ntitle {
+	color: white;
+}
+
+#nwriter {
+	width: 80px;
+	text-align: center;
 }
 
 #hot {
 	float: left;
+}
+
+#booka {
+	text-align: center;
+	width: 50px;
+}
+
+#bookb {
+	text-align: center;
+	width: 50px;
+}
+
+#bookc {
+	text-align: center;
+	width: 120px;
+}
+
+#bookd {
+	text-align: center;
+	width: 70px;
+}
+
+#booke {
+	text-align: center;
+	width: 80px;
+}
+
+#bookf {
+	text-align: center;
+	width: 80px;
 }
 
 a {
