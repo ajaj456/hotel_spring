@@ -143,6 +143,27 @@
 #booked_inform {
 	clear: both;
 }
+
+.tab {
+	margin-right: 30px;
+	width: 1000px;
+}
+
+.tdye {
+	text-align: right;
+}
+
+.tdmo {
+	text-align: center;
+}
+
+.tdda {
+	text-align: left;
+}
+
+a {
+	color: white;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -179,15 +200,13 @@
 			<h2>예약 취소</h2>
 			<form action="delete.do">
 				<input type="hidden" maxlength="15" class="input" name="id"
-					value="${login.id }" />
-				<ul>
-					<li><label>예약일자</label> <select name="stayDate" id="stayDate">
-							<c:forEach var="bookinglist" items="${bookinglist }">
-								<option value="${bookinglist.startDate }">${bookinglist.startDate }
-									(${bookinglist.roomNo }호, ${bookinglist.stay }일간)</option>
-							</c:forEach>
-					</select></li>
-				</ul>
+					value="${login.id }" /> <label>예약일자</label> <select
+					name="stayDate" id="stayDate">
+					<c:forEach var="bookinglist" items="${bookinglist }">
+						<option value="${bookinglist.startDate }">${bookinglist.startDate }
+							(${bookinglist.roomNo }호, ${bookinglist.stay }일간)</option>
+					</c:forEach>
+				</select>
 				<button id="cancel">예약 취소</button>
 			</form>
 		</div>
@@ -230,9 +249,9 @@
 				}
 			}
 		%>
-		<table>
+		<table class="tab">
 			<tr>
-				<td align=left width=100>
+				<td align=left width=100 class="tdye">
 					<!-- 년 도--> <a
 					href="list.do?id=${login.id}&year=<%out.print(year - 1);%>&month=<%out.print(month);%>">◀</a>
 					<%
@@ -240,7 +259,7 @@
 					%>년 <a
 					href="list.do?id=${login.id}&year=<%out.print(year + 1);%>&month=<%out.print(month);%>">▶</a>
 				</td>
-				<td align=center width=200>
+				<td align=center width=200 class="tdmo">
 					<!-- 월 --> <a
 					href="list.do?id=${login.id}&year=<%out.print(year);%>&month=<%out.print(month - 1);%>">◀</a>
 					<%
@@ -248,7 +267,7 @@
 					%>월 <a
 					href="list.do?id=${login.id}&year=<%out.print(year);%>&month=<%out.print(month + 1);%>">▶</a>
 				</td>
-				<td align=right width=200>
+				<td align=right width=200 class="tdda">
 					<%
 						out.print("오늘날짜 : " + currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
 					%>
