@@ -9,6 +9,7 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
+	<link href="../css/booked/list.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<h2>예약 리스트</h2>
