@@ -48,7 +48,10 @@
 }
 
 #notice_write_btn{
-	
+	padding: 25;
+}
+#btn{
+	text-align: center;
 }
 button {
 	margin-left: 60px;
