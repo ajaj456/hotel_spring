@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+#div {
+	border: 1px solid white;
+	height: 570px;
+	width: 460px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+#me {
+	border: 1px solid white;
+	margin-top: 15px;
+	margin-left: 30px;
+	width: 952px;
+	height: 85px;
+}

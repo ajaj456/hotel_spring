@@ -4,27 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css">
-#hotelinfo {
-	width: 1020px;
-}
-
-#hotelinfo1 {
-	width: 410px;
-	float: left;
-}
-
-#hotelinfo2 {
-	width: 610px;
-	float: left;
-}
-
-#hotelinfo3 {
-	width: 610px;
-	height: 180px;
-	float: left;
-}
-</style>
+<title>호텔정보</title>
+<link href="../css/hotel/info.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<h2>▷소개</h2>

@@ -42,4 +42,10 @@ public class RoomDao {
 		System.out.println("RoomDao.delete()");
 		return sqlSessionTemplate.delete("dao.Room.delete", obj);
 	}
+
+	// 메인 리스트
+	public Object mainlist(Object obj) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("dao.Room.mainlist", obj);
+	}
 }

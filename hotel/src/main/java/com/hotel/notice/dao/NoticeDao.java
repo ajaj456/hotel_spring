@@ -47,7 +47,11 @@ public class NoticeDao {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeDao.totalRow()");
 		return sqlSessionTemplate.selectOne("dao.Notice.totalCount");
+	}
 
+	// 메인 리스트
+	public Object mainlist(Object obj) {
+		return sqlSessionTemplate.selectList("dao.Notice.mainlist", obj);
 	}
 
 }
