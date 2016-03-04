@@ -6,11 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-#firstYn {
-	color: yellow;
-}
-</style>
 <link rel="stylesheet" type="text/css"
 	href="../css/notice/notice_list.css">
 <link
@@ -21,7 +16,8 @@
 	<section>
 		<div id="all">
 			<div id="list_head">공지사항</div>
-			<br><br>
+			<br>
+			<br>
 			<div id="list_btn">
 				<c:if test="${login.grade eq 'master' }">
 					<div id="btn_wrapper"></div>
@@ -39,7 +35,7 @@
 				<table>
 					<tr>
 						<th>글번호</th>
-						<th class="table_title" >글제목</th>
+						<th class="table_title">글제목</th>
 						<th>작성일</th>
 						<th>작성자</th>
 						<th>조회수</th>
