@@ -15,6 +15,24 @@
 						//$("#priceA").hide();
 						$("#chkprice").click(
 								function() {
+									if ($("#startDate").val() == "") {
+										alert("예약일자를 선택하세요.");
+										$("#startDate").focus();
+										return false;
+									}
+									;
+									if ($("#stay").val() == "") {
+										alert("예약일수를 입력하세요.");
+										$("#stay").focus();
+										return false;
+									}
+									;
+									if ($("#people").val() == "") {
+										alert("인원수를 입력하세요.");
+										$("#people").focus();
+										return false;
+									}
+									;
 									var roomNo = $("#roomNo").val();
 									var stay = $("#stay").val();
 									var people = $("#people").val();
@@ -43,6 +61,24 @@
 
 						$("#chkbook").click(
 								function() {
+									if ($("#startDate").val() == "") {
+										alert("예약일자를 선택하세요.");
+										$("#startDate").focus();
+										return false;
+									}
+									;
+									if ($("#stay").val() == "") {
+										alert("예약일수를 입력하세요.");
+										$("#stay").focus();
+										return false;
+									}
+									;
+									if ($("#people").val() == "") {
+										alert("인원수를 입력하세요.");
+										$("#people").focus();
+										return false;
+									}
+									;
 									var today = $('#today').val();
 									var roomNo = $("#roomNo").val();
 									var stay = $("#stay").val();
@@ -90,6 +126,18 @@
 												return false;
 											}
 											;
+											if ($("#people").val() == "") {
+												alert("인원수를 입력하세요.");
+												$("#people").focus();
+												return false;
+											}
+											;
+											if ($("#totalPrice").val() == "") {
+												alert("가격조회를 해주세요.");
+												$("#totalPrice").focus();
+												return false;
+											}
+											;
 											if ($("#stay").val() == "1"
 													|| $("#stay").val() == "2"
 													|| $("#stay").val() == "3"
@@ -108,12 +156,6 @@
 											} else {
 												alert("예약일수를 확인해주세요.(최대 15일 사이로 입력해주세요.)");
 												$("#stay").focus();
-												return false;
-											}
-											;
-											if ($("#people").val() == "") {
-												alert("인원수를 입력하세요.");
-												$("#people").focus();
 												return false;
 											}
 											;
@@ -144,10 +186,10 @@
 				[인당 만원] )<br> <label>결제금액</label> <span id="priceA"><input
 					type="text" name="totalPrice" readonly="readonly" size="5"
 					id="totalPrice">원</span>
-				<button type="button" id="chkprice">가격조회</button>
+				<button type="button" id="chkprice" class="btn">가격조회</button>
 				<br>
-				<button type="button" id="chkbook">예약확인</button>
-				<button>예약</button>
+				<button type="button" id="chkbook" class="btn">예약확인</button>
+				<button class="btn">예약</button>
 				<span id=checkresult>[ 예약 중복체크를 하셔야 합니다. ]</span>
 
 			</form>
@@ -164,7 +206,7 @@
 							(${bookinglist.roomNo }호, ${bookinglist.stay }일간)</option>
 					</c:forEach>
 				</select>
-				<button id="cancel">예약 취소</button>
+				<button id="cancel" class="btn">예약 취소</button>
 			</form>
 		</div>
 	</div>
@@ -174,11 +216,9 @@
 		<h2>예약 현황</h2>
 		<div>
 			<a onclick="location='list.do?list=1&id=${login.id }'" id="btn1"><button
-					type="button">전체 현황</button></a> <a
+					type="button" class="btn">전체 현황</button></a> <a
 				onclick="location='list.do?list=2&id=${login.id}'" id="btn2"><button
-					type="button">나의 현황</button></a> <a
-				onclick="location='mylist.do?id=${login.id}&page=1'"><button
-					type="button">나의 예약 확인</button></a>
+					type="button" class="btn">나의 현황</button></a>
 		</div>
 		<%
 			@SuppressWarnings("unchecked")
@@ -229,6 +269,9 @@
 						out.print("오늘날짜 : " + currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
 					%>
 				</td>
+				<td class="tdd"><a
+					onclick="location='mylist.do?id=${login.id}&page=1'"><button
+							type="button" class="btn">예약 상세 내역</button></a></td>
 			</tr>
 		</table>
 		<input type="hidden" id="today"
