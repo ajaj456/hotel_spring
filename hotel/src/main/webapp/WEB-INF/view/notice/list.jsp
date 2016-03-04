@@ -17,7 +17,6 @@
 		<div id="all">
 			<div id="list_head">공지사항</div>
 			<br>
-			<br>
 			<div id="list_btn">
 				<c:if test="${login.grade eq 'master' }">
 					<div id="btn_wrapper"></div>
