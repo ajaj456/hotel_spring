@@ -121,51 +121,8 @@
 										});
 					});
 </script>
-<style type="text/css">
-#alink {
-	color: white;
-}
-
-#allBook {
-	width: 1040px;
-}
-
-#insertBook {
-	width: 600px;
-	float: left;
-}
-
-#deleteBook {
-	width: 400px;
-	float: left;
-}
-
-#booked_inform {
-	clear: both;
-}
-
-.tab {
-	margin-right: 30px;
-	width: 1000px;
-}
-
-.tdye {
-	text-align: right;
-}
-
-.tdmo {
-	text-align: center;
-}
-
-.tdda {
-	text-align: left;
-}
-
-a {
-	color: white;
-}
-</style>
 <title>Insert title here</title>
+<link href="../css/booked/list.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div id="allBook">
