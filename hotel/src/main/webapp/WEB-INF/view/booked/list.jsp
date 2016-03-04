@@ -23,8 +23,12 @@
 													+ "&stay=" + stay
 													+ "&people=" + people);
 								});
+
 						$("#cancel").click(function() {
-							var answer = confirm("예약 취소하시겠습니까?");
+							if($("#stayDate").val() == null){
+								alert("취소할 내용이 없습니다.");
+								return false;
+							}
 							if (answer) {
 								var form = $(this).parents('form');
 								form.submit();
@@ -33,6 +37,7 @@
 								return false;
 							}
 						});
+
 						$("#chkbook").click(
 								function() {
 									var today = $('#today').val();
