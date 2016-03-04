@@ -34,7 +34,7 @@
 
 	<!-- 게시판 글쓰기 -->
 	<insert id="write">
-		insert into room(roomNo,roomInfo,rSize,hot,
+		insert into room(roomNo,roomInfo,rSize,
 		floor,price,rName,fileName )
 		values(#{roomNo},#{roomInfo},#{rSize},#{floor},#{price},#{rName},#{fileName})
 	</insert>
