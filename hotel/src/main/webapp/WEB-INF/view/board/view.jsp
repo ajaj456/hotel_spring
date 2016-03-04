@@ -9,6 +9,7 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../css/board/board_view.css">
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".replyUp").hide();
@@ -32,58 +33,29 @@
 </head>
 <body>
 	<h2>리뷰게시판 보기</h2>
-	<br>
-	<table>
-		<tr>
-			<th>번호</th>
-			<td>${review.no }</td>
-		</tr>
-		<tr>
-			<th>제목</th>
-			<td>${review.title}</td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td><pre>${review.content}</pre></td>
-		</tr>
-		<tr>
-			<th>조회수</th>
-			<td>${review.hit}</td>
-		</tr>
-		<tr>
-			<th>작성일</th>
-			<td>${review.wdate}</td>
-		</tr>
-		<tr>
-			<th>작성자</th>
-			<td>${review.id }</td>
-		</tr>
-		<tr>
-			<th>평가</th>
-			<td>${review.grade }점</td>
-		</tr>
-		<tr>
-			<td><img alt="${review.fileName}"
-				src="../upload/review/${review.fileName}"></td>
+	<div id="articleTop">
+		<div id="articleTitle">${review.title}</div>
+		<div id="articleWdate">${review.wdate}</div>
+		<div id="articleHit">${review.hit}</div>
+		<div id="articleContent">${review.content}</div>
+		<div id="articleImage">
+			<c:if test="${!empty review.fileName }">
 
-		</tr>
-		<tr>
-
-			<td colspan="2"><c:if test="${login.id eq review.id }">
-					<a href="delete.do?no=${review.no }&bno=${review.bno}"><button>리뷰
-							지우기</button></a>
-				</c:if> <a href="list.do"><button>리뷰게시판 리스트로</button></a></td>
-		</tr>
-	</table>
+				<img src="../upload/review/${review.fileName}" />
+			</c:if>
+		</div>
+	</div>
+	<div id="btn_wrapper">
+	<c:if test="${login.id eq review.id }">
+		<a href="delete.do?no=${review.no }&bno=${review.bno}"><button>리뷰
+				지우기</button></a>
+	</c:if>
+	<a href="list.do"><button>리뷰게시판 리스트로</button></a>
+	</div>
 	<br>
 	<br>
 
-	<form action="replyWrite.do" method="post">
-		<textarea rows="4" cols="50" name="content"></textarea>
-		<input type="hidden" name="no" value="${review.no}"> <input
-			type="hidden" name="id" value="${login.id}">
-		<button>확인</button>
-	</form>
+	
 	<table>
 		<tr>
 			<td>내용</td>
@@ -111,6 +83,12 @@
 			<tr>
 		</c:forEach>
 	</table>
+	<form action="replyWrite.do" method="post">
+		<input name="content" size="30">
+		<input type="hidden" name="no" value="${review.no}"> <input
+			type="hidden" name="id" value="${login.id}">
+		<button>확인</button>
+	</form>
 
 	<div id="pageMove">
 		<!-- 	페이지 처리 = 반복문 처리-->
