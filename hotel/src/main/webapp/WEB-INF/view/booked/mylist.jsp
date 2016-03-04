@@ -15,7 +15,7 @@
 <div id="all">
 	<div id="list_head">나의 예약 리스트</div>
 	<table>
-		<tr>
+		<tr class="topTable">
 			<th>아이디</th>
 			<th>객실번호</th>
 			<th>숙박시작일</th>
@@ -23,6 +23,7 @@
 			<th>결제 금액</th>
 			<th>후기</th>
 		</tr>
+		
 		<!-- 반복의 시작 -->
 		<c:forEach var="mylist" items="${mylist }">
 			<tr class="Active_hoover">
