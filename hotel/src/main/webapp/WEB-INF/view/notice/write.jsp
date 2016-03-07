@@ -40,7 +40,7 @@
 				return false;
 			}
 			;
-			alert("수정이 완료되었습니다.")
+			alert("작성이 완료되었습니다.")
 		});
 	});
 </script>
