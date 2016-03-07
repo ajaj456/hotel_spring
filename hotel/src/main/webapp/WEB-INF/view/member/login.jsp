@@ -35,11 +35,11 @@
 	<br />
 	<br />
 	<div id="logindiv">
-		<h4>
+		<h3>
 			<b>로그인 정보 입력</b> <a href="../member/findPw.do"><button id="btn">패스워드
 					찾기</button></a> <a href="../member/findId.do"><button id="btn">아이디
 					찾기</button></a>
-		</h4>
+		</h3>
 	</div>
 	<div id="logindiv">
 		<form action="login.do" method="post" id="loginForm">
