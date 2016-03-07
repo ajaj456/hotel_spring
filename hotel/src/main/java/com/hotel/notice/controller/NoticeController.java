@@ -105,7 +105,6 @@ public class NoticeController {
 			notice.getFile().transferTo(file); // 파일 이동
 			notice.setFileName(file.getName());
 			noticeUpdateProcessService.service(notice);
-
 			return "redirect" + ":view.do" + "?no=" + notice.getNo();
 
 		} else {

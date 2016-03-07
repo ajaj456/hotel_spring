@@ -55,7 +55,6 @@ public class QnaController {
 		QnaModel qnaModel = (QnaModel) qnaListService.service(page);
 		model.addAttribute("list",qnaModel.getList());
 		model.addAttribute("jspData", qnaModel.getJspData());
-		
 		return "qna/list";
 	}
 
@@ -126,6 +125,5 @@ public class QnaController {
 		qnaReplyWriteProcess.service(qna);
 		return "redirect:list.do";
 	}
-
 	
 }

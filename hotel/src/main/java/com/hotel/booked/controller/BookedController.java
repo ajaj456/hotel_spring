@@ -100,8 +100,6 @@ public class BookedController {
 		Calendar cal = Calendar.getInstance();
 		booked.setRoomNo(roomNo);
 		bookedWriteProcessService.service(booked);
-		System.out.println("----------");
-		System.out.println(booked);
 		int bno = (Integer) bookedBnoConfirmService.service(booked);
 
 		for (int i = 0; i < booked.getStay(); i++) {
@@ -127,7 +125,6 @@ public class BookedController {
 		System.out.println("bookedController.delete()");
 		booked.setId(id);
 		booked.setStartDate(stayDate);
-		System.out.println(booked);
 		bookedDeleteProcessService.service(booked);
 		return "redirect:list.do?id=" + booked.getId();
 	}
