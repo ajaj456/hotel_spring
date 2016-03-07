@@ -56,8 +56,8 @@
 					href="../qna/list.do" id="menutext">질의응답</a>
 				<c:choose>
 					<c:when test="${login.grade eq 'master'}">
-						<a href="../booked/bookedlist.do" id="menutext">예약관리</a>
 						<a href="../member/list.do" id="menutext">회원리스트</a>
+						<a href="../booked/list.do?id=${login.id }" id="menutext">예약현황</a>
 					</c:when>
 					<c:when test="${login != null}">
 						<a href="../booked/list.do?id=${login.id }" id="menutext">예약</a>
