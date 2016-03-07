@@ -6,34 +6,51 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../css/board/board_write.css" rel="stylesheet"
+<link href="../css/qna/notice_write.css" rel="stylesheet"
 	type="text/css" />
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#formwrite").submit(function() {
+			if ($("#title").val() == "") {
+				alert("제목을 입력하셔야 됩니다.");
+				$("#title").focus();
+				return false;
+			}
+			;
+			if ($("#content").val() == "") {
+				alert("내용을 입력하셔야 됩니다.");
+				$("#content").focus();
+				return false;
+			}
+			;
+			</script>
 </head>
-<body id="boardBody">
 
-<h1>질문달기</h1>
 
-	
+<div id="notice_write_title">질문[Question]</div>
+
 	<br>
-	<form action="write.do" method="post" enctype="multipart/form-data" id="writeForm">
-	<fieldset id="boardWriteField">
-	<ul id="boardUl">
-		<li id="boardLi">
-		<label for="title">제목 </label><input type="text" name="title" size="40" id="title"> <br>
-		
-	</li>
-	<li id="boardLi">
-		<label for="content">내용 </label><textarea rows="7" cols="60" name="content" id="content"></textarea><br> 
+	<br>
+	<form action="write.do" method="post" enctype="multipart/form-data" class="writeForm" id="writeForm">
+	<div id="form_wrapper">
+	<ul>
+		<li>
+		<label>제목 </label><input id="title" class="writeForm" name="title" size="" /> 
+		</li>
+	<li>
+		<label for="content">내용 </label><textarea name="content" id="content" class="writeForm"></textarea></li> 
 		</li>
 		<li id="boardLi">
 		<label for="id">작성자 </label><input type="text" name="id" value="${login.id }"> <br>
 		</li>
 		</ul>
-		<div id="Btn">
-		<button>작성</button>
-		<button type="button" onclick="history.back()">취소</button>
+		<div id="btn">
+		<button id="notice_write_btn">작성</button>
+		<a href="list.do" onclick="history.back()">
+		<button id="notice_write_btn" type="button">취소</button></a>
 		</div>
-		</fieldset>
+		<br>
+		</div>
 	</form>
 	
 	
