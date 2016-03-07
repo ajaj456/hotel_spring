@@ -50,7 +50,7 @@
 				<div id="articleTitle">${review.title}</div>
 				<div id="articleWdate">${review.wdate}</div>
 				<div id="articleNo">${review.no}</div>
-				<div id="articleContent">${review.content}</div>
+				<div id="articleContent"><pre>${review.content}</pre></div>
 				<div id="articleImage">
 					<c:if test="${!empty review.fileName }">
 
