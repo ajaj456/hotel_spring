@@ -19,10 +19,10 @@ import com.hotel.room.model.Room;
 
 @Controller
 public class BookedController {
-	private ServiceInterface bookedListService, bookedViewService, bookedWriteProcessService, bookedUpdateService,
-			bookedUpdateProcessService, bookedDeleteProcessService, bookedRoomListService, bookingWriteService,
-			bookedConfirmService, bookingRoomListService, bookedMangeService, bookedCkUpdateProcessService,
-			mylistService, bookedBnoConfirmService, roomInfoService;
+	private ServiceInterface bookedListService, bookedWriteProcessService, bookedUpdateProcessService,
+			bookedDeleteProcessService, bookedRoomListService, bookingWriteService, bookedConfirmService,
+			bookingRoomListService, bookedMangeService, bookedCkUpdateProcessService, mylistService,
+			bookedBnoConfirmService, roomInfoService;
 
 	public void setRoomInfoService(ServiceInterface roomInfoService) {
 		this.roomInfoService = roomInfoService;
@@ -40,16 +40,8 @@ public class BookedController {
 		this.bookedListService = bookedListService;
 	}
 
-	public void setBookedViewService(ServiceInterface bookedViewService) {
-		this.bookedViewService = bookedViewService;
-	}
-
 	public void setBookedWriteProcessService(ServiceInterface bookedWriteProcessService) {
 		this.bookedWriteProcessService = bookedWriteProcessService;
-	}
-
-	public void setBookedUpdateService(ServiceInterface bookedUpdateService) {
-		this.bookedUpdateService = bookedUpdateService;
 	}
 
 	public void setBookedUpdateProcessService(ServiceInterface bookedUpdateProcessService) {
@@ -97,14 +89,6 @@ public class BookedController {
 		return "booked/list";
 	}
 
-	// 글보기
-	@RequestMapping("/booked/view.do")
-	public String view(@RequestParam("no") String roomNo, Model model) throws Exception {
-		System.out.println("bookedController.view()");
-		model.addAttribute("booked", bookedViewService.service((Integer.parseInt(roomNo))));
-		return "booked/view";
-	}
-
 	// 글쓰기 처리 - POST
 	@RequestMapping(value = "/booked/write.do", method = RequestMethod.POST)
 	public String write(@RequestParam(value = "roomNo", required = false) int roomNo, HttpServletResponse response,
@@ -146,22 +130,6 @@ public class BookedController {
 		System.out.println(booked);
 		bookedDeleteProcessService.service(booked);
 		return "redirect:list.do?id=" + booked.getId();
-	}
-
-	// 글수정 폼 - get
-	@RequestMapping(value = "/booked/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "id", required = false) String id, Model model) throws Exception {
-		System.out.println("bookedController.update-get()");
-		model.addAttribute("booked", bookedUpdateService.service(id));
-		return "booked/update";
-	}
-
-	// 글수정 처리 - POST
-	@RequestMapping(value = "/booked/update.do", method = RequestMethod.POST)
-	public String update(Booked booked) throws Exception {
-		System.out.println("bookedController.update-post()");
-		bookedUpdateProcessService.service(booked);
-		return "redirect:view.do?no=" + booked.getBno();
 	}
 
 	// 예약중복체크

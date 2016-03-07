@@ -51,11 +51,6 @@
 		booking_seq.nextval, #{people })
 	</insert>
 
-	<!-- 예약 수정 -->
-	<update id="update">
-
-	</update>
-
 	<!-- 예약 삭제 -->
 	<delete id="delete">
 		delete from booked where startDate=#{startDate} and
