@@ -10,9 +10,11 @@
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
 	<link href="../css/qna/view.css" rel="stylesheet" type="text/css" />
+<link href="../css/qna/notice_write.css" rel="stylesheet"
+	type="text/css" />
 </head>
 <body>
-	<h1>보기</h1>
+	<div id="notice_write_title">보기</div>
 	<br>
 
 	<table class="table_view">
@@ -41,20 +43,19 @@
 			<td>${qna.hit }</td>
 		</tr>
 	</table>
-<div id="Btn">
-	<table>
-		<tr>
-			<td colspan="4">
+	<br>
+	<br>
+<div id="btn">
+
 			<c:if test="${qna.id eq login.id || login.grade eq 'master'}"><a href="update.do?no=${qna.no }"><button>글수정</button></a></c:if>
-				<a href="list.do"><button>게시판 리스트</button></a>
+				<a href="list.do"><button id="notice_write_btn">게시판 리스트</button ></a>
 			<c:if test="${qna.id eq login.id || login.grade eq 'master'}"><a href="delete.do?no=${qna.no}"><button>글삭제</button></a></c:if>
 			<c:if test="${login.grade eq 'master'}">
-			<td> <a href="reply.do?no=${qna.no}"><button>답변달기</button></a>
-			</td>
+			<a href="reply.do?no=${qna.no}"><button id="notice_write_btn">답변달기</button></a>
+			
 			</c:if>
 			
-		</tr>
-	</table>
-</div>
+	</div>
+
 </body>
 </html>

@@ -14,23 +14,27 @@
 	<form action="reply.do" method="post" enctype="multipart/form-data" class="writeForm" id="writeForm">
 		<div id="form_wrapper">
 		<ul>
-		<li><input type="hidden" name="id" value="${login.id}"> <input
-			type="hidden" name="no" value="${qna.no}"> <input
-			type="hidden" name="refNo" value="${qna.refNo}"> <input
-			type="hidden" name="ordNo" value="${qna.ordNo}"> <input
-			type="hidden" name="levNo" value="${qna.levNo}"> <input
-			type="hidden" name="parentNo" value="${qna.no}"> 글제목 <p>
-			<input name="title" value="[답변] ${qna.title}" size="50"><p/>
+		<li><input type="hidden" name="id" value="${login.id}"></li> <li><input
+			type="hidden" name="no" value="${qna.no}"></li> <li><input
+			type="hidden" name="refNo" value="${qna.refNo}"></li> <li><input
+			type="hidden" name="ordNo" value="${qna.ordNo}"></li> <li><input
+			type="hidden" name="levNo" value="${qna.levNo}"></li> <li><input
+			type="hidden" name="parentNo" value="${qna.no}"></li> <li><label>글제목</label> 
+			
+			<input id="title" class="writeForm" name="title" value="[답변] ${qna.title}" size="" /></li>
 		
-		<p>내용 </p> <textarea name="content" rows="20" cols="60">
-	
+		<li><label>내용</label>
+		
+		<textarea cols="30" rows="50">
 =======[원문내용]=======
 ${qna.content}
 
 =======[내용]=======
 
 </textarea>
+</li>
 </ul>
+<br>
 		<br>
 		<div id="btn">
 		<button id="notice_write_btn">답변</button>
