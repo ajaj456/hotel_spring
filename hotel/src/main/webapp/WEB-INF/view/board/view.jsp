@@ -94,12 +94,16 @@
 					<tr>
 				</c:forEach>
 			</table>
-			<form action="replyWrite.do" method="post" id="replyForm">
-				<label>댓글쓰기</label><input name="content" size="50" id="replyContent">
-				<input type="hidden" name="no" value="${review.no}"> <input
-					type="hidden" name="id" value="${login.id}">
-				<button>확인</button>
-			</form>
+			<c:if test="${!empty login }">
+				<form action="replyWrite.do" method="post" id="replyForm">
+					<label>댓글쓰기</label><input name="content" size="50"
+						id="replyContent"> <input type="hidden" name="no"
+						value="${review.no}"> <input type="hidden" name="id"
+						value="${login.id}">
+					<button>확인</button>
+				</form>
+			</c:if>
+
 
 			<div id="pageMove">
 				<!-- 	페이지 처리 = 반복문 처리-->
