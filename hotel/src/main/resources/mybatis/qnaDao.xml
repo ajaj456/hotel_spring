@@ -9,8 +9,8 @@
 	<!-- 게시판리스트 -->
 	<select id="list" resultType="com.hotel.qna.model.Qna">
 		select * from(select rownum rnum,
-		no,title,id,wdate, hit, levNo
-		from( select no, title, content, id, wdate, hit,levNo from qna order by
+		no,title,id,to_char(WDATE,'yyyy-mm-dd')WDATE, hit, levNo
+		from( select no, title, content, id, to_char(WDATE,'yyyy-mm-dd')WDATE, hit,levNo from qna order by
 		refNo desc, ordNo asc ))
 		where rnum between #{startRow} and #{endRow}
 	</select>
