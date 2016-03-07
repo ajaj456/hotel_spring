@@ -44,8 +44,6 @@ public class QnaController {
 	public void setQnaReplyWriteProcess(ServiceInterface qnaReplyWriteProcess) {
 		this.qnaReplyWriteProcess = qnaReplyWriteProcess;
 	}
-	
-
 
 	// 글리스트
 	@RequestMapping("/qna/list.do")
@@ -53,7 +51,7 @@ public class QnaController {
 			throws Exception {
 		System.out.println("qnaController.list()");
 		QnaModel qnaModel = (QnaModel) qnaListService.service(page);
-		model.addAttribute("list",qnaModel.getList());
+		model.addAttribute("list", qnaModel.getList());
 		model.addAttribute("jspData", qnaModel.getJspData());
 		return "qna/list";
 	}
@@ -81,7 +79,6 @@ public class QnaController {
 		return "redirect:list.do";
 	}
 
-
 	// 글수정 폼 - get
 	@RequestMapping(value = "/qna/update.do", method = RequestMethod.GET)
 	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
@@ -96,7 +93,7 @@ public class QnaController {
 		System.out.println("qnaController.update-post()");
 		qnaUpdateProcessService.service(qna);
 		return "redirect" + ":view.do" + "?no=" + qna.getNo();
-		
+
 	}
 
 	// 글삭제 처리
@@ -110,10 +107,10 @@ public class QnaController {
 	// 답변 글쓰기폼 - GET
 	@RequestMapping(value = "/qna/reply.do", method = RequestMethod.GET)
 	public String reply(int no, Model model) throws Exception {
-		Qna qna = (Qna)qnaReplyWrite.service(no);
-		if(qna.getLevNo()>=1)
+		Qna qna = (Qna) qnaReplyWrite.service(no);
+		if (qna.getLevNo() >= 1)
 			return "redirect:list.do";
-					model.addAttribute("qna", qnaReplyWrite.service(no));
+		model.addAttribute("qna", qnaReplyWrite.service(no));
 		System.out.println("qnaController.reply-get()");
 		return "qna/reply";
 	}
@@ -122,8 +119,9 @@ public class QnaController {
 	@RequestMapping(value = "/qna/reply.do", method = RequestMethod.POST)
 	public String reply(Qna qna) throws Exception {
 		System.out.println("qnaController.reply-post()");
+		System.out.println(qna);
 		qnaReplyWriteProcess.service(qna);
 		return "redirect:list.do";
 	}
-	
+
 }
