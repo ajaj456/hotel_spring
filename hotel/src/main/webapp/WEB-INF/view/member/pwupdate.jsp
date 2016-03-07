@@ -65,7 +65,8 @@
 	<div id="logindiv">
 		<form action="pwupdate.do" method="post" id="loginForm">
 			<hr>
-			<input type="hidden" name="oldpw" id="oldpw" value="${login.pw }" />
+			<input type="hidden" name="id" id="id" value="${login.id }" /> <input
+				type="hidden" name="oldpw" id="oldpw" value="${login.pw }" />
 			<ul>
 				<li><label>현재 패스워드</label> <input type="password" name="pw"
 					id="pw" maxlength="15" class="input" /></li>

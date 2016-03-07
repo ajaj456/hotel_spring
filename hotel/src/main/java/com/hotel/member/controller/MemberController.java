@@ -134,6 +134,7 @@ public class MemberController {
 	public String pwUpdate(Member member, HttpSession session, @RequestParam(value = "pw", required = false) String pw,
 			@RequestParam(value = "pw1", required = false) String pw1, Model model) throws Exception {
 		member.setPw(pw1);
+		System.out.println(member);
 		memberPwUpdateProcessService.service(member);
 		session.setAttribute("login", null);
 		return "redirect:../main/index.do";
