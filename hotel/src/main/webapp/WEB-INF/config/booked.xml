@@ -9,10 +9,7 @@
 	<!-- controller -->
 	<bean class="com.hotel.booked.controller.BookedController">
 		<property name="bookedListService" ref="bookedListService" />
-		<property name="bookedViewService" ref="bookedViewService" />
 		<property name="bookedWriteProcessService" ref="bookedWriteProcessService" />
-		<property name="bookedUpdateService" ref="bookedUpdateService" />
-		<property name="bookedUpdateProcessService" ref="bookedUpdateProcessService" />
 		<property name="bookedDeleteProcessService" ref="bookedDeleteProcessService" />
 		<property name="bookedRoomListService" ref="bookedRoomListService" />
 		<property name="bookingWriteService" ref="bookingWriteService" />
@@ -31,19 +28,7 @@
 
 	</bean>
 
-	<bean id="bookedViewService" class="com.hotel.booked.service.BookedViewService">
-		<property name="bookedDao" ref="bookedDao"></property>
-	</bean>
-
 	<bean id="bookedWriteProcessService" class="com.hotel.booked.service.BookedWriteProcessService">
-		<property name="bookedDao" ref="bookedDao"></property>
-	</bean>
-
-	<bean id="bookedUpdateService" class="com.hotel.booked.service.BookedUpdateService">
-		<property name="bookedDao" ref="bookedDao"></property>
-	</bean>
-
-	<bean id="bookedUpdateProcessService" class="com.hotel.booked.service.BookedUpdateProcessService">
 		<property name="bookedDao" ref="bookedDao"></property>
 	</bean>
 
