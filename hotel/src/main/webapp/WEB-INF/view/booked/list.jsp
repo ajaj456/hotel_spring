@@ -273,14 +273,20 @@
 						out.print("오늘날짜 : " + currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
 					%>
 				</td>
-				<td class="tdd">
-				<c:if test="${login.grade ne 'master' }">
-				<a onclick="location='mylist.do?id=${login.id}&page=1'">
-					<button type="button" class="btn">예약 상세 내역</button></a>
-					</c:if> <a onclick="location='bookedlist.do'">
-						<button type="button" class="btn">예약 관리</button>
-				</a>
-				</td>
+				<td class="tdd"><c:choose>
+						<c:when test="${login.grade eq 'master'}">
+							<a onclick="location='bookedlist.do'">
+								<button type="button" class="btn">예약 관리</button>
+							</a>
+						</c:when>
+						<c:when test="${login.grade ne 'master'}">
+							<a onclick="location='mylist.do?id=${login.id}&page=1'">
+								<button type="button" class="btn">예약 상세 내역</button>
+							</a>
+						</c:when>
+						<c:otherwise>
+						</c:otherwise>
+					</c:choose></td>
 			</tr>
 		</table>
 		<input type="hidden" id="today"
