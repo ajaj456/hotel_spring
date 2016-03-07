@@ -15,6 +15,7 @@
 <body>
 	<div id="all">
 		<div id="list_head">후기 게시판</div>
+		<br> <br>
 		<div id="content">
 			<table>
 				<tr id="table_title">
