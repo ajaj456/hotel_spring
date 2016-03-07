@@ -21,7 +21,7 @@ public class MemberController {
 	private ServiceInterface memberJoinProcessService, memberDeleteProcessService, memberUpdateService,
 			memberUpdateProcessService, memberPwUpdateProcessService, memberFindIdProcessService,
 			memberFindPwProcessService, memberListService, memberGradeUpdateProcessService, memberLoginProcessService,
-			memberViewService, memberJoinIdCheckService;
+			memberJoinIdCheckService;
 
 	public void setMemberJoinProcessService(ServiceInterface memberJoinProcessService) {
 		this.memberJoinProcessService = memberJoinProcessService;
@@ -63,10 +63,6 @@ public class MemberController {
 		this.memberLoginProcessService = memberLoginProcessService;
 	}
 
-	public void setMemberViewService(ServiceInterface memberViewService) {
-		this.memberViewService = memberViewService;
-	}
-
 	public void setMemberJoinIdCheckService(ServiceInterface memberJoinIdCheckService) {
 		this.memberJoinIdCheckService = memberJoinIdCheckService;
 	}
@@ -102,13 +98,6 @@ public class MemberController {
 		memberDeleteProcessService.service(member);
 		session.setAttribute("login", null);
 		return "redirect:../main/index.do";
-	}
-
-	// 회원정보보기
-	@RequestMapping("/member/view.do")
-	public String view(String id, Model model) throws Exception {
-		model.addAttribute("member", memberViewService.service(id));
-		return "member/view";
 	}
 
 	// 회원정보수정 폼 - get
