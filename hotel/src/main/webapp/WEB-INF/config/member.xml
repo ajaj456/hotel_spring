@@ -13,8 +13,6 @@
 		<property name="memberJoinProcessService" ref="memberJoinProcessService" />
 		<!-- 회원탈퇴 처리 -->
 		<property name="memberDeleteProcessService" ref="memberDeleteProcessService" />
-		<!-- 회원정보 보기 -->
-		<property name="memberViewService" ref="memberViewService" />
 		<!-- 회원정보 변경 -->
 		<property name="memberUpdateService" ref="memberUpdateService" />
 		<property name="memberUpdateProcessService" ref="memberUpdateProcessService" />
@@ -39,9 +37,6 @@
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 	<bean id="memberDeleteProcessService" class="com.hotel.member.service.MemberDeleteProcessService">
-		<property name="memberDao" ref="memberDao" />
-	</bean>
-	<bean id="memberViewService" class="com.hotel.member.service.MemberViewService">
 		<property name="memberDao" ref="memberDao" />
 	</bean>
 	<bean id="memberUpdateService" class="com.hotel.member.service.MemberUpdateService">
