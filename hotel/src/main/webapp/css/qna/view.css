@@ -16,6 +16,17 @@
 	color: #fff;
 }
 
+.num1 th {
+	background-color: #808080;
+	color: #fff;
+}
+.num1 td {
+	color: #fff;
+	height :200px;
+	border: 1px solid #888888;
+	width: auto;
+}
+
 .num td {
 	padding: 10px;
 	border: 1px solid #c3c3c3;
