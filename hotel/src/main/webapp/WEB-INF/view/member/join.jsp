@@ -109,9 +109,9 @@
 	<br />
 	<br />
 	<div>
-		<h4>
+		<h3>
 			<b>기본 정보 입력</b>
-		</h4>
+		</h3>
 	</div>
 	<div id="logindiv">
 		<form action="join.do" method="post" id="loginform">
