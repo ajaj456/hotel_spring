@@ -39,7 +39,7 @@
 		</li>
 	<li>
 		<label for="content">내용 </label><textarea name="content" id="content" class="writeForm"></textarea></li> 
-		</li>
+		
 		<li id="boardLi">
 		<label for="id">작성자 </label><input type="text" name="id" value="${login.id }"> <br>
 		</li>
@@ -54,5 +54,5 @@
 	</form>
 	
 	
-</body>
+
 </html>
