@@ -168,48 +168,49 @@
 </head>
 <body>
 	<div id="allBook">
-		<div id="insertBook">
-			<h2>예약 하기</h2>
-			<form action="write.do" method="post" id="bookbtn">
-				<input type="hidden" maxlength="15" class="input" name="id"
-					value="${login.id }" /> <label>예약일자</label> <input type="date"
-					id="startDate" name="startDate" /><br> <label>예약일수</label> <input
-					type="text" id="stay" name="stay" size="1" maxlength="3" />일간 ( 최대
-				15일까지 예약가능합니다. )<br> <label>호실</label> <select name="roomNo"
-					id="roomNo">
-					<c:forEach var="room" items="${room }">
-						<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명,
-							${room.price }원)</option>
-					</c:forEach>
-				</select>호<br> <label>인원수</label> <input type="text" id="people"
-					name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
-				[인당 만원] )<br> <label>결제금액</label> <span id="priceA"><input
-					type="text" name="totalPrice" readonly="readonly" size="5"
-					id="totalPrice">원</span>
-				<button type="button" id="chkprice" class="btn">가격조회</button>
-				<br>
-				<br />
-				<button type="button" id="chkbook" class="btn">예약확인</button>
-				<button class="btn">예약</button>
-				<span id=checkresult>[ 예약 중복체크를 하셔야 합니다. ]</span>
+		<c:if test="${login.grade ne 'master' }">
+			<div id="insertBook">
+				<h2>예약 하기</h2>
+				<form action="write.do" method="post" id="bookbtn">
+					<input type="hidden" maxlength="15" class="input" name="id"
+						value="${login.id }" /> <label>예약일자</label> <input type="date"
+						id="startDate" name="startDate" /><br> <label>예약일수</label> <input
+						type="text" id="stay" name="stay" size="1" maxlength="3" />일간 (
+					최대 15일까지 예약가능합니다. )<br> <label>호실</label> <select
+						name="roomNo" id="roomNo">
+						<c:forEach var="room" items="${room }">
+							<option value="${room.roomNo }">${room.roomNo }(${room.rSize }명,
+								${room.price }원)</option>
+						</c:forEach>
+					</select>호<br> <label>인원수</label> <input type="text" id="people"
+						name="people" size="1" maxlength="2" />명 ( 해당 호실 정원수 초과시 추가요금 발생
+					[인당 만원] )<br> <label>결제금액</label> <span id="priceA"><input
+						type="text" name="totalPrice" readonly="readonly" size="5"
+						id="totalPrice">원</span>
+					<button type="button" id="chkprice" class="btn">가격조회</button>
+					<br> <br />
+					<button type="button" id="chkbook" class="btn">예약확인</button>
+					<button class="btn">예약</button>
+					<span id=checkresult>[ 예약 중복체크를 하셔야 합니다. ]</span>
 
-			</form>
-		</div>
+				</form>
+			</div>
 
-		<div id="deleteBook">
-			<h2>예약 취소</h2>
-			<form action="delete.do">
-				<input type="hidden" maxlength="15" class="input" name="id"
-					value="${login.id }" /> <label>예약일자</label> <select
-					name="stayDate" id="stayDate">
-					<c:forEach var="bookinglist" items="${bookinglist }">
-						<option value="${bookinglist.startDate }">${bookinglist.startDate }
-							(${bookinglist.roomNo }호, ${bookinglist.stay }일간)</option>
-					</c:forEach>
-				</select>
-				<button id="cancel" class="btn">예약 취소</button>
-			</form>
-		</div>
+			<div id="deleteBook">
+				<h2>예약 취소</h2>
+				<form action="delete.do">
+					<input type="hidden" maxlength="15" class="input" name="id"
+						value="${login.id }" /> <label>예약일자</label> <select
+						name="stayDate" id="stayDate">
+						<c:forEach var="bookinglist" items="${bookinglist }">
+							<option value="${bookinglist.startDate }">${bookinglist.startDate }
+								(${bookinglist.roomNo }호, ${bookinglist.stay }일간)</option>
+						</c:forEach>
+					</select>
+					<button id="cancel" class="btn">예약 취소</button>
+				</form>
+			</div>
+		</c:if>
 	</div>
 
 	<div id="booked_inform">
@@ -217,9 +218,11 @@
 		<h2>예약 현황</h2>
 		<div>
 			<a onclick="location='list.do?list=1&id=${login.id }'" id="btn1"><button
-					type="button" class="btn">전체 현황</button></a> <a
-				onclick="location='list.do?list=2&id=${login.id}'" id="btn2"><button
-					type="button" class="btn">나의 현황</button></a>
+					type="button" class="btn">전체 현황</button></a>
+			<c:if test="${login.grade ne 'master' }">
+				<a onclick="location='list.do?list=2&id=${login.id}'" id="btn2"><button
+						type="button" class="btn">나의 현황</button></a>
+			</c:if>
 		</div>
 		<%
 			@SuppressWarnings("unchecked")
@@ -270,9 +273,14 @@
 						out.print("오늘날짜 : " + currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
 					%>
 				</td>
-				<td class="tdd"><a
-					onclick="location='mylist.do?id=${login.id}&page=1'"><button
-							type="button" class="btn">예약 상세 내역</button></a></td>
+				<td class="tdd">
+				<c:if test="${login.grade ne 'master' }">
+				<a onclick="location='mylist.do?id=${login.id}&page=1'">
+					<button type="button" class="btn">예약 상세 내역</button></a>
+					</c:if> <a onclick="location='bookedlist.do'">
+						<button type="button" class="btn">예약 관리</button>
+				</a>
+				</td>
 			</tr>
 		</table>
 		<input type="hidden" id="today"
