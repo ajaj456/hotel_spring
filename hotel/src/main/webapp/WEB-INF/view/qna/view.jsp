@@ -30,7 +30,7 @@
 			<th>작성자</th>
 			<td>${qna.id}</td>
 		</tr>
-		<tr class="num">
+		<tr class="num1">
 			<th>내용</th>
 			<td>${qna.content}</td>
 		</tr>
