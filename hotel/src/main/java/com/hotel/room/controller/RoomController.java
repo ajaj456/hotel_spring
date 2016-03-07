@@ -71,19 +71,10 @@ public class RoomController {
 		return "room/write";
 	}
 
-	// // 글쓰기 처리 - POST
-	// @RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
-	// public String write(Room room) throws Exception {
-	// System.out.println("roomController.write-post()");
-	// roomWriteProcessService.service(room);
-	// return "redirect:list.do";
-	// }
-
 	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
 	@RequestMapping(value = "/room/write.do", method = RequestMethod.POST)
 	public String write(Room room, Model model, HttpServletRequest request) throws Exception {
 		System.out.println("RoomController.write():post");
-
 		// 서버에 올라갈 실제 폴더 찾기
 		String realPath = request.getServletContext().getRealPath("upload/room");
 		if (!room.getFile().isEmpty()) {
@@ -92,7 +83,6 @@ public class RoomController {
 			room.getFile().transferTo(file); // 파일 이동
 			room.setFileName(file.getName());
 			roomWriteProcessService.service(room);
-
 			return "redirect:list.do";
 		}
 		return "redirect:list.do";
@@ -118,7 +108,6 @@ public class RoomController {
 			room.getFile().transferTo(file); // 파일 이동
 			room.setFileName(file.getName());
 			roomUpdateProcessService.service(room);
-
 			return "redirect" + ":view.do" + "?no=" + room.getRoomNo();
 
 		} else {
