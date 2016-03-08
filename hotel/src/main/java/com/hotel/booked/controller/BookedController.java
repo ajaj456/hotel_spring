@@ -89,7 +89,7 @@ public class BookedController {
 		return "booked/list";
 	}
 
-	// 글쓰기 처리 - POST
+	// 예약 처리 - POST
 	@RequestMapping(value = "/booked/write.do", method = RequestMethod.POST)
 	public String write(@RequestParam(value = "roomNo", required = false) int roomNo, HttpServletResponse response,
 			Booked booked, Booking booking, Model model) throws Exception {

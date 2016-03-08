@@ -13,6 +13,8 @@
 			.ready(
 					function() {
 						//$("#priceA").hide();
+						
+						
 						$("#chkprice").click(
 								function() {
 									if ($("#startDate").val() == "") {
@@ -92,6 +94,7 @@
 															+ "&startDate="
 															+ startDate);
 								});
+						
 						// 날짜 입력란에 키인하면 중복체크하라는 메세지 표시
 						$("#startDate").click(function() {
 							$("#checkresult").text("[ 예약 중복체크를 하셔야 합니다. ]")
