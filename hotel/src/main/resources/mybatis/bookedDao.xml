@@ -79,7 +79,7 @@
 
 	<!-- 예약 확인 -->
 	<select id="confirm" resultType="com.hotel.booked.model.Booking">
-		select max(bno) from booking
+		select bno from booking
 		where
 		roomNo=#{roomNo } and stayDate=#{stayDate }
 	</select>
