@@ -32,7 +32,7 @@
 		</tr>
 		<tr class="num1">
 			<th>내용</th>
-			<td>${qna.content}</td>
+			<td><pre>${qna.content}</pre></td>
 		</tr>
 		<tr class="num">
 			<th>작성일</th>
