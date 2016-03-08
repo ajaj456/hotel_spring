@@ -29,8 +29,8 @@
 
 
 						<tr class="Active_hoover">
-							<td>${qna.no }</td>
-							<td><c:if test="${empty param.page }">
+							<td id="tdno">${qna.no }</td>
+							<td id="tdtitle"><c:if test="${empty param.page }">
 									<a href="view.do?no=${qna.no }"><font color="white">${qna.title }</font></a>
 								</c:if> <c:if test="${!empty param.page }">
 									<a href="view.do?no=${qna.no }&page=${param.page }"><font
@@ -45,8 +45,10 @@
 				</table>
 				<br> 
 				<br> 
+				<c:if test="${login != null }">
 				<a href="write.do">
 				<button id="notice_write_btn">글쓰기</button></a> <br>
+				</c:if>
 				<br>
 				<div id="pageMove">
 					<!-- 	페이지 처리 = 반복문 처리-->

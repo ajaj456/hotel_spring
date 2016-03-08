@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 <link href="../css/qna/notice_write.css" rel="stylesheet"
 	type="text/css" />
-	<script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready(function() {
-		$("#formwrite").submit(function() {
+		$("#writeForm").submit(function() {
 			if ($("#title").val() == "") {
 				alert("제목을 입력하셔야 됩니다.");
 				$("#title").focus();
@@ -23,7 +23,11 @@
 				return false;
 			}
 			;
-			</script>
+		
+			alert("작성이 완료되었습니다.")
+		});
+	});
+</script>
 </head>
 
 
@@ -41,7 +45,7 @@
 		<label for="content">내용 </label><textarea name="content" id="content" class="writeForm"></textarea></li> 
 		
 		<li id="boardLi">
-		<label for="id">작성자 </label><input type="text" name="id" value="${login.id }"> <br>
+		<label for="id">작성자 </label><input type="text" name="id" value="${login.id }" readonly="readonly"> <br>
 		</li>
 		</ul>
 		<div id="btn">
