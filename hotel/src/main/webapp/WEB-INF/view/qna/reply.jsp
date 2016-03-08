@@ -7,6 +7,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/qna/notice_write.css" rel="stylesheet"
 	type="text/css" />
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#writeForm").submit(function() {
+			if ($("#content").val() == "") {
+				alert("내용을 입력하셔야 됩니다.");
+				$("#content").focus();
+				return false;
+			}
+			;
+		
+			alert("작성이 완료되었습니다.")
+		});
+	});
+</script>
 </head>
 <div id="notice_write_title">답변 하기[Answer]</div>
 <br>
@@ -19,13 +33,13 @@
 			type="hidden" name="refNo" value="${qna.refNo}"></li> <li><input
 			type="hidden" name="ordNo" value="${qna.ordNo}"></li> <li><input
 			type="hidden" name="levNo" value="${qna.levNo}"></li> <li><input
-			type="hidden" name="parentNo" value="${qna.no}"></li> <li><label>글제목</label> 
+			type="hidden" name="parentNo" value="${qna.no}" ></li> <li><label>글제목</label> 
 			
-			<input id="title" class="writeForm" name="title" value="[답변] ${qna.title}" size="" /></li>
+			<input id="title" class="writeForm" name="title" value="[답변] ${qna.title}" size="" readonly="readonly" /></li>
 		
 		<li><label>내용</label>
 		
-		<textarea cols="30" rows="50">
+		<textarea cols="30" rows="50" name="content" id="content">
 =======[원문내용]=======
 ${qna.content}
 
