@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 					<td>${mylist.roomNo }호</td>
 					<td>${mylist.startDate }</td>
 					<td>${mylist.stay }일</td>
-					<td>${mylist.totalPrice }원</td>
+					<td><fmt:formatNumber value="${mylist.totalPrice }" pattern="#,###,###" ></fmt:formatNumber>원</td>
 					<td><c:if test="${mylist.inoutck == '1' }">
 					미입실
 					</c:if> <c:if test="${mylist.inoutck == '2' }">
