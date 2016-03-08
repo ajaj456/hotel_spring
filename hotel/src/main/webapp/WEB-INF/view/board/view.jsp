@@ -43,14 +43,14 @@
 </style>
 </head>
 <body>
-	<div id="articleT">리뷰게시판</div>
 	<div id="all">
 		<div id="mainContent">
 			<div id="articleTop">
 				<div id="articleTitle">${review.title}</div>
 				<div id="articleWdate">${review.wdate}</div>
-				<div id="articleNo">${review.no}</div>
-				<div id="articleContent"><pre>${review.content}</pre></div>
+				<div id="articleContent">
+					<pre>${review.content}</pre>
+				</div>
 				<div id="articleImage">
 					<c:if test="${!empty review.fileName }">
 
@@ -68,11 +68,11 @@
 		</div>
 		<div id="reply">
 			<table>
-				<tr>
-					<td>내용</td>
-					<td>작성일</td>
-					<td>아이디</td>
-				</tr>
+					<tr>
+						<td>내용</td>
+						<td>작성일</td>
+						<td>아이디</td>
+					</tr>
 				<c:forEach var="relist" items="${relist.list}">
 					<tr>
 						<td id="replycontent">${relist.content }</td>
